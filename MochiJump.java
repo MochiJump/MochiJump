@@ -13,9 +13,8 @@ public class MochiJump {
 	
 	 public static void main(String[] args) {
 
-		 	// okay so this testPain was used to just setup the JFrame. I've added a label at the top which will
-		 	// give me an indication as to where mochi is in the game even if he isn't animated. Next step is to get him 
-		 	// into this JFrame.
+		 	//It seems as though the JPanel is not actually going into or being visible in the JFrame and I do not know why...
+		 
 		 		TestClass testPain = new TestClass();
 				 JFrame frame = new JFrame ("Mochi Jump");
 				 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
