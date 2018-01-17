@@ -1,17 +1,46 @@
 import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.Graphics;
 
-import javax.swing.JLabel;
-import javax.swing.JPanel;
+import javax.swing.*;
+
 
 public class TestClass extends JPanel {
+
+	private Mochi mochi;
+	private LevelMap levelMap;
+	private Animation animation;
 	
+	private DrawCanvas canvas;
 	
 	public TestClass () {
-		Mochi mochi = new Mochi();
+//	    canvas = new DrawCanvas();
+//	    this.setLayout(new BorderLayout());
+//	    this.add(canvas, BorderLayout.CENTER);
+		
+//		animation = new Animation();
+		
+//		int x = 50;
+//		int y = 50;
+//		mochi = new Mochi(x,y,0,-5,21,14);
+		
+		
+		
 		JPanel testPain = new JPanel();
-		float x = mochi.getX();
-		JLabel status = new JLabel(Float.toString(x));
-		testPain.add(status, BorderLayout.NORTH);
+//		testPain.add(canvas, BorderLayout.CENTER);
+		JLabel testLabel = new JLabel("Test");
+		testPain.add(testLabel, BorderLayout.NORTH);
+		testPain.setPreferredSize(new Dimension (500,500));
+	}
+	class DrawCanvas extends JPanel{
+		// why do I need this override here?
+		@Override
+		public void paintComponent (Graphics g) {
+			super.paintComponent(g);
+			levelMap.draw(g);
+			animation.draw(g);
+		}
+		
 	}
 	
 }
