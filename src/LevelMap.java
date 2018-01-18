@@ -59,9 +59,11 @@ public class LevelMap {
 // Maybe I should move the below to the animate class. Have one class to bring graphical reality to things?
 // at the very least this method needs to be used.	
 	public void draw (Graphics g) {
+		// adding paint component
+		super.paintComponent(g);
 		Graphics2D g2 = (Graphics2D) g.create();
 		for (Rectangle next: platlist) {
-			// added fillRect and set color. this might need to go inside a paint component.,
+			// added fillRect and set color 
 			g2.setColor(Color.BROWN);
 			g2.fillRect(next);
 			g2.draw(next);
