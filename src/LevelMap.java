@@ -53,13 +53,15 @@ public class LevelMap {
 //	platlist.add(new Rectangle (plat2));
 //	platlist.add(new Rectangle (plat3));
 //	platlist.add(new Rectangle (500-35*3, 250, 100, 10));
-	
-	}
+//	}
+
 // Maybe I should move the below to the animate class. Have one class to bring graphical reality to things?
-	
+// at the very least this method needs to be used.	
 	public void draw (Graphics g) {
 		Graphics2D g2 = (Graphics2D) g.create();
 		for (Rectangle next: platlist) {
+			// added fillRect
+			g2.fillRect(next);
 			g2.draw(next);
 			
 			}
