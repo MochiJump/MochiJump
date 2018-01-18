@@ -14,7 +14,8 @@ public class LevelMap {
 		this.width = width;
 		this.height = height;	
 	}
-	
+	// hmm is this a good constructor for this class? Will I be able to access the arraylist inside of it to use with it
+	// in another class? Might be worth trying to use it in the testclass when I get home and have access to my IDE
 	public LevelMap (ArrayList array) {
 		for (Rectangle next: platlist) {
 			Rectangle p1 = next.getBounds();
@@ -24,18 +25,34 @@ public class LevelMap {
 		
 	}
 
-	static Rectangle plat1 = new Rectangle (500, 0, 1000, 500);
-	static Rectangle plat2 = new Rectangle (500-35, 250, 100, 10);
-	static Rectangle plat3 = new Rectangle (500-70, 120, 100, 10);
+//	static Rectangle plat1 = new Rectangle (500, 0, 1000, 500);
+//	static Rectangle plat2 = new Rectangle (500-35, 250, 100, 10);
+//	static Rectangle plat3 = new Rectangle (500-70, 120, 100, 10);
 	
-	static ArrayList<Rectangle> platlist = new ArrayList<>();
-// I previously had this set to static before the {, however removing that also allows me to keep this code.
-// I put it back, the new items added need to be static
-	static {
-	platlist.add(new Rectangle (plat1));
-	platlist.add(new Rectangle (plat2));
-	platlist.add(new Rectangle (plat3));
-	platlist.add(new Rectangle (500-35*3, 250, 100, 10));
+	ArrayList<Rectangle> platlist = new ArrayList<>();
+// let's see if I can turn this into something better also let's try to avoid static objects and classes if possible.
+	
+	private void addPlat (int x, int y, int width, int height){
+	platlist.add (new Rectangle (x,y,width,height);	
+	}
+	// does this need to be inside a method like private void PlatSetup (){...}	      
+	addPlat (500, 0, 1000, 500);
+	addPlat (500 - 35, 250, 100, 10);
+	addPlat (500 - 70, 120, 100, 10);
+	addPlat (500-35*3, 250, 100, 10);
+	
+	// this getter needs to be tested, I think there something that is trying to call on this in mochi class but it now
+	// has a different name.
+	private void getPlat(){
+		return this.platlist;
+	}
+
+		      
+//	static {
+//	platlist.add(new Rectangle (plat1));
+//	platlist.add(new Rectangle (plat2));
+//	platlist.add(new Rectangle (plat3));
+//	platlist.add(new Rectangle (500-35*3, 250, 100, 10));
 	
 	}
 // Maybe I should move the below to the animate class. Have one class to bring graphical reality to things?
@@ -51,7 +68,4 @@ public class LevelMap {
 		
 		//okay so you have to use the Graphics 2D to draw this properly. would love to know how to do this correctly
 		// doing something like I tried below:	
-		//g.drawRect(platlist.get(x), platlist.get(y), platlist.get(width), platlist.get(height));
-		// I think I used a getter instead of a setter below: *****
-
-	
+		//g.drawRect(platlist.get(x), platlist.get(y), platlist.get(width), platlist.get(height));	
