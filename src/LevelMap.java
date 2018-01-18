@@ -61,7 +61,8 @@ public class LevelMap {
 	public void draw (Graphics g) {
 		Graphics2D g2 = (Graphics2D) g.create();
 		for (Rectangle next: platlist) {
-			// added fillRect
+			// added fillRect and set color. this might need to go inside a paint component.,
+			g2.setColor(Color.BROWN);
 			g2.fillRect(next);
 			g2.draw(next);
 			
