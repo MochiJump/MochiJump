@@ -9,6 +9,9 @@ public class LevelMap {
 	int x, y, width, height;
 // I'm trying to create an object for the platform and then create a list to contain it;
 // this thing below here is a setter, but I have it setup as a constructor. I don't think this is right.
+// okay I'm certain this isn't right now. I need to create an actual setter method and make sure that I am using it as well as the
+// getter methods in my other classes.
+// as there is nothing that will change the value of the platform the setter method here really isn't that important.
 	public LevelMap (int x, int y, int width, int height) {
 		this.x = x;
 		this.y = y;
