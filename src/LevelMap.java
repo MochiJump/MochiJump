@@ -7,7 +7,8 @@ public class LevelMap {
 // I'll use floor and wall x's and y's to do this.
 
 	int x, y, width, height;
-// I'm trying to create an object for the platform and then create a list to contain it;	
+// I'm trying to create an object for the platform and then create a list to contain it;
+// this thing below here is a setter, but I have it setup as a constructor. I don't think this is right.
 	public LevelMap (int x, int y, int width, int height) {
 		this.x = x;
 		this.y = y;
