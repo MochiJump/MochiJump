@@ -13,7 +13,9 @@ public class DogLogic extends JPanel {
 	private Animation animation;
 	
 	private DrawCanvas canvas;
-	ArrayList<Rectangle> platlist = LevelMap.platlist;
+	// I've got this static issue here because this is not inside a method
+
+	
 	
 	private static final int Update_Rate = 30;
 	
@@ -22,10 +24,10 @@ public class DogLogic extends JPanel {
 	// removed parameters for constructor
 	public DogLogic () {
 		// Very important to import this, otherwise you get nothing:
-	    canvas = new DrawCanvas();
+		canvas = new DrawCanvas();
 	    this.setLayout(new BorderLayout());
 	    this.add(canvas, BorderLayout.CENTER);
-		levelMap = new LevelMap(platlist);
+		levelMap = new LevelMap();
 		animation = new Animation();
 		
 		int x = 50;
@@ -63,7 +65,7 @@ public class DogLogic extends JPanel {
 		@Override
 		public void paintComponent (Graphics g) {
 			super.paintComponent(g);
-			levelMap.draw(g);
+		//	levelMap.draw(g);
 			animation.draw(g);
 		}
 		
