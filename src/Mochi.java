@@ -174,7 +174,7 @@ public class Mochi {
 		y = y+speedY;
 		x = x+speedX;
 		// ***** BELLOW THIS IS WHAT IS CAUSING PROBLEMS!!!!!
-		ArrayList<Rectangle> platlist = levelMap.platlist;
+		ArrayList<Rectangle> platlist = levelMap.getPlat();
 		for (Rectangle next: platlist) {
 			Rectangle p1 = next.getBounds();
 			// in order to use intersection we need to create mochi as a rectangle at the top
