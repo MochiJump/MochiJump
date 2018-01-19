@@ -1,7 +1,9 @@
 import java.awt.*;
 import java.util.ArrayList;
 
-public class LevelMap {
+import javax.swing.JPanel;
+
+public class LevelMap extends JPanel {
 // I want to use this to set up boundaries for Mochi, what he can stand on and what he will run into, etc,
 // in order to do this I need to first define the correct variables and then create the constructors for it.
 // I'll use floor and wall x's and y's to do this.
@@ -33,23 +35,26 @@ public class LevelMap {
 //	static Rectangle plat2 = new Rectangle (500-35, 250, 100, 10);
 //	static Rectangle plat3 = new Rectangle (500-70, 120, 100, 10);
 	
-	ArrayList<Rectangle> platlist = new ArrayList<>();
+	private ArrayList<Rectangle> platlist = new ArrayList<>();
 // let's see if I can turn this into something better also let's try to avoid static objects and classes if possible.
 	
 	private void addPlat (int x, int y, int width, int height){
-	platlist.add (new Rectangle (x,y,width,height);	
+	platlist.add (new Rectangle (x,y,width,height));	
 	}
 	// does this need to be inside a method like private void PlatSetup (){...}	      
-	addPlat (500, 0, 1000, 500);
-	addPlat (500 - 35, 250, 100, 10);
-	addPlat (500 - 70, 120, 100, 10);
-	addPlat (500-35*3, 250, 100, 10);
-	
+	private void platSetup() {
+	addPlat(500, 0, 1000, 500);
+	addPlat(500-35,250,100,10);
+	addPlat(500-70, 120, 100, 10);
+	addPlat(500-35*3,250,100,10);
+	}
 	// this getter needs to be tested, I think there something that is trying to call on this in mochi class but it now
 	// has a different name.
-	private void getPlat(){
+	public ArrayList<Rectangle> getPlat(){
+		platSetup();
 		return this.platlist;
 	}
+
 
 		      
 //	static {
@@ -61,20 +66,19 @@ public class LevelMap {
 
 // Maybe I should move the below to the animate class. Have one class to bring graphical reality to things?
 // at the very least this method needs to be used.	
-	public void draw (Graphics g) {
-		// adding paint component
-		super.paintComponent(g);
-		Graphics2D g2 = (Graphics2D) g.create();
-		for (Rectangle next: platlist) {
+	
+//	public void draw (Graphics g) {
+		// adding paint component this doesn't like this because it doesn't extend JPanel
+//		super.paintComponent(g);
+//		platSetup();
+//		Graphics2D g2 = (Graphics2D) g.create();
+//		for (Rectangle next: platlist) {
 			// added fillRect and set color 
-			g2.setColor(Color.BROWN);
-			g2.fillRect(next);
-			g2.draw(next);
+//			g2.setColor(Color.MAGENTA);
+//			g2.fill(next);
+//			g2.draw(next);
 			
-			}
-	}
+//			}
+//	}
+
 }
-		
-		//okay so you have to use the Graphics 2D to draw this properly. would love to know how to do this correctly
-		// doing something like I tried below:	
-		//g.drawRect(platlist.get(x), platlist.get(y), platlist.get(width), platlist.get(height));	
