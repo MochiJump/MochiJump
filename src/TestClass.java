@@ -42,8 +42,8 @@ public class TestClass extends JPanel {
 			Graphics2D g2 = (Graphics2D) g.create();
 			
 			for (Rectangle next: plat) {
-				// added fillRect and set color 
-				g2.setColor( Color.MAGENTA);
+				// added fillRect and set color (color set using Red, Green, Blue method)
+				g2.setColor( new Color (130, 87, 27));
 				g2.fill(next);
 				g2.draw(next);
 			
