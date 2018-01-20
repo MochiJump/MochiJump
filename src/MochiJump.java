@@ -1,10 +1,11 @@
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 
 import javax.swing.*;
 
 
-//Okay at least now I've got my window, and I can call data to the JLabel to test certain things. This is a start for debugging.
+//I've got the Platforms in and visible. Next to test the Animation class!
 
 
 public class MochiJump {
@@ -22,6 +23,7 @@ public class MochiJump {
 				 // I need to use a drawPanel component here in place of testPain in the future
 				 frame.getContentPane().add(testPain, BorderLayout.CENTER);
 				 frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+			//	 frame.setBackground(new Color (127, 127, 127)); <--- This doesn't seem to do anything
 				 // for some reason starting this program in anything but maximized screen will cause
 				 // the rectangles imported to be drawn strangely. I will look into why, but in the
 				 // mean time the above Extended State will cause the app to launch in full screen.
