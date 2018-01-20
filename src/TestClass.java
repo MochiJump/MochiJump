@@ -14,27 +14,36 @@ public class TestClass extends JPanel {
 
 	LevelMap levelMap = new LevelMap();
 	ArrayList <Rectangle> plat = new ArrayList<Rectangle>();
-	Draw draw;
+
 	
 	public TestClass () {
-		draw = new Draw();
-		
+		plat = levelMap.getPlat();
+		Rectangle r1 = plat.get(1);
 		JPanel testPain = new JPanel();
 		JLabel testLabel = new JLabel(Integer.toString(plat.size()));
+		JLabel testLabel2= new JLabel (r1.toString());
 		testPain.add(testLabel, BorderLayout.NORTH);
-		testPain.setPreferredSize(new Dimension (500,500));
-		testPain.add(draw);
+		testPain.add(testLabel2, BorderLayout.SOUTH);
+		testPain.setPreferredSize(new Dimension (600,600));
 		add (testPain);
+	
+	
+
 	}
-	class Draw extends JPanel{
+
+//Well it seems all of my problems stemmed from having the override in another class....
+// It seems that the paint Component only works correctly in full screen, otherwise it draws strangely.
+	
 		@Override
 		public void paintComponent (Graphics g) {
 			super.paintComponent(g);
 			plat = levelMap.getPlat();
+
 			Graphics2D g2 = (Graphics2D) g.create();
+			
 			for (Rectangle next: plat) {
 				// added fillRect and set color 
-				g2.setColor(Color.MAGENTA);
+				g2.setColor( Color.MAGENTA);
 				g2.fill(next);
 				g2.draw(next);
 			
@@ -44,5 +53,4 @@ public class TestClass extends JPanel {
 		
 			}
 	
-	}
 }
