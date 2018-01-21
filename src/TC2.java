@@ -52,12 +52,12 @@ public class TC2 {
 	
 // For now I'm just going to manually set all of the variables I need to see if I can get this to work.
 // Currently set for only run condition to be true.	
-	Mochi mochi = new Mochi ();
+//	Mochi mochi = new Mochi ();
 	float speedY = 0;
 	boolean mRestR = false;
 	boolean mRestL = false;
-	boolean mRunR = true;
-	boolean mRunL = false;
+	boolean mRunR = false;
+	boolean mRunL = true;
 	boolean mJumpR = false;
 	boolean mJumpL = false;
 	
@@ -65,67 +65,36 @@ public class TC2 {
 	public void draw (Graphics g) {
 		Graphics2D g2 = (Graphics2D) g.create();
 		g2.setClip(x, y, sW, sH);
-		if (mRestR = true) {
+		if (mRestR == true) {
 			g2.drawImage(ms, x, y, sW, sH,null);
 		}
-		if (mRestL = true) {
+		if (mRestL == true) {
 			g2.drawImage(msr,x, y, sW, sH,null);
 		}
-		if (mRunR=true) {
+		if (mRunR == true) {
+			// okay I don't think the below will work, I'll need to use a timer to set the length of the animation
 			aniTime = 0;
-			// change the aniTime value below to control speed of animation
 			while (aniTime == 0) {
 				g2.drawImage(mws,x, y, sW, sH,null);
 				aniTime ++;
 			}while (aniTime == 1) {
 				g2.drawImage(ms, x, y, sW, sH,null);
 				aniTime = 0;
-				// ok I think I'm on the right path today was a long day I'm going to call it here 1/5  20:10
 			}
 		}
-		if (mRunL= true) {
+		if (mRunL== true) {
 			aniTime =0;
-			while (aniTime %2 == 0) {
-				g2.drawImage(mws,x, y, sW, sH,null);
+			while (aniTime == 0) {
+				g2.drawImage(mwsr,x, y, sW, sH,null);
 				aniTime ++;
-			}while (aniTime %2 != 0) {
-				g2.drawImage(ms, x, y, sW, sH,null);
+			}while (aniTime == 1) {
+				g2.drawImage(msr, x, y, sW, sH,null);
 				aniTime ++;
 			}
 		
 		}	
-		// considering adding multiple conditions to allow the sprite to flip mid jump
-		// i.e. if (mJumpR = true && mRunL = false) etc.
-		if (mJumpR = true) {
-			// this should be done via y speed instead of a timer
-			 while (speedY > 0) {
-				 g2.drawImage(mjc1,x,y,sW,sH,null);
-				 aniTime ++;
-			 }
-			 while (speedY == 0) {
-				 g2.drawImage(mjc2,x,y,sW,sH, null);
-			 // maybe could add if else statement here to allow mochi to switch directions during jump
-			 }
-			 while (speedY < 0) {
-				 g2.drawImage(mjc3,x,y,sW,sH, null);
-			 }
-		}
-		if (mJumpL = true) {
-			// I'm going to code this for a half second loop
-			while (speedY > 0) {
-				 g2.drawImage(mjc1r,x,y,sW,sH,null);
-				 aniTime ++;
-			 }
-			while (speedY == 0) {
-				 g2.drawImage(mjc2r,x,y,sW,sH, null);
-			 // maybe could add if else statement here to allow mochi to switch directions during jump
-			 }
-			 while (speedY < 0) {
-				 g2.drawImage(mjc3r,x,y,sW,sH, null);
-			 }
-		}
-	
-	}
-
-
 }
+}
+
+// forgot to use == instead of = in if statements. The boolean statements seem to be doing something, however, the animations
+// are not showing, perhaps I have them set to run too quick
