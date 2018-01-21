@@ -74,22 +74,25 @@ public class TC2 {
 		if (mRunR == true) {
 			// okay I don't think the below will work, I'll need to use a timer to set the length of the animation
 			aniTime = 0;
-			while (aniTime == 0) {
+			while (aniTime <= 100) {
 				g2.drawImage(mws,x, y, sW, sH,null);
 				aniTime ++;
-			}while (aniTime == 1) {
+			}while (aniTime <= 200) {
 				g2.drawImage(ms, x, y, sW, sH,null);
+			}while (aniTime >=201) {
 				aniTime = 0;
 			}
 		}
 		if (mRunL== true) {
 			aniTime =0;
-			while (aniTime == 0) {
+			while (aniTime <= 100) {
 				g2.drawImage(mwsr,x, y, sW, sH,null);
 				aniTime ++;
-			}while (aniTime == 1) {
+			}while (aniTime <= 200) {
 				g2.drawImage(msr, x, y, sW, sH,null);
 				aniTime ++;
+			}while (aniTime >= 201) {
+				aniTime = 0;
 			}
 		
 		}	
@@ -97,4 +100,4 @@ public class TC2 {
 }
 
 // forgot to use == instead of = in if statements. The boolean statements seem to be doing something, however, the animations
-// are not showing, perhaps I have them set to run too quick
+// are not showing. even extending out the aniTime to count to 100 and 200 doesn't change anything.
