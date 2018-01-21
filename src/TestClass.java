@@ -12,11 +12,11 @@ import javax.swing.*;
 
 public class TestClass extends JPanel {
 
-	
-// I think the next step is to work on animation. Perhaps I should move this over to dog logic 
-// and start with an empty TestClass for that?
 	LevelMap levelMap = new LevelMap();
 	ArrayList <Rectangle> plat = new ArrayList<Rectangle>();
+	//Animation animtion = new Animation(); <-- changing this to TC2:
+	TC2 tC2 = new TC2();
+	
 
 	
 	public TestClass () {
@@ -27,7 +27,8 @@ public class TestClass extends JPanel {
 		JLabel testLabel2= new JLabel (r1.toString());
 		testPain.add(testLabel, BorderLayout.NORTH);
 		testPain.add(testLabel2, BorderLayout.SOUTH);
-		testPain.setPreferredSize(new Dimension (600,600));
+		
+	//	testPain.setPreferredSize(new Dimension(600,600));
 		add (testPain);
 	
 	
@@ -41,19 +42,16 @@ public class TestClass extends JPanel {
 		public void paintComponent (Graphics g) {
 			super.paintComponent(g);
 			plat = levelMap.getPlat();
-
 			Graphics2D g2 = (Graphics2D) g.create();
-			
 			for (Rectangle next: plat) {
-				// added fillRect and set color (color set using Red, Green, Blue method)
+				// added fillRect and set color 
 				g2.setColor( new Color (130, 87, 27));
 				g2.fill(next);
 				g2.draw(next);
-			
-		//	levelMap.draw(g);
-		//	animation.draw(g);
 				}
-		
+			// at this stage asking to draw TC2 causes the whole program to break. I'm not sure why.
+			tC2.draw(g2);
+			
 			}
 	
 }
