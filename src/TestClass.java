@@ -12,6 +12,9 @@ import javax.swing.*;
 
 public class TestClass extends JPanel {
 
+	
+// I think the next step is to work on animation. Perhaps I should move this over to dog logic 
+// and start with an empty TestClass for that?
 	LevelMap levelMap = new LevelMap();
 	ArrayList <Rectangle> plat = new ArrayList<Rectangle>();
 
