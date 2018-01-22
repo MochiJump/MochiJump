@@ -56,8 +56,8 @@ public class TC2 {
 	float speedY = 0;
 	boolean mRestR = false;
 	boolean mRestL = false;
-	boolean mRunR = false;
-	boolean mRunL = true;
+	boolean mRunR = true;
+	boolean mRunL = false;
 	boolean mJumpR = false;
 	boolean mJumpL = false;
 	
@@ -75,12 +75,13 @@ public class TC2 {
 			// running this causes everything to break. running mRunL, however, does not?
 			// getting rid of these while loops work find as well. keeping them in causes everything to break.
 			// creating a new variable just for this has no effect
-			while (aniTime <= 100) {
+			// changing this to if statements makes it behave more like I would expect, however, it only runs a single iteration.
+			if (aniTime <= 100) {
 				g2.drawImage(mws,x, y, sW, sH,null);
 				aniTime ++;
-			}while (aniTime <= 200) {
+			}else if (aniTime <= 200) {
 				g2.drawImage(ms, x, y, sW, sH,null);
-			}while (aniTime >=201) {
+			}else  {
 				aniTime = 0;
 			}
 		}
@@ -90,15 +91,15 @@ public class TC2 {
 		// adding a new local variable here also does nothing to change the situation.
 		// the crazy part is the wrong the sprite is what is shown when I try to run this, its the msr that is drawn not the mwsr...
 		if (mRunL== true) {
-			while (aniTime <= 100) {  
+			if (aniTime <= 100) {  
 				g2.drawImage(mwsr,x, y, sW, sH,null);
 				aniTime ++;
 			}
-				while (aniTime <= 200) {
+			else if (aniTime <= 200) {
 				g2.drawImage(msr, x, y, sW, sH,null);
 				aniTime ++;
 			} 
-				while  (aniTime >= 201){
+			else{
 				aniTime = 1;
 			}
 				
