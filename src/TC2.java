@@ -90,6 +90,9 @@ public class TC2 {
 		// unless all three while statements are present nothing is painted, and then only the msr image is called... so strange
 		// adding a new local variable here also does nothing to change the situation.
 		// the crazy part is the wrong the sprite is what is shown when I try to run this, its the msr that is drawn not the mwsr...
+		
+		//As I know exactly how long these loops are supposed to be I should actually be using for loops instead of while loops,
+		//while loops should work though and I have no idea why they aren't working here.
 		if (mRunL== true) {
 			if (aniTime <= 100) {  
 				g2.drawImage(mwsr,x, y, sW, sH,null);
