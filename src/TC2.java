@@ -56,8 +56,8 @@ public class TC2 {
 	float speedY = 0;
 	boolean mRestR = false;
 	boolean mRestL = false;
-	boolean mRunR = false;
-	boolean mRunL = true;
+	boolean mRunR = true;
+	boolean mRunL = false;
 	boolean mJumpR = false;
 	boolean mJumpL = false;
 	
@@ -72,7 +72,9 @@ public class TC2 {
 			g2.drawImage(msr,x, y, sW, sH,null);
 		}
 		if (mRunR == true) {
-			// okay I don't think the below will work, I'll need to use a timer to set the length of the animation
+			// running this causes everything to break. running mRunL, however, does not?
+			// getting rid of these while loops work find as well. keeping them in causes everything to break.
+			// creating a new variable just for this has no effect
 			while (aniTime <= 100) {
 				g2.drawImage(mws,x, y, sW, sH,null);
 				aniTime ++;
@@ -82,20 +84,29 @@ public class TC2 {
 				aniTime = 0;
 			}
 		}
+		// why does this work when set true, but mRunR causes everything to lock up?
+		// why is it only the
+		// unless all three while statements are present nothing is painted, and then only the msr image is called... so strange
+		// adding a new local variable here also does nothing to change the situation.
 		if (mRunL== true) {
-			while (aniTime <= 100) {
+			while (aniTime <= 100) { 
 				g2.drawImage(mwsr,x, y, sW, sH,null);
 				aniTime ++;
-			}while (aniTime <= 200) {
+			}
+				while (aniTime <= 200) {
 				g2.drawImage(msr, x, y, sW, sH,null);
 				aniTime ++;
-			}while (aniTime >= 201) {
+			} 
+				while  (aniTime >= 201){
 				aniTime = 0;
+			}
+				
 			}
 		
 		}	
+				
 }
-}
+
 
 // forgot to use == instead of = in if statements. The boolean statements seem to be doing something, however, the animations
 // are not showing. Also int AniTime is not changing, and the imagine being displayed does not represent what should be displayed
