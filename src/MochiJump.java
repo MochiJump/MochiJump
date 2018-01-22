@@ -34,6 +34,8 @@ public class MochiJump {
 				 frame.pack();
 				 frame.setVisible(true);
 				 frame.repaint();
+				//perhaps there is something wrong with the repaint function above. maybe it needs a timer
+				// isn't trying to do it every millisecond.
 			 
 			         }
 	
