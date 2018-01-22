@@ -116,6 +116,9 @@ public class TC2 {
 	
 }
 
+// take a closer look at this: https://stackoverflow.com/questions/28342538/java-swing-timer-and-animation-how-to-put-it-together
+// the answer my lay in the answer to this question
+
 
 // forgot to use == instead of = in if statements. The boolean statements seem to be doing something, however, the animations
 // are not showing. Also int AniTime is not changing, and the imagine being displayed does not represent what should be displayed
