@@ -77,12 +77,15 @@ public class TC2 {
 			// getting rid of these while loops work find as well. keeping them in causes everything to break.
 			// creating a new variable just for this has no effect
 			// changing this to if statements makes it behave more like I would expect, however, it only runs a single iteration.
-			if (aniTime <= 100) {
+			// changing it back to while...
+			while (aniTime <= 100) {
 				g2.drawImage(mws,x, y, sW, sH,null);
 				aniTime ++;
-			}else if (aniTime <= 200) {
+			}
+			while (aniTime <= 200) {
 				g2.drawImage(ms, x, y, sW, sH,null);
-			}else  {
+			}
+			while (aniTime >=201) {
 				aniTime = 0;
 			}
 		}
@@ -95,15 +98,15 @@ public class TC2 {
 		//As I know exactly how long these loops are supposed to be I should actually be using for loops instead of while loops,
 		//while loops should work though and I have no idea why they aren't working here.
 		if (mRunL== true) {
-			if (aniTime <= 100) {  
+			while (aniTime <= 100) {  
 				g2.drawImage(mwsr,x, y, sW, sH,null);
 				aniTime ++;
 			}
-			else if (aniTime <= 200) {
+			while (aniTime <= 200) {
 				g2.drawImage(msr, x, y, sW, sH,null);
 				aniTime ++;
 			} 
-			else{
+			while (aniTime >=201) {
 				aniTime = 1;
 			}
 				
