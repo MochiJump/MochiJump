@@ -71,6 +71,7 @@ public class TC2 {
 		if (mRestL == true) {
 			g2.drawImage(msr,x, y, sW, sH,null);
 		}
+		// try if (!mRunR) once you get this working. Better coding practice
 		if (mRunR == true) {
 			// running this causes everything to break. running mRunL, however, does not?
 			// getting rid of these while loops work find as well. keeping them in causes everything to break.
