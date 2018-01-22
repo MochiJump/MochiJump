@@ -18,6 +18,10 @@ public class MochiJump {
 		 	// give me an indication as to where mochi is in the game even if he isn't animated. Next step is to get him 
 		 	// into this JFrame.
 		 		TestClass testPain = new TestClass();
+		 // so far nothing in any of these test invokes runnable except for this:
+		 		javax.swing.SwingUtilities.invokeLater(new Runnable() {
+			         public void run() {
+			        
 				 JFrame frame = new JFrame ("Mochi Jump");
 				 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				 // I need to use a drawPanel component here in place of testPain in the future
@@ -31,6 +35,8 @@ public class MochiJump {
 				 frame.setVisible(true);
 				 frame.repaint();
 			 
-		}
+			         }
 	
+		 		});
+	 }
 }
