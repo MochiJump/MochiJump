@@ -28,7 +28,7 @@ public class TC2 {
 	Image mjc3r = new ImageIcon ("mochijs3r.pgn").getImage();
 
 // setting this manually too:
-	int aniTime = 11;
+	int aniTime = 1;
 	int x = 5;
 	int y = 5;
 	int sW = 21;
@@ -56,8 +56,8 @@ public class TC2 {
 	float speedY = 0;
 	boolean mRestR = false;
 	boolean mRestL = false;
-	boolean mRunR = true;
-	boolean mRunL = false;
+	boolean mRunR = false;
+	boolean mRunL = true;
 	boolean mJumpR = false;
 	boolean mJumpL = false;
 	
@@ -84,12 +84,12 @@ public class TC2 {
 				aniTime = 0;
 			}
 		}
-		// why does this work when set true, but mRunR causes everything to lock up?
+		// why does this at least run when mRunL is set to true, but mRunR causes everything to lock up?
 		// why is it only the
 		// unless all three while statements are present nothing is painted, and then only the msr image is called... so strange
 		// adding a new local variable here also does nothing to change the situation.
 		if (mRunL== true) {
-			while (aniTime <= 100) { 
+			while (aniTime <= 100) {  
 				g2.drawImage(mwsr,x, y, sW, sH,null);
 				aniTime ++;
 			}
@@ -98,7 +98,7 @@ public class TC2 {
 				aniTime ++;
 			} 
 				while  (aniTime >= 201){
-				aniTime = 0;
+				aniTime = 1;
 			}
 				
 			}
