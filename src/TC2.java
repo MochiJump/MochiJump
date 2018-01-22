@@ -28,7 +28,7 @@ public class TC2 {
 	Image mjc3r = new ImageIcon ("mochijs3r.pgn").getImage();
 
 // setting this manually too:
-	int aniTime = 0;
+	int aniTime = 11;
 	int x = 5;
 	int y = 5;
 	int sW = 21;
@@ -73,7 +73,6 @@ public class TC2 {
 		}
 		if (mRunR == true) {
 			// okay I don't think the below will work, I'll need to use a timer to set the length of the animation
-			aniTime = 0;
 			while (aniTime <= 100) {
 				g2.drawImage(mws,x, y, sW, sH,null);
 				aniTime ++;
@@ -84,7 +83,6 @@ public class TC2 {
 			}
 		}
 		if (mRunL== true) {
-			aniTime =0;
 			while (aniTime <= 100) {
 				g2.drawImage(mwsr,x, y, sW, sH,null);
 				aniTime ++;
@@ -100,4 +98,6 @@ public class TC2 {
 }
 
 // forgot to use == instead of = in if statements. The boolean statements seem to be doing something, however, the animations
-// are not showing. even extending out the aniTime to count to 100 and 200 doesn't change anything.
+// are not showing. Also int AniTime is not changing, and the imagine being displayed does not represent what should be displayed
+// based off of the corresponding aniTime... This is behaving weird... The image does flip depending on whether it is right or left
+// however, which is also strange if nothing else is working..
