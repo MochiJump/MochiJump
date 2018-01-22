@@ -86,7 +86,7 @@ public class TC2 {
 				g2.drawImage(ms, x, y, sW, sH,null);
 			}
 			while (aniTime >=201) {
-				aniTime = 0;
+				aniTime = 1;
 			}
 		}
 		// why does this at least run when mRunL is set to true, but mRunR causes everything to lock up?
