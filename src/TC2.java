@@ -116,7 +116,7 @@ public class TC2 {
 				
 			}
 		// okay let's add the jump animations here:
-					if (mJumpR = true) {
+			if (mJumpR = true) {
 				// this should be done via y speed instead of a timer
 				 if (speedY > 0) {
 					 g2.drawImage(mjc1,x,y,sW,sH,null);
@@ -131,7 +131,7 @@ public class TC2 {
 				 }
 			}
 			if (mJumpL = true) {
-				// I'm going to code this for a half second loop
+				
 				if (speedY > 0) {
 					 g2.drawImage(mjc1r,x,y,sW,sH,null);
 					 aniTime ++;
@@ -150,7 +150,4 @@ public class TC2 {
 }
 
 
-// forgot to use == instead of = in if statements. The boolean statements seem to be doing something, however, the animations
-// are not showing. Also int AniTime is not changing, and the imagine being displayed does not represent what should be displayed
-// based off of the corresponding aniTime... This is behaving weird... The image does flip depending on whether it is right or left
-// however, which is also strange if nothing else is working..
+// forgot to use == instead of = in if statements. there is a a better way of delcaring this.
