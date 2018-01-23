@@ -23,31 +23,8 @@ import java.util.Timer;
 import java.lang.*;
 
 public class Mochi {
-
-// The imported images below are currently duplicated in the Animation class.
 	
-// this is the resting mochi sprite:
-	Image ms = new ImageIcon("mochirs.png").getImage();
-// now let's do the reverse for when he faces the other way;
-	Image msr = new ImageIcon("mochirsr.png").getImage();
-
-// okay let's import the walking image to splice in the middle so he looks like he's walking:
-	Image mws = new ImageIcon("mochiws.png").getImage();
-
-// and the reverse
-	Image mwsr = new ImageIcon ("mochiwsr.png").getImage();
-
-// and lastly the three images for the jump cycle
-	Image mjc1 = new ImageIcon("mochijs1.png").getImage();
-	Image mjc2 = new ImageIcon ("mochijs2.png").getImage();
-	Image mjc3 = new ImageIcon ("mochijs3.pgn").getImage();
-
-// and the reverse
-	Image mjc1r = new ImageIcon("mochijs1r.png").getImage();
-	Image mjc2r = new ImageIcon ("mochijs2r.png").getImage();
-	Image mjc3r = new ImageIcon ("mochijs3r.pgn").getImage();
-	
-// okay that should be all the images, now we need the variables for mochi
+// we need the variables for mochi
 	private float x;
 	private float y;
 // may want to include a cap to speeds here.
