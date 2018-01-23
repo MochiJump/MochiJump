@@ -49,7 +49,7 @@ public class Mochi {
 	LevelMap levelMap = new LevelMap();
 	
 
-	
+	// This arraylist is messy
 	ArrayList<Boolean> bMochiAction = new ArrayList <>();
 	{
 	bMochiAction.add(mRestR);
@@ -189,17 +189,24 @@ public class Mochi {
 // all that's left in this class is keybinding, or alternatively I could use keylistener. Keylistener would be easier, but I'd like to learn how
 // to use keybinding. I'm going to take a break though. Remember, add and use util timer in animation, everything else should work.
 // I'm getting an error here but it's because I never call on this class
+
+// For keybinding I'm going to have to add an event for when a key is released for < & >.
 	class MoveRightAct extends AbstractAction{
 		public void actionPerformed (ActionEvent mr) {
 			// I'm trying to turn off all boolean indicators here
+			// should I include a check to see if jump is false before continuing?
 			for (int counter = 0; counter < bMochiAction.size(); counter++) {
+				// this is okay
 				bMochiAction.set(counter, false);
 			}
 			x ++;
+			//this speed thing could cause problems here...
 			speedX ++;
 		//Here I turn on the one that is true
+		// shouldn't this be bMochiAction.set(2, true); ****
 			mRunR = true;
 		}
+		// I could add the jumpR true here if that is the case...
 	}
 	class MoveLeftAct extends AbstractAction{
 		public void actionPerformed (ActionEvent ml) {
@@ -208,6 +215,7 @@ public class Mochi {
 			}
 			x --;
 			speedX --;
+			// bMochiAction.set(3, true); ****
 			mRunL = true;
 			
 		}
@@ -219,22 +227,25 @@ public class Mochi {
 		public void actionPerformed (ActionEvent jr) {
 			if (jumpChu = false) {
 				// when working with boolean this seems to be the best way to do things.
+				// do I want to use a timer here? or a counter?
 				long start_jump_time = System.currentTimeMillis();
 				long up_time = 500;
 				long up_time_end = start_jump_time + up_time;
 				while (System.currentTimeMillis() < up_time_end) {
-					speedY = -5;
+					speedY = gravity;
 					y--;
 					if (mRunR == true || mRestR == true) {
 						for (int counter = 0; counter < bMochiAction.size(); counter++) {
 							bMochiAction.set(counter, false);
 						}
+						// bMochiAction.set(4, true);
 						mJumpR = true;	
 					}
 					if (mRunL == true || mRestL == true) {
 						for (int counter = 0; counter < bMochiAction.size(); counter++) {
 							bMochiAction.set(counter, false);
 						}
+						// bMochiAction.set(5, true);
 						mJumpL = true;
 					}
 				}
