@@ -115,6 +115,35 @@ public class TC2 {
 			}
 				
 			}
+		// okay let's add the jump animations here:
+					if (mJumpR = true) {
+				// this should be done via y speed instead of a timer
+				 if (speedY > 0) {
+					 g2.drawImage(mjc1,x,y,sW,sH,null);
+					 aniTime ++;
+				 }
+				 if (speedY == 0) {
+					 g2.drawImage(mjc2,x,y,sW,sH, null);
+				 // maybe could add if else statement here to allow mochi to switch directions during jump
+				 }
+				 if (speedY < 0) {
+					 g2.drawImage(mjc3,x,y,sW,sH, null);
+				 }
+			}
+			if (mJumpL = true) {
+				// I'm going to code this for a half second loop
+				if (speedY > 0) {
+					 g2.drawImage(mjc1r,x,y,sW,sH,null);
+					 aniTime ++;
+				 }
+				if (speedY == 0) {
+					 g2.drawImage(mjc2r,x,y,sW,sH, null);
+				 // maybe could add if else statement here to allow mochi to switch directions during jump
+				 }
+				 if (speedY < 0) {
+					 g2.drawImage(mjc3r,x,y,sW,sH, null);
+				 }
+			}
 		
 		}	
 	
