@@ -1,3 +1,6 @@
+// Oh no, all of this is TC2! I'm missing my TestClass class! shoot. I won't be able to do anything with this
+// until I get home. I must've copied and pasted into the wrong class last night... 
+
 import java.awt.*;
 
 import javax.swing.ImageIcon;
@@ -27,7 +30,11 @@ public class TC2 {
 	Image mjc2r = new ImageIcon ("mochijs2r.png").getImage();
 	Image mjc3r = new ImageIcon ("mochijs3r.pgn").getImage();
 
+	// I've got all of these actual images in here, however, I don't have a variable to hold them in.
+	Image currentSprite;
+	
 // setting this manually too:
+	
 	int aniTime = 1;
 	int x = 5;
 	int y = 5;
@@ -65,27 +72,27 @@ public class TC2 {
 	public void draw (Graphics g) {
 		Graphics2D g2 = (Graphics2D) g.create();
 		g2.setClip(x, y, sW, sH);
+		g2.drawImage(currentSprite, x, y, sW, sH, null);
+	}
+	
+	// okay now I just need something to call on this code and I'm feeling that it should be a thread...
+	public void setCurrentSprite (){
 		if (mRestR == true) {
-			g2.drawImage(ms, x, y, sW, sH,null);
+			currentSprite = ms;
 		}
 		if (mRestL == true) {
-			g2.drawImage(msr,x, y, sW, sH,null);
+			currentSprite = msr;
 		}
-		// try if (!mRunR) once you get this working. Better coding practice
 		if (mRunR == true) {
-			// running this causes everything to break. running mRunL, however, does not?
-			// getting rid of these while loops work find as well. keeping them in causes everything to break.
-			// creating a new variable just for this has no effect
-			// changing this to if statements makes it behave more like I would expect, however, it only runs a single iteration.
-			// changing it back to while...
-			while (aniTime <= 100) {
-				g2.drawImage(mws,x, y, sW, sH,null);
+			// can I leave this as an if statement? will that work? is it better that way as a while statement could get stuck?
+			// would a while statement get stuck?
+			if (aniTime <= 5) {
+				currentSprite = mws;
 				aniTime ++;
-			}
-			while (aniTime <= 200) {
-				g2.drawImage(ms, x, y, sW, sH,null);
-			}
-			while (aniTime >=201) {
+			}else if (aniTime <= 10) {
+				currentSprite = ms;
+				aniTime++;
+			}else  {
 				aniTime = 1;
 			}
 		}
@@ -94,19 +101,16 @@ public class TC2 {
 		// unless all three while statements are present nothing is painted, and then only the msr image is called... so strange
 		// adding a new local variable here also does nothing to change the situation.
 		// the crazy part is the wrong the sprite is what is shown when I try to run this, its the msr that is drawn not the mwsr...
-		
-		//As I know exactly how long these loops are supposed to be I should actually be using for loops instead of while loops,
-		//while loops should work though and I have no idea why they aren't working here.
 		if (mRunL== true) {
-			while (aniTime <= 100) {  
-				g2.drawImage(mwsr,x, y, sW, sH,null);
+			if (aniTime <= 5) {  
+				currentSprite = mwsr;
 				aniTime ++;
 			}
-			while (aniTime <= 200) {
-				g2.drawImage(msr, x, y, sW, sH,null);
+			else if (aniTime <= 10) {
+				currentSprite = msr;
 				aniTime ++;
 			} 
-			while (aniTime >=201) {
+			else{
 				aniTime = 1;
 			}
 				
@@ -115,9 +119,6 @@ public class TC2 {
 		}	
 	
 }
-
-// take a closer look at this: https://stackoverflow.com/questions/28342538/java-swing-timer-and-animation-how-to-put-it-together
-// the answer my lay in the answer to this question
 
 
 // forgot to use == instead of = in if statements. The boolean statements seem to be doing something, however, the animations
