@@ -49,16 +49,18 @@ public class Mochi {
 	LevelMap levelMap = new LevelMap();
 	
 
-	// This arraylist is messy
+	// This arraylist is messy I'm going to create a method for setting up the arraylist.
 	ArrayList<Boolean> bMochiAction = new ArrayList <>();
-	{
-	bMochiAction.add(mRestR);
-	bMochiAction.add(mRestL);
-	bMochiAction.add(mRunR);
-	bMochiAction.add(mRunL);
-	bMochiAction.add(mJumpR);
-	bMochiAction.add(mJumpL);
+	private void setupMochiAction () {
+		bMochiAction.add(mRestR);
+		bMochiAction.add(mRestL);
+		bMochiAction.add(mRunR);
+		bMochiAction.add(mRunL);
+		bMochiAction.add(mJumpR);
+		bMochiAction.add(mJumpL);
 	}
+	// now I need to be sure that I call this at somepoint!
+	
 	// okay I've got an arraylist getter here, will that work?
 	//public ArrayList <Boolean> getMochiState() {
 	//	return bMochiAction;
