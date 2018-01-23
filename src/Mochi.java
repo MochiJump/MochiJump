@@ -188,10 +188,10 @@ public class Mochi {
 		}
 		
 	}
-// all that's left in this class is keybinding, or alternatively I could use keylistener. Keylistener would be easier, but I'd like to learn how
-// to use keybinding. I'm going to take a break though. Remember, add and use util timer in animation, everything else should work.
-// I'm getting an error here but it's because I never call on this class
-
+// read https://docs.oracle.com/javase/7/docs/api/java/awt/event/KeyEvent.html
+// pay attention to "KeyEvent.VK_DOWN" not currently in program. neccessary in order for it to function properly.
+	
+	
 // For keybinding I'm going to have to add an event for when a key is released for < & >.
 	class MoveRightAct extends AbstractAction{
 		public void actionPerformed (ActionEvent mr) {
