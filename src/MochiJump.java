@@ -34,8 +34,8 @@ public class MochiJump {
 				 frame.pack();
 				 frame.setVisible(true);
 				 frame.repaint();
-				//perhaps there is something wrong with the repaint function above. maybe it needs a timer
-				// isn't trying to do it every millisecond.
+				//the above repaint shouldn't be here. In fact, it should be in the JPanel portion, inside of a thread
+				// and the thread should have a sleep command with (1000 / RefreshRate). Then the animation will run.
 			 
 			         }
 	
