@@ -231,6 +231,7 @@ public class Mochi {
 				long start_jump_time = System.currentTimeMillis();
 				long up_time = 500;
 				long up_time_end = start_jump_time + up_time;
+					// the below should be start_jump_time instead of .currentTime (?)****
 				while (System.currentTimeMillis() < up_time_end) {
 					speedY = gravity;
 					y--;
@@ -249,6 +250,7 @@ public class Mochi {
 						mJumpL = true;
 					}
 				}
+				// the below should be start_jump_time instead of .currentTime (?)****
 				while (System.currentTimeMillis()> up_time_end) {
 					speedY++;
 					if (speedY > gravity) {
