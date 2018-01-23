@@ -5,7 +5,8 @@ import java.awt.Dimension;
 import javax.swing.*;
 
 
-//I've got the Platforms in and visible. Next to test the Animation class!
+//The resting and walking animations are now working. Next I should link mochi to his x,y and activate gravity to test the jump
+// animation as well as sprite movement.
 
 
 public class MochiJump {
