@@ -27,8 +27,13 @@ public class MochiJump {
 				 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				 // I need to use a drawPanel component here in place of testPain in the future
 				 frame.getContentPane().add(testPain, BorderLayout.CENTER);
-				 frame.setExtendedState(JFrame.MAXIMIZED_BOTH);			
-				 // for some reason starting this program in anything but maximized screen will cause
+				 frame.setExtendedState(JFrame.MAXIMIZED_BOTH);	
+
+					 // try adding the below into TestClass
+					 // panel.setOpaque(true);
+					 // frame.setBackground(new Color (127, 127, 127));
+		
+				// for some reason starting this program in anything but maximized screen will cause
 				 // the rectangles imported to be drawn strangely. I will look into why, but in the
 				 // mean time the above Extended State will cause the app to launch in full screen.
 				 frame.pack();
