@@ -1,6 +1,6 @@
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Dimension;
+// import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
@@ -16,28 +16,57 @@ public class TestClass extends JPanel {
 	ArrayList <Rectangle> plat = new ArrayList<Rectangle>();
 	//Animation animtion = new Animation(); <-- changing this to TC2:
 	TC2 tC2 = new TC2();
-	
+	int refreshRate = 30;
 
 	
 	public TestClass () {
 		plat = levelMap.getPlat();
-		Rectangle r1 = plat.get(1);
 		JPanel testPain = new JPanel();
 		JLabel testLabel = new JLabel(Integer.toString(plat.size()));
-		JLabel testLabel2= new JLabel (r1.toString());
+		JLabel testLabel2= new JLabel (Integer.toString(tC2.aniTime));
 		testPain.add(testLabel, BorderLayout.NORTH);
 		testPain.add(testLabel2, BorderLayout.SOUTH);
 		
 	//	testPain.setPreferredSize(new Dimension(600,600));
 		add (testPain);
-	
-	
+		
+	// okay I need to create a new class here gameStart() and inside gameStart() is where
+	// the refresh rate will lay as well as it ending with it invoking itself i.e. "gameStart();"
+	// this will create the loop where everything will run, without it, I can only run one frame
+		gameStart();
 
 	}
 
+	public void gameStart() {
+		// this needs to be a thread:
+		Thread gameThread = new Thread() {
+			public void run() {
+				while (true) {
+					// I'll create a separate method to house everything here
+					// now I just need to fill in the gameUpdate method
+					gameUpdate();
+					// I can call repaint here:
+					repaint();
+					try {
+						Thread.sleep(1000/refreshRate);
+					}catch (InterruptedException e) {
+						System.out.println("An error has occured");
+					}
+				}
+			
+			}
+		}; // interesting syntax here to work properly.
+		gameThread.start(); // it's not gameStart(), but rather gameThread.start();
+	}
+	
+	public void gameUpdate () {
+		// theoretically I should just have to add the setCurrentSprite method here and I should get animation:
+		tC2.setCurrentSprite();
+		// It works!
+	}
+	
 //Well it seems all of my problems stemmed from having the override in another class....
 // It seems that the paint Component only works correctly in full screen, otherwise it draws strangely.
-	
 		@Override
 		public void paintComponent (Graphics g) {
 			super.paintComponent(g);
