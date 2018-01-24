@@ -81,8 +81,8 @@ public class Mochi {
 	private Action RestRight;
 	private Action RestLeft;
 
-// here's the inputmap and action map for keybindings (runs off of swing so I'll need to add a Jpanel here):
-	JPanel panel = new JPanel();
+// Does this need to extend JPanel? I have everything running in a single Jpanel in another class.
+//	JPanel panel = new JPanel();
 	InputMap im = panel.getInputMap(JPanel.WHEN_IN_FOCUSED_WINDOW);
 	ActionMap am = panel.getActionMap();
 // I'll put the keybindings at the bottom
@@ -188,11 +188,30 @@ public class Mochi {
 		}
 		
 	}
-// read https://docs.oracle.com/javase/7/docs/api/java/awt/event/KeyEvent.html
-// pay attention to "KeyEvent.VK_DOWN" not currently in program. neccessary in order for it to function properly.
+// okay here goes the keybinding:
+// let's put them in a callable method
+	public void keyInputs () {
+		// for the right key? I hope
+		im.put(KeyStroke.getKeyStroke("RIGHT"), "MoveRightAct");
+		am.put("MoveRightAct", MoveRightAct);
+		// For keybinding I'm going to have to add an event for when a key is released for < & >.
+		im.put(KeyStroke.getKeyStroke("released RIGHT"), "RestRight");
+		am.put("RestRight", RestRight);
+		im.put(KeyStroke.getKeyStroke("LEFT"), "MoveLeftAct");
+		am.put("MoveLeftAct", MoveLeftAct);
+		im.put(KeyStroke.getKeyStroke("released LEFT"), "RestLeft");
+		am.put("RestLeft", RestLeft);
+		//well I was going to use the keybinding to indicate whether mochi jumped right or left, however, as I'm looking at it there is no way to do this,
+		//I'll have to write it into the action class above! *******************
+		im.put(KeyStroke.getKeyStroke("UP"), "JumpAct" );
+		am.put("JumpAct", JumpAct);
+		//If I did all of this correctly then I just need to make a main class and put all of this in there. I will most likely need to come back here
+		// and determine what to make runnable for threading purposes.
+		
+	}
 	
 	
-// For keybinding I'm going to have to add an event for when a key is released for < & >.
+
 	class MoveRightAct extends AbstractAction{
 		public void actionPerformed (ActionEvent mr) {
 			// I'm trying to turn off all boolean indicators here
@@ -267,7 +286,7 @@ public class Mochi {
 			}
 		}
 	}
-
+//this should be called when < or > is released.
 	class RestRight extends AbstractAction{
 		public void actionPerformed (ActionEvent rr) {
 			if (speedX >0) {
@@ -304,25 +323,7 @@ public class Mochi {
 			}
 		}
 	}
-	//key bindings are going here:
-	{
-		// for the right key? I hope
-		im.put(KeyStroke.getKeyStroke("RIGHT"), "MoveRightAct");
-		am.put("MoveRightAct", MoveRightAct);
-		im.put(KeyStroke.getKeyStroke("released RIGHT"), "RestRight");
-		am.put("RestRight", RestRight);
-		im.put(KeyStroke.getKeyStroke("LEFT"), "MoveLeftAct");
-		am.put("MoveLeftAct", MoveLeftAct);
-		im.put(KeyStroke.getKeyStroke("released LEFT"), "RestLeft");
-		am.put("RestLeft", RestLeft);
-		//well I was going to use the keybinding to indicate whether mochi jumped right or left, however, as I'm looking at it there is no way to do this,
-		//I'll have to write it into the action class above! *******************
-		im.put(KeyStroke.getKeyStroke("UP"), "JumpAct" );
-		am.put("JumpAct", JumpAct);
-		//If I did all of this correctly then I just need to make a main class and put all of this in there. I will most likely need to come back here
-		// and determine what to make runnable for threading purposes.
-		
-	}
+
 	
 
 
