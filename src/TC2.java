@@ -1,6 +1,3 @@
-// Oh no, all of this is TC2! I'm missing my TestClass class! shoot. I won't be able to do anything with this
-// until I get home. I must've copied and pasted into the wrong class last night... 
-
 import java.awt.*;
 
 import javax.swing.ImageIcon;
