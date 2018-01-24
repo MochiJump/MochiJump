@@ -21,14 +21,14 @@ public class TC2 {
 	Image mwsr = new ImageIcon ("mochiwsr.png").getImage();
 
 // and lastly the three images for the jump cycle
-	Image mjc1 = new ImageIcon("mochijs1.png").getImage();
+	Image mjc1 = new ImageIcon ("mochijs1.png").getImage();
 	Image mjc2 = new ImageIcon ("mochijs2.png").getImage();
-	Image mjc3 = new ImageIcon ("mochijs3.pgn").getImage();
+	Image mjc3 = new ImageIcon ("mochijs3.png").getImage();
 
 // and the reverse
-	Image mjc1r = new ImageIcon("mochijs1r.png").getImage();
+	Image mjc1r = new ImageIcon ("mochijs1r.png").getImage();
 	Image mjc2r = new ImageIcon ("mochijs2r.png").getImage();
-	Image mjc3r = new ImageIcon ("mochijs3r.pgn").getImage();
+	Image mjc3r = new ImageIcon ("mochijs3r.png").getImage();
 
 	// I've got all of these actual images in here, however, I don't have a variable to hold them in.
 	Image currentSprite;
@@ -60,13 +60,27 @@ public class TC2 {
 // For now I'm just going to manually set all of the variables I need to see if I can get this to work.
 // Currently set for only run condition to be true.	
 //	Mochi mochi = new Mochi ();
-	float speedY = 0;
+	int speedY = 3;
 	boolean mRestR = false;
 	boolean mRestL = false;
-	boolean mRunR = true;
+	boolean mRunR = false;
 	boolean mRunL = false;
-	boolean mJumpR = false;
+	boolean mJumpR = true;
 	boolean mJumpL = false;
+	
+	// this belongs in mochi class, but I'm putting it here now for testing purposes:
+	public void gravity() {
+		//I'll add a little demo here
+		if (y < 500-14) {
+		y = speedY + y;
+		}
+		if (y >= 500-14) {
+			mJumpR = false;
+			mRunR = true;
+			x = x+3;
+		// very simple, the actual rules for everything are in the mochi class!
+		}
+	}
 	
 
 	public void draw (Graphics g) {
@@ -116,33 +130,41 @@ public class TC2 {
 				
 			}
 		// okay let's add the jump animations here:
-			if (mJumpR = true) {
+			if (mJumpR == true) {
 				// this should be done via y speed instead of a timer
-				 if (speedY > 0) {
-					 g2.drawImage(mjc1,x,y,sW,sH,null);
-					 aniTime ++;
+				 if (speedY < 0) {
+					 currentSprite = mjc1;
 				 }
-				 if (speedY == 0) {
-					 g2.drawImage(mjc2,x,y,sW,sH, null);
+				 else if (speedY == 0) {
+					 currentSprite = mjc2;
 				 // maybe could add if else statement here to allow mochi to switch directions during jump
 				 }
-				 if (speedY < 0) {
-					 g2.drawImage(mjc3,x,y,sW,sH, null);
+				 else if (speedY > 0){
+					 currentSprite = mjc3;
 				 }
+				 else {
+						System.out.println("something has gone wrong");
+					}
 			}
-			if (mJumpL = true) {
-				
-				if (speedY > 0) {
-					 g2.drawImage(mjc1r,x,y,sW,sH,null);
-					 aniTime ++;
+			// I have no idea why but the animation disappears when mJumpL is set to true and speedY is set to anything but
+			// 0
+			if (mJumpL == true) {
+				// remeber y is inverted in java
+				if (speedY < 0 ) {
+					currentSprite = mjc1r;
 				 }
-				if (speedY == 0) {
-					 g2.drawImage(mjc2r,x,y,sW,sH, null);
+				else if (speedY == 0) {
+					currentSprite = mjc2r;
 				 // maybe could add if else statement here to allow mochi to switch directions during jump
 				 }
-				 if (speedY < 0) {
-					 g2.drawImage(mjc3r,x,y,sW,sH, null);
+				else if (speedY > 0) {
+					
+					 currentSprite = mjc3r;
 				 }
+				else {
+					System.out.println("something has gone wrong");
+				}
+				
 			}
 		
 		}	
