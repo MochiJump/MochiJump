@@ -78,7 +78,6 @@ public class TestClass extends JPanel {
 				g2.fill(next);
 				g2.draw(next);
 				}
-			// at this stage asking to draw TC2 causes the whole program to break. I'm not sure why.
 			tC2.draw(g2);
 			
 			}
