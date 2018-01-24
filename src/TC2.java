@@ -2,8 +2,7 @@ import java.awt.*;
 
 import javax.swing.ImageIcon;
 
-// I'm adding a second test class "TC2" in here so I can safely copy everything from the Animation Class I've already written
-// and delete and add stuff without losing my original work.
+// I think it's time to move this back to animation
 
 public class TC2 {
 	// this is the resting mochi sprite:
