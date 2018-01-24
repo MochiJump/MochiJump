@@ -50,7 +50,7 @@ public class TestClass extends JPanel {
 					try {
 						Thread.sleep(1000/refreshRate);
 					}catch (InterruptedException e) {
-						System.out.println("An error has occured");
+						System.out.println("An error in gameThread has occured");
 					}
 				}
 			
