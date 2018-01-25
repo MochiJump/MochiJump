@@ -147,8 +147,8 @@ public class Mochi {
 	// this https://stackoverflow.com/questions/2126714/java-get-all-variable-names-in-a-class may help!
 	// If I can get this to work I'll level up.
 
-// here we go! looks like we can recall the bounds using this method!
-	public void boundaryRules (LevelMap LevelMap) {
+// Let's get rid of the arguments for this method. This should work better.
+	public void boundaryRules () {
 		// let's apply inertia here:
 		y = y+speedY;
 		x = x+speedX;
