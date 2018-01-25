@@ -20,7 +20,6 @@ import javax.swing.*;
 import java.util.*;
 import java.util.Timer;
 
-import java.lang.*;
 
 public class Mochi {
 	
@@ -81,8 +80,8 @@ public class Mochi {
 	private Action RestRight;
 	private Action RestLeft;
 
-// Does this need to extend JPanel? I have everything running in a single Jpanel in another class.
-//	JPanel panel = new JPanel();
+// Well I'll either need two panels or I'll need to make the main panel available to call here... KeyBinding is a pain to setup.
+	JPanel panel = new JPanel();
 	InputMap im = panel.getInputMap(JPanel.WHEN_IN_FOCUSED_WINDOW);
 	ActionMap am = panel.getActionMap();
 // I'll put the keybindings at the bottom
