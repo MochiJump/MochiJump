@@ -83,9 +83,10 @@ public class Mochi {
 	private Action RestLeft;
 
 // Well I'll either need two panels or I'll need to make the main panel available to call here... KeyBinding is a pain to setup.
-	JPanel panel = new JPanel();
-	InputMap im = panel.getInputMap(JPanel.WHEN_IN_FOCUSED_WINDOW);
-	ActionMap am = panel.getActionMap();
+	// can I change this to component?
+	// JPanel panel = new JPanel(); and get rid of this
+	InputMap im = component.getInputMap(JPanel.WHEN_IN_FOCUSED_WINDOW);
+	ActionMap am = component.getActionMap();
 // I'll put the keybindings at the bottom
 	
  	Rectangle mochi = new Rectangle ((int)(x), (int)(y), (int)(sH), (int)(sW));
