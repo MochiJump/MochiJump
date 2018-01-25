@@ -7,6 +7,8 @@
 // parameters for boundary detection. The solution is to use .getBounds (part of the geom API). Implement it and we can get
 // this guy up and running.
 
+// read this: https://tips4java.wordpress.com/2013/06/09/motion-using-the-keyboard/
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
