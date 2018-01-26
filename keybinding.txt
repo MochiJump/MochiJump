@@ -1,0 +1,19 @@
+This is taken from: ftp://ecs.csus.edu/clevengr/133/handouts/UsingJavaKeyBindings.pdf
+
+
+//get the "focus is in the window" input map for the center panel
+int mapName = JComponent.WHEN_IN_FOCUSED_WINDOW;
+InputMap imap = centerPanel.getInputMap(mapName);
+//create a keystroke object to represent the "f" key
+KeyStroke fKey = KeyStroke.getKeyStroke('f');
+//put the "f-Key" keystroke object into the panel’s "when focus is
+// in the window" input map under the identifier "fire"
+imap.put(fKey, "fire");
+//get the action map for the panel
+ActionMap amap = centerPanel.getActionMap();
+//put the "fireCommand" object (an instance of class "fireCommand";
+// an Action object created elsewhere that performs the “fire” operation)
+// into the panel's actionMap
+amap.put("fire", fireCommand);
+//have the frame request keyboard focus
+this.requestFocus(); 
