@@ -50,15 +50,14 @@ public class Mochi {
 	LevelMap levelMap = new LevelMap();
 	
 
-	// This arraylist is messy I'm going to create a method for setting up the arraylist.
-	ArrayList<Boolean> bMochiAction = new ArrayList <>();
-	private void setupMochiAction () {
-		bMochiAction.add(mRestR);
-		bMochiAction.add(mRestL);
-		bMochiAction.add(mRunR);
-		bMochiAction.add(mRunL);
-		bMochiAction.add(mJumpR);
-		bMochiAction.add(mJumpL);
+	// This shouldn't be an array list it should be a method that sets all these to false
+	private void setActionToFalse () {
+		mRestR = false;
+		mRestL = false;
+		mRunR = false;
+		mRunL = false;
+		mJumpR = false;
+		mJump = false;
 	}
 	// now I need to be sure that I call this at somepoint!
 	
@@ -83,8 +82,8 @@ public class Mochi {
 	private Action RestLeft;
 
 // Well I'll either need two panels or I'll need to make the main panel available to call here... KeyBinding is a pain to setup.
-	// can I change this to component?
-	// JPanel panel = new JPanel(); and get rid of this
+	// I think the solution here is to either have the below set to component.(etc) or to have this in the class with JPanel
+	// and then just call back to here.
 	InputMap im = component.getInputMap(JPanel.WHEN_IN_FOCUSED_WINDOW);
 	ActionMap am = component.getActionMap();
 // I'll put the keybindings at the bottom
@@ -109,7 +108,7 @@ public class Mochi {
 		this.sH = sH;
 		this.sW = sW;
 	}
-// this is going to set variables variables for mochi's state
+// all of the below can go. This is a constructor that I don't need for anything in this program.
 	public Mochi (boolean mRestR, boolean mRestL, boolean mRunR, boolean mRunL, boolean mJumpR, boolean mJumpL) {
 		this.mRestR=mRestR;
 		this.mRestL=mRestL;
@@ -191,9 +190,9 @@ public class Mochi {
 		
 	}
 // okay here goes the keybinding:
-// let's put them in a callable method
+// let's put them in a public method
 	public void keyInputs () {
-		// for the right key? I hope
+		// How would this work if I moved "im" to another class?
 		im.put(KeyStroke.getKeyStroke("RIGHT"), "MoveRightAct");
 		am.put("MoveRightAct", MoveRightAct);
 		// For keybinding I'm going to have to add an event for when a key is released for < & >.
@@ -220,7 +219,7 @@ public class Mochi {
 			// should I include a check to see if jump is false before continuing?
 			for (int counter = 0; counter < bMochiAction.size(); counter++) {
 				// this is okay
-				bMochiAction.set(counter, false);
+				setActionToFalse();
 			}
 			x ++;
 			//this speed thing could cause problems here...
@@ -234,7 +233,7 @@ public class Mochi {
 	class MoveLeftAct extends AbstractAction{
 		public void actionPerformed (ActionEvent ml) {
 			for (int counter = 0; counter < bMochiAction.size(); counter++) {
-				bMochiAction.set(counter, false);
+				setActionToFalse();
 			}
 			x --;
 			speedX --;
