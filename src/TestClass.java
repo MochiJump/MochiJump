@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 import javax.swing.*;
 
-	
+// I think it is okay to move all of this back to DogLogic.java	
 
 public class TestClass extends JPanel {
 
