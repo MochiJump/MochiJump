@@ -5,8 +5,8 @@ import java.awt.Dimension;
 import javax.swing.*;
 
 
-//The resting and walking animations are now working. Next I should link mochi to his x,y and activate gravity to test the jump
-// animation as well as sprite movement.
+//The resting, walking, falling, and jumping animations now work. Now I need to figure out how to link keybinding to actionmap to
+// a swing component.
 
 
 public class MochiJump {
