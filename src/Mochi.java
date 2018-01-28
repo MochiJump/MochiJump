@@ -52,7 +52,7 @@ public class Mochi {
 		mRunR = false;
 		mRunL = false;
 		mJumpR = false;
-		mJump = false;
+		mJumpL = false;
 	}
 	
 //Should I use this to indicate whether a jump is taking place? Chu means middle of in Japanese
@@ -66,6 +66,8 @@ public class Mochi {
 	private Action RestLeft;
 	
  	Rectangle mochi = new Rectangle ((int)(x), (int)(y), (int)(sH), (int)(sW));
+ 	// okay lest just make a JComponent here...
+ 	JComponent mochiC;
 // so the above mochi is a rectangle, now I'm going to create lines around the rectangle which will act as the boundary
 // interface
 	Line2D.Float mright = new Line2D.Float(x, y+sW, x+sH, y+sW);
@@ -75,30 +77,12 @@ public class Mochi {
 // ***** Remember to assign a value to sW (spriteWidth) and sH (spriteHeight)
 
 	
-// if Rectangle counts as component then perhaps this would work:
-	InputMap im = mochi.getInputMap(JPanel.WHEN_IN_FOCUSED_WINDOW);
-	ActionMap am = mochi.getActionMap();
+// Rectangles do not count as a JComponent, so let's change the below to MochiC
+	InputMap im = mochiC.getInputMap(JPanel.WHEN_IN_FOCUSED_WINDOW);
+	ActionMap am = mochiC.getActionMap();
+// Okay that is working, now I'll need to link the Rectangle to the Component
 
-// all of the below can go. This is a constructor that I don't need for anything in this program.
-	
-	public Mochi (float x, float y, float speedX, float speedY, float sH, float sW) {
-		this.x = x;
-		this.y = y;
-		this.speedX = speedX;
-		this.speedY = speedY;
-		this.sH = sH;
-		this.sW = sW;
-	}
-// same here. I just didn't understand how setters and getters worked.
-	public Mochi (boolean mRestR, boolean mRestL, boolean mRunR, boolean mRunL, boolean mJumpR, boolean mJumpL) {
-		this.mRestR=mRestR;
-		this.mRestL=mRestL;
-		this.mRunR=mRunR;
-		this.mRestL=mRunL;
-		this.mJumpR=mJumpR;
-		this.mJumpL=mJumpL;
-	}
-// This is a good example of a getter, and it is neccessary for the animation class to work
+// This is a good example of a getter, and it is necessary for the animation class to work
 	public float getSpeedY(){
 			return this.speedY;
 	}
@@ -218,17 +202,11 @@ public class Mochi {
 					speedY = gravity;
 					y--;
 					if (mRunR == true || mRestR == true) {
-						for (int counter = 0; counter < bMochiAction.size(); counter++) {
-							bMochiAction.set(counter, false);
-						}
-						// bMochiAction.set(4, true);
+						setActionToFalse();
 						mJumpR = true;	
 					}
 					if (mRunL == true || mRestL == true) {
-						for (int counter = 0; counter < bMochiAction.size(); counter++) {
-							bMochiAction.set(counter, false);
-						}
-						// bMochiAction.set(5, true);
+						setActionToFalse();
 						mJumpL = true;
 					}
 				}
@@ -256,9 +234,7 @@ public class Mochi {
 					speedX = 0;
 				}
 				if (speedX == 0) {
-					for (int counter = 0; counter < bMochiAction.size(); counter++) {
-						bMochiAction.set(counter, false);
-					}
+					setActionToFalse();
 					mRestR=true;
 					
 				}
@@ -274,9 +250,7 @@ public class Mochi {
 					speedX = 0;
 				}
 				if (speedX == 0) {
-					for (int counter = 0; counter < bMochiAction.size(); counter++) {
-						bMochiAction.set(counter, false);
-					}
+					setActionToFalse();
 					mRestL=true;
 					
 				}
