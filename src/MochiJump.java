@@ -9,6 +9,8 @@ import javax.swing.*;
 // a swing component without moving a bunch of code from Mochi class to (ultimately) the DogLogic class where the JPanel code
 // is housed.
 
+// for simplicties sake I'm going to try to get key bindings working in GuiTest first
+
 
 public class MochiJump {
 
