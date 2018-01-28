@@ -3,7 +3,10 @@
 // This class is going contain variables, boundary rules, and the Actions for the Mochi Sprite
 // outside of this class we will need a main class, a map class, and an animation class
 
-// read this: https://tips4java.wordpress.com/2013/06/09/motion-using-the-keyboard/
+// read this: http://www.camick.com/java/source/MotionWithKeyBindings.java
+
+// interesting. I could've just made Mochi a JComponent instead of doing all this with the rectangle. It looks like
+// I can do xxx.getInputMap etc where xxx = rectangles, classes etc. I've been hung up on trying to make it a JPanel or JComponent
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -61,12 +64,6 @@ public class Mochi {
 	private Action JumpAct;
 	private Action RestRight;
 	private Action RestLeft;
-
-// Well I'll either need two panels or I'll need to make the main panel available to call here... KeyBinding is a pain to setup.
-	// I think the solution here is to either have the below set to component.(etc) or to have this in the class with JPanel
-	// and then just call back to here.
-	InputMap im = component.getInputMap(JPanel.WHEN_IN_FOCUSED_WINDOW);
-	ActionMap am = component.getActionMap();
 	
  	Rectangle mochi = new Rectangle ((int)(x), (int)(y), (int)(sH), (int)(sW));
 // so the above mochi is a rectangle, now I'm going to create lines around the rectangle which will act as the boundary
@@ -76,7 +73,11 @@ public class Mochi {
 	Line2D.Float mtop = new Line2D.Float(x,y,x,y+sW);
 	Line2D.Float mbottom = new Line2D.Float(x+sH, y, x+sH, y+sW);
 // ***** Remember to assign a value to sW (spriteWidth) and sH (spriteHeight)
+
 	
+// if Rectangle counts as component then perhaps this would work:
+	InputMap im = mochi.getInputMap(JPanel.WHEN_IN_FOCUSED_WINDOW);
+	ActionMap am = mochi.getActionMap();
 
 // all of the below can go. This is a constructor that I don't need for anything in this program.
 	
