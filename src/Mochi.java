@@ -70,10 +70,10 @@ public class Mochi {
  	JComponent mochiC;
 // so the above mochi is a rectangle, now I'm going to create lines around the rectangle which will act as the boundary
 // interface
-	Line2D.Float mright = new Line2D.Float(x, y+sW, x+sH, y+sW);
-	Line2D.Float mleft = new Line2D.Float(x, y, x+sH, y);
-	Line2D.Float mtop = new Line2D.Float(x,y,x,y+sW);
-	Line2D.Float mbottom = new Line2D.Float(x+sH, y, x+sH, y+sW);
+	Line2D.Float mRight = new Line2D.Float(x, y+sW, x+sH, y+sW);
+	Line2D.Float mLeft = new Line2D.Float(x, y, x+sH, y);
+	Line2D.Float mTop = new Line2D.Float(x,y,x,y+sW);
+	Line2D.Float mBottom = new Line2D.Float(x+sH, y, x+sH, y+sW);
 // ***** Remember to assign a value to sW (spriteWidth) and sH (spriteHeight)
 
 	
@@ -120,17 +120,17 @@ public class Mochi {
 			// okay so I have to write a few more if statements here:
 			// I need to determine if the collision happened from above or below,
 			// or from left or from the right. 
-				if (mright.intersects(p1)) {
+				if (mRight.intersects(p1)) {
 					y = p1.y - sW;
 				// I like getting to use basic algebra in real life.
 				} 
-				else if (mleft.intersects(p1)) {
+				else if (mLeft.intersects(p1)) {
 					y = p1.y +p1.width;
 				}
-				else if (mtop.intersects(p1)) {
+				else if (mTop.intersects(p1)) {
 					x = p1.x+ p1.height;
 				}
-				else if (mbottom.intersects(p1)) {
+				else if (mBottom.intersects(p1)) {
 					x = p1.x - sH;
 					// going to always set JumpChu to false whenever this intersection happens
 					jumpChu = false;
