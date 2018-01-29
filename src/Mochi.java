@@ -144,6 +144,7 @@ public class Mochi {
 	}
 // okay here goes the keybinding:
 // let's put them in a public method
+// make sure you call on this, or nothing will happen with it!
 	public void keyInputs () {
 		// How would this work if I moved "im" to another class?
 		im.put(KeyStroke.getKeyStroke("RIGHT"), "MoveRightAct");
