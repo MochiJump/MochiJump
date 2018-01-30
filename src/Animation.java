@@ -44,11 +44,19 @@ public class Animation {
 	boolean mJumpL = mochi.mJumpL;
 	
 	
-	// this belongs in mochi class, but I'm putting it here now for testing purposes:
-	// and for some reason it only works here?
+	// the below is no longer needed. Without an update method the above will int x = mochi.getX() only happens once!
+	// I suppose it is only initialized once, and because Java is pass by value nothing happens in this class
 	public void inertia() {
 		y = speedY+y;
 		x = speedX+x;
+	}
+	
+	// check to see if the method below needs the argument (Mochi mochi)
+	public void AniVarUpdate () {
+		int x = (int) mochi.getX();
+		int y = (int) mochi.getY();
+		int speedY = (int) mochi.getSpeedY();
+		int speedX = (int) mochi.getSpeedX();
 	}
 	
 
