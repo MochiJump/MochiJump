@@ -25,20 +25,20 @@ import java.util.Timer;
 public class Mochi {
 	
 // we need the variables for mochi 
-	private float x = 5;
-	private float y = 5;
+	private float x;
+	private float y;
 // may want to include a cap to speeds here.
 	private float speedX = 0;
-	private float speedY = -3;
+	private float speedY = 3;
 // might as well make a gravity value, i'll set it to -5, find that -3 is actually a better speed with a refresh rate of 30.
-	private float gravity = -3;	
+	private float gravity = 3;	
 // since he isn't a ball, we will need the sprite's height and width as well (right now the sprite is 14 px tall and 21 px wide)
 	private float sH;
 	private float sW;
 // I'm thinking I'll include boolan variables to indicate which animation to run!
 	boolean mRestR;
 	boolean mRestL;
-	boolean mRunR;
+	boolean mRunR = true;
 	boolean mRunL;
 	boolean mJumpR;
 	boolean mJumpL;
@@ -54,7 +54,7 @@ public class Mochi {
 		mJumpR = false;
 		mJumpL = false;
 	}
-	
+
 //Should I use this to indicate whether a jump is taking place? Chu means middle of in Japanese
 	boolean jumpChu = false;		
 // looks like I'll need to add actions here
@@ -66,8 +66,7 @@ public class Mochi {
 	private Action RestLeft;
 	
  	Rectangle mochi = new Rectangle ((int)(x), (int)(y), (int)(sH), (int)(sW));
- 	// okay lest just make a JComponent here...
- 	JComponent mochiC;
+// 	JComponent mochiC;
 // so the above mochi is a rectangle, now I'm going to create lines around the rectangle which will act as the boundary
 // interface
 	Line2D.Float mright = new Line2D.Float(x, y+sW, x+sH, y+sW);
@@ -97,7 +96,7 @@ public class Mochi {
 
 	public void boundaryRules () {
 		// let's apply inertia here:
-		y = y+speedY;
+		y = speedY + y;
 		x = x+speedX;
 		// review the below code
 		ArrayList<Rectangle> platlist = levelMap.getPlat();
@@ -135,11 +134,13 @@ public class Mochi {
 		
 	}
 
-	// Rectangles do not count as a JComponent, so let's change the below to MochiC
-		InputMap im = mochiC.getInputMap(JPanel.WHEN_IN_FOCUSED_WINDOW);
-		ActionMap am = mochiC.getActionMap();	
-	// okay here goes the keybinding:
-// let's put them in a public method
+// okay I think I need to initialize the JComponent properly
+
+		JLabel MochiL = new JLabel();
+
+		InputMap im = MochiL.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
+		ActionMap am = MochiL.getActionMap();	
+
 	public void keyInputs () {
 		// How would this work if I moved "im" to another class?
 		im.put(KeyStroke.getKeyStroke("RIGHT"), "MoveRightAct");
