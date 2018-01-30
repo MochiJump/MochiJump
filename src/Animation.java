@@ -46,7 +46,7 @@ public class Animation {
 	
 	// this belongs in mochi class, but I'm putting it here now for testing purposes:
 	// and for some reason it only works here?
-	public void intertia() {
+	public void inertia() {
 		y = speedY+y;
 		x = speedX+x;
 	}
