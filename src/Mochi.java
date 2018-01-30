@@ -25,8 +25,8 @@ import java.util.Timer;
 public class Mochi {
 	
 // we need the variables for mochi 
-	private float x;
-	private float y;
+	private float x = 1;
+	private float y = 1;
 // may want to include a cap to speeds here.
 	private float speedX = 0;
 	private float speedY = 3;
@@ -56,7 +56,8 @@ public class Mochi {
 	}
 
 //Should I use this to indicate whether a jump is taking place? Chu means middle of in Japanese
-	boolean jumpChu = false;		
+// if he starts by falling, then maybe I should set this to true
+	boolean jumpChu = true;		
 // looks like I'll need to add actions here
 	private Action MoveRightAct;
 	private Action MoveLeftAct;
@@ -83,8 +84,12 @@ public class Mochi {
 	public float getSpeedY(){
 			return this.speedY;
 	}
-	 // I don't think I need this any more
-		public float getX() {
+	
+	public float getSpeedX() {
+		return this.speedX;
+	}
+	
+	public float getX() {
 			return this.x;
 		}
 		public float getY() {
@@ -93,10 +98,16 @@ public class Mochi {
 	public Mochi () {
 		// and it totally works. I could probably just delete everything above in the other two keep them all together etc and it would work.
 	}
+	// I cannot for the life of me figure out why this below intertia method does nothing.. it works just fine when built in the Animation Class!!
 
+	public void intertia () {
+		y = speedY+y;
+		x = speedX+x;
+	}
+	
 	public void boundaryRules () {
 		// let's apply inertia here:
-		y = speedY + y;
+		y = speedY+y;
 		x = x+speedX;
 		// review the below code
 		ArrayList<Rectangle> platlist = levelMap.getPlat();
