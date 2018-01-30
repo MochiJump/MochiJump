@@ -35,6 +35,7 @@ public class Animation {
 
 
 	int speedY = (int) mochi.getSpeedY();
+	int speedX = (int) mochi.getSpeedX();
 	boolean mRestR = mochi.mRestR;
 	boolean mRestL = mochi.mRestL;
 	boolean mRunR = mochi.mRunR;
@@ -42,18 +43,12 @@ public class Animation {
 	boolean mJumpR = mochi.mJumpR;
 	boolean mJumpL = mochi.mJumpL;
 	
+	
 	// this belongs in mochi class, but I'm putting it here now for testing purposes:
-	public void gravity() {
-		//I'll add a little demo here
-		if (y < 500-14) {
-		y = speedY + y;
-		}
-		if (y >= 500-14) {
-			mJumpR = false;
-			mRunR = true;
-			x = x+3;
-		// very simple, the actual rules for everything are in the mochi class!
-		}
+	// and for some reason it only works here?
+	public void intertia() {
+		y = speedY+y;
+		x = speedX+x;
 	}
 	
 
