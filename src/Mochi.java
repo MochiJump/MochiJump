@@ -25,8 +25,8 @@ import java.util.Timer;
 public class Mochi {
 	
 // we need the variables for mochi 
-	private float x = 1;
-	private float y = 1;
+	private float x;
+	private float y;
 // may want to include a cap to speeds here.
 	private float speedX = 0;
 	private float speedY = 3;
@@ -98,11 +98,11 @@ public class Mochi {
 	public Mochi () {
 		// and it totally works. I could probably just delete everything above in the other two keep them all together etc and it would work.
 	}
-	// I cannot for the life of me figure out why this below intertia method does nothing.. it works just fine when built in the Animation Class!!
+	// I cannot for the life of me figure out why this below inertia method does nothing.. it works just fine when built in the Animation Class!!
 
-	public void intertia () {
+	public void inertia () {
 		y = speedY+y;
-		x = speedX+x;
+		x= speedX+x;
 	}
 	
 	public void boundaryRules () {
