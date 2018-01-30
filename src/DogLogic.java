@@ -1,74 +1,85 @@
 import java.awt.BorderLayout;
+import java.awt.Color;
+// import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.util.ArrayList;
 
-import javax.swing.JPanel;
+import javax.swing.*;
+
+// I think it is okay to move all of this back to DogLogic.java	
 
 public class DogLogic extends JPanel {
-// perhaps the key bindings should go here?
 
-	private Mochi mochi;
-	private LevelMap levelMap;
-	private Animation animation;
-	
-	private DrawCanvas canvas;
-	// I've got this static issue here because this is not inside a method
+	LevelMap levelMap = new LevelMap();
+	ArrayList <Rectangle> plat = new ArrayList<Rectangle>();
+	//Animation animtion = new Animation(); <-- changing this to TC2:
+	Animation animation = new Animation();
+	int refreshRate = 30;
 
 	
-	
-	private static final int Update_Rate = 30;
-	
-	
-	
-	// removed parameters for constructor
 	public DogLogic () {
-		// Very important to import this, otherwise you get nothing:
-		canvas = new DrawCanvas();
-	    this.setLayout(new BorderLayout());
-	    this.add(canvas, BorderLayout.CENTER);
-		levelMap = new LevelMap();
-		animation = new Animation();
+		plat = levelMap.getPlat();
+		JPanel testPain = new JPanel();
+		JLabel testLabel = new JLabel(Integer.toString(plat.size()));
+		JLabel testLabel2= new JLabel (Integer.toString(animation.aniTime));
+		testPain.add(testLabel, BorderLayout.NORTH);
+		testPain.add(testLabel2, BorderLayout.SOUTH);
 		
-		int x = 50;
-		int y = 50;
-		mochi = new Mochi(x,y,0,-5,21,14);
+		//testPain.setPreferredSize(new Dimension(600,600));
+		add (testPain);
+		
+	// okay I need to create a new class here gameStart() and inside gameStart() is where
+	// the refresh rate will lay as well as it ending with it invoking itself i.e. "gameStart();"
+	// this will create the loop where everything will run, without it, I can only run one frame
 		gameStart();
+
 	}
-	
+
 	public void gameStart() {
-		// this sets up the game logic
+		// this needs to be a thread:
 		Thread gameThread = new Thread() {
 			public void run() {
 				while (true) {
-			//call on an update method
+					// I'll create a separate method to house everything here
+					// now I just need to fill in the gameUpdate method
 					gameUpdate();
-			//repaint everything
+					// I can call repaint here:
 					repaint();
 					try {
-						Thread.sleep(1000 / Update_Rate);
-					}catch (InterruptedException ex) {}
+						Thread.sleep(1000/refreshRate);
+					}catch (InterruptedException e) {
+						System.out.println("An error in gameThread has occured");
+					}
 				}
+			
 			}
-		};
-		gameThread.start();
+		}; // interesting syntax here to work properly.
+		gameThread.start(); // it's not gameStart(), but rather gameThread.start();
 	}
-// All of the errors I get when I try to run this center on right here
-	public void gameUpdate() {
-
-		mochi.boundaryRules(levelMap);
 	
+	public void gameUpdate () {
+		// theoretically I should just have to add the setCurrentSprite method here and I should get animation:
+		animation.setCurrentSprite();
+		//
 	}
-	// I need to actually put things together into a JPanel
-	class DrawCanvas extends JPanel{
-		// why do I need this override here?
+	
+//Well it seems all of my problems stemmed from having the override in another class....
+// It seems that the paint Component only works correctly in full screen, otherwise it draws strangely.
 		@Override
 		public void paintComponent (Graphics g) {
 			super.paintComponent(g);
-		//	levelMap.draw(g);
-			animation.draw(g);
-		}
-		
-	}
+			plat = levelMap.getPlat();
+			Graphics2D g2 = (Graphics2D) g.create();
+			for (Rectangle next: plat) {
+				// added fillRect and set color 
+				g2.setColor( new Color (130, 87, 27));
+				g2.fill(next);
+				g2.draw(next);
+				}
+			animation.draw(g2);
+			
+			}
 	
 }
