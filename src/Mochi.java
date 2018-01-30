@@ -95,9 +95,6 @@ public class Mochi {
 		public float getY() {
 			return this.y;
 		}
-	public Mochi () {
-		// and it totally works. I could probably just delete everything above in the other two keep them all together etc and it would work.
-	}
 	// I cannot for the life of me figure out why this below inertia method does nothing.. it works just fine when built in the Animation Class!!
 
 	public void inertia () {
