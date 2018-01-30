@@ -24,10 +24,14 @@ public class DogLogic extends JPanel {
 		plat = levelMap.getPlat();
 		JPanel testPain = new JPanel();
 		JLabel testLabel = new JLabel(Integer.toString(plat.size()));
-		JLabel testLabel2= new JLabel (Integer.toString(animation.aniTime));
+		JLabel testLabel2= new JLabel (Integer.toString((int)mochi.getX()));
+		JLabel tl3 = new JLabel (Integer.toString((int) mochi.getY()));
+		JLabel tl4 = new JLabel (Integer.toString((int) mochi.getSpeedY()));
 		testPain.add(testLabel, BorderLayout.NORTH);
 		testPain.add(testLabel2, BorderLayout.SOUTH);
-		testPain.add(mochi.mochiC);
+		testPain.add(mochi.MochiL);
+		testPain.add(tl3);
+		testPain.add(tl4);
 		
 		//testPain.setPreferredSize(new Dimension(600,600));
 		add (testPain);
@@ -64,6 +68,8 @@ public class DogLogic extends JPanel {
 	public void gameUpdate () {
 		// theoretically I should just have to add the setCurrentSprite method here and I should get animation:
 		animation.setCurrentSprite();
+		// hmm what am I missing here... Animations work, but there is no movement, not even gravity...
+		mochi.boundaryRules();
 		//
 	}
 	
