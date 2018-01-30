@@ -24,7 +24,7 @@ import java.util.Timer;
 
 public class Mochi {
 	
-// we need the variables for mochi
+// we need the variables for mochi 
 	private float x = 5;
 	private float y = 5;
 // may want to include a cap to speeds here.
@@ -77,9 +77,7 @@ public class Mochi {
 // ***** Remember to assign a value to sW (spriteWidth) and sH (spriteHeight)
 
 	
-// Rectangles do not count as a JComponent, so let's change the below to MochiC
-	InputMap im = mochiC.getInputMap(JPanel.WHEN_IN_FOCUSED_WINDOW);
-	ActionMap am = mochiC.getActionMap();
+
 // Okay that is working, now I'll need to link the Rectangle to the Component
 
 // This is a good example of a getter, and it is necessary for the animation class to work
@@ -136,7 +134,11 @@ public class Mochi {
 		}
 		
 	}
-// okay here goes the keybinding:
+
+	// Rectangles do not count as a JComponent, so let's change the below to MochiC
+		InputMap im = mochiC.getInputMap(JPanel.WHEN_IN_FOCUSED_WINDOW);
+		ActionMap am = mochiC.getActionMap();	
+	// okay here goes the keybinding:
 // let's put them in a public method
 	public void keyInputs () {
 		// How would this work if I moved "im" to another class?
