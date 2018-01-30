@@ -25,11 +25,11 @@ import java.util.Timer;
 public class Mochi {
 	
 // we need the variables for mochi
-	private float x;
-	private float y;
+	private float x = 5;
+	private float y = 5;
 // may want to include a cap to speeds here.
-	private float speedX;
-	private float speedY;
+	private float speedX = 0;
+	private float speedY = -3;
 // might as well make a gravity value, i'll set it to -5, find that -3 is actually a better speed with a refresh rate of 30.
 	private float gravity = -3;	
 // since he isn't a ball, we will need the sprite's height and width as well (right now the sprite is 14 px tall and 21 px wide)
@@ -70,10 +70,10 @@ public class Mochi {
  	JComponent mochiC;
 // so the above mochi is a rectangle, now I'm going to create lines around the rectangle which will act as the boundary
 // interface
-	Line2D.Float mRight = new Line2D.Float(x, y+sW, x+sH, y+sW);
-	Line2D.Float mLeft = new Line2D.Float(x, y, x+sH, y);
-	Line2D.Float mTop = new Line2D.Float(x,y,x,y+sW);
-	Line2D.Float mBottom = new Line2D.Float(x+sH, y, x+sH, y+sW);
+	Line2D.Float mright = new Line2D.Float(x, y+sW, x+sH, y+sW);
+	Line2D.Float mleft = new Line2D.Float(x, y, x+sH, y);
+	Line2D.Float mtop = new Line2D.Float(x,y,x,y+sW);
+	Line2D.Float mbottom = new Line2D.Float(x+sH, y, x+sH, y+sW);
 // ***** Remember to assign a value to sW (spriteWidth) and sH (spriteHeight)
 
 	
@@ -90,19 +90,13 @@ public class Mochi {
 		public float getX() {
 			return this.x;
 		}
-	// creating this empty Mochi constructor for the purpose of just getting everything if I need it
+		public float getY() {
+			return this.y;
+		}
 	public Mochi () {
 		// and it totally works. I could probably just delete everything above in the other two keep them all together etc and it would work.
 	}
 
-// okay what do we still need in this class?
-// we need boundry detection
-	// okay, I've created objects in the levelMap class with values for boundary detection. If I can pull these values
-	// in this class I can set rules here for boundaries.
-	// this https://stackoverflow.com/questions/2126714/java-get-all-variable-names-in-a-class may help!
-	// If I can get this to work I'll level up.
-
-// Let's get rid of the arguments for this method. This should work better.
 	public void boundaryRules () {
 		// let's apply inertia here:
 		y = y+speedY;
@@ -120,17 +114,17 @@ public class Mochi {
 			// okay so I have to write a few more if statements here:
 			// I need to determine if the collision happened from above or below,
 			// or from left or from the right. 
-				if (mRight.intersects(p1)) {
+				if (mright.intersects(p1)) {
 					y = p1.y - sW;
 				// I like getting to use basic algebra in real life.
 				} 
-				else if (mLeft.intersects(p1)) {
+				else if (mleft.intersects(p1)) {
 					y = p1.y +p1.width;
 				}
-				else if (mTop.intersects(p1)) {
+				else if (mtop.intersects(p1)) {
 					x = p1.x+ p1.height;
 				}
-				else if (mBottom.intersects(p1)) {
+				else if (mbottom.intersects(p1)) {
 					x = p1.x - sH;
 					// going to always set JumpChu to false whenever this intersection happens
 					jumpChu = false;
@@ -144,7 +138,6 @@ public class Mochi {
 	}
 // okay here goes the keybinding:
 // let's put them in a public method
-// make sure you call on this, or nothing will happen with it!
 	public void keyInputs () {
 		// How would this work if I moved "im" to another class?
 		im.put(KeyStroke.getKeyStroke("RIGHT"), "MoveRightAct");
