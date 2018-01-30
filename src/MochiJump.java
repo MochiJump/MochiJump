@@ -5,11 +5,8 @@ import java.awt.Dimension;
 import javax.swing.*;
 
 
-// Okay so the issue I'm currently having is with adding a JComponent. Currently adding one and using keybindings is not allowing
-// the program to compile. I'll move that portion of the code to test class to try to get it to work.
-
-// for simplicties sake I'm going to try to get key bindings working in GuiTest first
-
+// Currently seems like boundaryRules doesn't do anything. SpeedY is not added to Y, nothing seems to happen at all. I'm not sure
+// what would cause this..
 
 public class MochiJump {
 
