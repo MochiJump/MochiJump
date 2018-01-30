@@ -5,9 +5,8 @@ import java.awt.Dimension;
 import javax.swing.*;
 
 
-//The resting, walking, falling, and jumping animations now work. Now I need to figure out how to link keybinding to actionmap to
-// a swing component without moving a bunch of code from Mochi class to (ultimately) the DogLogic class where the JPanel code
-// is housed.
+// Okay so the issue I'm currently having is with adding a JComponent. Currently adding one and using keybindings is not allowing
+// the program to compile. I'll move that portion of the code to test class to try to get it to work.
 
 // for simplicties sake I'm going to try to get key bindings working in GuiTest first
 
