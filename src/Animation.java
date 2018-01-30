@@ -1,5 +1,5 @@
 import java.awt.*;
-import java.awt.Image;
+
 import javax.swing.ImageIcon;
 
 // okay unless I have to do something special for time I think I'm done here
@@ -9,129 +9,166 @@ import javax.swing.ImageIcon;
 // animation class
 public class Animation {
 	// this is the resting mochi sprite:
-		Image ms = new ImageIcon("mochirs.png").getImage();
-	// now let's do the reverse for when he faces the other way;
-		Image msr = new ImageIcon("mochirsr.png").getImage();
+	Image ms = new ImageIcon("mochirs.png").getImage();
+// now let's do the reverse for when he faces the other way;
+	Image msr = new ImageIcon("mochirsr.png").getImage();
 
-	// okay let's import the walking image to splice in the middle so he looks like he's walking:
-		Image mws = new ImageIcon("mochiws.png").getImage();
-		
-	// and the reverse
-		Image mwsr = new ImageIcon ("mochiwsr.png").getImage();
+// okay let's import the walking image to splice in the middle so he looks like he's walking:
+	Image mws = new ImageIcon("mochiws.png").getImage();
+	
+// and the reverse
+	Image mwsr = new ImageIcon ("mochiwsr.png").getImage();
 
-	// and lastly the three images for the jump cycle
-		Image mjc1 = new ImageIcon("mochijs1.png").getImage();
-		Image mjc2 = new ImageIcon ("mochijs2.png").getImage();
-		Image mjc3 = new ImageIcon ("mochijs3.pgn").getImage();
+// and lastly the three images for the jump cycle
+	Image mjc1 = new ImageIcon ("mochijs1.png").getImage();
+	Image mjc2 = new ImageIcon ("mochijs2.png").getImage();
+	Image mjc3 = new ImageIcon ("mochijs3.png").getImage();
 
-	// and the reverse
-		Image mjc1r = new ImageIcon("mochijs1r.png").getImage();
-		Image mjc2r = new ImageIcon ("mochijs2r.png").getImage();
-		Image mjc3r = new ImageIcon ("mochijs3r.pgn").getImage();
+// and the reverse
+	Image mjc1r = new ImageIcon ("mochijs1r.png").getImage();
+	Image mjc2r = new ImageIcon ("mochijs2r.png").getImage();
+	Image mjc3r = new ImageIcon ("mochijs3r.png").getImage();
+
+	// I've got all of these actual images in here, however, I don't have a variable to hold them in.
+	Image currentSprite;
+	
+// setting this manually too:
+	
+	int aniTime = 1;
+	int x = 5;
+	int y = 5;
+	int sW = 21;
+	int sH = 14;
+
+
+// This is a setter for Mochi's state. I don't think anything in the class needs this. I also don't have the appropriate arguments
+// in the method to do anything with it. This was made before I actually understood how setters work.
+//	private void setMochiState(Mochi Mochi){
+//		Mochi.mochi.x = x;
+//		Mochi.mochi.y = y;
+//		Mochi.mochi.height = sH;
+//		Mochi.mochi.width=sW;
+//		Mochi.mRestR = mRestR;
+//		Mochi.mRestL = mRestL;
+//		Mochi.mRunR = mRunR;
+//		Mochi.mRunL= mRunL;
+//		Mochi.mJumpR = mJumpR;
+//		Mochi.mJumpL = mJumpL;
+//	}
+	
+// For now I'm just going to manually set all of the variables I need to see if I can get this to work.
+// Currently set for only run condition to be true.	
+//	Mochi mochi = new Mochi ();
+	int speedY = 3;
+	boolean mRestR = false;
+	boolean mRestL = false;
+	boolean mRunR = false;
+	boolean mRunL = false;
+	boolean mJumpR = true;
+	boolean mJumpL = false;
+	
+	// this belongs in mochi class, but I'm putting it here now for testing purposes:
+	public void gravity() {
+		//I'll add a little demo here
+		if (y < 500-14) {
+		y = speedY + y;
+		}
+		if (y >= 500-14) {
+			mJumpR = false;
+			mRunR = true;
+			x = x+3;
+		// very simple, the actual rules for everything are in the mochi class!
+		}
+	}
 	
 
-		// do I need to do something special for a time variable? Nope we're using speedY here
-		// darn, it works for the jump but I still need a variable that switches back and forth for the run animation
-		int aniTime;
-		int x;
-		int y;
-		int sW;
-		int sH;
-
-
-// I can fix the problem below by setting and getting rectangle mochi and then using the getBounds to set the variables here.
-// however if I do that I'm not sure that the state booleans will be updated.
-		private void setMochiState(Mochi Mochi){
-// the fact that it says that the above method is not used is concerning to me
-			Mochi.mochi.x = x;
-			Mochi.mochi.y = y;
-			Mochi.mochi.height = sH;
-			Mochi.mochi.width=sW;
-			Mochi.mRestR = mRestR;
-			Mochi.mRestL = mRestL;
-			Mochi.mRunR = mRunR;
-			Mochi.mRunL= mRunL;
-			Mochi.mJumpR = mJumpR;
-			Mochi.mJumpL = mJumpL;
+	public void draw (Graphics g) {
+		Graphics2D g2 = (Graphics2D) g.create();
+		g2.setClip(x, y, sW, sH);
+		g2.drawImage(currentSprite, x, y, sW, sH, null);
+	}
+	
+	// okay now I just need something to call on this code and I'm feeling that it should be a thread...
+	public void setCurrentSprite (){
+		if (mRestR == true) {
+			currentSprite = ms;
 		}
-		
-// hmm this won't get me access the variable speedY from class Mochi
-// created a getter specifically for it and also setting the boolean states for mochi here.
-		Mochi mochi = new Mochi ();
-		float speedY = mochi.getSpeedY();
-		boolean mRestR = mochi.mRestR;
-		boolean mRestL = mochi.mRestL;
-		boolean mRunR = mochi.mRunR;
-		boolean mRunL = mochi.mRunL;
-		boolean mJumpR = mochi.mJumpR;
-		boolean mJumpL = mochi.mJumpL;
-// boom it worked. Now remember how to do it so you stop pulling your hair out!
-		
-// changing this from paint to draw and then calling it in the DogLogic class works!
-		public void draw (Graphics g) {
-			Graphics2D g2 = (Graphics2D) g.create();
-			g2.setClip(x, y, sW, sW);
-			if (mRestR = true) {
-				g2.drawImage(ms, x, y, sW, sH,null);
+		if (mRestL == true) {
+			currentSprite = msr;
+		}
+		if (mRunR == true) {
+			// can I leave this as an if statement? will that work? is it better that way as a while statement could get stuck?
+			// would a while statement get stuck?
+			if (aniTime <= 5) {
+				currentSprite = mws;
+				aniTime ++;
+			}else if (aniTime <= 10) {
+				currentSprite = ms;
+				aniTime++;
+			}else  {
+				aniTime = 1;
 			}
-			if (mRestL = true) {
-				g2.drawImage(msr,x, y, sW, sH,null);
+		}
+		// why does this at least run when mRunL is set to true, but mRunR causes everything to lock up?
+		// why is it only the
+		// unless all three while statements are present nothing is painted, and then only the msr image is called... so strange
+		// adding a new local variable here also does nothing to change the situation.
+		// the crazy part is the wrong the sprite is what is shown when I try to run this, its the msr that is drawn not the mwsr...
+		if (mRunL== true) {
+			if (aniTime <= 5) {  
+				currentSprite = mwsr;
+				aniTime ++;
 			}
-			if (mRunR=true) {
-				aniTime = 0;
-				// change the aniTime value below to control speed of animation
-				while (aniTime == 0) {
-					g2.drawImage(mws,x, y, sW, sH,null);
-					aniTime ++;
-				}while (aniTime == 1) {
-					g2.drawImage(ms, x, y, sW, sH,null);
-					aniTime = 0;
-					// ok I think I'm on the right path today was a long day I'm going to call it here 1/5  20:10
-				}
+			else if (aniTime <= 10) {
+				currentSprite = msr;
+				aniTime ++;
+			} 
+			else{
+				aniTime = 1;
 			}
-			if (mRunL= true) {
-				aniTime =0;
-				while (aniTime %2 == 0) {
-					g2.drawImage(mws,x, y, sW, sH,null);
-					aniTime ++;
-				}while (aniTime %2 != 0) {
-					g2.drawImage(ms, x, y, sW, sH,null);
-					aniTime ++;
-				}
-			
-			}	
-			// considering adding multiple conditions to allow the sprite to flip mid jump
-			// i.e. if (mJumpR = true && mRunL = false) etc.
-			if (mJumpR = true) {
+				
+			}
+		// okay let's add the jump animations here:
+			if (mJumpR == true) {
 				// this should be done via y speed instead of a timer
-				 while (speedY > 0) {
-					 g2.drawImage(mjc1,x,y,sW,sH,null);
-					 aniTime ++;
+				 if (speedY < 0) {
+					 currentSprite = mjc1;
 				 }
-				 while (speedY == 0) {
-					 g2.drawImage(mjc2,x,y,sW,sH, null);
+				 else if (speedY == 0) {
+					 currentSprite = mjc2;
 				 // maybe could add if else statement here to allow mochi to switch directions during jump
 				 }
-				 while (speedY < 0) {
-					 g2.drawImage(mjc3,x,y,sW,sH, null);
+				 else if (speedY > 0){
+					 currentSprite = mjc3;
 				 }
+				 else {
+						System.out.println("something has gone wrong");
+					}
 			}
-			if (mJumpL = true) {
-				// I'm going to code this for a half second loop
-				while (speedY > 0) {
-					 g2.drawImage(mjc1r,x,y,sW,sH,null);
-					 aniTime ++;
+			// I have no idea why but the animation disappears when mJumpL is set to true and speedY is set to anything but
+			// 0
+			if (mJumpL == true) {
+				// remeber y is inverted in java
+				if (speedY < 0 ) {
+					currentSprite = mjc1r;
 				 }
-				while (speedY == 0) {
-					 g2.drawImage(mjc2r,x,y,sW,sH, null);
+				else if (speedY == 0) {
+					currentSprite = mjc2r;
 				 // maybe could add if else statement here to allow mochi to switch directions during jump
 				 }
-				 while (speedY < 0) {
-					 g2.drawImage(mjc3r,x,y,sW,sH, null);
+				else if (speedY > 0) {
+					
+					 currentSprite = mjc3r;
 				 }
+				else {
+					System.out.println("something has gone wrong");
+				}
+				
 			}
 		
-		}
-
-
+		}	
+	
 }
+
+
+// forgot to use == instead of = in if statements. there is a a better way of declaring this.
