@@ -29,10 +29,9 @@ public class DogLogic extends JPanel {
 		JLabel tl4 = new JLabel (Integer.toString((int) mochi.getSpeedY()));
 		testPain.add(testLabel, BorderLayout.NORTH);
 		testPain.add(testLabel2, BorderLayout.SOUTH);
-		testPain.add(mochi.MochiL);
+//		testPain.add(mochi.MochiL);
 		testPain.add(tl3);
 		testPain.add(tl4);
-		
 		//testPain.setPreferredSize(new Dimension(600,600));
 		add (testPain);
 		
@@ -68,9 +67,8 @@ public class DogLogic extends JPanel {
 	public void gameUpdate () {
 		// theoretically I should just have to add the setCurrentSprite method here and I should get animation:
 		animation.setCurrentSprite();
-		// hmm what am I missing here... Animations work, but there is no movement, not even gravity...
-		mochi.boundaryRules();
-		//
+		// hmm what am I missing here... Animations work, but there is no x or y movement... I'm really stumped. 
+		mochi.inertia();
 	}
 	
 //Well it seems all of my problems stemmed from having the override in another class....
