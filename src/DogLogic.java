@@ -16,6 +16,7 @@ public class DogLogic extends JPanel {
 	ArrayList <Rectangle> plat = new ArrayList<Rectangle>();
 	//Animation animtion = new Animation(); <-- changing this to TC2:
 	Animation animation = new Animation();
+	Mochi mochi = new Mochi();
 	int refreshRate = 30;
 
 	
@@ -26,6 +27,7 @@ public class DogLogic extends JPanel {
 		JLabel testLabel2= new JLabel (Integer.toString(animation.aniTime));
 		testPain.add(testLabel, BorderLayout.NORTH);
 		testPain.add(testLabel2, BorderLayout.SOUTH);
+		testPain.add(mochi.mochiC);
 		
 		//testPain.setPreferredSize(new Dimension(600,600));
 		add (testPain);
