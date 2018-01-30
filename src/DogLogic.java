@@ -67,8 +67,9 @@ public class DogLogic extends JPanel {
 	public void gameUpdate () {
 		// theoretically I should just have to add the setCurrentSprite method here and I should get animation:
 		animation.setCurrentSprite();
-		// hmm what am I missing here... Animations work, but there is no x or y movement... I'm really stumped. 
 		mochi.inertia();
+		// Java is pass by value I need to update the variables in animation via their own method
+		animation.AniVarUpdate();
 	}
 	
 //Well it seems all of my problems stemmed from having the override in another class....
