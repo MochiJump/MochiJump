@@ -2,11 +2,6 @@ import java.awt.*;
 
 import javax.swing.ImageIcon;
 
-// okay unless I have to do something special for time I think I'm done here
-// yeah it looks like I will need a timer. maybe I can use java.util timer
-// https://stackoverflow.com/questions/23095690/how-to-use-java-util-timer
-
-// animation class
 public class Animation {
 	// this is the resting mochi sprite:
 	Image ms = new ImageIcon("mochirs.png").getImage();
@@ -19,53 +14,33 @@ public class Animation {
 // and the reverse
 	Image mwsr = new ImageIcon ("mochiwsr.png").getImage();
 
-// and lastly the three images for the jump cycle
+
 	Image mjc1 = new ImageIcon ("mochijs1.png").getImage();
 	Image mjc2 = new ImageIcon ("mochijs2.png").getImage();
 	Image mjc3 = new ImageIcon ("mochijs3.png").getImage();
 
-// and the reverse
 	Image mjc1r = new ImageIcon ("mochijs1r.png").getImage();
 	Image mjc2r = new ImageIcon ("mochijs2r.png").getImage();
 	Image mjc3r = new ImageIcon ("mochijs3r.png").getImage();
 
-	// I've got all of these actual images in here, however, I don't have a variable to hold them in.
 	Image currentSprite;
-	
-// setting this manually too:
-	
+		
 	int aniTime = 1;
-	int x = 5;
-	int y = 5;
 	int sW = 21;
 	int sH = 14;
+	Mochi mochi = new Mochi();
+	int x = (int) mochi.getX();
+	int y = (int) mochi.getY();
 
 
-// This is a setter for Mochi's state. I don't think anything in the class needs this. I also don't have the appropriate arguments
-// in the method to do anything with it. This was made before I actually understood how setters work.
-//	private void setMochiState(Mochi Mochi){
-//		Mochi.mochi.x = x;
-//		Mochi.mochi.y = y;
-//		Mochi.mochi.height = sH;
-//		Mochi.mochi.width=sW;
-//		Mochi.mRestR = mRestR;
-//		Mochi.mRestL = mRestL;
-//		Mochi.mRunR = mRunR;
-//		Mochi.mRunL= mRunL;
-//		Mochi.mJumpR = mJumpR;
-//		Mochi.mJumpL = mJumpL;
-//	}
-	
-// For now I'm just going to manually set all of the variables I need to see if I can get this to work.
-// Currently set for only run condition to be true.	
-//	Mochi mochi = new Mochi ();
-	int speedY = 3;
-	boolean mRestR = false;
-	boolean mRestL = false;
-	boolean mRunR = false;
-	boolean mRunL = false;
-	boolean mJumpR = true;
-	boolean mJumpL = false;
+
+	int speedY = (int) mochi.getSpeedY();
+	boolean mRestR = mochi.mRestR;
+	boolean mRestL = mochi.mRestL;
+	boolean mRunR = mochi.mRunR;
+	boolean mRunL = mochi.mRunL;
+	boolean mJumpR = mochi.mJumpR;
+	boolean mJumpL = mochi.mJumpL;
 	
 	// this belongs in mochi class, but I'm putting it here now for testing purposes:
 	public void gravity() {
