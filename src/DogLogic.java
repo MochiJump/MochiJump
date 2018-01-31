@@ -69,7 +69,7 @@ public class DogLogic extends JPanel {
 		animation.setCurrentSprite();
 		mochi.inertia();
 		// Java is pass by value I need to update the variables in animation via their own method
-		animation.AniVarUpdate();
+		animation.AniVarUpdate(this.mochi);
 	}
 	
 //Well it seems all of my problems stemmed from having the override in another class....
