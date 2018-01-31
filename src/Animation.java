@@ -52,6 +52,7 @@ public class Animation {
 	}
 	
 	// check to see if the method below needs the argument (Mochi mochi)... turns out you do. Research why!
+	// would the below work if there was no parameter, but the "Mochi mochi = new Mochi()" was inside the method?
 	public void AniVarUpdate (Mochi mochi) {
 		x = (int) mochi.getX();
 		y = (int) mochi.getY();
