@@ -67,7 +67,9 @@ public class DogLogic extends JPanel {
 	public void gameUpdate () {
 		// theoretically I should just have to add the setCurrentSprite method here and I should get animation:
 		animation.setCurrentSprite();
-		mochi.inertia();
+		// okay i think it's time to try out boundary rules
+		// mochi.inertia();
+		
 		// Java is pass by value I need to update the variables in animation via their own method
 		animation.AniVarUpdate(this.mochi);
 	}
