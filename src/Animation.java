@@ -57,6 +57,12 @@ public class Animation {
 		int y = (int) mochi.getY();
 		int speedY = (int) mochi.getSpeedY();
 		int speedX = (int) mochi.getSpeedX();
+		boolean mRestR = mochi.mRestR;
+		boolean mRestL = mochi.mRestL;
+		boolean mRunR = mochi.mRunR;
+		boolean mRunL = mochi.mRunL;
+		boolean mJumpR = mochi.mJumpR;
+		boolean mJumpL = mochi.mJumpL;
 	}
 	
 
