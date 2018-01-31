@@ -51,18 +51,18 @@ public class Animation {
 		x = speedX+x;
 	}
 	
-	// check to see if the method below needs the argument (Mochi mochi)
-	public void AniVarUpdate () {
-		int x = (int) mochi.getX();
-		int y = (int) mochi.getY();
-		int speedY = (int) mochi.getSpeedY();
-		int speedX = (int) mochi.getSpeedX();
-		boolean mRestR = mochi.mRestR;
-		boolean mRestL = mochi.mRestL;
-		boolean mRunR = mochi.mRunR;
-		boolean mRunL = mochi.mRunL;
-		boolean mJumpR = mochi.mJumpR;
-		boolean mJumpL = mochi.mJumpL;
+	// check to see if the method below needs the argument (Mochi mochi)... turns out you do. Research why!
+	public void AniVarUpdate (Mochi mochi) {
+		x = (int) mochi.getX();
+		y = (int) mochi.getY();
+		speedY = (int) mochi.getSpeedY();
+		speedX = (int) mochi.getSpeedX();
+		mRestR = mochi.mRestR;
+		mRestL = mochi.mRestL;
+		mRunR = mochi.mRunR;
+		mRunL = mochi.mRunL;
+		mJumpR = mochi.mJumpR;
+		mJumpL = mochi.mJumpL;
 	}
 	
 
