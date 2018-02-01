@@ -108,7 +108,7 @@ public class Mochi {
 			mbottom.setLine(x, y+sH, x+sW, y+sH);
 			mochi.setRect((int)(x), (int)(y), (int)(sH), (int)(sW));
 		}
-	// perhaps this method needs parameters in it or it will only update once.
+	// Collision detection happens here
 	public void boundaryRules () {
 		// let's apply inertia here:
 		y = speedY+y;
@@ -139,6 +139,8 @@ public class Mochi {
 					x = p1.x+ p1.height;
 				}
 				else if (mbottom.intersects(p1)) {
+					// I'm thinking this should be an independant method that is called after this if statement
+					// heard that many nested if statements is bad coding practice.
 					// I've got crazy jittering happening when boundary collision is detected
 					x = p1.x - sH;
 					// going to always set JumpChu to false whenever this intersection happens
@@ -149,15 +151,13 @@ public class Mochi {
 						speedY = 0;
 					}
 				}
-				// and that should do it for the bounds! Mochi should not jump around at rest
-				// or move through the platforms. easy day today done 01/04/2018
-// *note* you can use this method for enemies, powerups, etc!			
+							
 			}
 		}
 		
 	}
 
-// okay I think I need to initialize the JComponent properly
+// from here below is collision detection:
 
 		JLabel MochiL = new JLabel();
 
