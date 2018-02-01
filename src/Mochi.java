@@ -71,7 +71,8 @@ public class Mochi {
 // so the above mochi is a rectangle, now I'm going to create lines around the rectangle which will act as the boundary
 // interface
  	
- 	// or perhaps this needs to be in a method in order for it to be called more than once? lets try it
+ 	// or perhaps this needs to be in a method in order for it to be called more than once? It does work but I got a
+ 	// nullpoint error when I removed the value i.e. just had it Line mright;
 	Line2D.Float mright = new Line2D.Float(x+sW, y, x+sW, y+sH);
 	Line2D.Float mleft = new Line2D.Float(x, y, x, y+sH);
 	Line2D.Float mtop = new Line2D.Float(x,y,x+sW,y);
