@@ -33,14 +33,14 @@ public class Mochi {
 // might as well make a gravity value, i'll set it to -5, find that -3 is actually a better speed with a refresh rate of 30.
 	private float gravity = 3;	
 // since he isn't a ball, we will need the sprite's height and width as well (right now the sprite is 14 px tall and 21 px wide)
-	private float sH;
-	private float sW;
+	private float sH = 14;
+	private float sW = 21;
 // I'm thinking I'll include boolan variables to indicate which animation to run!
 	boolean mRestR;
 	boolean mRestL;
-	boolean mRunR = true;
+	boolean mRunR;
 	boolean mRunL;
-	boolean mJumpR;
+	boolean mJumpR = true;
 	boolean mJumpL;
 // looks like I never create a reference variable to LevelMap here, let's fix that:
 	LevelMap levelMap = new LevelMap();
@@ -66,14 +66,16 @@ public class Mochi {
 	private Action RestRight;
 	private Action RestLeft;
 	
- 	Rectangle mochi = new Rectangle ((int)(x), (int)(y), (int)(sH), (int)(sW));
+ 	Rectangle mochi = new Rectangle((int)(x), (int)(y), (int)(sH), (int)(sW));
 // 	JComponent mochiC;
 // so the above mochi is a rectangle, now I'm going to create lines around the rectangle which will act as the boundary
 // interface
-	Line2D.Float mright = new Line2D.Float(x, y+sW, x+sH, y+sW);
-	Line2D.Float mleft = new Line2D.Float(x, y, x+sH, y);
-	Line2D.Float mtop = new Line2D.Float(x,y,x,y+sW);
-	Line2D.Float mbottom = new Line2D.Float(x+sH, y, x+sH, y+sW);
+ 	
+ 	// or perhaps this needs to be in a method in order for it to be called more than once? lets try it
+	Line2D.Float mright = new Line2D.Float(x+sW, y, x+sW, y+sH);
+	Line2D.Float mleft = new Line2D.Float(x, y, x, y+sH);
+	Line2D.Float mtop = new Line2D.Float(x,y,x+sW,y);
+	Line2D.Float mbottom = new Line2D.Float(x, y+sH, x+sW, y+sH);
 // ***** Remember to assign a value to sW (spriteWidth) and sH (spriteHeight)
 
 	
@@ -95,20 +97,26 @@ public class Mochi {
 		public float getY() {
 			return this.y;
 		}
-	// I cannot for the life of me figure out why this below inertia method does nothing.. it works just fine when built in the Animation Class!!
-
-	public void inertia () {
-		y = speedY+y;
-		x= speedX+x;
-	}
-	
+// let see if putting this in a method and then calling that method inside boundaryRules updates it.
+// okay that didn't fix it. wait maybe we need to add the rectangle mochi in here:
+// I think I'm on the right track but I've got a nullPointerException when i try to run this now.
+		public void mBoundaries () {
+			mright.setLine(x+sW, y, x+sW, y+sH);
+			mleft.setLine(x, y, x, y+sH);
+			mtop.setLine(x,y,x+sW,y);
+			mbottom.setLine(x, y+sH, x+sW, y+sH);
+			mochi.setRect((int)(x), (int)(y), (int)(sH), (int)(sW));
+		}
+	// perhaps this method needs parameters in it or it will only update once.
 	public void boundaryRules () {
 		// let's apply inertia here:
 		y = speedY+y;
 		x = x+speedX;
+		mBoundaries();
 		// review the below code
 		ArrayList<Rectangle> platlist = levelMap.getPlat();
 		for (Rectangle next: platlist) {
+			// I tried remove.getBounds below no change.
 			Rectangle p1 = next.getBounds();
 			// in order to use intersection we need to create mochi as a rectangle at the top
 			// 
@@ -130,9 +138,15 @@ public class Mochi {
 					x = p1.x+ p1.height;
 				}
 				else if (mbottom.intersects(p1)) {
+					// I've got crazy jittering happening when boundary collision is detected
 					x = p1.x - sH;
 					// going to always set JumpChu to false whenever this intersection happens
 					jumpChu = false;
+					// while statement below didn't work trying if statement to stop jittering, the below isn't working either
+					// perhaps I need an outside method that turns gravity off.
+					if (jumpChu = false) {
+						speedY = 0;
+					}
 				}
 				// and that should do it for the bounds! Mochi should not jump around at rest
 				// or move through the platforms. easy day today done 01/04/2018
