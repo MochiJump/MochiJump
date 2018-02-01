@@ -95,19 +95,24 @@ public class Mochi {
 	public float getX() {
 			return this.x;
 		}
-		public float getY() {
+	public float getY() {
 			return this.y;
 		}
 // let see if putting this in a method and then calling that method inside boundaryRules updates it.
 // okay that didn't fix it. wait maybe we need to add the rectangle mochi in here:
 // I think I'm on the right track but I've got a nullPointerException when i try to run this now.
-		public void mBoundaries () {
+	public void mBoundaries () {
 			mright.setLine(x+sW, y, x+sW, y+sH);
 			mleft.setLine(x, y, x, y+sH);
 			mtop.setLine(x,y,x+sW,y);
 			mbottom.setLine(x, y+sH, x+sW, y+sH);
 			mochi.setRect((int)(x), (int)(y), (int)(sH), (int)(sW));
 		}
+	//let's try something like this
+	public void landing (){
+		// do I need to get the x values from the arrayList, no.. I don't think so?
+		
+	}
 	// Collision detection happens here
 	public void boundaryRules () {
 		// let's apply inertia here:
@@ -148,7 +153,7 @@ public class Mochi {
 					// while statement below didn't work trying if statement to stop jittering, the below isn't working either
 					// perhaps I need an outside method that turns gravity off.
 					if (jumpChu = false) {
-						speedY = 0;
+						landing();
 					}
 				}
 							
