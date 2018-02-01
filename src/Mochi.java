@@ -152,7 +152,7 @@ public class Mochi {
 					jumpChu = false;
 					// while statement below didn't work trying if statement to stop jittering, the below isn't working either
 					// perhaps I need an outside method that turns gravity off.
-					if (jumpChu = false) {
+					if (jumpChu == false) {
 						landing();
 					}
 				}
