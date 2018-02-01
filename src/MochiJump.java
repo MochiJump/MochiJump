@@ -5,8 +5,7 @@ import java.awt.Dimension;
 import javax.swing.*;
 
 
-// Currently seems like boundaryRules doesn't do anything. SpeedY is not added to Y, nothing seems to happen at all. I'm not sure
-// what would cause this..
+// Working on collision detection. Right now when Mochi hits a platform he jitters around, trying to eliminate that.
 
 public class MochiJump {
 
