@@ -176,9 +176,9 @@ public class Mochi {
 		
 	}
 
-// from here below is collision detection:
+// from here below is key binding, the idea of just adding a JLabel did not work.
 
-		JLabel MochiL = new JLabel();
+		JLabel MochiL = new JLabel("Test");
 
 		InputMap im = MochiL.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
 		ActionMap am = MochiL.getActionMap();	
