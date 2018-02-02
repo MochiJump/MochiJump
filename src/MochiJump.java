@@ -5,7 +5,9 @@ import java.awt.Dimension;
 import javax.swing.*;
 
 
-// Working on collision detection. Right now when Mochi hits a platform he jitters around, trying to eliminate that.
+// Platform creation, animation, and collision are all working. The last step is keybindings. I'm attempting to use swing's KeyBinding
+// and ActionMaps for this purpose. Using AWT's key listener would be easier, however, I want to understand how swimg's KeyBinding
+// works.
 
 public class MochiJump {
 
