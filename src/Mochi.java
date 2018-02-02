@@ -98,24 +98,37 @@ public class Mochi {
 	public float getY() {
 			return this.y;
 		}
+	public void setSpeedY(float sY) {
+		speedY = sY;
+	}
 // let see if putting this in a method and then calling that method inside boundaryRules updates it.
 // okay that didn't fix it. wait maybe we need to add the rectangle mochi in here:
 // I think I'm on the right track but I've got a nullPointerException when i try to run this now.
 	public void mBoundaries () {
-			mright.setLine(x+sW, y, x+sW, y+sH);
-			mleft.setLine(x, y, x, y+sH);
-			mtop.setLine(x,y,x+sW,y);
-			mbottom.setLine(x, y+sH, x+sW, y+sH);
+		// the y axis here needs to be trimmed for the right and left or the intersection will always call this first!
+			mright.setLine(x+sW, y+5, x+sW, y+sH-5);
+			mleft.setLine(x, y+5, x, y+sH-5);
+			// trim the x axis here for the same effect
+			mtop.setLine(x+5,y,x+sW-5,y);
+			mbottom.setLine(x+5, y+sH, x+sW-5, y+sH);
 			mochi.setRect((int)(x), (int)(y), (int)(sH), (int)(sW));
 		}
 	//let's try something like this
 	public void landing (){
-		// do I need to get the x values from the arrayList, no.. I don't think so?
-		
+		if (mJumpR == true) {
+			setActionToFalse();
+			mRestR=true;
+		}
+		else if (mJumpL == true) {
+			setActionToFalse();
+			mRestL=true;
+		}
 	}
+	
 	// Collision detection happens here
 	public void boundaryRules () {
 		// let's apply inertia here:
+		getSpeedY();
 		y = speedY+y;
 		x = x+speedX;
 		mBoundaries();
@@ -134,20 +147,21 @@ public class Mochi {
 			// I need to determine if the collision happened from above or below,
 			// or from left or from the right. 
 				if (mright.intersects(p1)) {
-					y = p1.y - sW;
+					// because this is being called!
+					x = p1.x-sW;
 				// I like getting to use basic algebra in real life.
 				} 
 				else if (mleft.intersects(p1)) {
-					y = p1.y +p1.width;
+					x = p1.x +p1.width +1;
 				}
 				else if (mtop.intersects(p1)) {
-					x = p1.x+ p1.height;
+					y = p1.y +p1.height+y+1;
 				}
 				else if (mbottom.intersects(p1)) {
 					// I'm thinking this should be an independant method that is called after this if statement
 					// heard that many nested if statements is bad coding practice.
-					// I've got crazy jittering happening when boundary collision is detected
-					x = p1.x - sH;
+					// hmm looks like changing these parameters does nothing
+					y = p1.y-sH;
 					// going to always set JumpChu to false whenever this intersection happens
 					jumpChu = false;
 					// while statement below didn't work trying if statement to stop jittering, the below isn't working either
