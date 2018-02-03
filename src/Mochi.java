@@ -55,12 +55,34 @@ public class Mochi {
 	}
 	public void setMochiSpeedY(float speedY){
 		this.speedY = speedY;
-	} // that should do it for now
+	} 
+	// have to include all the boolean states as well, writing this out is longer than just including the keybindings in here
+	// if only i knew how to do it.
+	
+	public void setmRestR (boolean mRestR){
+		this.mRestR = mRestR;
+	}
+	public void setmRestL (boolean mRestL){
+		this.mRestL = mRestL;
+	}
+	public void setmRunR (boolean mRunR){
+		this.mRunR = mRunR
+	}
+	public void setmRunL (boolean mRunL){
+		this.mRunL = mRunL;
+	}
+	public void setmJumpR (boolean mJumpR){
+		this.mJumpR = mJumpR;
+	}
+	public void setmJumpL (boolean mJumpL){
+		this.mJumpL = mJumpL;
+	}
 // looks like I never create a reference variable to LevelMap here, let's fix that:
 	LevelMap levelMap = new LevelMap();
 	
 // This shouldn't be an array list it should be a method that sets all these to false
-	private void setActionToFalse () {
+// this method will need to be public if I move the keybindings to doglogic class
+	public void setActionToFalse () {
 		mRestR = false;
 		mRestL = false;
 		mRunR = false;
@@ -114,7 +136,7 @@ public class Mochi {
 		}
 	public void setSpeedY(float sY) {
 		speedY = sY;
-	}
+	} // am I using this anywhere?
 // let see if putting this in a method and then calling that method inside boundaryRules updates it.
 // okay that didn't fix it. wait maybe we need to add the rectangle mochi in here:
 // I think I'm on the right track but I've got a nullPointerException when i try to run this now.
