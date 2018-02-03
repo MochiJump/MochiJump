@@ -42,6 +42,20 @@ public class Mochi {
 	boolean mRunL;
 	boolean mJumpR = true;
 	boolean mJumpL;
+	
+	// okay in order to move the keybindings I'll need to create setters for Mochi that can be called outside this class.
+	public void setMochiX(float x){
+		this.x = x;
+	}
+	public void setMochiY (float y){
+		this.y = y;
+	}
+	public void setMochiSpeedX(float speedX){
+		this.speedX = speedX;
+	}
+	public void setMochiSpeedY(float speedY){
+		this.speedY = speedY;
+	} // that should do it for now
 // looks like I never create a reference variable to LevelMap here, let's fix that:
 	LevelMap levelMap = new LevelMap();
 	
