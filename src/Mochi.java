@@ -267,13 +267,14 @@ public class Mochi {
 	// remember Y axis is inverted!!!!
 	class JumpRightAct extends AbstractAction{
 		public void actionPerformed (ActionEvent jr) {
-			if (jumpChu = false) {
+			if (jumpChu == false) {
 				// when working with boolean this seems to be the best way to do things.
 				// do I want to use a timer here? or a counter?
 				// can always go back to a counter if this is difficult
 				long start_jump_time = System.currentTimeMillis();
 				long up_time = 500;
 				long up_time_end = start_jump_time + up_time;
+				jumpChu = true;
 					// the below should be start_jump_time instead of .currentTime (?)****
 				while (System.currentTimeMillis() < up_time_end) {
 					speedY = gravity;
@@ -297,7 +298,7 @@ public class Mochi {
 				}
 				
 			}
-			if (jumpChu = true) {
+			if (jumpChu == true) {
 			// do nothing
 			}
 		}
