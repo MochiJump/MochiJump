@@ -213,6 +213,8 @@ public class Mochi {
 	}
 
 // from here below is key binding, the idea of just adding a JLabel did not work.
+	// would changing the label below to a field, or making it public, or setting a getter for it
+	// change it's functionality at all?
 
 		JLabel MochiL = new JLabel("Test");
 
