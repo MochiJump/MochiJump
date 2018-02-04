@@ -40,6 +40,7 @@ public class Mochi {
 	boolean mRunL;
 	boolean mJumpR = true;
 	boolean mJumpL;
+	boolean uJump;
 // even as a class variable, JTime does not seem to update	
 	int jTime = 0;
 	
@@ -134,15 +135,14 @@ public class Mochi {
 		}
 	}
 	
-	// okay I'm going to try to create a method that will be called by the up arrow key, but outside the action map for it
-	// well moving this here doesn't seem to do anything, which is interesting.
-	// I'm stumped maybe this requires parameters? Don't know why this particular one would.
+	// weirdly changing from a speedY parameter to just changing the Y works just fine.
 	public void mJumpHandler () {	
 		if (jumpChu == true && jTime > 0) {
 			jTime++;
 			getJTime();
-			if (jTime <= 3) {
-				speedY = -3;
+			if (jTime <= 20) {
+				y -= 6;
+				uJump = true;
 				if (mRunR == true || mRestR == true) {
 					setActionToFalse();
 					mJumpR = true;	
@@ -152,10 +152,10 @@ public class Mochi {
 					mJumpL = true;
 				}
 			}
-			if (jTime > 3) {
+			if (jTime > 20) {
 				if (speedY > gravity) {
-					speedY = 3;
 					jTime =0;
+				uJump = false;
 				}
 			
 			}
