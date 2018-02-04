@@ -153,10 +153,9 @@ public class Mochi {
 				}
 			}
 			if (jTime > 20) {
-				if (speedY > gravity) {
-					jTime =0;
+				jTime =0;
 				uJump = false;
-				}
+				
 			
 			}
 		}
