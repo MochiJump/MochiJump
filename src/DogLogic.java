@@ -31,7 +31,7 @@ public class DogLogic extends JPanel {
 		JLabel tl4 = new JLabel (Integer.toString((int) mochi.getSpeedY()));
 		testPain.add(testLabel, BorderLayout.NORTH);
 		testPain.add(testLabel2, BorderLayout.SOUTH);
-//		testPain.add(mochi.MochiL);
+		testPain.add(mochi.keyInputs());
 		testPain.add(tl3);
 		testPain.add(tl4);
 		//testPain.setPreferredSize(new Dimension(600,600));
