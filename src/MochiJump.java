@@ -5,9 +5,10 @@ import java.awt.Dimension;
 import javax.swing.*;
 
 
-// Platform creation, animation, and collision are all working. The last step is keybindings. I'm attempting to use swing's KeyBinding
-// and ActionMaps for this purpose. Using AWT's key listener would be easier, however, I want to understand how swimg's KeyBinding
-// works.
+// Platform creation, animation, collision, and Keybindings all work. KeyBindings require some tweaking, and there are currently a lot
+// of unneccessary setters in the program. This is however the first stable build:
+
+// MochiJump V 0.1 02/04/2018
 
 public class MochiJump {
 
