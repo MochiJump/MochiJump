@@ -134,9 +134,9 @@ public class Mochi {
 	public float getY() {
 			return this.y;
 		}
-	public void setSpeedY(float sY) {
-		speedY = sY;
-	} // am I using this anywhere?
+	public boolean getmRunR () {
+		return this.mRunR;
+	}
 // let see if putting this in a method and then calling that method inside boundaryRules updates it.
 // okay that didn't fix it. wait maybe we need to add the rectangle mochi in here:
 // I think I'm on the right track but I've got a nullPointerException when i try to run this now.
@@ -212,8 +212,8 @@ public class Mochi {
 		
 	}
 
-// okay let's try this, add JLabel creating to the inside of the keyInputs(); then make sure keyInputs is called.
-
+// okay, moving to Dog Logic doesn't work either, and it looks like a complete mess, so I'm moving it back here, if simply
+// moving to DogLogic doesn't work then I am missing a piece of the puzzle here.
 
 
 	public JLabel keyInputs () {
