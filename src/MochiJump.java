@@ -10,7 +10,7 @@ import javax.swing.*;
 
 // I've currently broken the jump feature and inertias in the game, they need to be fixed.
 
-// MochiJump V 0.1 02/04/2018
+// MochiJump V 0.09 02/04/2018
 
 public class MochiJump {
 
