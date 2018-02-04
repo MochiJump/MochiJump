@@ -215,16 +215,15 @@ public class Mochi {
 		
 	}
 
-// from here below is key binding, the idea of just adding a JLabel did not work.
-	// would changing the label below to a field, or making it public, or setting a getter for it
-	// change it's functionality at all?
+// okay let's try this, add JLabel creating to the inside of the keyInputs(); then make sure keyInputs is called.
 
+
+
+	public void keyInputs () {
 		JLabel MochiL = new JLabel("Test");
 
 		InputMap im = MochiL.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
 		ActionMap am = MochiL.getActionMap();	
-
-	public void keyInputs () {
 		// How would this work if I moved "im" to another class?
 		im.put(KeyStroke.getKeyStroke("RIGHT"), "MoveRightAct");
 		am.put("MoveRightAct", MoveRightAct);
@@ -237,6 +236,8 @@ public class Mochi {
 		am.put("RestLeft", RestLeft);
 		im.put(KeyStroke.getKeyStroke("UP"), "JumpAct" );
 		am.put("JumpAct", JumpAct);
+		// I think I'll need this so that I can just call this method in the DogLogic Class
+		return MochiL;
 		
 	}
 	
