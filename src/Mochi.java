@@ -212,11 +212,11 @@ public class Mochi {
 		
 	}
 
-// okay, moving to Dog Logic doesn't work either, and it looks like a complete mess, so I'm moving it back here, if simply
-// moving to DogLogic doesn't work then I am missing a piece of the puzzle here.
-
+// from playing around with an example of KeyBindings I can tell that it is possible setup and call keybindings from one class into
+// another. 
 
 	public JLabel keyInputs () {
+		// okay it looks like I've been forgetting to create reference variables for the move classes!
 		JLabel MochiL = new JLabel("Test");
 
 		InputMap im = MochiL.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
