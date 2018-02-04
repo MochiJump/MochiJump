@@ -41,6 +41,7 @@ public class Mochi {
 	boolean mJumpR = true;
 	boolean mJumpL;
 	boolean uJump;
+	boolean midJump;
 // even as a class variable, JTime does not seem to update	
 	int jTime = 0;
 	
@@ -136,11 +137,12 @@ public class Mochi {
 	}
 	
 	// weirdly changing from a speedY parameter to just changing the Y works just fine.
+	// not sure if I like having the mochijs2 as part of the jump animation. but i got it in there.
 	public void mJumpHandler () {	
 		if (jumpChu == true && jTime > 0) {
 			jTime++;
 			getJTime();
-			if (jTime <= 20) {
+			if (jTime <= 18) {
 				y -= 6;
 				uJump = true;
 				if (mRunR == true || mRestR == true) {
@@ -152,11 +154,25 @@ public class Mochi {
 					mJumpL = true;
 				}
 			}
-			if (jTime > 20) {
-				jTime =0;
+			if (jTime>18 && jTime<= 20) {
+				y -= 6;
 				uJump = false;
-				
-			
+				midJump = true;
+				if (mRunR == true || mRestR == true) {
+					setActionToFalse();
+					mJumpR = true;	
+				}
+				if (mRunL == true || mRestL == true) {
+					setActionToFalse();
+					mJumpL = true;
+				}
+			}
+			if (jTime < 25) {
+				midJump = true;
+			}
+			if (jTime > 25) {	
+				jTime =0;
+			midJump = false;
 			}
 		}
 	}
