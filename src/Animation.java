@@ -42,6 +42,7 @@ public class Animation {
 	boolean mRunL = mochi.mRunL;
 	boolean mJumpR = mochi.mJumpR;
 	boolean mJumpL = mochi.mJumpL;
+	boolean uJump = mochi.uJump;
 	
 	
 	// the below is no longer needed. Without an update method the above will int x = mochi.getX() only happens once!
@@ -52,7 +53,6 @@ public class Animation {
 	}
 	
 	// check to see if the method below needs the argument (Mochi mochi)... turns out you do. Research why!
-	// would the below work if there was no parameter, but the "Mochi mochi = new Mochi()" was inside the method?
 	public void AniVarUpdate (Mochi mochi) {
 		x = (int) mochi.getX();
 		y = (int) mochi.getY();
@@ -64,6 +64,7 @@ public class Animation {
 		mRunL = mochi.mRunL;
 		mJumpR = mochi.mJumpR;
 		mJumpL = mochi.mJumpL;
+		uJump = mochi.uJump;
 	}
 	
 
@@ -116,14 +117,15 @@ public class Animation {
 		// okay let's add the jump animations here:
 			if (mJumpR == true) {
 				// this should be done via y speed instead of a timer
-				 if (speedY < 0) {
+				 if (uJump == true) {
 					 currentSprite = mjc1;
 				 }
+				 // this will never be called
 				 else if (speedY == 0) {
 					 currentSprite = mjc2;
 				 // maybe could add if else statement here to allow mochi to switch directions during jump
 				 }
-				 else if (speedY > 0){
+				 else if (uJump==false){
 					 currentSprite = mjc3;
 				 }
 				 else {
@@ -134,14 +136,15 @@ public class Animation {
 			// 0
 			if (mJumpL == true) {
 				// remeber y is inverted in java
-				if (speedY < 0 ) {
+				if (uJump == true ) {
 					currentSprite = mjc1r;
 				 }
+				// this currently will never be called
 				else if (speedY == 0) {
 					currentSprite = mjc2r;
 				 // maybe could add if else statement here to allow mochi to switch directions during jump
 				 }
-				else if (speedY > 0) {
+				else if (uJump == false) {
 					
 					 currentSprite = mjc3r;
 				 }
