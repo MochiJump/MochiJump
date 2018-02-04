@@ -43,6 +43,7 @@ public class Animation {
 	boolean mJumpR = mochi.mJumpR;
 	boolean mJumpL = mochi.mJumpL;
 	boolean uJump = mochi.uJump;
+	boolean midJump = mochi.midJump;
 	
 	
 	// the below is no longer needed. Without an update method the above will int x = mochi.getX() only happens once!
@@ -65,6 +66,7 @@ public class Animation {
 		mJumpR = mochi.mJumpR;
 		mJumpL = mochi.mJumpL;
 		uJump = mochi.uJump;
+		midJump = mochi.midJump;
 	}
 	
 
@@ -121,11 +123,11 @@ public class Animation {
 					 currentSprite = mjc1;
 				 }
 				 // this will never be called
-				 else if (speedY == 0) {
+				 else if (midJump == true) {
 					 currentSprite = mjc2;
 				 // maybe could add if else statement here to allow mochi to switch directions during jump
 				 }
-				 else if (uJump==false){
+				 else if (uJump==false && midJump == false){
 					 currentSprite = mjc3;
 				 }
 				 else {
@@ -140,11 +142,11 @@ public class Animation {
 					currentSprite = mjc1r;
 				 }
 				// this currently will never be called
-				else if (speedY == 0) {
+				else if (midJump == true) {
 					currentSprite = mjc2r;
 				 // maybe could add if else statement here to allow mochi to switch directions during jump
 				 }
-				else if (uJump == false) {
+				else if (uJump == false && midJump == false) {
 					
 					 currentSprite = mjc3r;
 				 }
