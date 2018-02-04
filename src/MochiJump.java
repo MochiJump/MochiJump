@@ -7,7 +7,7 @@ import javax.swing.*;
 
 // Platform creation, animation, collision, and Keybindings all are operational. 
 // I've fixed the jump and inertia issue, but changing the Y value directly instead of speedY and it works fine.
-// I'm still missing the down jump animation, stays in the upward jumping position for some reason.
+// Lastly I could include a few frames for a middle of jump animation, the .png is already there so I should include it.
 
 // MochiJump V 0.1 02/04/2018
 
