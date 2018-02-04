@@ -5,10 +5,9 @@ import java.awt.Dimension;
 import javax.swing.*;
 
 
-// Platform creation, animation, collision, and Keybindings all work. KeyBindings require some tweaking, and there are currently a lot
-// of unneccessary setters in the program. This is however the first stable build:
-
-// I've currently broken the jump feature and inertias in the game, they need to be fixed.
+// Platform creation, animation, collision, and Keybindings all are operational. 
+// There are issues with the keybinding classes. I've fixed the inertia problems going left and right, however
+// The jump currently does not return speedY to it's normal value so Mochi flies off into outerspace. 
 
 // MochiJump V 0.09 02/04/2018
 
