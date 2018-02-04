@@ -15,8 +15,6 @@ import java.awt.geom.Line2D;
 import java.awt.geom.Rectangle2D;
 import java.awt.geom.RectangularShape;
 
-import javax.swing.ImageIcon;
-import javax.swing.KeyStroke;
 import javax.swing.*;
 import java.util.*;
 import java.util.Timer;
@@ -59,8 +57,7 @@ public class Mochi {
 	public void setGravity (float gravity){
 		this.gravity = gravity;
 	}
-	// have to include all the boolean states as well, writing this out is longer than just including the keybindings in here
-	// if only i knew how to do it.
+	// If I don't move keyinputs to DogLogic then I don't need any of these setters
 	
 	public void setmRestR (boolean mRestR){
 		this.mRestR = mRestR;
@@ -69,7 +66,7 @@ public class Mochi {
 		this.mRestL = mRestL;
 	}
 	public void setmRunR (boolean mRunR){
-		this.mRunR = mRunR
+		this.mRunR = mRunR;
 	}
 	public void setmRunL (boolean mRunL){
 		this.mRunL = mRunL;
@@ -219,7 +216,7 @@ public class Mochi {
 
 
 
-	public void keyInputs () {
+	public JLabel keyInputs () {
 		JLabel MochiL = new JLabel("Test");
 
 		InputMap im = MochiL.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
