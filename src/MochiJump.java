@@ -8,6 +8,8 @@ import javax.swing.*;
 // Platform creation, animation, collision, and Keybindings all work. KeyBindings require some tweaking, and there are currently a lot
 // of unneccessary setters in the program. This is however the first stable build:
 
+// I've currently broken the jump feature and inertias in the game, they need to be fixed.
+
 // MochiJump V 0.1 02/04/2018
 
 public class MochiJump {
