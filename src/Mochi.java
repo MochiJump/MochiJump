@@ -40,43 +40,10 @@ public class Mochi {
 	boolean mRunL;
 	boolean mJumpR = true;
 	boolean mJumpL;
+// even as a class variable, JTime does not seem to update	
+	int JTime = 1;
 	
 	// okay in order to move the keybindings I'll need to create setters for Mochi that can be called outside this class.
-	public void setMochiX(float x){
-		this.x = x;
-	}
-	public void setMochiY (float y){
-		this.y = y;
-	}
-	public void setMochiSpeedX(float speedX){
-		this.speedX = speedX;
-	}
-	public void setMochiSpeedY(float speedY){
-		this.speedY = speedY;
-	} 
-	public void setGravity (float gravity){
-		this.gravity = gravity;
-	}
-	// If I don't move keyinputs to DogLogic then I don't need any of these setters
-	
-	public void setmRestR (boolean mRestR){
-		this.mRestR = mRestR;
-	}
-	public void setmRestL (boolean mRestL){
-		this.mRestL = mRestL;
-	}
-	public void setmRunR (boolean mRunR){
-		this.mRunR = mRunR;
-	}
-	public void setmRunL (boolean mRunL){
-		this.mRunL = mRunL;
-	}
-	public void setmJumpR (boolean mJumpR){
-		this.mJumpR = mJumpR;
-	}
-	public void setmJumpL (boolean mJumpL){
-		this.mJumpL = mJumpL;
-	}
 // looks like I never create a reference variable to LevelMap here, let's fix that:
 	LevelMap levelMap = new LevelMap();
 	
@@ -136,6 +103,9 @@ public class Mochi {
 		}
 	public boolean getmRunR () {
 		return this.mRunR;
+	}
+	public boolean getJumpChu() {
+		return this.jumpChu;
 	}
 // let see if putting this in a method and then calling that method inside boundaryRules updates it.
 // okay that didn't fix it. wait maybe we need to add the rectangle mochi in here:
@@ -218,6 +188,12 @@ public class Mochi {
 	public JLabel keyInputs () {
 		// okay it looks like I've been forgetting to create reference variables for the move classes!
 		JLabel MochiL = new JLabel("Test");
+		
+		MoveRightAct MoveRightAct = new MoveRightAct();
+		RestRight RestRight = new RestRight();
+		MoveLeftAct MoveLeftAct = new MoveLeftAct();
+		RestLeft RestLeft = new RestLeft();
+		JumpAct JumpAct = new JumpAct();
 
 		InputMap im = MochiL.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
 		ActionMap am = MochiL.getActionMap();	
@@ -244,42 +220,58 @@ public class Mochi {
 		public void actionPerformed (ActionEvent mr) {
 			// I'm trying to turn off all boolean action indicators here
 			// should I include a check to see if jump is false before continuing?
+			if (jumpChu == false) {
 				setActionToFalse();
+				mRunR = true;
+			}
 			x ++;
 			//this speedX variable will likely need adjusting
-			speedX ++;
+			if (speedX >=-3) {
+				speedX++;
+			}
+			if (speedX >= 3) {
+				speedX = 3;
+			}
 		//Here I turn on the one that is true
 		// shouldn't this be bMochiAction.set(2, true); ****
-			mRunR = true;
 		}
 		// I could add the jumpR true here if that is the case...
 	}
 	class MoveLeftAct extends AbstractAction{
 		public void actionPerformed (ActionEvent ml) {
-			setActionToFalse();
+			if (jumpChu == false) {
+				setActionToFalse();
+				mRunL = true;
+			}
 			x --;
-			speedX --;
-			mRunL = true;
+			if (speedX <=3) {
+				speedX --;
+			}
+			if (speedX >= -3) {
+				speedX = -3;
+			}
+
 			
 		}
 		
 	}
 	// the jump is a little more involved here, used to have two consolidated them into one:
 	// remember Y axis is inverted!!!!
-	class JumpRightAct extends AbstractAction{
+	class JumpAct extends AbstractAction{
 		public void actionPerformed (ActionEvent jr) {
+			getJumpChu();
+			// 
 			if (jumpChu == false) {
 				// when working with boolean this seems to be the best way to do things.
 				// do I want to use a timer here? or a counter?
 				// can always go back to a counter if this is difficult
-				long start_jump_time = System.currentTimeMillis();
-				long up_time = 500;
-				long up_time_end = start_jump_time + up_time;
 				jumpChu = true;
-					// the below should be start_jump_time instead of .currentTime (?)****
-				while (System.currentTimeMillis() < up_time_end) {
-					speedY = gravity;
-					y--;
+					// JTime Variable either not updating or the check if... is only happening once, which would make
+				    // sense because jumpChu turns true so this line would never be called again. let's see what happens
+				   // if we add it to the jumpChu == true below;
+				if (JTime <= 3) {
+					speedY = -3;
+					JTime =4;
 					if (mRunR == true || mRestR == true) {
 						setActionToFalse();
 						mJumpR = true;	
@@ -289,9 +281,8 @@ public class Mochi {
 						mJumpL = true;
 					}
 				}
-				// the below should be start_jump_time instead of .currentTime (?)****
-				while (System.currentTimeMillis()> up_time_end) {
-					speedY++;
+				// I've removed the timer and changed it to an int var JTime
+				if (JTime > 3) {
 					if (speedY > gravity) {
 						speedY = gravity;
 					}
@@ -299,8 +290,28 @@ public class Mochi {
 				}
 				
 			}
+			// nope issue persists, and likely because of the way the keyboard bindings are called
+			// I think the solution is to put most of this into a method that is called by boundary rules!
 			if (jumpChu == true) {
-			// do nothing
+				if (JTime <= 3) {
+					speedY = -3;
+					JTime =4;
+					if (mRunR == true || mRestR == true) {
+						setActionToFalse();
+						mJumpR = true;	
+					}
+					if (mRunL == true || mRestL == true) {
+						setActionToFalse();
+						mJumpL = true;
+					}
+				}
+				// I've removed the timer and changed it to an int var JTime
+				if (JTime > 3) {
+					if (speedY > gravity) {
+						speedY = gravity;
+					}
+					// I think that should work!
+				}
 			}
 		}
 	}
@@ -312,7 +323,7 @@ public class Mochi {
 				if (speedX <0) {
 					speedX = 0;
 				}
-				if (speedX == 0) {
+				if (speedX == 0 && jumpChu == false) {
 					setActionToFalse();
 					mRestR=true;
 					
@@ -328,7 +339,7 @@ public class Mochi {
 				if (speedX <0) {
 					speedX = 0;
 				}
-				if (speedX == 0) {
+				if (speedX == 0 && jumpChu==false) {
 					setActionToFalse();
 					mRestL=true;
 					
