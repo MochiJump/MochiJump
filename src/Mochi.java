@@ -41,7 +41,7 @@ public class Mochi {
 	boolean mJumpR = true;
 	boolean mJumpL;
 // even as a class variable, JTime does not seem to update	
-	int JTime = 1;
+	int jTime = 0;
 	
 	// okay in order to move the keybindings I'll need to create setters for Mochi that can be called outside this class.
 // looks like I never create a reference variable to LevelMap here, let's fix that:
@@ -107,6 +107,9 @@ public class Mochi {
 	public boolean getJumpChu() {
 		return this.jumpChu;
 	}
+	public int getJTime() {
+		return this.jTime;
+	}
 // let see if putting this in a method and then calling that method inside boundaryRules updates it.
 // okay that didn't fix it. wait maybe we need to add the rectangle mochi in here:
 // I think I'm on the right track but I've got a nullPointerException when i try to run this now.
@@ -131,6 +134,34 @@ public class Mochi {
 		}
 	}
 	
+	// okay I'm going to try to create a method that will be called by the up arrow key, but outside the action map for it
+	// well moving this here doesn't seem to do anything, which is interesting.
+	// I'm stumped maybe this requires parameters? Don't know why this particular one would.
+	public void mJumpHandler () {	
+		if (jumpChu == true && jTime > 0) {
+			jTime++;
+			getJTime();
+			if (jTime <= 3) {
+				speedY = -3;
+				if (mRunR == true || mRestR == true) {
+					setActionToFalse();
+					mJumpR = true;	
+				}
+				if (mRunL == true || mRestL == true) {
+					setActionToFalse();
+					mJumpL = true;
+				}
+			}
+			if (jTime > 3) {
+				if (speedY > gravity) {
+					speedY = 3;
+					jTime =0;
+				}
+			
+			}
+		}
+	}
+	
 	// Collision detection happens here
 	public void boundaryRules () {
 		// let's apply inertia here:
@@ -138,6 +169,7 @@ public class Mochi {
 		y = speedY+y;
 		x = x+speedX;
 		mBoundaries();
+		mJumpHandler();
 		// review the below code
 		ArrayList<Rectangle> platlist = levelMap.getPlat();
 		for (Rectangle next: platlist) {
@@ -157,13 +189,13 @@ public class Mochi {
 					x = p1.x-sW;
 				// I like getting to use basic algebra in real life.
 				} 
-				else if (mleft.intersects(p1)) {
+				if (mleft.intersects(p1)) {
 					x = p1.x +p1.width +1;
 				}
-				else if (mtop.intersects(p1)) {
-					y = p1.y +p1.height+y+1;
+				if (mtop.intersects(p1)) {
+					y = p1.y +p1.height;
 				}
-				else if (mbottom.intersects(p1)) {
+				if (mbottom.intersects(p1)) {
 					// I'm thinking this should be an independant method that is called after this if statement
 					// heard that many nested if statements is bad coding practice.
 					// hmm looks like changing these parameters does nothing
@@ -224,13 +256,17 @@ public class Mochi {
 				setActionToFalse();
 				mRunR = true;
 			}
-			x ++;
+			if (jumpChu == true) {
+				setActionToFalse();
+				mJumpR = true;
+			}
+			x +=2;
 			//this speedX variable will likely need adjusting
-			if (speedX >=-3) {
+			if (speedX >=-1) {
 				speedX++;
 			}
-			if (speedX >= 3) {
-				speedX = 3;
+			if (speedX >= 1) {
+				speedX = 1;
 			}
 		//Here I turn on the one that is true
 		// shouldn't this be bMochiAction.set(2, true); ****
@@ -243,12 +279,16 @@ public class Mochi {
 				setActionToFalse();
 				mRunL = true;
 			}
-			x --;
-			if (speedX <=3) {
+			if (jumpChu == true) {
+				setActionToFalse();
+				mJumpL = true;
+			} 
+			x -= 2;
+			if (speedX <=1) {
 				speedX --;
 			}
-			if (speedX >= -3) {
-				speedX = -3;
+			if (speedX <= -1) {
+				speedX = -1;
 			}
 
 			
@@ -260,61 +300,17 @@ public class Mochi {
 	class JumpAct extends AbstractAction{
 		public void actionPerformed (ActionEvent jr) {
 			getJumpChu();
-			// 
+			// okay I've deleted most of the instructions below I'm going to move a lot of the logic
+			// into it's own independent method so it can finish running it's cycle outside of the action map
 			if (jumpChu == false) {
-				// when working with boolean this seems to be the best way to do things.
-				// do I want to use a timer here? or a counter?
-				// can always go back to a counter if this is difficult
 				jumpChu = true;
-					// JTime Variable either not updating or the check if... is only happening once, which would make
-				    // sense because jumpChu turns true so this line would never be called again. let's see what happens
-				   // if we add it to the jumpChu == true below;
-				if (JTime <= 3) {
-					speedY = -3;
-					JTime =4;
-					if (mRunR == true || mRestR == true) {
-						setActionToFalse();
-						mJumpR = true;	
-					}
-					if (mRunL == true || mRestL == true) {
-						setActionToFalse();
-						mJumpL = true;
-					}
-				}
-				// I've removed the timer and changed it to an int var JTime
-				if (JTime > 3) {
-					if (speedY > gravity) {
-						speedY = gravity;
-					}
-					// I think that should work!
-				}
+				jTime = 1;
+				mJumpHandler();
 				
-			}
-			// nope issue persists, and likely because of the way the keyboard bindings are called
-			// I think the solution is to put most of this into a method that is called by boundary rules!
-			if (jumpChu == true) {
-				if (JTime <= 3) {
-					speedY = -3;
-					JTime =4;
-					if (mRunR == true || mRestR == true) {
-						setActionToFalse();
-						mJumpR = true;	
-					}
-					if (mRunL == true || mRestL == true) {
-						setActionToFalse();
-						mJumpL = true;
-					}
-				}
-				// I've removed the timer and changed it to an int var JTime
-				if (JTime > 3) {
-					if (speedY > gravity) {
-						speedY = gravity;
-					}
-					// I think that should work!
-				}
 			}
 		}
 	}
+		
 //this should be called when < or > is released.
 	class RestRight extends AbstractAction{
 		public void actionPerformed (ActionEvent rr) {
@@ -334,9 +330,10 @@ public class Mochi {
 	}
 	class RestLeft extends AbstractAction{
 		public void actionPerformed (ActionEvent rr) {
-			if (speedX >0) {
-				speedX --;
-				if (speedX <0) {
+			if (speedX <0) {
+				// getting closer to having normal controls here
+				speedX ++;
+				if (speedX >0) {
 					speedX = 0;
 				}
 				if (speedX == 0 && jumpChu==false) {
