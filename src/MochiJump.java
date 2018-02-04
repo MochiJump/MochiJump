@@ -6,10 +6,10 @@ import javax.swing.*;
 
 
 // Platform creation, animation, collision, and Keybindings all are operational. 
-// There are issues with the keybinding classes. I've fixed the inertia problems going left and right, however
-// The jump currently does not return speedY to it's normal value so Mochi flies off into outerspace. 
+// I've fixed the jump and inertia issue, but changing the Y value directly instead of speedY and it works fine.
+// I'm still missing the down jump animation, stays in the upward jumping position for some reason.
 
-// MochiJump V 0.09 02/04/2018
+// MochiJump V 0.1 02/04/2018
 
 public class MochiJump {
 
