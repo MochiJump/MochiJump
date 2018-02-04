@@ -56,6 +56,9 @@ public class Mochi {
 	public void setMochiSpeedY(float speedY){
 		this.speedY = speedY;
 	} 
+	public void setGravity (float gravity){
+		this.gravity = gravity;
+	}
 	// have to include all the boolean states as well, writing this out is longer than just including the keybindings in here
 	// if only i knew how to do it.
 	
