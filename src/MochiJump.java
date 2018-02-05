@@ -11,6 +11,7 @@ import javax.swing.*;
 // I finished what I setout to do when I first started the project at this state.
 
 // The decision now is to start something new, or impliment features and polish this into a real playable game.
+// for now I'll try to create a level editor. Seems like a reasonable challenge.
 
 // MochiJump V 0.1 02/04/2018
 
