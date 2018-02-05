@@ -13,6 +13,8 @@ import javax.swing.*;
 // The decision now is to start something new, or impliment features and polish this into a real playable game.
 // for now I'll try to create a level editor. Seems like a reasonable challenge.
 
+// An easier challenge would be a start screen.
+
 // MochiJump V 0.1 02/04/2018
 
 public class MochiJump {
