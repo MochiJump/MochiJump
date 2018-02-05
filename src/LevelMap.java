@@ -8,7 +8,8 @@ import java.util.ArrayList;
 
 import javax.swing.*;
 
-	
+// to implement a level editor would I want to do it in this class or would I want to implement elsewhere?
+// I'll need a toolbar at this point. I might give the toolbar it's own class...
 
 public class TestClass extends JPanel {
 
