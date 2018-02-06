@@ -23,6 +23,8 @@ public class MochiJump {
 		 
 		 		DogLogic dogLogic = new DogLogic();
 		 		StartPause sP = new StartPause();
+		 		boolean isStart = sP.getIsStart();
+		 		boolean isPause = sP.getIsPause();
 		 		javax.swing.SwingUtilities.invokeLater(new Runnable() {
 			         public void run() {
 			        
