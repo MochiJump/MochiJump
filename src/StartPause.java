@@ -11,5 +11,13 @@ public class StartPause extends JPanel {
    add (sPScreen);
   }
   
+  public boolean getIsStart(){
+    return this.isStart;
+  }
+  
+  public boolean getIsPause(){
+    returh this.isPause;
+  }
+  
 
 }
