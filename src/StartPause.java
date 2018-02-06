@@ -1,5 +1,5 @@
 import javax.swing.ImageIcon;
 
-public class StartPause {
+public class StartPause extends JPanel {
 
 }
