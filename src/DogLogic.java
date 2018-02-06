@@ -44,6 +44,7 @@ public class DogLogic extends JPanel {
 		gameStart();
 
 	}
+	// I believe the key to adding a start/pause screen lies in creating a switch in this thread here:
 
 	public void gameStart() {
 		// this needs to be a thread:
@@ -80,6 +81,9 @@ public class DogLogic extends JPanel {
 	
 //Well it seems all of my problems stemmed from having the override in another class....
 // It seems that the paint Component only works correctly in full screen, otherwise it draws strangely.
+// I'll need to figure out a way to turn what is currently below on and off with a different type of graphic
+// perhaps I can use the same boolean switch for the thread above, or would I need to do it at the draw levels of other
+// classes?
 		@Override
 		public void paintComponent (Graphics g) {
 			super.paintComponent(g);
