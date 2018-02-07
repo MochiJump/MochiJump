@@ -43,7 +43,9 @@ public class DogLogic extends JPanel {
 		gameStart();
 
 	}
-	// I believe the key to adding a start/pause screen lies in creating a switch in this thread here:
+	// The start/pause screen might require it's own thread that interupts this one. Changing the below to 
+	// while (isStart == false && isPause == false) might work
+	// new thread would run while (isStart == true :: isPause == false)
 
 	public void gameStart() {
 		// this needs to be a thread:
