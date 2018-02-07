@@ -10,8 +10,8 @@ import javax.swing.*;
 // Jump animation currently includes mochijsp2, not sure if I liked not having it there better or not.
 // I finished what I set out to do when I first started the project at this state.
 
-// The decision now is to start something new, or impliment features and polish this into a real playable game.
-// For now I'm going to create a start and pause screen.
+// This current version may not be stable as I am working on implimenting a Start and Pause screen.***
+// Mochi, Animation, LevelMap Classes will not be affected while implimenting start/pause screen
 
 // MochiJump V 0.1 02/04/2018
 
