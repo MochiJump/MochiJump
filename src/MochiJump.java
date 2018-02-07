@@ -22,9 +22,11 @@ public class MochiJump {
 	 public static void main(String[] args) {
 		 
 		 		DogLogic dogLogic = new DogLogic();
-		 		StartPause sP = new StartPause();
-		 		boolean isStart = sP.getIsStart();
-		 		boolean isPause = sP.getIsPause();
+		 //		StartPause sP = new StartPause();
+		 // I think the switch to add a new thread and pain for pause start maybe should be in DogLogic only
+		 // and not here in the main class
+		 //		boolean isStart = sP.getIsStart();
+		 //		boolean isPause = sP.getIsPause();
 		 		javax.swing.SwingUtilities.invokeLater(new Runnable() {
 			         public void run() {
 			        
