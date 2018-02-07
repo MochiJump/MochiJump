@@ -82,9 +82,10 @@ public class DogLogic extends JPanel {
 	
 //Well it seems all of my problems stemmed from having the override in another class....
 // It seems that the paint Component only works correctly in full screen, otherwise it draws strangely.
-// I'll need to figure out a way to turn what is currently below on and off with a different type of graphic
-// perhaps I can use the same boolean switch for the thread above, or would I need to do it at the draw levels of other
-// classes?
+
+//Right now I'm thinking that adding a thread for Start/Pause would require placing a below for which would draw
+// the game or the Start/Pause screen
+	
 		@Override
 		public void paintComponent (Graphics g) {
 			super.paintComponent(g);
