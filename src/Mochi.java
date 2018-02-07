@@ -234,7 +234,7 @@ public class Mochi {
 
 	public JLabel keyInputs () {
 		// okay it looks like I've been forgetting to create reference variables for the move classes!
-		JLabel MochiL = new JLabel("Test");
+		JLabel MochiL = new JLabel("Mochi Jump");
 		
 		MoveRightAct MoveRightAct = new MoveRightAct();
 		RestRight RestRight = new RestRight();
