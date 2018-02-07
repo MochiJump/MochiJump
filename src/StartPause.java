@@ -6,8 +6,12 @@ public class StartPause extends JPanel {
   boolean isPause;
   
   public StartPause(){
+    StartActionHelper startActionHelper = new StartActionHelper();
    JPanel sPScreen = new JPanel();
-    
+    JButton start = new JButton();
+    JButton exit = new JButton();
+    start.addActionListener(startActionHelper);
+        
    add (sPScreen);
   }
   
@@ -18,6 +22,10 @@ public class StartPause extends JPanel {
   public boolean getIsPause(){
     returh this.isPause;
   }
-  
-
+  private class StartActionHelper {
+    public void actionPerformed (ActionEvent s){
+      isStart = false;
+    }
+  }
 }
+
