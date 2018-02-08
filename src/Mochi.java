@@ -179,7 +179,6 @@ public class Mochi {
 	
 	// Collision detection happens here
 	public void boundaryRules () {
-		// let's apply inertia here:
 		getSpeedY();
 		y = speedY+y;
 		x = x+speedX;
@@ -190,8 +189,7 @@ public class Mochi {
 		for (Rectangle next: platlist) {
 			// I tried remove.getBounds below no change.
 			Rectangle p1 = next.getBounds();
-			// in order to use intersection we need to create mochi as a rectangle at the top
-			// 
+			// testing whether mochi does not intersect may work to turn on "falling animation" *******
 			if (mochi.intersects(p1)) {
 			// so here is where we program what we want a result of a collision...
 			// what I want is for mochi to return to the state just prior to his collision.
