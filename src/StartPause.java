@@ -2,6 +2,9 @@ import javax.swing.ImageIcon;
 
 public class StartPause extends JPanel {
   
+  // will need to create and import images for the start/pause screen and add them here
+  // contemplating an animation for the selector arrow --> (rolling bone?)
+  
   boolean isStart;
   boolean isPause;
   
