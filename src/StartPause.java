@@ -5,6 +5,8 @@ public class StartPause extends JPanel {
   // will need to create and import images for the start/pause screen and add them here
   // contemplating an animation for the selector arrow --> (rolling bone?)
   
+  //Mochi class requires a keybinding for the pause button
+  
   boolean isStart;
   boolean isPause;
   
@@ -27,6 +29,9 @@ public class StartPause extends JPanel {
   
   public boolean getIsPause(){
     returh this.isPause;
+  }
+  public void setPause(){
+    isPause = this.isPause;
   }
   private class StartActionHelper {
     public void actionPerformed (ActionEvent s){
