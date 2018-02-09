@@ -13,6 +13,8 @@ import javax.swing.*;
 // This current version may not be stable as I am working on implimenting a Start and Pause screen.***
 // Mochi, Animation, LevelMap Classes will not be affected while implimenting start/pause screen
 
+// once Start/Pause screen is complete learn seralization and implement save states and restarts
+
 // MochiJump V 0.1 02/04/2018
 
 public class MochiJump {
