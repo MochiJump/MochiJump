@@ -47,5 +47,6 @@ public class StartPause extends JPanel {
   }
  // what else do we want here, a level restart button, which means we have to work with
 // serialized peices of the game. or just a way to set the variable values back to the beginning
+               // ultimately the level editor option would go in here as well.
 }
 
