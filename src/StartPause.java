@@ -2,15 +2,24 @@ import javax.swing.ImageIcon;
 
 public class StartPause extends JPanel {
   
-  // will need to create and import images for the start/pause screen and add them here
-  // contemplating an animation for the selector arrow --> (rolling bone?)
+  // images still need to be created and imported as .png files
   
   //Mochi class requires a keybinding for the pause button
   //this means that the element that holds keybinding for the main mochi jump program cannot be in the JPanel/Window
   // during the start pause sequence.
   
+  // I'll need imageicons for the buttons, make button's invisible and give them the same dimensions and spacial properties
+  // as the imageicons
+  
   boolean isStart;
   boolean isPause;
+  
+  Image bg = new ImageIcon("createBGImage.png").getImage();
+  Image start = new ImageIcon("createStartImage.png").getImage();
+  Image pause = new ImageIcon("createPauseImage.png").getImage();
+  Image selector = new ImageIcon("createSelectorImage.png").getImage();
+  // selector can me animated which would require creating a new animation method as well as multiple versions
+  // of the selector image above
   
   public StartPause(){
     StartActionHelper startActionHelper = new StartActionHelper();
