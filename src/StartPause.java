@@ -6,6 +6,8 @@ public class StartPause extends JPanel {
   // contemplating an animation for the selector arrow --> (rolling bone?)
   
   //Mochi class requires a keybinding for the pause button
+  //this means that the element that holds keybinding for the main mochi jump program cannot be in the JPanel/Window
+  // during the start pause sequence.
   
   boolean isStart;
   boolean isPause;
