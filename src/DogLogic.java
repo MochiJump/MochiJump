@@ -79,6 +79,10 @@ public class DogLogic extends JPanel {
 		// Java is pass by value I need to update the variables in animation via their own method
 		animation.AniVarUpdate(this.mochi);
 	}
+	// here we can put all of the processes for the start stop screen
+	public void titleScreenProcess(){
+		// okay now just need to figure out what actually needs to go in here lol
+	}
 	
 //Well it seems all of my problems stemmed from having the override in another class....
 // It seems that the paint Component only works correctly in full screen, otherwise it draws strangely.
