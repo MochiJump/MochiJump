@@ -14,7 +14,7 @@ public class StartPause extends JPanel {
   boolean isStart;
   boolean isPause;
   
-  Image bg = new ImageIcon("createBGImage.png").getImage();
+  Image bg = new ImageIcon("background.png").getImage();
   Image start = new ImageIcon("createStartImage.png").getImage();
   Image pause = new ImageIcon("createPauseImage.png").getImage();
   Image selector = new ImageIcon("createSelectorImage.png").getImage();
