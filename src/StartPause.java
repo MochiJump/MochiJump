@@ -16,7 +16,10 @@ public class StartPause extends JPanel {
   
   Image bg = new ImageIcon("background.png").getImage();
   Image start = new ImageIcon("start.png").getImage();
+  // I made this image, but it doesn't serve a purpose and may just need to be erased.
   Image pause = new ImageIcon("pause.png").getImage();
+  // still need images attached to them
+  Image continue = newImageIcon("createContinueImage.pgn").getImage();
   Image selector = new ImageIcon("createSelectorImage.png").getImage();
   // selector can me animated which would require creating a new animation method as well as multiple versions
   // of the selector image above
@@ -27,12 +30,12 @@ public class StartPause extends JPanel {
     StartActionHelper startActionHelper = new StartActionHelper();
     PauseActionHelper pauseActionHelper = new PauseActionHelper();
    JPanel sPScreen = new JPanel();
-    JButton start = new JButton();
-    JButton continue = new JButton();
+    JButton startButton = new JButton(start);
+    JButton continueButton = new JButton(continue);
     start.addActionListener(startActionHelper);
     continue.addActionListener(pauseActionHelper);
     
-        
+        I
    add (sPScreen);
   }
   
