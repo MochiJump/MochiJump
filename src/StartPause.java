@@ -31,11 +31,11 @@ public class StartPause extends JPanel {
     PauseActionHelper pauseActionHelper = new PauseActionHelper();
    JPanel sPScreen = new JPanel();
     JButton startButton = new JButton(start);
-    JButton continueButton = new JButton(continue);
+    JButton continueButton = new JButton(continue); //<-- makes the image continue a JButton!
     start.addActionListener(startActionHelper);
     continue.addActionListener(pauseActionHelper);
     
-        I
+        
    add (sPScreen);
   }
   
