@@ -6,7 +6,7 @@ import javax.swing.*;
 
 
 // Platform creation, animation, collision, and Keybindings all are operational. 
-// I've fixed the jump and inertia issue, but changing the Y value directly instead of speedY and it works fine.
+// I've fixed the jump and inertia issue, by changing the Y value directly instead of speedY and it works fine.
 // Jump animation currently includes mochijsp2, not sure if I liked not having it there better or not.
 // I finished what I set out to do when I first started the project at this state.
 
