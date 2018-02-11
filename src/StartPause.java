@@ -21,6 +21,8 @@ public class StartPause extends JPanel {
   // selector can me animated which would require creating a new animation method as well as multiple versions
   // of the selector image above
   
+  // requires variables for draw method location as well as a method for getting the values for those variables
+  
   public StartPause(){
     StartActionHelper startActionHelper = new StartActionHelper();
     PauseActionHelper pauseActionHelper = new PauseActionHelper();
@@ -34,6 +36,13 @@ public class StartPause extends JPanel {
    add (sPScreen);
   }
   
+  public void draw (Graphics g){
+    Graphics2D g2 = (Graphics2D) g.create();
+    
+   // all additional graphical implementation must go here 
+    // g2.setClip();
+    //g2.drawImage();
+  }
   public boolean getIsStart(){
     return this.isStart;
   }
