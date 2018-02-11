@@ -15,8 +15,8 @@ public class StartPause extends JPanel {
   boolean isPause;
   
   Image bg = new ImageIcon("background.png").getImage();
-  Image start = new ImageIcon("createStartImage.png").getImage();
-  Image pause = new ImageIcon("createPauseImage.png").getImage();
+  Image start = new ImageIcon("start.png").getImage();
+  Image pause = new ImageIcon("pause.png").getImage();
   Image selector = new ImageIcon("createSelectorImage.png").getImage();
   // selector can me animated which would require creating a new animation method as well as multiple versions
   // of the selector image above
