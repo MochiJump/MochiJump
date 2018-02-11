@@ -10,6 +10,8 @@ import javax.swing.*;
 // Jump animation currently includes mochijsp2, not sure if I liked not having it there better or not.
 // I finished what I set out to do when I first started the project at this state.
 
+//Milestone Project Started V0.0 12/31/2017
+
 //Milestone v0.1 02/04/2018
 
 //Current Build MochiJump V 0.103 02/10/2018
