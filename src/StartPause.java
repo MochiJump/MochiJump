@@ -14,6 +14,11 @@ public class StartPause extends JPanel {
   boolean isStart;
   boolean isPause;
   
+  //actions for the start screen:
+  private Action MoveSelectorUp;
+  private Action MoveSelectorDown;
+  Private Action MakeSelection;
+  
   Image bg = new ImageIcon("background.png").getImage();
   Image start = new ImageIcon("start.png").getImage();
   // I made this image, but it doesn't serve a purpose and may just need to be erased.
@@ -62,6 +67,24 @@ public class StartPause extends JPanel {
       isStart = false;
     }
   }
+  // let's go ahead and start with keybindings here:
+  public JLabel StartScreenKeyInputs (){
+    JLabel MochiStartLabel = new JLabel ("Mochi Jump Start");
+    
+    MoveSelectorUp MoveSelectorUp = new MoveSelectorUp();
+    MoveSelectorDown MoveSelectorDown = new MoveSelectorDown();
+    MakeSelection MakeSelection = new MakeSelection();
+    
+    InputMap im = MochiStartLabel.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
+    ActionMap am = MochiStartLabel.getActionMap();
+    
+    // now create the maps to add the keys to the actions you want. easy peasy.
+    
+  }
+  
+  
+  
+  
   private class PauseActionHelper {
     public void actionPerformed (ActionEvent p{
      // here we just want the gameStart thread to continue
