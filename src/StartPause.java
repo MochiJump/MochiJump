@@ -75,6 +75,13 @@ public class StartPause extends JPanel {
     }
   }
   // need additional ActionHelpers below:
+  private class ExitActionHelper{
+    public void actionPerformed (ActionEvent exit){
+      //check here for future updates with serialization, will I have to do anything to save state prior to this,
+      //or should I add a save state in another way?
+      System.exit(0);
+    }
+  }
   
   
   // let's go ahead and start with keybindings here:
