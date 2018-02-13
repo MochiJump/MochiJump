@@ -19,7 +19,7 @@ public class StartPause extends JPanel {
   //actions for the start screen:
   private Action MoveSelectorUp;
   private Action MoveSelectorDown;
-  Private Action MakeSelection;
+  private Action MakeSelection;
   
   Image bg = new ImageIcon("background.png").getImage(); //<-- this should be renamed because it isn't actually a background.
   Image start = new ImageIcon("start.png").getImage();
@@ -30,17 +30,19 @@ public class StartPause extends JPanel {
   Image selector = new ImageIcon("createSelectorImage.png").getImage();
   // selector can me animated which would require creating a new animation method as well as multiple versions
   // of the selector image above
+  Image exit = new ImageIcone("exit.png").getImage();
   
   // requires variables for draw method location as well as a method for getting the values for those variables
   
   public StartPause(){
     StartActionHelper startActionHelper = new StartActionHelper();
-    PauseActionHelper pauseActionHelper = new PauseActionHelper();
+    ContinueActionHelper countinueActionHelper = new CountinueActionHelper();
+    ExitActionHelper exitActionHelper = new ExitActionHelper();
    JPanel sPScreen = new JPanel();
     JButton startButton = new JButton(start);
     JButton continueButton = new JButton(continue); //<-- makes the image continue a JButton!
     startButton.addActionListener(startActionHelper);
-    continueButton.addActionListener(pauseActionHelper);
+    continueButton.addActionListener(countinueActionHelper);
     sPScreen.add(startScreenKeyInputs());
     sPScreen.add(startButton)
     sPScreen.add(continueButton)
@@ -72,6 +74,9 @@ public class StartPause extends JPanel {
       isStart = false;
     }
   }
+  // need additional ActionHelpers below:
+  
+  
   // let's go ahead and start with keybindings here:
   public JLabel startScreenKeyInputs (){
     JLabel MochiStartLabel = new JLabel ("Mochi Jump Start");
