@@ -21,7 +21,7 @@ public class StartPause extends JPanel {
   private Action MoveSelectorDown;
   Private Action MakeSelection;
   
-  Image bg = new ImageIcon("background.png").getImage();
+  Image bg = new ImageIcon("background.png").getImage(); //<-- this should be renamed because it isn't actually a background.
   Image start = new ImageIcon("start.png").getImage();
   // I made this image, but it doesn't serve a purpose and may just need to be erased.
   Image pause = new ImageIcon("pause.png").getImage();
@@ -39,8 +39,11 @@ public class StartPause extends JPanel {
    JPanel sPScreen = new JPanel();
     JButton startButton = new JButton(start);
     JButton continueButton = new JButton(continue); //<-- makes the image continue a JButton!
-    start.addActionListener(startActionHelper);
-    continue.addActionListener(pauseActionHelper);
+    startButton.addActionListener(startActionHelper);
+    continueButton.addActionListener(pauseActionHelper);
+    sPScreen.add(startScreenKeyInputs());
+    sPScreen.add(startButton)
+    sPScreen.add(continueButton)
     
         
    add (sPScreen);
@@ -70,7 +73,7 @@ public class StartPause extends JPanel {
     }
   }
   // let's go ahead and start with keybindings here:
-  public JLabel StartScreenKeyInputs (){
+  public JLabel startScreenKeyInputs (){
     JLabel MochiStartLabel = new JLabel ("Mochi Jump Start");
     
     MoveSelectorUp MoveSelectorUp = new MoveSelectorUp();
