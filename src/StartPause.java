@@ -19,7 +19,7 @@ public class StartPause extends JPanel {
   // I made this image, but it doesn't serve a purpose and may just need to be erased.
   Image pause = new ImageIcon("pause.png").getImage();
   // still need images attached to them
-  Image continue = newImageIcon("createContinueImage.pgn").getImage();
+  Image continue = newImageIcon("continue.png").getImage();
   Image selector = new ImageIcon("createSelectorImage.png").getImage();
   // selector can me animated which would require creating a new animation method as well as multiple versions
   // of the selector image above
