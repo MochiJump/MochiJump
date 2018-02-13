@@ -2,6 +2,8 @@ import javax.swing.ImageIcon;
 
 public class StartPause extends JPanel {
   
+  //Remember, you can always break this away from the MochiJump program and run independantly for testing purposes.
+  
   // images still need to be created and imported as .png files
   
   //Mochi class requires a keybinding for the pause button
