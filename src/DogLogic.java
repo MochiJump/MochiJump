@@ -1,6 +1,5 @@
 import java.awt.BorderLayout;
 import java.awt.Color;
-// import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
@@ -8,8 +7,6 @@ import java.util.ArrayList;
 
 import javax.swing.*;
 
-// Keybinding does not have to be in this class, however, it does need to be called here just like every other
-// working part of this program.
 
 public class DogLogic extends JPanel {
 
