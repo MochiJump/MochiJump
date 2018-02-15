@@ -17,7 +17,7 @@ import javax.swing.*;
 //Current Build MochiJump V 0.103 02/10/2018
 
 // This current version may not be stable as I am working on implimenting a Start and Pause screen.***
-// Mochi, Animation, LevelMap Classes will not be affected while implimenting start/pause screen
+// code in Mochi, Animation, LevelMap Classes will not be affected while implimenting start/pause screen
 
 // once Start/Pause screen is complete learn seralization and implement save states and restarts
 
@@ -30,13 +30,14 @@ public class MochiJump {
 	 public static void main(String[] args) {
 		 
 		 		DogLogic dogLogic = new DogLogic();
-		 //		StartPause sP = new StartPause();
-		 // I think the switch to add a new thread and pain for pause start maybe should be in DogLogic only
-		 // and not here in the main class
-		 // this may require some testing. Big question is would this class update if it has a boolean switch
-		 // to change panels
-		 //		boolean isStart = sP.getIsStart();
-		 //		boolean isPause = sP.getIsPause();
+		 /**		StartPause sP = new StartPause();
+		 * I think the switch to add a new thread and pain for pause start maybe should be in DogLogic only
+		 * and not here in the main class
+		 * this may require some testing. Big question is would this class update if it has a boolean switch
+		 * to change panels
+		 *		boolean isStart = sP.getIsStart();
+		 *		boolean isPause = sP.getIsPause();
+		 */
 		 		javax.swing.SwingUtilities.invokeLater(new Runnable() {
 			         public void run() {
 			        
