@@ -2,16 +2,15 @@ import javax.swing.ImageIcon;
 
 public class StartPause extends JPanel {
   
-  //Remember, you can always break this away from the MochiJump program and run independantly for testing purposes.
+  //May be worth running this on it's own to see things visually before attemping to tie through Dog Logic
   
-  // images still need to be created and imported as .png files
-  
-  //Mochi class requires a keybinding for the pause button
-  //this means that the element that holds keybinding for the main mochi jump program cannot be in the JPanel/Window
-  // during the start pause sequence.
-  
-  // I'll need imageicons for the buttons, make button's invisible and give them the same dimensions and spacial properties
-  // as the imageicons
+  /** To Do:
+  * Format layout of the screen
+  * add a selector icon that moves with keybinding
+  * program keybinding to only allow movement within menu options
+  * Add mouse listener
+  * Make mochi button blink when clicked
+  */
   
   boolean isStart;
   boolean isPause;
@@ -20,6 +19,14 @@ public class StartPause extends JPanel {
   private Action MoveSelectorUp;
   private Action MoveSelectorDown;
   private Action MakeSelection;
+  
+  //okay we will need some variables to setup the layout of the startstopscreen:
+  
+  private int maxHeight;
+  private int maxWidth;
+  private int selectionA;
+  private int selectionB;
+  private int selectionC;
   
   Image bg = new ImageIcon("background.png").getImage(); //<-- this should be renamed because it isn't actually a background.
   Image start = new ImageIcon("start.png").getImage();
@@ -38,9 +45,21 @@ public class StartPause extends JPanel {
     StartActionHelper startActionHelper = new StartActionHelper();
     ContinueActionHelper countinueActionHelper = new CountinueActionHelper();
     ExitActionHelper exitActionHelper = new ExitActionHelper();
+    MochiButtonHelper mochiButtonHelper = new MochiButtonHelper();
    JPanel sPScreen = new JPanel();
-    JButton startButton = new JButton(start);
-    JButton continueButton = new JButton(continue); //<-- makes the image continue a JButton!
+    // getting the height and width of the screen:
+    Dimension screenSize = sPScreen.getSize();
+    maxHeight = screenSize.height;
+    maxWidth = screenSize.width;
+    JButton startButton = new JButton(start); //<-- makes the image continue a JButton!
+    // must set location of these buttons instead of relying on a layout
+    Dimension sbSize = startButton.getSize();
+    startButton.setBounds(maxWidth/2, maxHeight/2, sbSize.width, sbSize.height); // <-- should place it center of screen
+    //now just work out the layout you'd like to see
+    JButton continueButton = new JButton(continue);
+    //set location
+    JButton mochiButton = new JButton(bg);
+    //set location
     startButton.addActionListener(startActionHelper);
     continueButton.addActionListener(countinueActionHelper);
     sPScreen.add(startScreenKeyInputs());
@@ -99,9 +118,9 @@ public class StartPause extends JPanel {
     
   }
   
-  
-  
-  
+  private class MochiButtonHelper{
+    // I guess we will make Mochi blink if this button is covered with the mouse
+  }
   private class PauseActionHelper {
     public void actionPerformed (ActionEvent p{
      // here we just want the gameStart thread to continue
