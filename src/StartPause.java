@@ -10,6 +10,7 @@ public class StartPause extends JPanel {
   * program keybinding to only allow movement within menu options
   * Add mouse listener
   * Make mochi button blink when clicked
+  * Add level editor button? that functionality is not implemented yet
   */
   
   boolean isStart;
