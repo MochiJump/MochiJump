@@ -35,7 +35,8 @@ public class StartPause extends JPanel {
   private Dimension cbSize;
   private Dimension mbsize;
   
-  Image bg = new ImageIcon("background.png").getImage(); //<-- this should be renamed because it isn't actually a background.
+  Image mochiFaceState1 = new ImageIcon("background.png").getImage(); //<-- consider changing png file name
+  Image mochiFace;
   Image start = new ImageIcon("start.png").getImage();
   // I made this image, but it doesn't serve a purpose and may just need to be erased.
   Image pause = new ImageIcon("pause.png").getImage();
@@ -67,7 +68,9 @@ public class StartPause extends JPanel {
     cbSize = continueButton.getSize();
     //set location
     continueButton.setBounds();
-    JButton mochiButton = new JButton(bg);
+    //set mochiFace to eyeopen state
+    mochiFace = mochiFaceState1;
+    JButton mochiButton = new JButton(mochiFace);
     mbSize = mochiButton.getSize();
     //set location (this needs to go at the top)
     mochiButton.setBounds();
