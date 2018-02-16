@@ -29,6 +29,12 @@ public class StartPause extends JPanel {
   private int selectionB;
   private int selectionC;
   
+  //variables button sizes
+  private Dimension screenSize;
+  private Dimension sbSize;
+  private Dimension cbSize;
+  private Dimension mbsize;
+  
   Image bg = new ImageIcon("background.png").getImage(); //<-- this should be renamed because it isn't actually a background.
   Image start = new ImageIcon("start.png").getImage();
   // I made this image, but it doesn't serve a purpose and may just need to be erased.
@@ -49,18 +55,22 @@ public class StartPause extends JPanel {
     MochiButtonHelper mochiButtonHelper = new MochiButtonHelper();
    JPanel sPScreen = new JPanel();
     // getting the height and width of the screen:
-    Dimension screenSize = sPScreen.getSize();
+    screenSize = sPScreen.getSize();
     maxHeight = screenSize.height;
     maxWidth = screenSize.width;
     JButton startButton = new JButton(start); //<-- makes the image continue a JButton!
     // must set location of these buttons instead of relying on a layout
-    Dimension sbSize = startButton.getSize();
+    sbSize = startButton.getSize();
     startButton.setBounds(maxWidth/2, maxHeight/2, sbSize.width, sbSize.height); // <-- should place it center of screen
     //now just work out the layout you'd like to see
     JButton continueButton = new JButton(continue);
+    cbSize = continueButton.getSize();
     //set location
+    continueButton.setBounds();
     JButton mochiButton = new JButton(bg);
-    //set location
+    mbSize = mochiButton.getSize();
+    //set location (this needs to go at the top)
+    mochiButton.setBounds();
     startButton.addActionListener(startActionHelper);
     continueButton.addActionListener(countinueActionHelper);
     sPScreen.add(startScreenKeyInputs());
