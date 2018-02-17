@@ -36,6 +36,7 @@ public class StartPause extends JPanel {
   private Dimension mbsize;
   
   Image mochiFaceState1 = new ImageIcon("background.png").getImage(); //<-- consider changing png file name
+  Image mochiFaceState2 = new ImageIcon("blink.png").getImage();
   Image mochiFace;
   Image start = new ImageIcon("start.png").getImage();
   // I made this image, but it doesn't serve a purpose and may just need to be erased.
