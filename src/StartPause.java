@@ -17,7 +17,7 @@ public class StartPause extends JPanel {
 * "change screens" Do I want to actually flip between JPanels or do I want to have one panel that paints two
 * different screens?
 * 
-* either way I can start by getting this to work independantly in and then figure out how to ingerate it. */
+* either way I can start by getting this to work independently in and then figure out how to integrate it. */
 
 	
   /** To Do:
@@ -26,8 +26,7 @@ public class StartPause extends JPanel {
   * add a selector icon that moves with keybinding
   * program keybinding to only allow movement within menu options
   * Add mouse listener
-  * Make mochi button blink when clicked
-  */
+  * Make MochiIcon blink when clicked */
   
   boolean isStart;
   boolean isPause;
@@ -41,15 +40,18 @@ public class StartPause extends JPanel {
   
   private int maxHeight;
   private int maxWidth;
-  private int selectionA;
-  private int selectionB;
-  private int selectionC;
+  private int setPointAx;
+  private int setPointAy;
+  private int setPointBx;
+  private int setPointBy;
+  private int setPointCx;
+  private int setPointCy;
   
   //variables button sizes
   private Dimension screenSize;
   private Dimension sbSize;
   private Dimension cbSize;
-  private Dimension mbsize;
+  private Dimension mbSize;
   
   Image mochiFaceState1 = new ImageIcon("background.png").getImage(); //<-- consider changing png file name
   Image mochiFaceState2 = new ImageIcon("blink.png").getImage();
@@ -73,14 +75,19 @@ public class StartPause extends JPanel {
     maxHeight = screenSize.height;
     maxWidth = screenSize.width;    
    add (sPScreen);
+   //adding thread goes below:
   }
   
+  private void setPoints() {
+	  setPointAy = maxHeight/2;
+	  setPointAx = maxWidth/2;
+  
+  }
   public void draw (Graphics g){
     Graphics2D mochiIcon = (Graphics2D) g.create();
     Graphics2D startSelect = (Graphics2D) g.create();
     Graphics2D contSelect = (Graphics2D) g.create();
-    
-    //mochiIcon.setClip();
+    mochiIcon.setClip(setPointAx, setPointAy, 222, 225);
     //mochiIcon.drawImage();
   }
   public boolean getIsStart(){
@@ -112,15 +119,15 @@ public class StartPause extends JPanel {
   // let's go ahead and start with keybindings here:
   public JLabel startScreenKeyInputs (){
     JLabel MochiStartLabel = new JLabel ("Mochi Jump Start");
-    
+    /**
     MoveSelectorUp MoveSelectorUp = new MoveSelectorUp();
     MoveSelectorDown MoveSelectorDown = new MoveSelectorDown();
-    MakeSelection MakeSelection = new MakeSelection();
+    MakeSelection MakeSelection = new MakeSelection(); */
     
     InputMap im = MochiStartLabel.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
     ActionMap am = MochiStartLabel.getActionMap();
     
-    // now create the maps to add the keys to the actions you want. easy peasy.
+    return MochiStartLabel;
     
   }
   
