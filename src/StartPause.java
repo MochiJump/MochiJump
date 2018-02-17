@@ -17,7 +17,7 @@ public class StartPause extends JPanel {
 * "change screens" Do I want to actually flip between JPanels or do I want to have one panel that paints two
 * different screens?
 * 
-* either way I can start by getting this to work independently in and then figure out how to integrate it. */
+* either way I can start by getting this to work independently and then figure out how to integrate it. */
 
 	
   /** To Do:
