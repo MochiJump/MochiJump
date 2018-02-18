@@ -86,7 +86,12 @@ public void startPauseActive();
 				try{
 					Thread.sleep(1000/refreshrate);// <-- needs refreshrate variable should this be the same one as doglogics?
 				}catch (InterruptedException ex){
-					
+					System.out.println("An error has occured in the StartPause Thread");
+				}
+			}
+		}
+	};
+}
   
   private void setPoints() {
 	  setPointAy = maxHeight/2;
