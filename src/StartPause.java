@@ -17,7 +17,7 @@ public class StartPause extends JPanel {
 * "change screens" Do I want to actually flip between JPanels or do I want to have one panel that paints two
 * different screens?
 * 
-* either way I can start by getting this to work independently and then figure out how to integrate it. */
+* either way I can start by getting this to work independently in and then figure out how to integrate it. */
 
 	
   /** To Do:
@@ -88,7 +88,11 @@ public class StartPause extends JPanel {
     Graphics2D startSelect = (Graphics2D) g.create();
     Graphics2D contSelect = (Graphics2D) g.create();
     mochiIcon.setClip(setPointAx, setPointAy, 222, 225);
-    //mochiIcon.drawImage();
+  //mochiIcon.drawImage();
+    startSelect.setClip(setPointBx, setPointBy, 366, 71);
+    //startSelect.drawImage();
+    contSelect.setClip(setPointCx, setPointCy, 366, 71);
+    //contSelect.drawImage();
   }
   public boolean getIsStart(){
     return this.isStart;
