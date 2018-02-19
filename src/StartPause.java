@@ -94,8 +94,12 @@ public void startPauseActive();
 }
   
   private void setPoints() {
-	  setPointAy = maxHeight/2;
-	  setPointAx = maxWidth/2;
+	  setPointAy = maxHeight/4;
+	  setPointAx = maxWidth/2 - 222/2;
+	  setPointBy = maxHeight/2;
+	  setPointBx = maxWidth/2 -366/2;
+	  setPointCx = maxHeight/2 +400;
+	  setPointCy = maxWidth/2 - 3666/2;
   
   }
   public void draw (Graphics g){
