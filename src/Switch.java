@@ -1,3 +1,3 @@
-class Switch {
+public class Switch {
 
 }
