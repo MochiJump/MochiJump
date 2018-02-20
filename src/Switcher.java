@@ -8,6 +8,11 @@ public class Switcher {
   public Switcher (){
     JPanel switcherPanel = new JPanel();
     add (switcherPanel);
+    switchControl();
+  }
+  
+  private switchControl(){
+    
   }
 
 }
