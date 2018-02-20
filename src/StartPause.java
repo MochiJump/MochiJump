@@ -30,6 +30,7 @@ public class StartPause extends JPanel {
   
   boolean isStart;
   boolean isPause;
+  private int refreshRate = 30;
   
   //actions for the start screen:
   private Action MoveSelectorUp;
@@ -84,7 +85,7 @@ public void startPauseActive();
 			while (true){ //<-- This is a good place for the boolean switch maybe(?)
 				//this will hold the start pause screen methods:
 				try{
-					Thread.sleep(1000/refreshrate);// <-- needs refreshrate variable should this be the same one as doglogics?
+					Thread.sleep(1000/refreshRate);// <-- needs refreshrate variable should this be the same one as doglogics?
 				}catch (InterruptedException ex){
 					System.out.println("An error has occured in the StartPause Thread");
 				}
