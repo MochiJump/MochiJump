@@ -108,11 +108,12 @@ public void startPauseActive();
     Graphics2D startSelect = (Graphics2D) g.create();
     Graphics2D contSelect = (Graphics2D) g.create();
     mochiIcon.setClip(setPointAx, setPointAy, 222, 225);
-  //mochiIcon.drawImage();
+  	mochiIcon.drawImage(mochiFace, setPointAx, SetPointAy, 222,225);
     startSelect.setClip(setPointBx, setPointBy, 366, 71);
-    //startSelect.drawImage();
+    startSelect.drawImage(start, setPointBx, setPointBy, 366,71);
     contSelect.setClip(setPointCx, setPointCy, 366, 71);
-    //contSelect.drawImage();
+    contSelect.drawImage(cont, setPointCx, setPointCy, 366, 71);
+	  // still need selector Graphics setClip and drawImage
   }
   public boolean getIsStart(){
     return this.isStart;
