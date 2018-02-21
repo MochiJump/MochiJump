@@ -173,6 +173,8 @@ public void startPauseActive();
      isPause = false;
     }
   }
+
+// the below needs to be tested
 	@Override
 	public void paintComponent (Graphics g){
 		super.paintComponent(g);
