@@ -47,6 +47,10 @@ public class StartPause extends JPanel {
   private int setPointBy;
   private int setPointCx;
   private int setPointCy;
+  private int setSelectorPointx;
+  private int setSelectorPointy;
+  private int selectorWidth;
+  private int selectorHeight;
   
   //variables button sizes
   private Dimension screenSize;
@@ -62,9 +66,9 @@ public class StartPause extends JPanel {
   Image pause = new ImageIcon("pause.png").getImage();
   // still need images attached to them
   Image cont = new ImageIcon("continue.png").getImage();
-  Image selector = new ImageIcon("createSelectorImage.png").getImage();
+  Image selectorImage;
   // selector can me animated which would require creating a new animation method as well as multiple versions
-  // of the selector image above
+  // of the selector image above to cycle through
   Image exit = new ImageIcon("exit.png").getImage();
   
   // requires variables for draw method location as well as a method for getting the values for those variables
@@ -107,13 +111,17 @@ public void startPauseActive();
     Graphics2D mochiIcon = (Graphics2D) g.create();
     Graphics2D startSelect = (Graphics2D) g.create();
     Graphics2D contSelect = (Graphics2D) g.create();
+    Graphics2D selectorIcon = (Graphics2D) g.create();
+    
     mochiIcon.setClip(setPointAx, setPointAy, 222, 225);
-  	mochiIcon.drawImage(mochiFace, setPointAx, SetPointAy, 222,225);
+    mochiIcon.drawImage(mochiFace, setPointAx, SetPointAy, 222,225, null);
+   
     startSelect.setClip(setPointBx, setPointBy, 366, 71);
-    startSelect.drawImage(start, setPointBx, setPointBy, 366,71);
+    startSelect.drawImage(start, setPointBx, setPointBy, 366,71, null);
     contSelect.setClip(setPointCx, setPointCy, 366, 71);
-    contSelect.drawImage(cont, setPointCx, setPointCy, 366, 71);
-	  // still need selector Graphics setClip and drawImage
+    contSelect.drawImage(cont, setPointCx, setPointCy, 366, 71, null);
+    selectorIcon.setClip(setSelectorPointx, setSelectorPointy, selectorWidth, selectorHeight);
+    selectorIcon.drawImage(selectorImage, setSelectorPointx, setSelectorPointy, selectorWidth, selectorHeight, null);
   }
   public boolean getIsStart(){
     return this.isStart;
