@@ -173,5 +173,11 @@ public void startPauseActive();
      isPause = false;
     }
   }
-
+  // the below needs to be tested and must be in the StartPause class!
+	@Override
+	public void paintComponent (Graphics g){
+		super.paintComponent(g);
+		Graphics2D g2 = (Graphics2D) g.create();
+		StartPause.draw(g2);
+	}
 }
