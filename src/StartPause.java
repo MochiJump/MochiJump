@@ -72,7 +72,8 @@ public class StartPause extends JPanel {
   Image cont = new ImageIcon("continue.png").getImage();
   Image selectorImage;
   Image selectorImage1 = new ImageIcon("bone1M.png").getImage();
-  Image selectorImage2 = new ImageIcon("bone2M.png").getImage(); 
+  Image selectorImage2 = new ImageIcon("bone2M.png").getImage();
+  Image selectorImage3 = new ImageIcon("bone3M.png").getImage();
   // selector can me animated which would require creating a new animation method as well as multiple versions
   // of the selector image above to cycle through
   Image exit = new ImageIcon("exit.png").getImage();
