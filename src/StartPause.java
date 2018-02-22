@@ -56,6 +56,7 @@ public class StartPause extends JPanel {
   private int selectorWidth;
   private int selectorHeight;
   
+  private int selectorAniCounter;
   //variables button sizes
   private Dimension screenSize;
   private Dimension sbSize;
@@ -115,6 +116,23 @@ public void startPauseActive();
 	  setPointCy = maxWidth/2 - 3666/2;
   
   }
+  private void selectorAni(){
+	  if (selectorAniCounter <= 5){
+		  selectorImage = selectorImage1;
+		  selectorAniCounter++;
+	  } else if (selectorAniCounter <= 10){
+		  selectorImage = selectorImage2;
+		  selectorAniCounter++;
+	  } else if (selectorAniCounter <= 15){
+		  selectorImage = selectorImage3;
+		  selectorAniCounter++;
+	  } else if (selectorAniCounter <=20){
+		  selectorImage = selectorImage4;
+		  selectorAniCounter++;
+	  }
+	  else{
+		  selectorAniCounter = 0;
+	  }
   public void draw (Graphics g){
     Graphics2D mochiIcon = (Graphics2D) g.create();
     Graphics2D startSelect = (Graphics2D) g.create();
