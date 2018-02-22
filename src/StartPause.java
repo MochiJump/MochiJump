@@ -47,8 +47,12 @@ public class StartPause extends JPanel {
   private int setPointBy;
   private int setPointCx;
   private int setPointCy;
-  private int setSelectorPointx;
-  private int setSelectorPointy;
+  private int setSelectorPointAx;
+  private int setSelectorPointAy;
+  private int setSelectorPointBx;
+  private int setSelectorPointBy;
+  private int setSelectorPointCx;
+  private int setSelectorPointCy;
   private int selectorWidth;
   private int selectorHeight;
   
