@@ -5,7 +5,6 @@
 // read:https://docs.oracle.com/javase/tutorial/essential/concurrency/syncmeth.html
 
 public class Switcher {
-  
   DogLogic dogLogic = new DogLogic();
   StartPause startpause = new StartPause();
   
@@ -19,6 +18,7 @@ public class Switcher {
     Thread controlThread = new Thread(){
       public void run (){
         while (true){
+          // how to get updated boolean values here, remember Java is pass by copy.
           //method for JPanel switcher goes here
           try {
             Thread.sleep(1000/refreshRate);
