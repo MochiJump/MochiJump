@@ -30,14 +30,6 @@ public class MochiJump {
 	 public static void main(String[] args) {
 		 
 		 		DogLogic dogLogic = new DogLogic();
-		 /**		StartPause sP = new StartPause();
-		 * I think the switch to add a new thread and pain for pause start maybe should be in DogLogic only
-		 * and not here in the main class
-		 * this may require some testing. Big question is would this class update if it has a boolean switch
-		 * to change panels
-		 *		boolean isStart = sP.getIsStart();
-		 *		boolean isPause = sP.getIsPause();
-		 */
 		 		javax.swing.SwingUtilities.invokeLater(new Runnable() {
 			         public void run() {
 			        
