@@ -18,9 +18,6 @@ public class Switcher {
     Thread switcherThread = new Thread(){
       public void run (){
         while (true){
-          // how to get updated boolean values here, remember Java is pass by copy.
-          //method for JPanel switcher goes here
-          // need to test to see if this works.
           updateFlags();
           if (startpause.isStart == true :: startpause.isStart == false){
             startPauseRun();
@@ -43,6 +40,8 @@ public class Switcher {
     //add startPauseJPanel & remove DogLogic JPanel
     //may be worth running an if check for whether DogLogic's testPanel (needs renaming is visible)
     // otherwise run the risk of perpetually adding JPanels<-- undesirable outcome
+    //https://stackoverflow.com/questions/2501861/how-can-i-remove-a-jpanel-from-a-jframe
+    //https://stackoverflow.com/questions/9602683/how-to-find-out-a-java-component-being-displayed-on-screen
   }
   private void mainGameRun(){
     //add DogLogic Jpanel and remove startPause Jpanel
