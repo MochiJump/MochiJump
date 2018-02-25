@@ -37,11 +37,13 @@ public class Switcher {
     switcherThread.start();
   }
   private void startPauseRun(){
-    //add startPauseJPanel & remove DogLogic JPanel
-    //may be worth running an if check for whether DogLogic's testPanel (needs renaming is visible)
-    // otherwise run the risk of perpetually adding JPanels<-- undesirable outcome
-    //https://stackoverflow.com/questions/2501861/how-can-i-remove-a-jpanel-from-a-jframe
-    //https://stackoverflow.com/questions/9602683/how-to-find-out-a-java-component-being-displayed-on-screen
+    //would it be better to set this to a boolean or try running something like below:
+    if (dogLogic.testPanel.isVisible()){
+    // call method for removing dogPanel JPanel and method for adding startPause JPanel
+    }
+    if (!dogLogic.testPanel.isVisible()){
+     // nothing happens 
+    }
   }
   private void mainGameRun(){
     //add DogLogic Jpanel and remove startPause Jpanel
