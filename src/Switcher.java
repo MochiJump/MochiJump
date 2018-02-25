@@ -20,6 +20,15 @@ public class Switcher {
         while (true){
           // how to get updated boolean values here, remember Java is pass by copy.
           //method for JPanel switcher goes here
+          // need to test to see if this works.
+          updateFlags();
+          if (startpause.isStart == true :: startpause.isStart == false){
+            startPauseRun();
+          }
+          else{
+            mainGameRun();
+          }
+          
           try {
             Thread.sleep(1000/refreshRate);
           }catch(InterruptedException s) {
@@ -29,6 +38,13 @@ public class Switcher {
       }
     }; 
   }
-
-  
+  private void startPauseRun(){
+    //add startPauseJPanel & remove DogLogic JPanel
+  }
+  private void mainGameRun(){
+    //add DogLogic Jpanel and remove startPause Jpanel
+  }
+  private void updateFlags(){
+    // get booleans for thread conditions 
+  }
 }
