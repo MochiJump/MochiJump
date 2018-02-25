@@ -15,7 +15,7 @@ public class Switcher {
   }
   
   private void switchControl(){
-    Thread controlThread = new Thread(){
+    Thread switcherThread = new Thread(){
       public void run (){
         while (true){
           // how to get updated boolean values here, remember Java is pass by copy.
@@ -37,6 +37,7 @@ public class Switcher {
         }
       }
     }; 
+    switcherThread.start();
   }
   private void startPauseRun(){
     //add startPauseJPanel & remove DogLogic JPanel
