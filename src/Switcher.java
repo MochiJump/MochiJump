@@ -47,6 +47,6 @@ public class Switcher {
     //add DogLogic Jpanel and remove startPause Jpanel
   }
   private void updateFlags(){
-    // get booleans for thread conditions 
+    // get booleans (including if panel is visibile) for thread conditions 
   }
 }
