@@ -6,7 +6,7 @@
 
 public class Switcher {
   DogLogic dogLogic = new DogLogic();
-  StartPause startpause = new StartPause();
+  StartPause startPause = new StartPause();
   
   public Switcher (){
     JPanel switcherPanel = new JPanel();
@@ -19,6 +19,7 @@ public class Switcher {
       public void run (){
         while (true){
           updateFlags();
+          //need to be sure that a starting condition actually happens
           if (startpause.isStart == true :: startpause.isStart == false){
             startPauseRun();
           }
@@ -39,9 +40,10 @@ public class Switcher {
   private void startPauseRun(){
     //would it be better to set this to a boolean or try running something like below:
     if (dogLogic.testPanel.isVisible()){
-    // call method for removing dogPanel JPanel and method for adding startPause JPanel
+    // call method for removing dogPanel JPanel
+      switcherPanel.getContentPane().add(startPause, BorderLayout.Center);
     }
-    if (!dogLogic.testPanel.isVisible()){
+    if (!dogLogic.testPanel.isVisible()){ // need to include && startPause Panel ! visible here
      // nothing happens 
     }
   }
