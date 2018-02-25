@@ -41,6 +41,8 @@ public class Switcher {
   }
   private void startPauseRun(){
     //add startPauseJPanel & remove DogLogic JPanel
+    //may be worth running an if check for whether DogLogic's testPanel (needs renaming is visible)
+    // otherwise run the risk of perpetually adding JPanels<-- undesirable outcome
   }
   private void mainGameRun(){
     //add DogLogic Jpanel and remove startPause Jpanel
