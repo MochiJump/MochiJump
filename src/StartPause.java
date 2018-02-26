@@ -125,8 +125,14 @@ private void screenSizeCheck(){
 	  setPointBx = maxWidth/2 -366/2;
 	  setPointCx = maxHeight/2 +400;
 	  setPointCy = maxWidth/2 - 3666/2;
-  
+	  setSelectorPointAx = setPointAx - 150;
+	  setSelectorPointAy = setPointAy;
+	  setSelectorPointBx = setPointBx -150;
+	  setSelectorPointBy = setPointBy;
+	  setSelectorPointCx = setPointCx -150;
+	  setSelectorPointCy = setPointCy;
   }
+
   private void selectorAni(){
 	  if (selectorAniCounter <= 5){
 		  selectorImage = selectorImage1;
