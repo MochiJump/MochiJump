@@ -87,10 +87,7 @@ public class StartPause extends JPanel {
   
   public StartPause(){
 	JPanel sPScreen = new JPanel();
-    // getting the height and width of the screen:
-    screenSize = sPScreen.getSize();
-    maxHeight = screenSize.height;
-    maxWidth = screenSize.width;    
+    // getting the height and width of the screen:  
    add (sPScreen);
 	startPauseActive();
   }
@@ -98,8 +95,8 @@ public class StartPause extends JPanel {
 public void startPauseActive();
 	Thread startPauseThread = new Thread(){
 		public void run(){
-			while (true){ //<-- This is a good place for the boolean switch maybe(?)
-				//this will hold the start pause screen methods:
+			while (true){
+				menuUpdate();
 				try{
 					Thread.sleep(1000/refreshRate);// <-- needs refreshrate variable should this be the same one as doglogics?
 				}catch (InterruptedException ex){
@@ -110,6 +107,17 @@ public void startPauseActive();
 	};
 }
   
+private void menuUpdate(){
+	screenSizeCheck();
+	setPoints();
+	selectorAni();
+}
+
+private void screenSizeCheck(){
+    screenSize = sPScreen.getSize();
+    maxHeight = screenSize.height;
+    maxWidth = screenSize.width;
+}
   private void setPoints() {
 	  setPointAy = maxHeight/4;
 	  setPointAx = maxWidth/2 - 222/2;
