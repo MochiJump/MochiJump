@@ -23,11 +23,11 @@ public class DogLogic extends JPanel {
 
 	
 	public DogLogic () {
-		JPanel testPain = new JPanel();
-		testPain.add(mochi.keyInputs());
+		JPanel dogPain = new JPanel();
+		dogPain.add(mochi.keyInputs());
 
 		//testPain.setPreferredSize(new Dimension(600,600));
-		add (testPain);
+		add (dogPain);
 		
 	// okay I need to create a new class here gameStart() and inside gameStart() is where
 	// the refresh rate will lay as well as it ending with it invoking itself i.e. "gameStart();"
