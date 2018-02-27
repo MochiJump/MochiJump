@@ -228,6 +228,7 @@ private void screenSizeCheck(){
   private class PauseActionHelper extends AbstractAction {
     public void actionPerformed (ActionEvent p){
      // here we just want the gameStart thread to continue
+     // would it make sense to have a keybinding to P that just called this method to start the pause screen?
      isPause = false;
     }
   }
