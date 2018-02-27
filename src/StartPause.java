@@ -58,6 +58,8 @@ public class StartPause extends JPanel {
   private int setSelectorPointCy;
   private int selectorWidth;
   private int selectorHeight;
+  private int setSelectorPointX;
+  private int setSelectorPointY;
   
   private int selectorAniCounter;
   //variables button sizes
@@ -84,15 +86,17 @@ public class StartPause extends JPanel {
   Image exit = new ImageIcon("exit.png").getImage();
   
   // requires variables for draw method location as well as a method for getting the values for those variables
-  
-  public StartPause(){
+
+  //I need the JPanel to not be local to the constructor so I am putting it just outside it here:
 	JPanel sPScreen = new JPanel();
+  public StartPause(){
+
     // getting the height and width of the screen:  
    add (sPScreen);
 	startPauseActive();
   }
 	
-public void startPauseActive();
+public void startPauseActive() {
 	Thread startPauseThread = new Thread(){
 		public void run(){
 			while (true){
@@ -150,6 +154,7 @@ private void screenSizeCheck(){
 	  else{
 		  selectorAniCounter = 0;
 	  }
+  }
   public void draw (Graphics g){
     Graphics2D mochiIcon = (Graphics2D) g.create();
     Graphics2D startSelect = (Graphics2D) g.create();
@@ -157,14 +162,14 @@ private void screenSizeCheck(){
     Graphics2D selectorIcon = (Graphics2D) g.create();
     
     mochiIcon.setClip(setPointAx, setPointAy, 222, 225);
-    mochiIcon.drawImage(mochiFace, setPointAx, SetPointAy, 222,225, null);
+    mochiIcon.drawImage(mochiFace, setPointAx, setPointAy, 222,225, null);
    
     startSelect.setClip(setPointBx, setPointBy, 366, 71);
     startSelect.drawImage(start, setPointBx, setPointBy, 366,71, null);
     contSelect.setClip(setPointCx, setPointCy, 366, 71);
     contSelect.drawImage(cont, setPointCx, setPointCy, 366, 71, null);
-    selectorIcon.setClip(setSelectorPointx, setSelectorPointy, selectorWidth, selectorHeight);
-    selectorIcon.drawImage(selectorImage, setSelectorPointx, setSelectorPointy, selectorWidth, selectorHeight, null);
+    selectorIcon.setClip(setSelectorPointX, setSelectorPointY, selectorWidth, selectorHeight);
+    selectorIcon.drawImage(selectorImage, setSelectorPointX, setSelectorPointY, selectorWidth, selectorHeight, null);
   }
   public boolean getIsStart(){
     return this.isStart;
@@ -221,6 +226,6 @@ private void screenSizeCheck(){
 	public void paintComponent (Graphics g){
 		super.paintComponent(g);
 		Graphics2D g2 = (Graphics2D) g.create();
-		StartPause.draw(g2);
+		draw(g2);
 	}
 }
