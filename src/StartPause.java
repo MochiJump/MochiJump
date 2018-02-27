@@ -203,13 +203,20 @@ private void screenSizeCheck(){
   // let's go ahead and start with keybindings here:
   public JLabel startScreenKeyInputs (){
     JLabel MochiStartLabel = new JLabel ("Mochi Jump Start");
-    /**
+   
     MoveSelectorUp MoveSelectorUp = new MoveSelectorUp();
     MoveSelectorDown MoveSelectorDown = new MoveSelectorDown();
-    MakeSelection MakeSelection = new MakeSelection(); */
+    MakeSelection MakeSelection = new MakeSelection();
     
     InputMap im = MochiStartLabel.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
     ActionMap am = MochiStartLabel.getActionMap();
+    im.put(KeyStroke.getKeyStroke("UP"), "MoveSelectorUp");
+    am.put("MoveSelectorUp", MoveSelectorUp);
+    im.put(KeyStroke.getKeyStoke("DOWN"), "MoveSelectorDown");
+    am.put("MoveSelectorDown", MoveSelectorDown);
+    im.put(KeyStroke.getKeyStroke("ENTER"), "MakeSelection");
+    am.put("MakeSelection", MakeSelection);
+	  
     
     return MochiStartLabel;
     
