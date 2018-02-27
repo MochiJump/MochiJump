@@ -216,7 +216,7 @@ private void screenSizeCheck(){
     am.put("MoveSelectorDown", MoveSelectorDown);
     im.put(KeyStroke.getKeyStroke("ENTER"), "MakeSelection");
     am.put("MakeSelection", MakeSelection);
-	  
+    // corresponding classes MoveSelectorUp, MoveSelectorDown, MakeSelection, need to be created	  
     
     return MochiStartLabel;
     
@@ -225,7 +225,7 @@ private void screenSizeCheck(){
   private class MochiButtonHelper{
     // I guess we will make Mochi blink if this button is covered with the mouse
   }
-  private class PauseActionHelper {
+  private class PauseActionHelper extends AbstractAction {
     public void actionPerformed (ActionEvent p){
      // here we just want the gameStart thread to continue
      isPause = false;
