@@ -14,6 +14,9 @@ public class StartPause extends JPanel {
   
 // It's time to try to compile this and work out any problems that occur. From there we can tie it and DogLogic into the switcher class
 // and that should be it for getting a start and pause screen up and running for Mochi Jump
+
+// I'm pretty proud of myself I wrote almost all of this in the GitHub editor and there were very few errors when checking the code
+// in the eclipse IDE
 	
 	
 /** Okay I'm going to give the StartPause class it's own thread to run on... or should I? The main issue is how to
