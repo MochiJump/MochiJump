@@ -221,6 +221,18 @@ private void screenSizeCheck(){
     return MochiStartLabel;
     
   }
+  private class MoveSelectorUp{
+  }
+  private class MoveSelectorDown{
+  }
+  private class MakeSelection{
+  }
+  private class OptionA{
+  }
+  private class OptionB{
+  }
+  private class OptionC{
+  }
   
   private class MochiButtonHelper{
     // I guess we will make Mochi blink if this button is covered with the mouse
