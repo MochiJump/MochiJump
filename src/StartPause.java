@@ -33,8 +33,6 @@ public class StartPause extends JPanel {
   * program keybinding to only allow movement within menu options
   * Add mouse listener
   * Make MochiIcon blink when clicked */
-
-// selectorPointX and selectorPointY need a starting point
   
   boolean isStart;
   boolean isPause;
@@ -101,7 +99,8 @@ JPanel sPScreen = new JPanel();
 	startPauseActive();
   }
   private startConditions(){
-  //All starting conditions that shouldn't be ran repetative in a thread go in here
+  	selectorPointX = setSelectorPointBx; //<-- maybe I should change that var name?
+  	selectorPointY = setSelectorPointBy;
   }
 public void startPauseActive() {
 	Thread startPauseThread = new Thread(){
