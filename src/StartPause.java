@@ -33,6 +33,8 @@ public class StartPause extends JPanel {
   * program keybinding to only allow movement within menu options
   * Add mouse listener
   * Make MochiIcon blink when clicked */
+
+// selectorPointX and selectorPointY need a starting point
   
   boolean isStart;
   boolean isPause;
