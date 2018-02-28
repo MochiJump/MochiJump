@@ -93,14 +93,16 @@ public class StartPause extends JPanel {
   // requires variables for draw method location as well as a method for getting the values for those variables
 
   //I need the JPanel to not be local to the constructor so I am putting it just outside it here:
-	JPanel sPScreen = new JPanel();
+JPanel sPScreen = new JPanel();
   public StartPause(){
-
+	startConditions();
     // getting the height and width of the screen:  
-   add (sPScreen);
+   	add (sPScreen);
 	startPauseActive();
   }
-	
+  private startConditions(){
+  //All starting conditions that shouldn't be ran repetative in a thread go in here
+  }
 public void startPauseActive() {
 	Thread startPauseThread = new Thread(){
 		public void run(){
