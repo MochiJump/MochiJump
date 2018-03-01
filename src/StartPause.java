@@ -225,6 +225,9 @@ private void screenSizeCheck(){
     
   }
   private class MoveSelectorUp{
+	  if (setSelectorPointX == setSelectorPointAx){
+		  setSelectorPointX = setSelectorPointBx;
+	  }
   }
   private class MoveSelectorDown{
   }
