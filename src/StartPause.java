@@ -107,6 +107,7 @@ public void startPauseActive() {
 			}
 		}
 	};
+	startPauseThread.start();
 }
   
 private void menuUpdate(){
