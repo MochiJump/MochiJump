@@ -12,8 +12,8 @@ import javax.swing.*;
 
 public class StartPause extends JPanel {
   
-// First attempt compiling, the layout is broken, everything seems to get stuck in the corner. Making sure the thread was
-// made things worse.
+// Currently I'm having issue with collecting screensize.
+// feel free to check out TestClass.java for a more working version of the startPausescreen
 	
 /** Okay I'm going to give the StartPause class it's own thread to run on... or should I? The main issue is how to
 * "change screens" Do I want to actually flip between JPanels or do I want to have one panel that paints two
