@@ -87,7 +87,7 @@ public class StartPause extends JPanel {
 JPanel sPScreen = new JPanel();
   public StartPause(){
 	startConditions();
-    // getting the height and width of the screen:  
+	  sPScreen.add(startScreenKeyInputs());
    	add (sPScreen);
 	startPauseActive();
   }
