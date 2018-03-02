@@ -85,6 +85,7 @@ public class StartPause extends JPanel {
   //I need the JPanel to not be local to the constructor so I am putting it just outside it here:
 JPanel sPScreen = new JPanel();
   public StartPause(){
+	  sPScreen.add(startScreenKeyInputs());
    	add (sPScreen);
 	startPauseActive();
   }
@@ -154,8 +155,8 @@ private void screenSizeCheck(){
     Graphics2D startSelect = (Graphics2D) g.create();
     Graphics2D contSelect = (Graphics2D) g.create();
     Graphics2D selectorIcon = (Graphics2D) g.create();
-    mochiIcon.setClip(500, 100, 222, 225);
-    mochiIcon.drawImage(mochiFace, 500, 100, 222,225, null);
+    mochiIcon.setClip(550, 100, 222, 225);
+    mochiIcon.drawImage(mochiFaceState1, 550, 100, 222,225, null);
    
     startSelect.setClip(500, 400, 366, 71);
     startSelect.drawImage(start, 500, 400, 366,71, null);
