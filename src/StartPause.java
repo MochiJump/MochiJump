@@ -100,6 +100,7 @@ public void startPauseActive() {
 		public void run(){
 			while (true){
 				menuUpdate();
+				repaint();
 				try{
 					Thread.sleep(1000/refreshRate);// <-- needs refreshrate variable should this be the same one as doglogics?
 				}catch (InterruptedException ex){
