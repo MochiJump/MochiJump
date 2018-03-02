@@ -12,7 +12,13 @@ import javax.swing.*;
 
 public class StartPause extends JPanel {
   
-// Copied StartPause Class here to keep code while I manually input values to find solution to current issues
+// First attempt compiling, the layout is broken, everything seems to get stuck in the corner
+	
+/** Okay I'm going to give the StartPause class it's own thread to run on... or should I? The main issue is how to
+* "change screens" Do I want to actually flip between JPanels or do I want to have one panel that paints two
+* different screens?
+* 
+* either way I can start by getting this to work independently in and then figure out how to integrate it. */
 
 	
   /** To Do:
@@ -79,14 +85,9 @@ public class StartPause extends JPanel {
   //I need the JPanel to not be local to the constructor so I am putting it just outside it here:
 JPanel sPScreen = new JPanel();
   public StartPause(){
-	startConditions();	
+	selectorImage = selectorImage1;
    	add (sPScreen);
-   	screenSizeCheck();
 	startPauseActive();
-  }
-  private void startConditions(){
-  	setSelectorPointX = setSelectorPointBx; //<-- maybe I should change that var name?
-  	setSelectorPointY = setSelectorPointBy;
   }
 public void startPauseActive() {
 	Thread startPauseThread = new Thread(){
@@ -94,15 +95,16 @@ public void startPauseActive() {
 			while (true){
 				menuUpdate();
 				try{
-					Thread.sleep(1000/refreshRate);// <-- needs refreshrate variable should this be the same one as doglogics?
+					Thread.sleep(1000/29);// <-- needs refreshrate variable should this be the same one as doglogics?
 				}catch (InterruptedException ex){
 					System.out.println("An error has occured in the StartPause Thread");
 				}
 			}
 		}
 	};
+	startPauseThread.start();
 }
-  
+  // I don't think the below method is actually doing anything
 private void menuUpdate(){
 	screenSizeCheck();
 	setPoints();
@@ -159,8 +161,9 @@ private void screenSizeCheck(){
     startSelect.drawImage(start, 500, 400, 366,71, null);
     contSelect.setClip(500, 600, 366, 71);
     contSelect.drawImage(cont, 500, 600, 366, 71, null);
-    selectorIcon.setClip(100, 500, selectorWidth, selectorHeight);
-    selectorIcon.drawImage(selectorImage, 100, 500, selectorWidth, selectorHeight, null);
+    // the individual images show up fine. selectorAni() is not doing anything, there may be something wrong with the thread
+    selectorIcon.setClip(100, 400, 140, 90);
+    selectorIcon.drawImage(selectorImage, 100, 400, 140, 90, null);
   }
   public boolean getIsStart(){
     return this.isStart;
