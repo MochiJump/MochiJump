@@ -1,9 +1,10 @@
-// okay I am keeping an old version of StartPause.java here so I can refer to it while I wipe and rebuild it again
-
 import javax.swing.JPanel;
 
 import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
 
 import javax.swing.Action;
 
@@ -11,19 +12,17 @@ import javax.swing.*;
 
 public class StartPause extends JPanel {
   
-  //May be worth running this on it's own to see things visually before attemping to tie through Dog Logic
-  
+// Copied StartPause Class here to keep code while I manually input values to find solution to current issues
+
+	
   /** To Do:
   * Format layout of the screen
-  * add a selector icon that moves with keybinding
-  * program keybinding to only allow movement within menu options
   * Add mouse listener
-  * Make mochi button blink when clicked
-  * Add level editor button? that functionality is not implemented yet
-  */
+  * Make MochiIcon blink when clicked */
   
   boolean isStart;
   boolean isPause;
+  private int refreshRate = 30;
   
   //actions for the start screen:
   private Action MoveSelectorUp;
@@ -34,15 +33,29 @@ public class StartPause extends JPanel {
   
   private int maxHeight;
   private int maxWidth;
-  private int selectionA;
-  private int selectionB;
-  private int selectionC;
+  private int setPointAx;
+  private int setPointAy;
+  private int setPointBx;
+  private int setPointBy;
+  private int setPointCx;
+  private int setPointCy;
+  private int setSelectorPointAx;
+  private int setSelectorPointAy;
+  private int setSelectorPointBx;
+  private int setSelectorPointBy;
+  private int setSelectorPointCx;
+  private int setSelectorPointCy;
+  private int selectorWidth;
+  private int selectorHeight;
+  private int setSelectorPointX;
+  private int setSelectorPointY;
   
+  private int selectorAniCounter;
   //variables button sizes
   private Dimension screenSize;
   private Dimension sbSize;
   private Dimension cbSize;
-  private Dimension mbsize;
+  private Dimension mbSize;
   
   Image mochiFaceState1 = new ImageIcon("background.png").getImage(); //<-- consider changing png file name
   Image mochiFaceState2 = new ImageIcon("blink.png").getImage();
@@ -52,65 +65,109 @@ public class StartPause extends JPanel {
   Image pause = new ImageIcon("pause.png").getImage();
   // still need images attached to them
   Image cont = new ImageIcon("continue.png").getImage();
-  Image selector = new ImageIcon("createSelectorImage.png").getImage();
+  Image selectorImage;
+  Image selectorImage1 = new ImageIcon("bone1M.png").getImage();
+  Image selectorImage2 = new ImageIcon("bone2M.png").getImage();
+  Image selectorImage3 = new ImageIcon("bone3M.png").getImage();
+  Image selectorImage4 = new ImageIcon("bone4M.png").getImage(); //<-- optional (inverted 2M)
   // selector can me animated which would require creating a new animation method as well as multiple versions
-  // of the selector image above
+  // of the selector image above to cycle through
   Image exit = new ImageIcon("exit.png").getImage();
   
   // requires variables for draw method location as well as a method for getting the values for those variables
-  
+
+  //I need the JPanel to not be local to the constructor so I am putting it just outside it here:
+JPanel sPScreen = new JPanel();
   public StartPause(){
+	startConditions();	
+   	add (sPScreen);
+   	screenSizeCheck();
+	startPauseActive();
+  }
+  private void startConditions(){
+  	setSelectorPointX = setSelectorPointBx; //<-- maybe I should change that var name?
+  	setSelectorPointY = setSelectorPointBy;
+  }
+public void startPauseActive() {
+	Thread startPauseThread = new Thread(){
+		public void run(){
+			while (true){
+				menuUpdate();
+				try{
+					Thread.sleep(1000/refreshRate);// <-- needs refreshrate variable should this be the same one as doglogics?
+				}catch (InterruptedException ex){
+					System.out.println("An error has occured in the StartPause Thread");
+				}
+			}
+		}
+	};
+}
   
-// surprise surprise I'm having issues with JButtons and JLabels holding images.. I think it'd be better at this point to just
-// use geometry to setup this layout, the constructor was becoming bulky with code anyway.
-	  
-	StartActionHelper startActionHelper = new StartActionHelper();
-    ContinueActionHelper countinueActionHelper = new CountinueActionHelper();
-    ExitActionHelper exitActionHelper = new ExitActionHelper();
-    MochiButtonHelper mochiButtonHelper = new MochiButtonHelper();
-   JPanel sPScreen = new JPanel();
-    // getting the height and width of the screen:
+private void menuUpdate(){
+	screenSizeCheck();
+	setPoints();
+	selectorAni();
+}
+
+private void screenSizeCheck(){
     screenSize = sPScreen.getSize();
     maxHeight = screenSize.height;
     maxWidth = screenSize.width;
-    JLabel startButton = new JLabel(start); //<-- okay, we're going to use a JLabel instead of a button here
-    // must set location of these buttons instead of relying on a layout
-    sbSize = startButton.getSize();
-    startButton.setBounds(maxWidth/2, maxHeight/2, sbSize.width, sbSize.height); // <-- should place it center of screen
-    //now just work out the layout you'd like to see
-    JButton continueButton = new JButton(cont);
-    cbSize = continueButton.getSize();
-    //set location
-    continueButton.setBounds();
-    //set mochiFace to eyeopen state
-    mochiFace = mochiFaceState1;
-    JButton mochiButton = new JButton(mochiFace);
-    mbSize = mochiButton.getSize();
-    //set location (this needs to go at the top)
-    mochiButton.setBounds();
-    startButton.addActionListener(startActionHelper);
-    continueButton.addActionListener(countinueActionHelper);
-    sPScreen.add(startScreenKeyInputs());
-    sPScreen.add(startButton)
-    sPScreen.add(continueButton)
-    
-        
-   add (sPScreen);
+}
+  private void setPoints() {
+	  setPointAy = maxHeight/4;
+	  setPointAx = maxWidth/2 - 222/2;
+	  setPointBy = maxHeight/2;
+	  setPointBx = maxWidth/2 -366/2;
+	  setPointCx = maxHeight/2 +400;
+	  setPointCy = maxWidth/2 - 3666/2;
+	  setSelectorPointAx = setPointAx - 150;
+	  setSelectorPointAy = setPointAy;
+	  setSelectorPointBx = setPointBx -150;
+	  setSelectorPointBy = setPointBy;
+	  setSelectorPointCx = setPointCx -150;
+	  setSelectorPointCy = setPointCy;
   }
-  
+
+  private void selectorAni(){
+	  if (selectorAniCounter <= 5){
+		  selectorImage = selectorImage1;
+		  selectorAniCounter++;
+	  } else if (selectorAniCounter <= 10){
+		  selectorImage = selectorImage2;
+		  selectorAniCounter++;
+	  } else if (selectorAniCounter <= 15){
+		  selectorImage = selectorImage3;
+		  selectorAniCounter++;
+	  } else if (selectorAniCounter <=20){
+		  selectorImage = selectorImage4;
+		  selectorAniCounter++;
+	  }
+	  else{
+		  selectorAniCounter = 0;
+	  }
+  }
   public void draw (Graphics g){
-    Graphics2D g2 = (Graphics2D) g.create();
-    
-   // all additional graphical implementation must go here 
-    // g2.setClip();
-    //g2.drawImage();
+    Graphics2D mochiIcon = (Graphics2D) g.create();
+    Graphics2D startSelect = (Graphics2D) g.create();
+    Graphics2D contSelect = (Graphics2D) g.create();
+    Graphics2D selectorIcon = (Graphics2D) g.create();
+    mochiIcon.setClip(500, 100, 222, 225);
+    mochiIcon.drawImage(mochiFace, 500, 100, 222,225, null);
+   
+    startSelect.setClip(500, 400, 366, 71);
+    startSelect.drawImage(start, 500, 400, 366,71, null);
+    contSelect.setClip(500, 600, 366, 71);
+    contSelect.drawImage(cont, 500, 600, 366, 71, null);
+    selectorIcon.setClip(100, 500, selectorWidth, selectorHeight);
+    selectorIcon.drawImage(selectorImage, 100, 500, selectorWidth, selectorHeight, null);
   }
   public boolean getIsStart(){
     return this.isStart;
   }
   
   public boolean getIsPause(){
-    returh this.isPause;
+    return this.isPause;
   }
   public void setPause(){
     isPause = this.isPause;
@@ -134,28 +191,66 @@ public class StartPause extends JPanel {
   // let's go ahead and start with keybindings here:
   public JLabel startScreenKeyInputs (){
     JLabel MochiStartLabel = new JLabel ("Mochi Jump Start");
-    
+   
     MoveSelectorUp MoveSelectorUp = new MoveSelectorUp();
     MoveSelectorDown MoveSelectorDown = new MoveSelectorDown();
     MakeSelection MakeSelection = new MakeSelection();
     
     InputMap im = MochiStartLabel.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
     ActionMap am = MochiStartLabel.getActionMap();
+    im.put(KeyStroke.getKeyStroke("UP"), "MoveSelectorUp");
+    am.put("MoveSelectorUp", MoveSelectorUp);
+    im.put(KeyStroke.getKeyStroke("DOWN"), "MoveSelectorDown");
+    am.put("MoveSelectorDown", MoveSelectorDown);
+    im.put(KeyStroke.getKeyStroke("ENTER"), "MakeSelection");
+    am.put("MakeSelection", MakeSelection);
+    // corresponding classes MoveSelectorUp, MoveSelectorDown, MakeSelection, need to be created	  
     
-    // now create the maps to add the keys to the actions you want. easy peasy.
+    return MochiStartLabel;
     
+  }
+  private class MoveSelectorUp extends AbstractAction{
+	  public void actionPerformed (ActionEvent mu) {
+	   if (setSelectorPointX == setSelectorPointBx){
+		   setSelectorPointX = setSelectorPointCx;
+		   setSelectorPointY = setSelectorPointCy;
+	   }else if (setSelectorPointX == setSelectorPointCx){
+		   setSelectorPointX = setSelectorPointBx;
+		   setSelectorPointY = setSelectorPointBy;
+	   }
+	  }
+  }
+  private class MoveSelectorDown extends AbstractAction{
+	  public void actionPerformed (ActionEvent md) {
+		  
+	  }
+  }
+
+  private class MakeSelection extends AbstractAction{
+	  public void actionPerformed (ActionEvent ms) {
+		  
+	  }
+  }
+  private class OptionA{
+  }
+  private class OptionB{
+  }
+  private class OptionC{
   }
   
   private class MochiButtonHelper{
     // I guess we will make Mochi blink if this button is covered with the mouse
   }
-  private class PauseActionHelper {
-    public void actionPerformed (ActionEvent p{
-     // here we just want the gameStart thread to continue
-     isPause = false;
+  private class PauseActionHelper extends AbstractAction {
+    public void actionPerformed (ActionEvent p){
+    	isPause = false;
     }
   }
- // what else do we want here, a level restart button, which means we have to work with
-// serialized peices of the game. or just a way to set the variable values back to the beginning
-               // ultimately the level editor option would go in here as well.
+  // the below needs to be tested and must be in the StartPause class!
+	@Override
+	public void paintComponent (Graphics g){
+		super.paintComponent(g);
+		Graphics2D g2 = (Graphics2D) g.create();
+		draw(g2);
+	}
 }
