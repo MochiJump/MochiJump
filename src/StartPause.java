@@ -98,9 +98,9 @@ JPanel sPScreen = new JPanel();
    	add (sPScreen);
 	startPauseActive();
   }
-  private startConditions(){
-  	selectorPointX = setSelectorPointBx; //<-- maybe I should change that var name?
-  	selectorPointY = setSelectorPointBy;
+  private void startConditions(){
+  	setSelectorPointX = setSelectorPointBx; //<-- maybe I should change that var name?
+  	setSelectorPointY = setSelectorPointBy;
   }
 public void startPauseActive() {
 	Thread startPauseThread = new Thread(){
@@ -215,7 +215,7 @@ private void screenSizeCheck(){
     ActionMap am = MochiStartLabel.getActionMap();
     im.put(KeyStroke.getKeyStroke("UP"), "MoveSelectorUp");
     am.put("MoveSelectorUp", MoveSelectorUp);
-    im.put(KeyStroke.getKeyStoke("DOWN"), "MoveSelectorDown");
+    im.put(KeyStroke.getKeyStroke("DOWN"), "MoveSelectorDown");
     am.put("MoveSelectorDown", MoveSelectorDown);
     im.put(KeyStroke.getKeyStroke("ENTER"), "MakeSelection");
     am.put("MakeSelection", MakeSelection);
@@ -224,18 +224,27 @@ private void screenSizeCheck(){
     return MochiStartLabel;
     
   }
-  private class MoveSelectorUp{
-	  if (setSelectorPointX == setSelectorPointBx){
-		  setSelectorPointX = setSelectorPointCx;
-		  setSelectorPointY = setSelectorPointCy;
-	  }else if (setSelectorPointX == setSelectorPointCx){
-		  setSelectorPointX = setSelectorPointBx;
-		  setSelectorPointY = setSelectorPointBy;
+  private class MoveSelectorUp extends AbstractAction{
+	  public void actionPerformed (ActionEvent mu) {
+	   if (setSelectorPointX == setSelectorPointBx){
+		   setSelectorPointX = setSelectorPointCx;
+		   setSelectorPointY = setSelectorPointCy;
+	   }else if (setSelectorPointX == setSelectorPointCx){
+		   setSelectorPointX = setSelectorPointBx;
+		   setSelectorPointY = setSelectorPointBy;
+	   }
 	  }
   }
-  private class MoveSelectorDown{
+  private class MoveSelectorDown extends AbstractAction{
+	  public void actionPerformed (ActionEvent md) {
+		  
+	  }
   }
-  private class MakeSelection{
+
+  private class MakeSelection extends AbstractAction{
+	  public void actionPerformed (ActionEvent ms) {
+		  
+	  }
   }
   private class OptionA{
   }
@@ -249,9 +258,7 @@ private void screenSizeCheck(){
   }
   private class PauseActionHelper extends AbstractAction {
     public void actionPerformed (ActionEvent p){
-     // here we just want the gameStart thread to continue
-     // would it make sense to have a keybinding to P that just called this method to start the pause screen?
-     isPause = false;
+    	isPause = false;
     }
   }
   // the below needs to be tested and must be in the StartPause class!
