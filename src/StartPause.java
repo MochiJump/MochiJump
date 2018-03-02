@@ -12,12 +12,7 @@ import javax.swing.*;
 
 public class StartPause extends JPanel {
   
-// It's time to try to compile this and work out any problems that occur. From there we can tie it and DogLogic into the switcher class
-// and that should be it for getting a start and pause screen up and running for Mochi Jump
-
-// I'm pretty proud of myself I wrote almost all of this in the GitHub editor and there were very few errors when checking the code
-// in the eclipse IDE
-	
+// First attempt compiling, the layout is broken, everything seems to get stuck in the corner
 	
 /** Okay I'm going to give the StartPause class it's own thread to run on... or should I? The main issue is how to
 * "change screens" Do I want to actually flip between JPanels or do I want to have one panel that paints two
@@ -27,10 +22,7 @@ public class StartPause extends JPanel {
 
 	
   /** To Do:
-  * give this class it's own thread
   * Format layout of the screen
-  * add a selector icon that moves with keybinding
-  * program keybinding to only allow movement within menu options
   * Add mouse listener
   * Make MochiIcon blink when clicked */
   
