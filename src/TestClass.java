@@ -85,7 +85,6 @@ public class StartPause extends JPanel {
   //I need the JPanel to not be local to the constructor so I am putting it just outside it here:
 JPanel sPScreen = new JPanel();
   public StartPause(){
-	selectorImage = selectorImage1;
    	add (sPScreen);
 	startPauseActive();
   }
@@ -94,6 +93,7 @@ public void startPauseActive() {
 		public void run(){
 			while (true){
 				menuUpdate();
+				repaint();
 				try{
 					Thread.sleep(1000/29);// <-- needs refreshrate variable should this be the same one as doglogics?
 				}catch (InterruptedException ex){
@@ -162,8 +162,8 @@ private void screenSizeCheck(){
     contSelect.setClip(500, 600, 366, 71);
     contSelect.drawImage(cont, 500, 600, 366, 71, null);
     // the individual images show up fine. selectorAni() is not doing anything, there may be something wrong with the thread
-    selectorIcon.setClip(100, 400, 140, 90);
-    selectorIcon.drawImage(selectorImage, 100, 400, 140, 90, null);
+    selectorIcon.setClip(300, 400, 140, 90);
+    selectorIcon.drawImage(selectorImage, 300, 400, 140, 90, null);
   }
   public boolean getIsStart(){
     return this.isStart;
