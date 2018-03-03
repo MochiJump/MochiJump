@@ -15,13 +15,6 @@ public class StartPause extends JPanel {
 // Currently I'm having issue with collecting screensize.
 // feel free to check out TestClass.java for a more working version of the startPausescreen
 	
-/** Okay I'm going to give the StartPause class it's own thread to run on... or should I? The main issue is how to
-* "change screens" Do I want to actually flip between JPanels or do I want to have one panel that paints two
-* different screens?
-* 
-* either way I can start by getting this to work independently in and then figure out how to integrate it. */
-
-	
   /** To Do:
   * Format layout of the screen
   * Add mouse listener
