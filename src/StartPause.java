@@ -225,6 +225,13 @@ private void screenSizeCheck(){
   }
   private class MoveSelectorDown extends AbstractAction{
 	  public void actionPerformed (ActionEvent md) {
+		  if (setSelectorPointX == setSelectorPointBx){
+			  setSelectorPointX = setSelectorPointCx;
+			  setSelectorPointY = setSelectorPointCy;
+		  }else if (setSelectorPointX == setSelectorPointCx){
+			  setSelectorPointX = setSelectorPointBx;
+			  setSelectorPointY = setSelectorPointBy;
+		  }
 		  
 	  }
   }
