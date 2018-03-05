@@ -118,12 +118,13 @@ private void screenSizeCheck(){
     maxWidth = screenSize.width;
 }
   private void setPoints() {
-	  setPointAy = maxHeight/4;
-	  setPointAx = maxWidth/2 - 222/2;
-	  setPointBy = maxHeight/2;
-	  setPointBx = maxWidth/2 -366/2;
-	  setPointCx = maxHeight/2 +400;
-	  setPointCy = maxWidth/2 - 3666/2;
+	  // all points set mannually below:
+	  setPointAy = 400;
+	  setPointAx = 550;
+	  setPointBy = 400;
+	  setPointBx = 500;
+	  setPointCy = 600;
+	  setPointCx = 500;
 	  setSelectorPointAx = setPointAx - 150;
 	  setSelectorPointAy = setPointAy;
 	  setSelectorPointBx = setPointBx -150;
@@ -155,14 +156,14 @@ private void screenSizeCheck(){
     Graphics2D startSelect = (Graphics2D) g.create();
     Graphics2D contSelect = (Graphics2D) g.create();
     Graphics2D selectorIcon = (Graphics2D) g.create();
-    mochiIcon.setClip(550, 100, 222, 225);
-    mochiIcon.drawImage(mochiFaceState1, 550, 100, 222,225, null);
+    mochiIcon.setClip(setPointAx, setPointAy, 222, 225);
+    mochiIcon.drawImage(mochiFaceState1, setPointAx, setPointAy, 222,225, null);
    
-    startSelect.setClip(500, 400, 366, 71);
-    startSelect.drawImage(start, 500, 400, 366,71, null);
-    contSelect.setClip(500, 600, 366, 71);
-    contSelect.drawImage(cont, 500, 600, 366, 71, null);
-    // the individual images show up fine. selectorAni() is not doing anything, there may be something wrong with the thread
+    startSelect.setClip(setPointBx, setPointBy, 366, 71);
+    startSelect.drawImage(start, setPointBx, setPointBy, 366,71, null);
+    contSelect.setClip(setPointCx, setPointCy, 366, 71);
+    contSelect.drawImage(cont, setPointCx, setPointCy, 366, 71, null);
+    //set selectiorIcon back to variable to test keybindings:
     selectorIcon.setClip(300, 400, 140, 90);
     selectorIcon.drawImage(selectorImage, 300, 400, 140, 90, null);
   }
