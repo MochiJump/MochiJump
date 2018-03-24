@@ -7,4 +7,4 @@ As this is a working repository, at any time, changes in code may make current c
 
 See MochiJump.java comments for current state. 
 
-**** Curently working on a JS Level Editor Project for creating levelmaps for Mochi Jump to be integrated later ****
+**** Curently working on a JS Level Editor Project for creating levels for Mochi Jump to be integrated later ****
