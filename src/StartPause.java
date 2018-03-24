@@ -13,7 +13,7 @@ import javax.swing.*;
 public class StartPause extends JPanel {
   
 // Currently I'm having issue with collecting screensize.
-// feel free to check out TestClass.java for a more working version of the startPausescreen
+// TestClass.java has a work around version of startPausescreen
 	
   /** To Do:
   * Format layout of the screen
