@@ -7,6 +7,7 @@
 public class Switcher {
   DogLogic dogLogic = new DogLogic();
   StartPause startPause = new StartPause();
+  LevelSelector levelSelector = new LevelSelector();
   
   public Switcher (){
     JPanel switcherPanel = new JPanel();
