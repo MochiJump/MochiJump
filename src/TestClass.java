@@ -100,6 +100,18 @@ JPanel sPScreen = new JPanel();
 	  sPScreen.add(startScreenKeyInputs());
    	add (sPScreen);
 	startPauseActive();
+// this hasn't been tested yet and needs to be finished working in:
+	  this.addComponentListener(new ComponentAdapter() {
+         @Override
+         public void componentResized(ComponentEvent e) {
+            Component c = (Component)e.getSource();
+            Dimension dim = c.getSize();
+            canvasWidth = dim.width;
+            canvasHeight = dim.height;
+            // Adjust the bounds of the container to fill the window
+            box.set(0, 0, canvasWidth, canvasHeight);
+         }
+      });
   }
 public void startPauseActive() {
 	Thread startPauseThread = new Thread(){
