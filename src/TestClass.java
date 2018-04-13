@@ -11,20 +11,6 @@ import javax.swing.Action;
 import javax.swing.*;
 
 public class StartPause extends JPanel {
-  
-/** The answer to getting the layout working right lies in having a component listener: i.e.:
-this.addComponentListener(new ComponentAdapter() {
-         @Override
-         public void componentResized(ComponentEvent e) {
-            Component c = (Component)e.getSource();
-            Dimension dim = c.getSize();
-            canvasWidth = dim.width;
-            canvasHeight = dim.height;
-            // Adjust the bounds of the container to fill the window
-            box.set(0, 0, canvasWidth, canvasHeight);
-         }
-      });
-*/
 	
 /** Okay I'm going to give the StartPause class it's own thread to run on... or should I? The main issue is how to
 * "change screens" Do I want to actually flip between JPanels or do I want to have one panel that paints two
@@ -101,15 +87,16 @@ JPanel sPScreen = new JPanel();
    	add (sPScreen);
 	startPauseActive();
 // this hasn't been tested yet and needs to be finished working in:
-	  this.addComponentListener(new ComponentAdapter() {
+	this.addComponentListener(new ComponentAdapter() {
+		  
          @Override
          public void componentResized(ComponentEvent e) {
             Component c = (Component)e.getSource();
             Dimension dim = c.getSize();
-            canvasWidth = dim.width;
-            canvasHeight = dim.height;
+            maxWidth = dim.width;
+            maxHeight = dim.height;
             // Adjust the bounds of the container to fill the window
-            box.set(0, 0, canvasWidth, canvasHeight);
+            sPScreen.set(0, 0, canvasWidth, canvasHeight);
          }
       });
   }
@@ -135,7 +122,7 @@ private void menuUpdate(){
 	setPoints();
 	selectorAni();
 }
-
+//
 private void screenSizeCheck(){
     screenSize = sPScreen.getSize();
     maxHeight = screenSize.height;
