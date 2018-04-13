@@ -127,8 +127,9 @@ private void menuUpdate(){
 *    screenSize = sPScreen.getSize();
 *    maxHeight = screenSize.height;
 *    maxWidth = screenSize.width;
+*
+*}
 */
-}
   private void setPoints() {
 	  // all points set mannually below:
 	  setPointAy = 400;
