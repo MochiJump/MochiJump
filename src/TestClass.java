@@ -122,11 +122,12 @@ private void menuUpdate(){
 	setPoints();
 	selectorAni();
 }
-//
-private void screenSizeCheck(){
-    screenSize = sPScreen.getSize();
-    maxHeight = screenSize.height;
-    maxWidth = screenSize.width;
+// Pausing:
+/*private void screenSizeCheck(){
+*    screenSize = sPScreen.getSize();
+*    maxHeight = screenSize.height;
+*    maxWidth = screenSize.width;
+*/
 }
   private void setPoints() {
 	  // all points set mannually below:
