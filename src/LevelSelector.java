@@ -10,6 +10,8 @@ public class LevelSelector {
   
   //https://docs.oracle.com/javase/tutorial/jdbc/basics/connecting.html
   
+  //https://stackoverflow.com/questions/2839321/connect-java-to-a-mysql-database
+  
   /** need to use SQL command:
   * USE dbName
   * GO
