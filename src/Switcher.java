@@ -50,6 +50,7 @@ public class Switcher {
   }
   private void mainGameRun(){
     //add DogLogic Jpanel and remove startPause Jpanel
+    // the while statement needs a boolean flag in DogLogic instead of (true) and a setter for the switcher to manipulate
   }
   private void updateFlags(){
     // get booleans (including if panel is visibile) for thread conditions 
