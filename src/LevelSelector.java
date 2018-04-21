@@ -30,4 +30,11 @@ public class LevelSelector extends JPanel{
   * GO
   */
   }
+// will include jlabel based keybindings here:
+  public JLabel kInputs{
+    JLabel SLabel = new JLabel ("MAKE A SELECTION");
+    // key bindings go here:
+    
+    return SLabel;
+  }
 }
