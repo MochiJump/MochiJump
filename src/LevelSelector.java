@@ -1,4 +1,6 @@
-public class LevelSelector {
+// I'm going to try to fit this Jpanel and MySQL connection into one class
+
+public class LevelSelector extends JPanel{
   
   private dbName; // names database
   private dbPassword; // password for Database
@@ -11,11 +13,12 @@ public class LevelSelector {
   //https://docs.oracle.com/javase/tutorial/jdbc/basics/connecting.html
   
   //https://stackoverflow.com/questions/2839321/connect-java-to-a-mysql-database
-  
-  MysqlDataSource dataSource = new MysqlDataSource();
-  dataSource.setUser(dbUserName);
-  dataSource.setPassword(dbPassword);
-  dataSource.setDatabaseName(dbName);
+  public void dbConnection{
+    
+    MysqlDataSource dataSource = new MysqlDataSource();
+    dataSource.setUser(dbUserName);
+    dataSource.setPassword(dbPassword);
+    dataSource.setDatabaseName(dbName);
   
   //https://docs.oracle.com/javase/tutorial/jdbc/basics/sqldatasources.html
   
@@ -26,5 +29,5 @@ public class LevelSelector {
   * From sys.Tables
   * GO
   */
-  
+  }
 }
