@@ -37,4 +37,7 @@ public class LevelSelector extends JPanel{
     
     return SLabel;
   }
+  // currently thinking of a 2x2 layout for selecting layout, same concept as the level selector screen, just icons instead of button
+  // icons will be created off of the underlying db they pull from, need to do the math to determine how to reduce size to fit 2x2
+  // sizing.
 }
