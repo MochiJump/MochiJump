@@ -18,6 +18,7 @@ public class LevelSelector extends JPanel{
     MysqlDataSource dataSource = new MysqlDataSource();
     dataSource.setUser(dbUserName);
     dataSource.setPassword(dbPassword);
+    dataSource.setServerName();// i.e. localhost
     dataSource.setDatabaseName(dbName);
     Connection conn = dataSource.getConnection();
   
