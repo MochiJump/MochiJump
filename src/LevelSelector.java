@@ -15,12 +15,11 @@ public class LevelSelector extends JPanel{
   //https://stackoverflow.com/questions/2839321/connect-java-to-a-mysql-database
   public void dbConnection{
     
-    
-    Context contect = new Context();
     MysqlDataSource dataSource = new MysqlDataSource();
     dataSource.setUser(dbUserName);
     dataSource.setPassword(dbPassword);
     dataSource.setDatabaseName(dbName);
+    Connection conn = dataSource.getConnection();
   
   //https://docs.oracle.com/javase/tutorial/jdbc/basics/sqldatasources.html
   
