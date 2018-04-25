@@ -31,6 +31,10 @@ public class LevelSelector extends JPanel{
   * From sys.Tables
   * GO
   */
+  
+  // okay the result from the above needs to go into an arraylist. then using length of the arraylist & a random number generator
+  // we can pick four levels to randomly display in four imageicons displayed in a 2x2 grid.
+    
   }
 // will include jlabel based keybindings here:
   public JLabel kInputs{
