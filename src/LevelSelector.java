@@ -1,3 +1,5 @@
+import java.util.*;
+
 // I'm going to try to fit this Jpanel and MySQL connection into one class
 
 public class LevelSelector extends JPanel{
