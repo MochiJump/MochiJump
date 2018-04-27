@@ -7,7 +7,11 @@ public class LevelSelector extends JPanel{
   private dbName; // names database
   private dbPassword; // password for Database
   private dbUserName; // username for Database
-  private dbLocation; // 
+  private dbLocation; //
+  private Action SelectorRight;
+  private Action SelectorLeft;
+  private Action SelectorUp;
+  private Action SelectorDown;
 
   // this class needs to house a GUI for selecting levels based off of what is available on the SQL database
   // will probably require JPanel extention for the graphical component of level selection
@@ -42,6 +46,19 @@ public class LevelSelector extends JPanel{
   public JLabel kInputs{
     JLabel SLabel = new JLabel ("MAKE A SELECTION");
     // key bindings go here:
+    SelectorRight SelectorRight = new SelectorRight();
+    SelectorLeft SelectorLeft = new SelectorLeft();
+    SelectorUp SelectorUp = new SelectorUp();
+    SelectorDown SelectorDown = new SelectorDown();
+    
+    InputMap im = SLabel.getInputMap(Jcomponent.WHEN_IN_FOCUSED_WINDOW);
+    ActionMap am = SLabel.getActionMap();
+    
+    im.put(KeyStroke.getKeyStroke("Right"), "SelectorRight");
+    am.put("SelectorRight"; SelectorRight);
+    im.put (KeyStroke.getKeyStroke("Left"), "SelectorLeft");
+    am.put("SelectorLeft"; SelectorLeft);
+    // finish keybinding..
     
     return SLabel;
   }
