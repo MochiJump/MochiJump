@@ -58,7 +58,11 @@ public class LevelSelector extends JPanel{
     am.put("SelectorRight"; SelectorRight);
     im.put (KeyStroke.getKeyStroke("Left"), "SelectorLeft");
     am.put("SelectorLeft"; SelectorLeft);
-    // finish keybinding..
+    im.put(KeyStroke.getKeyStroke("Up"), "SelectorUp");
+    am.put("SelectorUp", SelectorUp);
+    im.put(KeyStroke.getKeyStroke("Down"), "SelectorDown");
+    am.put("SelectorDown". SelectorDown);
+    // next Selector methods need to becreated.
     
     return SLabel;
   }
