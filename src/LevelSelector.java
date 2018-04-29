@@ -62,10 +62,17 @@ public class LevelSelector extends JPanel{
     am.put("SelectorUp", SelectorUp);
     im.put(KeyStroke.getKeyStroke("Down"), "SelectorDown");
     am.put("SelectorDown". SelectorDown);
-    // next Selector methods need to becreated.
+    
     
     return SLabel;
   }
+  
+  class SelectorRight extends AbstractAction{
+    public void actionPerformed (ActionEvent sr){
+      //keybinding action go here
+    }
+  }
+  
   // currently thinking of a 2x2 layout for selecting layout, same concept as the level selector screen, just icons instead of button
   // icons will be created off of the underlying db they pull from, need to do the math to determine how to reduce size to fit 2x2
   // sizing.
