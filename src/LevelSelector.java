@@ -88,7 +88,16 @@ public class LevelSelector extends JPanel{
     }
   }
   
-  // currently thinking of a 2x2 layout for selecting layout, same concept as the level selector screen, just icons instead of button
-  // icons will be created off of the underlying db they pull from, need to do the math to determine how to reduce size to fit 2x2
-  // sizing.
+  // okay what I actually need here is a 2x2 grid of boxes, once the size of those boxes is determined then I need to import Rect from
+  // DB and then scale the rect sizes to the sizes of the boxes. Layout can be continued to be built w/o DB connection and rects for
+  // now.
+  
+  /* Y Layout 0-15% Header
+  * 15.125% -56.125% Top Grid
+  * 58.375% - 98.375% Bottom Grid
+  */
+  
+  /* X Layout 5%-45% Left Grid
+  * 55%-95% Right Grid
+  */
 }
