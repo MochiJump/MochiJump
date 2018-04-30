@@ -100,4 +100,7 @@ public class LevelSelector extends JPanel{
   /* X Layout 5%-45% Left Grid
   * 55%-95% Right Grid
   */
+  
+  // Need 4 text fields for manually selecting levels from Database
+  
 }
