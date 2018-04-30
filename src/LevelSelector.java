@@ -101,6 +101,6 @@ public class LevelSelector extends JPanel{
   * 55%-95% Right Grid
   */
   
-  // for now we'll have 7% gaps with 18% lengths so 0-7% is gap 7%-25% is a text field etc.
+  // Text fields for recalling specific levels: For now we'll have 7% gaps with 18% lengths so 0-7% is gap 7%-25% is a text field etc.
   
 }
