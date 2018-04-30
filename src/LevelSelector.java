@@ -69,6 +69,21 @@ public class LevelSelector extends JPanel{
   
   class SelectorRight extends AbstractAction{
     public void actionPerformed (ActionEvent sr){
+      //keybinding action go here: 2x2 grid so simple if statement will suffice, but need to make Icons first.
+    }
+  }
+    class SelectorLeft extends AbstractAction{
+    public void actionPerformed (ActionEvent sl){
+      //keybinding action go here
+    }
+  }
+    class SelectorUp extends AbstractAction{
+    public void actionPerformed (ActionEvent su){
+      //keybinding action go here
+    }
+  }
+    class SelectorDown extends AbstractAction{
+    public void actionPerformed (ActionEvent sd){
       //keybinding action go here
     }
   }
