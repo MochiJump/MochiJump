@@ -8,9 +8,8 @@ import java.util.ArrayList;
 
 import javax.swing.*;
 
-// The solution to my keybinding woes may be to move all of it into this class and get it to work.
-// I can always try to move back to the original class that I wanted it in at a later point, if I want to learn
-// how to pass keybindings around from class to class. It may even make sense to have it in the main class. I will sleep on it.
+// KeyBindings done in Mochi.java added here:
+// Let's test get dimension and add to the below JPanel in a JLabel for start/pause screen layout testing:
 
 public class DogLogic extends JPanel {
 
