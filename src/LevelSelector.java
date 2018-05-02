@@ -103,4 +103,13 @@ public class LevelSelector extends JPanel{
   
   // Text fields for recalling specific levels: For now we'll have 7% gaps with 18% lengths so 0-7% is gap 7%-25% is a text field etc.
   
+  
+  //paint below:
+  	@Override
+	public void paintComponent (Graphics g){
+		super.paintComponent(g);
+		Graphics2D g2 = (Graphics2D) g.create();
+		draw(g2);
+	}
+}
 }
