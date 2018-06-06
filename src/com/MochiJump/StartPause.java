@@ -178,7 +178,6 @@ public JLabel startScreenKeyInputs (){
   am.put("MoveSelectorDown", MoveSelectorDown);
   im.put(KeyStroke.getKeyStroke("ENTER"), "MakeSelection");
   am.put("MakeSelection", MakeSelection);
-  // corresponding classes MoveSelectorUp, MoveSelectorDown, MakeSelection, need to be created	  
   
   return MochiStartLabel;
   
