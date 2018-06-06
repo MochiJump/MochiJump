@@ -9,7 +9,8 @@ import java.util.ArrayList;
 import javax.swing.*;
 
 public class DogLogic extends JPanel {
-
+	StartPause startPause = new StartPause();
+	boolean isStartOn = false;
 	LevelMap levelMap = new LevelMap();
 	ArrayList <Rectangle> plat = new ArrayList<Rectangle>();
 	Animation animation = new Animation();
@@ -20,13 +21,7 @@ public class DogLogic extends JPanel {
 	public DogLogic () {
 		JPanel dogPain = new JPanel();
 		dogPain.add(mochi.keyInputs());
-
-		//testPain.setPreferredSize(new Dimension(600,600));
 		add(dogPain);
-		
-	// okay I need to create a new class here gameStart() and inside gameStart() is where
-	// the refresh rate will lay as well as it ending with it invoking itself i.e. "gameStart();"
-	// this will create the loop where everything will run, without it, I can only run one frame
 		gameStart();
 
 	}
@@ -34,7 +29,7 @@ public class DogLogic extends JPanel {
 	public void gameStart() {
 		Thread gameThread = new Thread() {
 			public void run() {
-				while (true) {
+				while (!isStartOn) {
 					gameUpdate();
 					repaint();
 					try {

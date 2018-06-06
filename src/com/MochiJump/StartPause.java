@@ -1,18 +1,12 @@
 package com.MochiJump;
 
 
-import java.awt.BorderLayout;
-import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.GraphicsEnvironment;
 import java.awt.Image;
-import java.awt.Rectangle;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
-import java.awt.event.ComponentAdapter;
-import java.awt.event.ComponentEvent;
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
@@ -27,39 +21,32 @@ import javax.swing.JLabel;
 
 public class StartPause extends JPanel {
 
-boolean isStart;
-boolean isPause;
+boolean isStartOn = true;
 private int refreshRate = 30;
 
 private Action MoveSelectorUp;
 private Action MoveSelectorDown;
 private Action MakeSelection;
 
-private int maxHeight;
-private int maxWidth;
+private double maxHeight;
+private double maxWidth;
 private int setPointAx;
 private int setPointAy;
 private int setPointBx;
 private int setPointBy;
 private int setPointCx;
 private int setPointCy;
-private int setSelectorPointAx;
-private int setSelectorPointAy;
 private int setSelectorPointBx;
 private int setSelectorPointBy;
 private int setSelectorPointCx;
 private int setSelectorPointCy;
-private int selectorWidth;
-private int selectorHeight;
-private int setSelectorPointX;
-private int setSelectorPointY;
+
+private int setSelectorPointX = 10000;
+private int setSelectorPointY = 10000;
 
 private int selectorAniCounter;
-//variables button sizes
 private Dimension screenSize;
-private Dimension sbSize;
-private Dimension cbSize;
-private Dimension mbSize;
+
 
 Image mochiFaceState1 = new ImageIcon(this.getClass().getResource("/background.png")).getImage(); //<-- consider changing png file name
 Image mochiFaceState2 = new ImageIcon(this.getClass().getResource("/blink.png")).getImage();
@@ -73,33 +60,20 @@ Image selectorImage3 = new ImageIcon(this.getClass().getResource("/bone3M.png"))
 Image selectorImage4 = new ImageIcon(this.getClass().getResource("/bone4M.png")).getImage(); //<-- optional (inverted 2M)
 Image exit = new ImageIcon(this.getClass().getResource("/exit.png")).getImage();
 
-JLabel test = new JLabel ("0");
-
 JPanel sPScreen = new JPanel();
 	public StartPause(){
 	sPScreen.add(startScreenKeyInputs());
  	add (sPScreen);
- 	
-    this.addComponentListener(new ComponentAdapter() {
-        @Override
-        public void componentResized(ComponentEvent e) {
-           Component c = (Component)e.getSource();
-           Dimension dim = c.getSize();
-           maxWidth = dim.width;
-           maxHeight = dim.height;
-        }
-     });
-    
 	startPauseActive();
 }
 public void startPauseActive() {
 	Thread startPauseThread = new Thread(){
 		public void run(){
-			while (true){
+			while (isStartOn){
 				menuUpdate();
 				repaint();
 				try{
-					Thread.sleep(1000/29);// <-- needs refreshrate variable should this be the same one as doglogics?
+					Thread.sleep(1000/refreshRate);
 				}catch (InterruptedException ex){
 					System.out.println("An error has occured in the StartPause Thread");
 				}
@@ -109,26 +83,32 @@ public void startPauseActive() {
 	startPauseThread.start();
 }
 private void menuUpdate(){
+	screenSizeCheck();
 	setPoints();
 	selectorAni();
 }
 
+Toolkit toolkit = Toolkit.getDefaultToolkit();
 
+private void screenSizeCheck(){
+  screenSize = toolkit.getScreenSize();
+  maxHeight = screenSize.getHeight();
+  maxWidth = screenSize.getWidth();
+}
 private void setPoints() {
-	  setPointAy = (int) (maxHeight/4);
+	  setPointAy = (int) (maxHeight/5);
 	  setPointAx = (int) (maxWidth/2 - 222/2);
 	  setPointBy = (int) (maxHeight/2);
 	  setPointBx = (int) (maxWidth/2 -366/2);
-	  setPointCx = (int) (maxHeight/2 +400);
-	  setPointCy = (int) (maxWidth/2 - 3666/2);
-	  setSelectorPointAx = setPointAx - 150;
-	  setSelectorPointAy = setPointAy;
+	  setPointCy = (int) (maxHeight/1.5);
+	  setPointCx = (int) (maxWidth/2 - 366/2);
+	//  setSelectorPointAx = setPointAx - 150;
+	//  setSelectorPointAy = setPointAy;
 	  setSelectorPointBx = setPointBx -150;
 	  setSelectorPointBy = setPointBy;
 	  setSelectorPointCx = setPointCx -150;
 	  setSelectorPointCy = setPointCy;
 }
-
 
 private void selectorAni(){
 	  if (selectorAniCounter <= 5){
@@ -155,46 +135,36 @@ public void draw (Graphics g){
   Graphics2D startSelect = (Graphics2D) g.create();
   Graphics2D contSelect = (Graphics2D) g.create();
   Graphics2D selectorIcon = (Graphics2D) g.create();
-  mochiIcon.setClip(550, 100, 222, 225);
-  mochiIcon.drawImage(mochiFaceState1, 550, 100, 222,225, null);
+  mochiIcon.setClip(setPointAx, setPointAy, 222, 225);
+  mochiIcon.drawImage(mochiFaceState1, setPointAx, setPointAy, 222,225, null);
  
-  startSelect.setClip(500, 400, 366, 71); 
-  startSelect.drawImage(start, 500, 400, 366,71, null);
-  contSelect.setClip(500, 600, 366, 71);
-  contSelect.drawImage(cont, 500, 600, 366, 71, null);
-  // the individual images show up fine. selectorAni() is not doing anything, there may be something wrong with the thread
-  selectorIcon.setClip(300, 400, 140, 90);
-  selectorIcon.drawImage(selectorImage, 300, 400, 140, 90, null);
+  startSelect.setClip(setPointBx, setPointBy, 366, 71); 
+  startSelect.drawImage(start, setPointBx, setPointBy, 366,71, null);
+  contSelect.setClip(setPointCx, setPointCy, 366, 71);
+  contSelect.drawImage(cont, setPointCx, setPointCy, 366, 71, null);
+  selectorIcon.setClip(setSelectorPointX, setSelectorPointY, 140, 90);
+  selectorIcon.drawImage(selectorImage, setSelectorPointX, setSelectorPointY, 140, 90, null);
 }
-public boolean getIsStart(){
-  return this.isStart;
+public boolean getIsStartOn(){
+  return this.isStartOn;
 }
 
-public boolean getIsPause(){
-  return this.isPause;
-}
-public void setPause(){
-  isPause = this.isPause;
-}
 private class StartActionHelper {
   public void actionPerformed (ActionEvent s){
     // this is to start the game
-    isStart = false;
+    isStartOn = false;
   }
 }
-// need additional ActionHelpers below:
+
 private class ExitActionHelper{
   public void actionPerformed (ActionEvent exit){
-    //check here for future updates with serialization, will I have to do anything to save state prior to this,
-    //or should I add a save state in another way?
     System.exit(0);
   }
 }
 
 
-// let's go ahead and start with keybindings here:
 public JLabel startScreenKeyInputs (){
-  JLabel MochiStartLabel = new JLabel (String.valueOf(maxHeight));
+  JLabel MochiStartLabel = new JLabel ("Start Pause");
  
   MoveSelectorUp MoveSelectorUp = new MoveSelectorUp();
   MoveSelectorDown MoveSelectorDown = new MoveSelectorDown();
@@ -215,10 +185,13 @@ public JLabel startScreenKeyInputs (){
 }
 private class MoveSelectorUp extends AbstractAction{
 	  public void actionPerformed (ActionEvent mu) {
-	   if (setSelectorPointX == setSelectorPointBx){
+	   if (setSelectorPointY == setSelectorPointBy){
 		   setSelectorPointX = setSelectorPointCx;
 		   setSelectorPointY = setSelectorPointCy;
-	   }else if (setSelectorPointX == setSelectorPointCx){
+	   }else if (setSelectorPointY == setSelectorPointCy) {
+		   setSelectorPointX = setSelectorPointBx;
+		   setSelectorPointY = setSelectorPointBy;
+	   }else {		  
 		   setSelectorPointX = setSelectorPointBx;
 		   setSelectorPointY = setSelectorPointBy;
 	   }
@@ -226,12 +199,22 @@ private class MoveSelectorUp extends AbstractAction{
 }
 private class MoveSelectorDown extends AbstractAction{
 	  public void actionPerformed (ActionEvent md) {
-		  
+		  if (setSelectorPointY == setSelectorPointBy){
+			   setSelectorPointX = setSelectorPointCx;
+			   setSelectorPointY = setSelectorPointCy;
+		 }else if (setSelectorPointY == setSelectorPointCy) {
+			   setSelectorPointX = setSelectorPointBx;
+			   setSelectorPointY = setSelectorPointBy;
+		 }else {		  
+			   setSelectorPointX = setSelectorPointBx;
+			   setSelectorPointY = setSelectorPointBy;
+		  }  
 	  }
 }
 
 private class MakeSelection extends AbstractAction{
 	  public void actionPerformed (ActionEvent ms) {
+		  isStartOn = false;
 	  }
 		  
 }
@@ -242,8 +225,4 @@ private class MakeSelection extends AbstractAction{
 		Graphics2D g2 = (Graphics2D) g.create();
 		draw(g2);
 	}
-    @Override
-    public Dimension getPreferredSize() {
-       return (new Dimension(maxWidth, maxHeight));
-    }
 }
