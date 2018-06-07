@@ -1,6 +1,5 @@
 package com.MochiJump;
 
-
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -18,6 +17,7 @@ import javax.swing.JPanel;
 import javax.swing.KeyStroke;
 import javax.swing.JLabel;
 
+/* Need to implement Image resize based on screen resolution and use image width for selector spacing */
 
 public class StartPause extends JPanel {
 
