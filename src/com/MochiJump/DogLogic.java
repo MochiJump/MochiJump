@@ -50,7 +50,8 @@ public class DogLogic extends JPanel {
 		animation.AniVarUpdate(this.mochi);
 	}
 	
-
+// to get background color to work make sure JPanel is the correct size (i.e. filling the JFrame) and setOpaque(true) then set bg
+// color
 		@Override
 		public void paintComponent (Graphics g) {
 			super.paintComponent(g);
