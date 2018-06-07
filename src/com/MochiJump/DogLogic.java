@@ -50,8 +50,10 @@ public class DogLogic extends JPanel {
 		animation.AniVarUpdate(this.mochi);
 	}
 	
-// to get background color to work make sure JPanel is the correct size (i.e. filling the JFrame) and setOpaque(true) then set bg
-// color
+// first shape to be drawn is farther in the background here. Boundaries aren't checked so here a seperate large rect can act as
+// background color. This would work for an animated background as well as long as everything belonging to the background is the
+// first thing drawn.
+	
 		@Override
 		public void paintComponent (Graphics g) {
 			super.paintComponent(g);
