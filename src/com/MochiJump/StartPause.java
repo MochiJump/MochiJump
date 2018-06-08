@@ -45,8 +45,8 @@ private int setSelectorPointBy;
 private int setSelectorPointCx;
 private int setSelectorPointCy;
 
-private int setSelectorPointX;
-private int setSelectorPointY;
+private int setSelectorPointX= 10000;
+private int setSelectorPointY=10000;
 
 private int selectorAniCounter;
 private Dimension screenSize;
