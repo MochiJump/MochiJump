@@ -122,6 +122,8 @@ private void ratioCheck() {
 
 // using the above we can resize all of the image icons to fit the dimensions of whatever screen it is displayed on
 // include the ratioHeight and Width in the draw method
+	
+	// below needs to be adjusted (i.e. order of operations)
 
 private void setPoints() {
 	  setPointAy = (int) (maxHeight/5*ratioHeight);
