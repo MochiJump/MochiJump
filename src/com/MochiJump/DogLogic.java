@@ -1,21 +1,25 @@
 package com.MochiJump;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
+import java.awt.Toolkit;
 import java.util.ArrayList;
 
 import javax.swing.*;
 
 public class DogLogic extends JPanel {
-	StartPause startPause = new StartPause();
-	boolean isStartOn = false;
+	static int currentPanel;
 	LevelMap levelMap = new LevelMap();
 	ArrayList <Rectangle> plat = new ArrayList<Rectangle>();
 	Animation animation = new Animation();
 	Mochi mochi = new Mochi();
 	int refreshRate = 30;
+	Rectangle background = new Rectangle (0,0,10000,1000);
+	Color skyblue = new Color (102, 204, 255);
+	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
 	
 	public DogLogic () {
@@ -25,13 +29,18 @@ public class DogLogic extends JPanel {
 		gameStart();
 
 	}
+	
+	public void setCurrentPanel (int option) {
+		this.currentPanel = option;
+	}
 
 	public void gameStart() {
 		Thread gameThread = new Thread() {
 			public void run() {
-				while (!isStartOn) {
+				while (currentPanel==2) {
 					gameUpdate();
 					repaint();
+					System.out.println("Bark");
 					try {
 						Thread.sleep(1000/refreshRate);
 					}catch (InterruptedException e) {
@@ -50,15 +59,17 @@ public class DogLogic extends JPanel {
 		animation.AniVarUpdate(this.mochi);
 	}
 	
-// first shape to be drawn is farther in the background here. Boundaries aren't checked so here a seperate large rect can act as
-// background color. This would work for an animated background as well as long as everything belonging to the background is the
-// first thing drawn.
-	
+
 		@Override
 		public void paintComponent (Graphics g) {
 			super.paintComponent(g);
 			plat = levelMap.getPlat();
 			Graphics2D g2 = (Graphics2D) g.create();
+			// 1st objects drawn will be in background so I can create a background by doing this:
+			// an animated background could work here as well.
+			g2.setColor(skyblue);
+			g2.fill(background);
+			g2.draw(background);
 			for (Rectangle next: plat) {
 				g2.setColor( new Color (130, 87, 27));
 				g2.fill(next);
@@ -67,5 +78,10 @@ public class DogLogic extends JPanel {
 			animation.draw(g2);
 			
 			}
+		
+	@Override
+	public Dimension getPreferredSize() {
+			return screenSize;
+	}
 	
 }

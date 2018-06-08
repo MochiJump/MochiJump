@@ -46,6 +46,7 @@ public class Animation {
 		x = speedX+x;
 	}
 	
+	// check to see if the method below needs the argument (Mochi mochi)... turns out you do. Research why!
 	public void AniVarUpdate (Mochi mochi) {
 		x = (int) mochi.getX();
 		y = (int) mochi.getY();

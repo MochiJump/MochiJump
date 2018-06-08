@@ -1,5 +1,8 @@
 package com.MochiJump;
 
+
+import java.awt.BorderLayout;
+import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -17,11 +20,10 @@ import javax.swing.JPanel;
 import javax.swing.KeyStroke;
 import javax.swing.JLabel;
 
-/* Need to implement Image resize based on screen resolution and use image width for selector spacing */
 
 public class StartPause extends JPanel {
 
-boolean isStartOn = true;
+static int currentPanel;
 private int refreshRate = 30;
 
 private Action MoveSelectorUp;
@@ -30,6 +32,8 @@ private Action MakeSelection;
 
 private double maxHeight;
 private double maxWidth;
+private double ratioHeight;
+private double ratioWidth;
 private int setPointAx;
 private int setPointAy;
 private int setPointBx;
@@ -41,8 +45,8 @@ private int setSelectorPointBy;
 private int setSelectorPointCx;
 private int setSelectorPointCy;
 
-private int setSelectorPointX = 10000;
-private int setSelectorPointY = 10000;
+private int setSelectorPointX;
+private int setSelectorPointY;
 
 private int selectorAniCounter;
 private Dimension screenSize;
@@ -59,19 +63,33 @@ Image selectorImage2 = new ImageIcon(this.getClass().getResource("/bone2M.png"))
 Image selectorImage3 = new ImageIcon(this.getClass().getResource("/bone3M.png")).getImage();
 Image selectorImage4 = new ImageIcon(this.getClass().getResource("/bone4M.png")).getImage(); //<-- optional (inverted 2M)
 Image exit = new ImageIcon(this.getClass().getResource("/exit.png")).getImage();
-
 JPanel sPScreen = new JPanel();
-	public StartPause(){
+// Switcher switcher = new Switcher(); wow so just initializing the switcher in this class breaks everything
+	
+
+public StartPause() {
 	sPScreen.add(startScreenKeyInputs());
  	add (sPScreen);
 	startPauseActive();
 }
+
+
+public void setCurrentPanel (int option) {
+	this.currentPanel = option;
+}
+public int getCurrentPanel() {
+	return this.currentPanel;
+}
+
+
 public void startPauseActive() {
 	Thread startPauseThread = new Thread(){
 		public void run(){
-			while (isStartOn){
+			while (currentPanel == 1){
 				menuUpdate();
 				repaint();
+				getCurrentPanel();
+				System.out.println(String.valueOf(currentPanel));
 				try{
 					Thread.sleep(1000/refreshRate);
 				}catch (InterruptedException ex){
@@ -84,6 +102,7 @@ public void startPauseActive() {
 }
 private void menuUpdate(){
 	screenSizeCheck();
+	ratioCheck();
 	setPoints();
 	selectorAni();
 }
@@ -95,15 +114,24 @@ private void screenSizeCheck(){
   maxHeight = screenSize.getHeight();
   maxWidth = screenSize.getWidth();
 }
+
+private void ratioCheck() {
+	ratioHeight = maxHeight/768;
+	ratioWidth = maxWidth/1366;
+}
+
+// using the above we can resize all of the image icons to fit the dimensions of whatever screen it is displayed on
+// include the ratioHeight and Width in the draw method
+
 private void setPoints() {
-	  setPointAy = (int) (maxHeight/5);
-	  setPointAx = (int) (maxWidth/2 - 222/2);
-	  setPointBy = (int) (maxHeight/2);
-	  setPointBx = (int) (maxWidth/2 -366/2);
-	  setPointCy = (int) (maxHeight/1.5);
-	  setPointCx = (int) (maxWidth/2 - 366/2);
+	  setPointAy = (int) (maxHeight/5*ratioHeight);
+	  setPointAx = (int) (maxWidth/2 - 222/2 *ratioWidth);
+	  setPointBy = (int) (maxHeight/2 *ratioHeight);
+	  setPointBx = (int) (maxWidth/2 -366/2 *ratioWidth);
+	  setPointCy = (int) (maxHeight/1.5 *ratioHeight);
+	  setPointCx = (int) (maxWidth/2 - 366/2 *ratioWidth);
 	//  setSelectorPointAx = setPointAx - 150;
-	//  setSelectorPointAy = setPointAy;
+	//  setSelectorPointAy = setPointAy; not neccessary because that's the mochi icon
 	  setSelectorPointBx = setPointBx -150;
 	  setSelectorPointBy = setPointBy;
 	  setSelectorPointCx = setPointCx -150;
@@ -135,24 +163,23 @@ public void draw (Graphics g){
   Graphics2D startSelect = (Graphics2D) g.create();
   Graphics2D contSelect = (Graphics2D) g.create();
   Graphics2D selectorIcon = (Graphics2D) g.create();
-  mochiIcon.setClip(setPointAx, setPointAy, 222, 225);
-  mochiIcon.drawImage(mochiFaceState1, setPointAx, setPointAy, 222,225, null);
+  //including ratioWidth/Height below to resize the image
+  mochiIcon.setClip(setPointAx, setPointAy, (int) (222*ratioWidth), (int)(225*ratioHeight));
+  mochiIcon.drawImage(mochiFaceState1, setPointAx, setPointAy, (int) (222*ratioWidth), (int)(225*ratioHeight), null);
  
-  startSelect.setClip(setPointBx, setPointBy, 366, 71); 
-  startSelect.drawImage(start, setPointBx, setPointBy, 366,71, null);
-  contSelect.setClip(setPointCx, setPointCy, 366, 71);
-  contSelect.drawImage(cont, setPointCx, setPointCy, 366, 71, null);
-  selectorIcon.setClip(setSelectorPointX, setSelectorPointY, 140, 90);
-  selectorIcon.drawImage(selectorImage, setSelectorPointX, setSelectorPointY, 140, 90, null);
+  startSelect.setClip(setPointBx, setPointBy, (int)(366*ratioWidth), (int)(71*ratioHeight)); 
+  startSelect.drawImage(start, setPointBx, setPointBy, (int)(366*ratioWidth),(int)(71*ratioHeight), null);
+  contSelect.setClip(setPointCx, setPointCy, (int)(366*ratioWidth), (int)(71*ratioHeight));
+  contSelect.drawImage(cont, setPointCx, setPointCy, (int)(366*ratioWidth), (int)(71*ratioHeight), null);
+  selectorIcon.setClip(setSelectorPointX, setSelectorPointY, (int)(140*ratioWidth), (int)(90*ratioHeight));
+  selectorIcon.drawImage(selectorImage, setSelectorPointX, setSelectorPointY, (int)(ratioWidth*140), (int)(ratioHeight*90), null);
 }
-public boolean getIsStartOn(){
-  return this.isStartOn;
-}
+
 
 private class StartActionHelper {
   public void actionPerformed (ActionEvent s){
-    // this is to start the game
-    isStartOn = false;
+    // having multiple panel options requires the location of the select to be checked for this to work
+
   }
 }
 
@@ -178,6 +205,7 @@ public JLabel startScreenKeyInputs (){
   am.put("MoveSelectorDown", MoveSelectorDown);
   im.put(KeyStroke.getKeyStroke("ENTER"), "MakeSelection");
   am.put("MakeSelection", MakeSelection);
+  // corresponding classes MoveSelectorUp, MoveSelectorDown, MakeSelection, need to be created	  
   
   return MochiStartLabel;
   
@@ -213,7 +241,14 @@ private class MoveSelectorDown extends AbstractAction{
 
 private class MakeSelection extends AbstractAction{
 	  public void actionPerformed (ActionEvent ms) {
-		  isStartOn = false;
+		  if (setSelectorPointY == setSelectorPointBy) {
+			  //okay so this does start the DogLogic thread, but it doesn't stop the menu animation
+			  new Switcher(2);
+		  }
+		  if (setSelectorPointY == setSelectorPointCy) {
+			  System.exit(0);
+		  }
+		  
 	  }
 		  
 }
@@ -224,4 +259,10 @@ private class MakeSelection extends AbstractAction{
 		Graphics2D g2 = (Graphics2D) g.create();
 		draw(g2);
 	}
+	
+	@Override
+	public Dimension getPreferredSize() {
+		return screenSize;
+	}
+	
 }

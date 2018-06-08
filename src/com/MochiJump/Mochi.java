@@ -81,6 +81,9 @@ public class Mochi {
 	public int getJTime() {
 		return this.jTime;
 	}
+// let see if putting this in a method and then calling that method inside boundaryRules updates it.
+// okay that didn't fix it. wait maybe we need to add the rectangle mochi in here:
+// I think I'm on the right track but I've got a nullPointerException when i try to run this now.
 	public void mBoundaries () {
 		// the y axis here needs to be trimmed for the right and left or the intersection will always call this first!
 			mright.setLine(x+sW, y+5, x+sW, y+sH-5);
@@ -102,6 +105,8 @@ public class Mochi {
 		}
 	}
 	
+	// weirdly changing from a speedY parameter to just changing the Y works just fine.
+	// not sure if I like having the mochijs2 as part of the jump animation. but i got it in there.
 	public void mJumpHandler () {	
 		if (jumpChu == true && jTime > 0) {
 			jTime++;
@@ -151,10 +156,20 @@ public class Mochi {
 		// review the below code
 		ArrayList<Rectangle> platlist = levelMap.getPlat();
 		for (Rectangle next: platlist) {
+			// I tried remove.getBounds below no change.
 			Rectangle p1 = next.getBounds();
+			// testing whether mochi does not intersect may work to turn on "falling animation" *******
 			if (mochi.intersects(p1)) {
+			// so here is where we program what we want a result of a collision...
+			// what I want is for mochi to return to the state just prior to his collision.
+			// how do I program that?
+			// okay so I have to write a few more if statements here:
+			// I need to determine if the collision happened from above or below,
+			// or from left or from the right. 
 				if (mright.intersects(p1)) {
+					// because this is being called!
 					x = p1.x-sW;
+				// I like getting to use basic algebra in real life.
 				} 
 				if (mleft.intersects(p1)) {
 					x = p1.x +p1.width +1;
@@ -163,8 +178,14 @@ public class Mochi {
 					y = p1.y +p1.height;
 				}
 				if (mbottom.intersects(p1)) {
+					// I'm thinking this should be an independant method that is called after this if statement
+					// heard that many nested if statements is bad coding practice.
+					// hmm looks like changing these parameters does nothing
 					y = p1.y-sH;
+					// going to always set JumpChu to false whenever this intersection happens
 					jumpChu = false;
+					// while statement below didn't work trying if statement to stop jittering, the below isn't working either
+					// perhaps I need an outside method that turns gravity off.
 					if (jumpChu == false) {
 						landing();
 					}
@@ -175,10 +196,11 @@ public class Mochi {
 		
 	}
 
-
+// from playing around with an example of KeyBindings I can tell that it is possible setup and call keybindings from one class into
+// another. 
 
 	public JLabel keyInputs () {
-		
+		// okay it looks like I've been forgetting to create reference variables for the move classes!
 		JLabel MochiL = new JLabel("Mochi Jump");
 		
 		MoveRightAct MoveRightAct = new MoveRightAct();
@@ -189,8 +211,10 @@ public class Mochi {
 
 		InputMap im = MochiL.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
 		ActionMap am = MochiL.getActionMap();	
+		// How would this work if I moved "im" to another class?
 		im.put(KeyStroke.getKeyStroke("RIGHT"), "MoveRightAct");
 		am.put("MoveRightAct", MoveRightAct);
+		// For keybinding I'm going to have to add an event for when a key is released for < & >.
 		im.put(KeyStroke.getKeyStroke("released RIGHT"), "RestRight");
 		am.put("RestRight", RestRight);
 		im.put(KeyStroke.getKeyStroke("LEFT"), "MoveLeftAct");
@@ -199,6 +223,7 @@ public class Mochi {
 		am.put("RestLeft", RestLeft);
 		im.put(KeyStroke.getKeyStroke("UP"), "JumpAct" );
 		am.put("JumpAct", JumpAct);
+		// I think I'll need this so that I can just call this method in the DogLogic Class
 		return MochiL;
 		
 	}
