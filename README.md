@@ -1,5 +1,5 @@
 # MochiJump
-First stable build v0.2 achieved.
+Build v0.2 achieved.
 
 This repository holds my first platformer game built with Java.
 
