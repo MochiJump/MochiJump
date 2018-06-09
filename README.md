@@ -1,5 +1,5 @@
 # MochiJump
-Build v0.2 achieved.
+Build v0.21 achieved.
 
 This repository holds my first platformer game built with Java.
 
@@ -8,7 +8,6 @@ Basic menu capability added:
 Easy to do's:
 
 Add keybinding in playable game to return to pause menu
-Add variables for resizing the sprites and platform objects and play with it
 
 More difficult to do's:
 
