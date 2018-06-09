@@ -116,22 +116,22 @@ private void screenSizeCheck(){
 }
 
 private void ratioCheck() {
+	// originally designed on a 1366x768 screen
+	// could include an aspect check for tall screens /mobile
 	ratioHeight = maxHeight/768;
 	ratioWidth = maxWidth/1366;
 }
 
-// using the above we can resize all of the image icons to fit the dimensions of whatever screen it is displayed on
-// include the ratioHeight and Width in the draw method
-	
-	// below needs to be adjusted (i.e. order of operations)
+int sizeChange;
+
 
 private void setPoints() {
-	  setPointAy = (int) (maxHeight/5*ratioHeight);
-	  setPointAx = (int) (maxWidth/2 - 222/2 *ratioWidth);
-	  setPointBy = (int) (maxHeight/2 *ratioHeight);
-	  setPointBx = (int) (maxWidth/2 -366/2 *ratioWidth);
-	  setPointCy = (int) (maxHeight/1.5 *ratioHeight);
-	  setPointCx = (int) (maxWidth/2 - 366/2 *ratioWidth);
+	  setPointAy = (int) (maxHeight/5);
+	  setPointAx = (int) (maxWidth/2 - 222/2);
+	  setPointBy = (int) (maxHeight/2);
+	  setPointBx = (int) (maxWidth/2 -366/2);
+	  setPointCy = (int) (maxHeight/1.5);
+	  setPointCx = (int) (maxWidth/2 - 366/2);
 	//  setSelectorPointAx = setPointAx - 150;
 	//  setSelectorPointAy = setPointAy; not neccessary because that's the mochi icon
 	  setSelectorPointBx = setPointBx -150;

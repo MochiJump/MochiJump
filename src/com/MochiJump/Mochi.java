@@ -1,6 +1,7 @@
 package com.MochiJump;
 
 import java.awt.Rectangle;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.geom.Line2D;
 import java.util.ArrayList;
@@ -20,6 +21,18 @@ public class Mochi {
 
 	private float x;
 	private float y;
+	double keepHeight = Toolkit.getDefaultToolkit().getScreenSize().getHeight()/768;
+	double keepWidth = Toolkit.getDefaultToolkit().getScreenSize().getWidth()/1336;
+	double reSizer = .9;
+	
+	public void reSize() {
+		x = (float) (x*reSizer*keepWidth);
+		y = (float)(y*reSizer*keepHeight);
+		sH = (float)(sH*reSizer*keepWidth);
+		sW = (float)(sW*reSizer*keepHeight);
+		// speed/gravity adjustment needs to be affected by size, otherwise making mochi larger he feels slower
+	}
+
 
 	private float speedX = 0;
 	private float speedY = 3;
@@ -47,14 +60,14 @@ public class Mochi {
 	}
 //Chu means middle of in Japanese
 	boolean jumpChu = true;		
-	
+
+// this is defined later in set boundaries so it is not necessary to have the arguments here.	
  	Rectangle mochi = new Rectangle((int)(x), (int)(y), (int)(sH), (int)(sW));
-// so the above mochi is a rectangle, now I'm going to create lines around the rectangle which will act as the boundary
-// interface
  	Line2D.Float mright = new Line2D.Float(x+sW, y, x+sW, y+sH);
 	Line2D.Float mleft = new Line2D.Float(x, y, x, y+sH);
 	Line2D.Float mtop = new Line2D.Float(x,y,x+sW,y);
 	Line2D.Float mbottom = new Line2D.Float(x, y+sH, x+sW, y+sH);
+	
 
 	public float getSpeedY(){
 			return this.speedY;
@@ -72,6 +85,13 @@ public class Mochi {
 	public float getY() {
 			return this.y;
 		}
+	public float getsH() {
+		return this.sH;
+	}
+	public float getsW() {
+		return this.sW;
+	}
+	
 	public boolean getmRunR () {
 		return this.mRunR;
 	}

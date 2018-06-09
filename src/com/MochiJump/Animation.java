@@ -50,6 +50,8 @@ public class Animation {
 	public void AniVarUpdate (Mochi mochi) {
 		x = (int) mochi.getX();
 		y = (int) mochi.getY();
+		sH = (int)mochi.getsH();
+		sW = (int)mochi.getsW();
 		speedY = (int) mochi.getSpeedY();
 		speedX = (int) mochi.getSpeedX();
 		mRestR = mochi.mRestR;

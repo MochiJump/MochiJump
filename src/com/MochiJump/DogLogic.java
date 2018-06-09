@@ -17,7 +17,7 @@ public class DogLogic extends JPanel {
 	Animation animation = new Animation();
 	Mochi mochi = new Mochi();
 	int refreshRate = 30;
-	Rectangle background = new Rectangle (0,0,10000,1000);
+	Rectangle background = new Rectangle (0,0,10000,10000);
 	Color skyblue = new Color (102, 204, 255);
 	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
@@ -27,6 +27,7 @@ public class DogLogic extends JPanel {
 		dogPain.add(mochi.keyInputs());
 		add(dogPain);
 		gameStart();
+		mochi.reSize();
 
 	}
 	
