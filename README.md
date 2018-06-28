@@ -18,3 +18,5 @@ As this is a working repository, at any time, changes in code may make current c
  
 
 **** Curently working on integrating custom user level integration ****
+
+having a difficult time updating maven indexes in eclipse
