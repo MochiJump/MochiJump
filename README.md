@@ -19,4 +19,5 @@ As this is a working repository, at any time, changes in code may make current c
 
 **** Curently working on integrating custom user level integration ****
 
-having a difficult time updatin/rebuilding maven indexes in eclipse (STS) there has to be a better solution for being able to add and test dependencies in an IDE
+In the future, might want to make use of serialization once authorization token is stored since native app will talk to web app 
+(once OAuth is implemented on web app)
