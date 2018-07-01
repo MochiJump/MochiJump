@@ -64,7 +64,6 @@ public class Level {
 
 	public void setWidth (ArrayList<Integer> width) {
 		this.width = width;
-		System.out.println(width);
 	}
 
 	public ArrayList<Integer> getHeight() {

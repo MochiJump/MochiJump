@@ -46,7 +46,7 @@ public class RestReader {
         
           
         // okay this works great! I can get the information for all of the levels produced here:
-        // NOTE: imprting everything from getAll is extremely ineffecient, better to build a specific API for this on MJLE
+        // NOTE: importing everything from getAll is extremely inefficient, better to build a specific API for this on MJLE
   	    try {
   			Level[] level = mapper.readValue(output2, Level[].class);
   			System.out.println(level[level.length-1].getStartX());
