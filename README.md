@@ -3,21 +3,10 @@ Build v0.21 achieved.
 
 This repository holds my first platformer game built with Java.
 
-Basic menu capability added:
+Project RR is a test for the local app to be able to read MJLE's API:
 
-Easy to do's:
+Launched form STS/Eclipse IDE it successfully parses through all available "levels" from the API and returns the X coordinantes and Level name of the last one created
 
-Add keybinding in playable game to return to pause menu
+The POM.XLM has not been tested for dependency issues by launching with maven or compiling to a JAR yet
 
-More difficult to do's:
-
-Create choose your level with database connection capability
-Create a way to have screen follow mochi as he progress towards the edge of the screen. (easiest way I can think is to replace directional movement of sprite with the oposite directional movement of the other objects in the world)
-
-As this is a working repository, at any time, changes in code may make current code available in this repository unstable. Dist holds a working version of this project.
- 
-
-**** Curently working on integrating custom user level integration ****
-
-In the future, might want to make use of serialization once authorization token is stored since native app will talk to web app 
-(once OAuth is implemented on web app)
+It need to be incorporated into MochiJump so that the user has the option to select a level from the user made ones on MochiJump.com
