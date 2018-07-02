@@ -10,3 +10,6 @@ Launched form STS/Eclipse IDE it successfully parses through all available "leve
 The POM.XLM has not been tested for dependency issues by launching with maven or compiling to a JAR yet
 
 It need to be incorporated into MochiJump so that the user has the option to select a level from the user made ones on MochiJump.com
+
+*Note: In order to incorporate this into MochiJump platSetup() in LevelMap.java will need to be altered. It is called in getPlat() method which is called
+twice, once in Mochi.java and once again in DogLogic.java*
