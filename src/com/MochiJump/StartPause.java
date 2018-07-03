@@ -40,10 +40,14 @@ private int setPointBx;
 private int setPointBy;
 private int setPointCx;
 private int setPointCy;
+private int setPointDx;
+private int setPointDy;
 private int setSelectorPointBx;
 private int setSelectorPointBy;
 private int setSelectorPointCx;
 private int setSelectorPointCy;
+private int setSelectorPointDx;
+private int setSelectorPointDy;
 
 private int setSelectorPointX= 10000;
 private int setSelectorPointY=10000;
@@ -133,8 +137,8 @@ private void setPoints() {
 	  setPointBx = (int) (maxWidth/2 -366/2);
 	  setPointCy = (int) (maxHeight/1.5);
 	  setPointCx = (int) (maxWidth/2 - 366/2);
-	// setPointDx = (int) (maxWidth/2 - 366/2);
-	// setPointDy = (int) (maxHeight/1.75) <-- check to see if this works
+	  setPointDx = (int) (maxWidth/2 - 366/2);
+	  setPointDy = (int) (maxHeight/1.75) <-- check to see if this works
 	//  setSelectorPointAx = setPointAx - 150;
 	//  setSelectorPointAy = setPointAy; not neccessary because that's the mochi icon
 	// below still needs to be adjusted
@@ -142,6 +146,8 @@ private void setPoints() {
 	  setSelectorPointBy = setPointBy;
 	  setSelectorPointCx = setPointCx -150;
 	  setSelectorPointCy = setPointCy;
+	  setSelectorPointDx = setPointDx - 150;
+	  setSelectorPointDy = setPointDy;
 }
 
 private void selectorAni(){
@@ -172,7 +178,7 @@ public void draw (Graphics g){
   //including ratioWidth/Height below to resize the image
   mochiIcon.setClip(setPointAx, setPointAy, (int) (222*ratioWidth), (int)(225*ratioHeight));
   mochiIcon.drawImage(mochiFaceState1, setPointAx, setPointAy, (int) (222*ratioWidth), (int)(225*ratioHeight), null);
- 
+ // need setClip and drawImage for new button
   startSelect.setClip(setPointBx, setPointBy, (int)(366*ratioWidth), (int)(71*ratioHeight)); 
   startSelect.drawImage(start, setPointBx, setPointBy, (int)(366*ratioWidth),(int)(71*ratioHeight), null);
   contSelect.setClip(setPointCx, setPointCy, (int)(366*ratioWidth), (int)(71*ratioHeight));
@@ -217,6 +223,7 @@ public JLabel startScreenKeyInputs (){
   
 }
 private class MoveSelectorUp extends AbstractAction{
+	// need keybindings for new button
 	  public void actionPerformed (ActionEvent mu) {
 	   if (setSelectorPointY == setSelectorPointBy){
 		   setSelectorPointX = setSelectorPointCx;
@@ -231,6 +238,7 @@ private class MoveSelectorUp extends AbstractAction{
 	  }
 }
 private class MoveSelectorDown extends AbstractAction{
+	// need keybindings for new button
 	  public void actionPerformed (ActionEvent md) {
 		  if (setSelectorPointY == setSelectorPointBy){
 			   setSelectorPointX = setSelectorPointCx;
@@ -246,6 +254,7 @@ private class MoveSelectorDown extends AbstractAction{
 }
 
 private class MakeSelection extends AbstractAction{
+	// need keybindings for new button
 	  public void actionPerformed (ActionEvent ms) {
 		  if (setSelectorPointY == setSelectorPointBy) {
 			  //okay so this does start the DogLogic thread, but it doesn't stop the menu animation
