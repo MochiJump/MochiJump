@@ -57,6 +57,7 @@ Image mochiFaceState2 = new ImageIcon(this.getClass().getResource("/blink.png"))
 Image mochiFace;
 Image start = new ImageIcon(this.getClass().getResource("/start.png")).getImage();
 Image cont = new ImageIcon(this.getClass().getResource("/continue.png")).getImage();
+Image load = new ImageIcon(this.getClass().getResource("/lvlLoad.png")).getImage();
 Image selectorImage;
 Image selectorImage1 = new ImageIcon(this.getClass().getResource("/bone1M.png")).getImage();
 Image selectorImage2 = new ImageIcon(this.getClass().getResource("/bone2M.png")).getImage();
@@ -132,8 +133,11 @@ private void setPoints() {
 	  setPointBx = (int) (maxWidth/2 -366/2);
 	  setPointCy = (int) (maxHeight/1.5);
 	  setPointCx = (int) (maxWidth/2 - 366/2);
+	// set PointDx = (int) (maxWidth/2 - 366/2);
+	// set PointDy = (int) (maxHeight/1.75) <-- check to see if this works
 	//  setSelectorPointAx = setPointAx - 150;
 	//  setSelectorPointAy = setPointAy; not neccessary because that's the mochi icon
+	// below still needs to be adjusted
 	  setSelectorPointBx = setPointBx -150;
 	  setSelectorPointBy = setPointBy;
 	  setSelectorPointCx = setPointCx -150;
