@@ -1,3 +1,0 @@
-I'm going to be using a very similar code to the 3 classes I've already made for the main game to make the pause screen functional
-I'm wondering if it would be worth it to try to use some polymorphism here, maybe would make doing something like this easier in the
-future, maybe it would make a good learning experience

@@ -1,4 +1,5 @@
-package com.MochiJump
+package com.MochiJump;
+
 
 import java.awt.Rectangle;
 import java.util.ArrayList;
@@ -76,10 +77,18 @@ public class Level {
 	
 	//this will define the ArrayList for the rectangles
 	
+	public void testGenerateLevel (){
+		
+		for (int i=0; i<getStartX().size(); i++) {
+			platforms.add(new Rectangle ((int)(getStartX().get(i)), (int)(getStartY().get(i)), (int)(getWidth().get(i)), (int)(getHeight().get(i))));
+		}
+		System.out.println(platforms);
+	}
+	
 	public ArrayList<Rectangle> generateLevel (){
 		
 		for (int i=0; i<startX.size(); i++) {
-			platforms.add(new Rectangle (startX.get(i), startY.get(i), width.get(i), height.get(i)));
+			platforms.add(new Rectangle ((int)(startX.get(i)), (int)(startY.get(i)), (int)(width.get(i)), (int)(height.get(i))));
 		}
 		return platforms;
 		

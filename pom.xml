@@ -2,9 +2,17 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>MochiJump</groupId>
   <artifactId>MochiJump</artifactId>
-  <version>0.2.-SNAPSHOT</version>
+  <version>0.2.1</version>
   <build>
-    <sourceDirectory>src/com/MochiJump</sourceDirectory>
+    <sourceDirectory>src</sourceDirectory>
+    <resources>
+      <resource>
+        <directory>resources</directory>
+        <excludes>
+          <exclude>**/*.java</exclude>
+        </excludes>
+      </resource>
+    </resources>
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>

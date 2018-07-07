@@ -1,15 +1,17 @@
 # MochiJump
-Build v0.21 achieved.
+Build v0.22 achieved.
 
 This repository holds my first platformer game built with Java.
 
-Project RR is a test for the local app to be able to read MJLE's API:
+The MochiJump App will now load the last created level at MochiJump.com as a playable level:
+From Start Menu select "Load lvl" and then "Start" 
 
-Launched form STS/Eclipse IDE it successfully parses through all available "levels" from the API and returns the X coordinantes and Level name of the last one created
+To Do:
+
+updated source code has not been built into executable yet
+
+Small delay while importing levels, maybe create a loading animation or feature.
 
 The POM.XLM has not been tested for dependency issues by launching with maven or compiling to a JAR yet
 
 It need to be incorporated into MochiJump so that the user has the option to select a level from the user made ones on MochiJump.com
-
-*Note: In order to incorporate this into MochiJump platSetup() in LevelMap.java will need to be altered. It is called in getPlat() method which is called
-twice, once in Mochi.java and once again in DogLogic.java*

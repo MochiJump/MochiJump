@@ -1,8 +1,7 @@
 package com.MochiJump;
 
 
-import java.awt.BorderLayout;
-import java.awt.Container;
+
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -61,7 +60,7 @@ Image mochiFaceState2 = new ImageIcon(this.getClass().getResource("/blink.png"))
 Image mochiFace;
 Image start = new ImageIcon(this.getClass().getResource("/start.png")).getImage();
 Image cont = new ImageIcon(this.getClass().getResource("/continue.png")).getImage();
-Image load = new ImageIcon(this.getClass().getResource("/lvlLoad.png")).getImage();
+Image load = new ImageIcon(this.getClass().getResource("/loadLvl.png")).getImage();
 Image selectorImage;
 Image selectorImage1 = new ImageIcon(this.getClass().getResource("/bone1M.png")).getImage();
 Image selectorImage2 = new ImageIcon(this.getClass().getResource("/bone2M.png")).getImage();
@@ -94,7 +93,6 @@ public void startPauseActive() {
 				menuUpdate();
 				repaint();
 				getCurrentPanel();
-				System.out.println(String.valueOf(currentPanel));
 				try{
 					Thread.sleep(1000/refreshRate);
 				}catch (InterruptedException ex){
@@ -138,7 +136,7 @@ private void setPoints() {
 	  setPointCy = (int) (maxHeight/1.5);
 	  setPointCx = (int) (maxWidth/2 - 366/2);
 	  setPointDx = (int) (maxWidth/2 - 366/2);
-	  setPointDy = (int) (maxHeight/1.75) <-- check to see if this works
+	  setPointDy = (int) (maxHeight/1.25);
 	//  setSelectorPointAx = setPointAx - 150;
 	//  setSelectorPointAy = setPointAy; not neccessary because that's the mochi icon
 	// below still needs to be adjusted
@@ -175,7 +173,7 @@ public void draw (Graphics g){
   Graphics2D startSelect = (Graphics2D) g.create();
   Graphics2D contSelect = (Graphics2D) g.create();
   Graphics2D selectorIcon = (Graphics2D) g.create();
-  Graphics2d loadSelect = (Graphics2d) g.create();
+  Graphics2D loadSelect = (Graphics2D) g.create();
   //including ratioWidth/Height below to resize the image
   mochiIcon.setClip(setPointAx, setPointAy, (int) (222*ratioWidth), (int)(225*ratioHeight));
   mochiIcon.drawImage(mochiFaceState1, setPointAx, setPointAy, (int) (222*ratioWidth), (int)(225*ratioHeight), null);
@@ -185,7 +183,7 @@ public void draw (Graphics g){
   contSelect.setClip(setPointCx, setPointCy, (int)(366*ratioWidth), (int)(71*ratioHeight));
   contSelect.drawImage(cont, setPointCx, setPointCy, (int)(366*ratioWidth), (int)(71*ratioHeight), null);
   //setClip and drawImage for new button
-  loadSelect.setClip(setPointDx, setPointDy, (int)(366*ratioWidth), (int)(71*ratioHeight),null);
+  loadSelect.setClip(setPointDx, setPointDy, (int)(366*ratioWidth), (int)(71*ratioHeight));
   loadSelect.drawImage(load, setPointDx, setPointDy, (int)(366*ratioWidth), (int)(71*ratioHeight),null);
 	
   selectorIcon.setClip(setSelectorPointX, setSelectorPointY, (int)(140*ratioWidth), (int)(90*ratioHeight));
@@ -231,12 +229,16 @@ private class MoveSelectorUp extends AbstractAction{
 	// need keybindings for new button
 	  public void actionPerformed (ActionEvent mu) {
 	   if (setSelectorPointY == setSelectorPointBy){
-		   setSelectorPointX = setSelectorPointCx;
-		   setSelectorPointY = setSelectorPointCy;
+		   setSelectorPointX = setSelectorPointDx;
+		   setSelectorPointY = setSelectorPointDy;
 	   }else if (setSelectorPointY == setSelectorPointCy) {
 		   setSelectorPointX = setSelectorPointBx;
 		   setSelectorPointY = setSelectorPointBy;
-	   }else {		  
+	   }else if (setSelectorPointY == setSelectorPointDy) {
+		   setSelectorPointX = setSelectorPointCx;
+		   setSelectorPointY = setSelectorPointCy;
+	   }
+	   else{		  
 		   setSelectorPointX = setSelectorPointBx;
 		   setSelectorPointY = setSelectorPointBy;
 	   }
@@ -249,9 +251,14 @@ private class MoveSelectorDown extends AbstractAction{
 			   setSelectorPointX = setSelectorPointCx;
 			   setSelectorPointY = setSelectorPointCy;
 		 }else if (setSelectorPointY == setSelectorPointCy) {
-			   setSelectorPointX = setSelectorPointBx;
-			   setSelectorPointY = setSelectorPointBy;
-		 }else {		  
+			   setSelectorPointX = setSelectorPointDx;
+			   setSelectorPointY = setSelectorPointDy;
+		 }else if (setSelectorPointY == setSelectorPointDy) {
+			 setSelectorPointX = setSelectorPointBx;
+		   setSelectorPointY = setSelectorPointBy;
+		 }
+		 
+		 else {		  
 			   setSelectorPointX = setSelectorPointBx;
 			   setSelectorPointY = setSelectorPointBy;
 		  }  
@@ -269,8 +276,8 @@ private class MakeSelection extends AbstractAction{
 			  System.exit(0);
 		  }
 		  if (setSelectorPointY == setSelectorPointDy){
-			ImportLevelReader iReader = new IMportLevelReader;
-			  iReader.ReadRest();
+			ImportLevelReader lReader = new ImportLevelReader();
+			lReader.ReadRest();
 		  }
 		  
 	  }
