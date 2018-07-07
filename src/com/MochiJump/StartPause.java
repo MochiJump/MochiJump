@@ -268,6 +268,10 @@ private class MakeSelection extends AbstractAction{
 		  if (setSelectorPointY == setSelectorPointCy) {
 			  System.exit(0);
 		  }
+		  if (setSelectorPointY == setSelectorPointDy){
+			ImportLevelReader iReader = new IMportLevelReader;
+			  iReader.ReadRest();
+		  }
 		  
 	  }
 		  
