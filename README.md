@@ -16,5 +16,7 @@ The POM.XLM has not been tested for dependency issues by launching with maven or
 
 Create UI and code for the option to select a level from the user made ones on MochiJump.com by level name, random level etc
 
+Update collision rules so Mochi sprite behaves better on uneven surfaces
+
 Further reading on how to create a jar w/ dependencies:
 https://stackoverflow.com/questions/574594/how-can-i-create-an-executable-jar-with-dependencies-using-maven
