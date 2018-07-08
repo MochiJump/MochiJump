@@ -14,7 +14,7 @@ Small delay while importing levels, maybe create a loading animation or feature.
 
 The POM.XLM has not been tested for dependency issues by launching with maven or compiling to a JAR yet
 
-It need to be incorporated into MochiJump so that the user has the option to select a level from the user made ones on MochiJump.com
+Create UI and code for the option to select a level from the user made ones on MochiJump.com by level name, random level etc
 
 Further reading on how to create a jar w/ dependencies:
 https://stackoverflow.com/questions/574594/how-can-i-create-an-executable-jar-with-dependencies-using-maven
