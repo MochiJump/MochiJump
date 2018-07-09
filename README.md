@@ -1,5 +1,5 @@
 # MochiJump
-Build v0.22 achieved.
+Build v0.23 achieved.
 
 This repository holds my first platformer game built with Java.
 
@@ -17,6 +17,8 @@ The POM.XLM has not been tested for dependency issues by launching with maven or
 Create UI and code for the option to select a level from the user made ones on MochiJump.com by level name, random level etc
 
 Update collision rules so Mochi sprite behaves better on uneven surfaces (Suspect it has to do with the fact that it is looking at individual rectangles for collision despite the fact that many are overlayed ontop of one another in user generated levels)
+
+remove println("bark") in game thread
 
 Further reading on how to create a jar w/ dependencies:
 https://stackoverflow.com/questions/574594/how-can-i-create-an-executable-jar-with-dependencies-using-maven
