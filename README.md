@@ -14,6 +14,8 @@ Small delay while importing levels, maybe create a loading animation or feature.
 
 The POM.XLM has not been tested for dependency issues by launching with maven or compiling to a JAR yet
 
+Try using Grandle in place of Maven for shipping.
+
 Create UI and code for the option to select a level from the user made ones on MochiJump.com by level name, random level etc
 
 Update collision rules so Mochi sprite behaves better on uneven surfaces (Suspect it has to do with the fact that it is looking at individual rectangles for collision despite the fact that many are overlayed ontop of one another in user generated levels) - Take a look at whether the sprite dimensions update for collision detection during jumping animation.
