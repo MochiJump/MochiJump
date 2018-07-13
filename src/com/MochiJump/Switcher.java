@@ -51,6 +51,7 @@ public class Switcher extends JFrame{
 			// curious why this doesn't launch as it's part of the constructor?
 			dogLogic.gameStart();
 			}
+			// will need to add 3rd option here with the level selector
 			 frame.validate();
 			 frame.pack();
 	
