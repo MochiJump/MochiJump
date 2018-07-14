@@ -5,4 +5,7 @@
 package com.MochiJump;
 
 
+public class LeveSelector extends JPanel{
 // will need to create and import images for ui
+
+}
