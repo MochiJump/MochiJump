@@ -1,0 +1,5 @@
+package com.MochiJump
+
+public class ImportedLevel implements LevelSelectorObject{
+
+}
