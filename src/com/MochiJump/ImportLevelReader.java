@@ -1,5 +1,10 @@
 package com.MochiJump;
 
+/*
+* I think the key to doing this correctly is to have the arrayList public, static, and outside of the readRest method.
+*/
+
+
 import java.awt.Rectangle;
 import java.io.BufferedReader;
 import java.io.IOException;
