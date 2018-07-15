@@ -1,5 +1,6 @@
 /*
-* Define and use factories for this since there's no way of knowing how many levels are going to import
+* Factory build pattern exists:
+* LevelSelectorObject visibleObject1 = LSOFactory.makeLSO(string,int);
 */
 
 package com.MochiJump;
