@@ -1,6 +1,6 @@
 package com.MochiJump
 
 public interface LevelSelectorObject {
-   String levelName;
-   int importOrder;
+   public string getLevelName();
+   public int getImportOrder();
 }
