@@ -8,6 +8,8 @@ From Start Menu select "Load lvl" and then "Start"
 
 To Do:
 
+contemplating having the level selection menu include a 3d dial, however, it may be better to give it a place holder for now
+
 updated source code has not been built into executable yet
 
 Small delay while importing levels, maybe create a loading animation or feature.
