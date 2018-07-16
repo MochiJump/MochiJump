@@ -1,5 +1,6 @@
 /*
-* Factory build pattern exists, but is unneccessary a static arrayList will work fine
+* Factory build pattern deleted, is was unneccessary a static arrayList will work fine
+* need to make arraylist from ImportLevelReader static and outside restReader method.
 */
 
 package com.MochiJump;
