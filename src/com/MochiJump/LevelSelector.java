@@ -1,6 +1,5 @@
 /*
-* Factory build pattern exists:
-* LevelSelectorObject visibleObject1 = LSOFactory.makeLSO(string,int);
+* Factory build pattern exists, but is unneccessary a static arrayList will work fine
 */
 
 package com.MochiJump;
@@ -25,6 +24,9 @@ private double ratioHeight;
 private double ratioWidth;
 
 private Dimension screenSize;
+
+static ArrayList <String> levelName;
+static ArrayList <Integer> importOrder;
   
  public LevelSelector(){
    // to add keybinding lSPanel.add(componentwithkeybindingassociated);
