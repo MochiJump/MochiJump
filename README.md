@@ -8,7 +8,7 @@ From Start Menu select "Load lvl" and then "Start"
 
 To Do:
 
-!Refractor Mochi Class to include dependancy injection!
+**Refractor Mochi Class to include dependancy injection**
 
 contemplating having the level selection menu include a 3d dial, however, it may be better to give it a place holder for now
 
