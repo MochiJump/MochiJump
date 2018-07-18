@@ -39,7 +39,7 @@ public class Animation {
 	boolean uJump = mochi.uJump;
 	boolean midJump = mochi.midJump;
 	
-	
+	// this method below does nothing, remove it:
 	
 	public void inertia() {
 		y = speedY+y;
