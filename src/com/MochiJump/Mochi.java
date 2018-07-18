@@ -17,11 +17,12 @@ import javax.swing.KeyStroke;
 
 
 
-public class Mochi {
-	
+public class Mochi{
+	JumpInterface jump = new StandardJump();
+	CollisionInterface collide = new StandardCollision();
 
-	private float x;
-	private float y;
+	float x;
+	float y;
 	double keepHeight = Toolkit.getDefaultToolkit().getScreenSize().getHeight()/768;
 	double keepWidth = Toolkit.getDefaultToolkit().getScreenSize().getWidth()/1336;
 	double reSizer = .9;
@@ -35,10 +36,10 @@ public class Mochi {
 	}
 
 
-	private float speedX = 0;
-	private float speedY = 3;
-	private float sH = 14;
-	private float sW = 21;
+	float speedX = 0;
+	float speedY = 3;
+	float sH = 14;
+	float sW = 21;
 	boolean mRestR;
 	boolean mRestL;
 	boolean mRunR;
@@ -86,6 +87,9 @@ public class Mochi {
 	public float getY() {
 			return this.y;
 		}
+	private void setY(float y) {
+		this.y = y;
+	}
 	public float getsH() {
 		return this.sH;
 	}
@@ -93,15 +97,53 @@ public class Mochi {
 		return this.sW;
 	}
 	
-	public boolean getmRunR () {
+	public boolean getmRunR() {
 		return this.mRunR;
 	}
+	
+	public void setRunR(boolean r) {
+		mRunR = r;
+	}
+	
+	
 	public boolean getJumpChu() {
 		return this.jumpChu;
 	}
-	public int getJTime() {
-		return this.jTime;
+	public void setJumpChu(boolean jumpChu) {
+		this.jumpChu = jumpChu;
 	}
+	
+	public void setUJump(boolean uJump) {
+		this.uJump = uJump;
+	}
+	
+	public void setMidJump(boolean midJump) {
+		this.midJump = midJump;
+	}
+	
+	public void setJumpR(boolean mJumpR) {
+		this.mJumpR = mJumpR;
+	}
+	
+	public void setJumpL(boolean mJumpL) {
+		this.mJumpL = mJumpL;
+	}
+	public void setJTime (int jTime) {
+		this.jTime = jTime;
+	}
+	
+	public void setRunL (boolean r) {
+		mRunL = r;
+	}
+	
+	public void setRestR (boolean r) {
+		mRestR = r;
+	}
+	
+	public void setRestL (boolean r) {
+		mRestL = r;
+	}
+	
 // let see if putting this in a method and then calling that method inside boundaryRules updates it.
 // okay that didn't fix it. wait maybe we need to add the rectangle mochi in here:
 // I think I'm on the right track but I've got a nullPointerException when i try to run this now.
@@ -129,92 +171,12 @@ public class Mochi {
 	// weirdly changing from a speedY parameter to just changing the Y works just fine.
 	// not sure if I like having the mochijs2 as part of the jump animation. but i got it in there.
 	public void mJumpHandler () {	
-		if (jumpChu == true && jTime > 0) {
-			jTime++;
-			getJTime();
-			if (jTime <= 18) {
-				y -= 6;
-				uJump = true;
-				if (mRunR == true || mRestR == true) {
-					setActionToFalse();
-					mJumpR = true;	
-				}
-				if (mRunL == true || mRestL == true) {
-					setActionToFalse();
-					mJumpL = true;
-				}
-			}
-			if (jTime>18 && jTime<= 20) {
-				y -= 6;
-				uJump = false;
-				midJump = true;
-				if (mRunR == true || mRestR == true) {
-					setActionToFalse();
-					mJumpR = true;	
-				}
-				if (mRunL == true || mRestL == true) {
-					setActionToFalse();
-					mJumpL = true;
-				}
-			}
-			if (jTime < 25) {
-				midJump = true;
-			}
-			if (jTime > 25) {	
-				jTime =0;
-			midJump = false;
-			}
-		}
+		jump.jump(this);
 	}
 	
 	// Collision detection happens here
 	public void boundaryRules () {
-		getSpeedY();
-		y = speedY+y;
-		x = x+speedX;
-		mBoundaries();
-		mJumpHandler();
-		// review the below code
-		ArrayList<Rectangle> platlist = levelMap.getPlat();
-		for (Rectangle next: platlist) {
-			// I tried remove.getBounds below no change.
-			Rectangle p1 = next.getBounds();
-			// testing whether mochi does not intersect may work to turn on "falling animation" *******
-			if (mochi.intersects(p1)) {
-			// so here is where we program what we want a result of a collision...
-			// what I want is for mochi to return to the state just prior to his collision.
-			// how do I program that?
-			// okay so I have to write a few more if statements here:
-			// I need to determine if the collision happened from above or below,
-			// or from left or from the right. 
-				if (mright.intersects(p1)) {
-					// because this is being called!
-					x = p1.x-sW;
-				// I like getting to use basic algebra in real life.
-				} 
-				if (mleft.intersects(p1)) {
-					x = p1.x +p1.width +1;
-				}
-				if (mtop.intersects(p1)) {
-					y = p1.y +p1.height;
-				}
-				if (mbottom.intersects(p1)) {
-					// I'm thinking this should be an independant method that is called after this if statement
-					// heard that many nested if statements is bad coding practice.
-					// hmm looks like changing these parameters does nothing
-					y = p1.y-sH;
-					// going to always set JumpChu to false whenever this intersection happens
-					jumpChu = false;
-					// while statement below didn't work trying if statement to stop jittering, the below isn't working either
-					// perhaps I need an outside method that turns gravity off.
-					if (jumpChu == false) {
-						landing();
-					}
-				}
-							
-			}
-		}
-		
+		collide.collide(this);
 	}
 
 // from playing around with an example of KeyBindings I can tell that it is possible setup and call keybindings from one class into
@@ -272,6 +234,7 @@ public class Mochi {
 	}
 	class MoveLeftAct extends AbstractAction{
 		public void actionPerformed (ActionEvent ml) {
+			mRunL = true; 
 			if (jumpChu == false) {
 				setActionToFalse();
 				mRunL = true;

@@ -41,7 +41,7 @@ public class DogLogic extends JPanel {
 				while (currentPanel==2) {
 					gameUpdate();
 					repaint();
-					System.out.println("Bark");
+					System.out.println(mochi.mRestR);
 					try {
 						Thread.sleep(1000/refreshRate);
 					}catch (InterruptedException e) {

@@ -1,14 +1,24 @@
+package com.MochiJump;
+
+import java.awt.Dimension;
+import java.awt.Toolkit;
+import java.util.ArrayList;
+
+import javax.swing.Action;
+import javax.swing.JPanel;
+
 /*
+ * this class in not yet implemented. Currently refactoring project. Keeping for notes:
+ * 
 * Factory build pattern deleted, is was unneccessary a static arrayList will work fine
 * need to make arraylist from ImportLevelReader static and outside restReader method.
 */
 
-package com.MochiJump;
 
 
 public class LevelSelector extends JPanel{
   JPanel lSPanel = new JPanel();
-  refreshRate = 30;
+  int refreshRate = 30;
   static int currentPanel;
   
 // will need to create and import images for ui
@@ -85,4 +95,8 @@ private void ratioCheck() {
   //graphics and everything still needs to be created, in this case we will have 3 options that will be visible (initially 2)
   // the selector graphic will not move but instead always be linked to the middle option. will need to create a transition animation
   // down the road.
+  private void selectorAni() {
+	  
+  }
+  
 }
