@@ -12,7 +12,7 @@ import java.awt.LayoutManager;
 public class Switcher extends JFrame{
 	int currentPanel = 0;
 	DogLogic dogLogic = new DogLogic();
-	StartPause startPause = new StartPause();
+	StartPause startPause = new StartPause(this);
 	static JFrame frame = new JFrame ("Mochi Jump");
 
 	

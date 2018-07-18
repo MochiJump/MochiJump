@@ -8,7 +8,7 @@ import javax.swing.JPanel;
 
 public class LevelMap extends JPanel {
 
-	// should just make this a method I can all (Interface?)
+	//
 	double keepHeight = Toolkit.getDefaultToolkit().getScreenSize().getHeight()/786;
 	double keepWidth = Toolkit.getDefaultToolkit().getScreenSize().getWidth()/1336;
 	double reSizer = 1;	

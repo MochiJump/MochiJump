@@ -22,7 +22,7 @@ import javax.swing.JLabel;
 
 public class StartPause extends JPanel {
 
-static int currentPanel;
+private int currentPanel;
 private int refreshRate = 30;
 
 private Action MoveSelectorUp;
@@ -69,12 +69,14 @@ Image selectorImage4 = new ImageIcon(this.getClass().getResource("/bone4M.png"))
 Image exit = new ImageIcon(this.getClass().getResource("/exit.png")).getImage();
 JPanel sPScreen = new JPanel();
 // Switcher switcher = new Switcher(); wow so just initializing the switcher in this class breaks everything
-	
 
-public StartPause() {
+Switcher switcher;
+
+public StartPause(Switcher s) {
 	sPScreen.add(startScreenKeyInputs());
  	add (sPScreen);
 	startPauseActive();
+	switcher = s;
 }
 
 
@@ -270,7 +272,7 @@ private class MakeSelection extends AbstractAction{
 	  public void actionPerformed (ActionEvent ms) {
 		  if (setSelectorPointY == setSelectorPointBy) {
 			  //okay so this does start the DogLogic thread, but it doesn't stop the menu animation
-			  new Switcher(2);
+			  switcher.changePanel(2);
 		  }
 		  if (setSelectorPointY == setSelectorPointCy) {
 			  System.exit(0);

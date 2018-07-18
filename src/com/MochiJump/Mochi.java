@@ -5,7 +5,6 @@ import java.awt.Rectangle;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.geom.Line2D;
-import java.util.ArrayList;
 
 import javax.swing.AbstractAction;
 import javax.swing.ActionMap;
@@ -87,7 +86,7 @@ public class Mochi{
 	public float getY() {
 			return this.y;
 		}
-	private void setY(float y) {
+	public void setY(float y) {
 		this.y = y;
 	}
 	public float getsH() {
