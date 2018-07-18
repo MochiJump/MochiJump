@@ -13,7 +13,7 @@ public class Switcher extends JFrame{
 	int currentPanel = 0;
 	DogLogic dogLogic = new DogLogic();
 	StartPause startPause = new StartPause(this);
-	static JFrame frame = new JFrame ("Mochi Jump");
+	JFrame frame = new JFrame ("Mochi Jump");
 
 	
 	// for changePanel (1) is startPause (2) is dogLogic
