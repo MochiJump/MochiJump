@@ -10,7 +10,7 @@ To Do:
 
 **Refractor Mochi Class partially complete, still more to be done here**
 
-Find a solution to not having static variables in LevelMap - Observation Pattern?
+Create proper dependencies to remove all static variables
 
 contemplating having the level selection menu include a 3d dial, however, it may be better to give it a place holder for now
 
