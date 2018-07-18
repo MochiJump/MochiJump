@@ -11,6 +11,7 @@ import java.awt.LayoutManager;
 
 public class Switcher extends JFrame{
 	int currentPanel = 0;
+	//dogLogic needs a dependent constructor built \/
 	DogLogic dogLogic = new DogLogic();
 	StartPause startPause = new StartPause(this);
 	JFrame frame = new JFrame ("Mochi Jump");
@@ -25,10 +26,9 @@ public class Switcher extends JFrame{
 		 frame.setVisible(true);
 		 frame.repaint();
 	}
-	
+	// this constructor can be removed \/
 	public Switcher (int num) {
 		changePanel(num);
-		// this line is causing a new jframe to open
 	}
 	
 	public void setCurrentPanel (int option) {
