@@ -17,6 +17,7 @@ contemplating having the level selection menu include a 3d dial, however, it may
 updated source code has not been built into executable yet
 
 Small delay while importing levels, maybe create a loading animation or feature.
+https://stackoverflow.com/questions/7634402/creating-a-nice-loading-animation
 
 The POM.XLM has not been tested for dependency issues by launching with maven or compiling to a JAR yet
 
