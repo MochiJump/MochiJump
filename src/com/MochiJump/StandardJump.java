@@ -3,7 +3,7 @@ package com.MochiJump;
 public class StandardJump implements JumpInterface{
 
 	
-	public void jump(Mochi Implementer){
+	public void jump(GameCharacter Implementer){
 		
 		if (Implementer.jumpChu == true && Implementer.jTime > 0) {
 			Implementer.jTime++;

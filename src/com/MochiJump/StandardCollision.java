@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class StandardCollision implements CollisionInterface {
 	
-	public void collide(Mochi Implementer) {
+	public void collide(GameCharacter Implementer) {
 		Implementer.getSpeedY();
 		Implementer.y = Implementer.speedY+Implementer.y;
 		Implementer.x = Implementer.x+Implementer.speedX;

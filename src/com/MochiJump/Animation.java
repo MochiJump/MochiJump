@@ -39,14 +39,14 @@ public class Animation {
 	boolean uJump = mochi.uJump;
 	boolean midJump = mochi.midJump;
 	
-	// this method below does nothing, remove it:
+	
 	
 	public void inertia() {
 		y = speedY+y;
 		x = speedX+x;
 	}
 	
-	
+	// check to see if the method below needs the argument (Mochi mochi)... turns out you do. Research why!
 	public void AniVarUpdate (Mochi mochi) {
 		x = (int) mochi.getX();
 		y = (int) mochi.getY();

@@ -1,5 +1,5 @@
 package com.MochiJump;
 
 public interface JumpInterface {
-	public abstract void jump(Mochi Implementer);
+	public abstract void jump(GameCharacter Implementer);
 }
