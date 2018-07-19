@@ -12,7 +12,7 @@ import javax.swing.KeyStroke;
 
 
 
-public class Mochi extends GameCharacter{
+public class Mochi extends PlayerCharacter{
 
 	
 	JumpInterface jump = new StandardJump();
@@ -31,8 +31,7 @@ public class Mochi extends GameCharacter{
 	}
 
 
-
-	public JLabel keyInputs () {
+	public JLabel keyInputs() {
 		
 		JLabel MochiL = new JLabel("Mochi Jump");		
 		MoveRightAct MoveRightAct = new MoveRightAct();
@@ -146,6 +145,7 @@ public class Mochi extends GameCharacter{
 			}
 		}
 	}
+
 
 	
 

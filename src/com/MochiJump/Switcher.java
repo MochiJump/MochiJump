@@ -12,7 +12,7 @@ import java.awt.LayoutManager;
 public class Switcher extends JFrame{
 	int currentPanel = 0;
 	DogLogic dogLogic = new DogLogic();
-	StartPause startPause = new StartPause(this);
+	StartPause startPause;
 	JFrame frame = new JFrame ("Mochi Jump");
 
 	
@@ -21,14 +21,10 @@ public class Switcher extends JFrame{
 	public Switcher () {
 		 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		 frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
-		 changePanel(1);
 		 frame.setVisible(true);
 		 frame.repaint();
-	}
-	
-	public Switcher (int num) {
-		changePanel(num);
-		// this line is causing a new jframe to open
+		 startPause = new StartPause(this);
+		 changePanel(1);
 	}
 	
 	public void setCurrentPanel (int option) {
@@ -52,7 +48,6 @@ public class Switcher extends JFrame{
 			dogLogic.gameStart();
 			}
 			 frame.validate();
-			 frame.pack();
-	
+			 frame.pack();	
 	}
 }
