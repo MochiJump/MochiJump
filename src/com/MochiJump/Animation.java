@@ -20,9 +20,6 @@ public class Animation {
 	Image mjc3r = new ImageIcon (this.getClass().getResource("/mochijs3r.png")).getImage();
 	Image currentSprite;
 	
-	public Animation () {
-		
-	}
 	
 		
 	int aniTime = 1;
