@@ -7,6 +7,7 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 
 public class Animation {
+	DogLogic dogLogic;
 	Image ms = new ImageIcon(this.getClass().getResource("/mochirs.png")).getImage();
 	Image msr = new ImageIcon(this.getClass().getResource("/mochirsr.png")).getImage();
 	Image mws = new ImageIcon(this.getClass().getResource("/mochiws.png")).getImage();
@@ -18,27 +19,30 @@ public class Animation {
 	Image mjc2r = new ImageIcon (this.getClass().getResource("/mochijs2r.png")).getImage();
 	Image mjc3r = new ImageIcon (this.getClass().getResource("/mochijs3r.png")).getImage();
 	Image currentSprite;
+	
+	public Animation () {
+		
+	}
+	
 		
 	int aniTime = 1;
 	int sW = 21;
 	int sH = 14;
-	Mochi mochi = new Mochi();
-	int x = (int) mochi.getX();
-	int y = (int) mochi.getY();
+	int x;
+	int y;
 
 
 
-	int speedY = (int) mochi.getSpeedY();
-	int speedX = (int) mochi.getSpeedX();
-	boolean mRestR = mochi.mRestR;
-	boolean mRestL = mochi.mRestL;
-	boolean mRunR = mochi.mRunR;
-	boolean mRunL = mochi.mRunL;
-	boolean mJumpR = mochi.mJumpR;
-	boolean mJumpL = mochi.mJumpL;
-	boolean uJump = mochi.uJump;
-	boolean midJump = mochi.midJump;
-	
+	int speedY;
+	int speedX;
+	boolean mRestR;
+	boolean mRestL;
+	boolean mRunR;
+	boolean mRunL;
+	boolean mJumpR;
+	boolean mJumpL;
+	boolean uJump;
+	boolean midJump;
 	
 	
 	public void inertia() {
@@ -46,7 +50,6 @@ public class Animation {
 		x = speedX+x;
 	}
 	
-	// check to see if the method below needs the argument (Mochi mochi)... turns out you do. Research why!
 	public void AniVarUpdate (Mochi mochi) {
 		x = (int) mochi.getX();
 		y = (int) mochi.getY();

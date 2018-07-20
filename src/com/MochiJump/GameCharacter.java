@@ -7,12 +7,19 @@ import java.awt.geom.Line2D;
 public abstract class GameCharacter {
 	JumpInterface jump;
 	CollisionInterface collide;
+	DogLogic dogLogic;
+	LevelMap levelMap;
 	
 	float x;
 	float y;
 	double keepHeight = Toolkit.getDefaultToolkit().getScreenSize().getHeight()/768;
 	double keepWidth = Toolkit.getDefaultToolkit().getScreenSize().getWidth()/1336;
 	double reSizer = .9;
+	
+	public GameCharacter (DogLogic dl) {
+		dogLogic = dl;
+		levelMap = dogLogic.levelMap;
+	}
 	
 	public void reSize() {
 		x = (float) (x*reSizer*keepWidth);
@@ -37,7 +44,7 @@ public abstract class GameCharacter {
 	boolean midJump;
 	int jTime = 0;
 	
-	LevelMap levelMap = new LevelMap();
+
 	
 	public void setActionToFalse () {
 		mRestR = false;
@@ -131,6 +138,9 @@ public abstract class GameCharacter {
 		mRestL = r;
 	}
 	
+// let see if putting this in a method and then calling that method inside boundaryRules updates it.
+// okay that didn't fix it. wait maybe we need to add the rectangle mochi in here:
+// I think I'm on the right track but I've got a nullPointerException when i try to run this now.
 	public void mBoundaries () {
 		// the y axis here needs to be trimmed for the right and left or the intersection will always call this first!
 			mright.setLine(x+sW, y+5, x+sW, y+sH-5);

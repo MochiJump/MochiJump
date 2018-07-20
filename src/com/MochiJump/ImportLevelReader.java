@@ -14,9 +14,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 
 public class ImportLevelReader {
+		LevelMap lMap;
 
 	
-	 public void ReadRest () {
+	 public void ReadRest (LevelMap lm) {
 		ObjectMapper mapper = new ObjectMapper();
         String output = null;
         String output2 = null;
@@ -47,15 +48,15 @@ public class ImportLevelReader {
         // okay this works great! I can get the information for all of the levels produced here:
         // NOTE: importing everything from getAll is extremely inefficient, better to build a specific API for this on MJLE
   	    try {
+  	    	lMap = lm;
   			Level[] level = mapper.readValue(output2, Level[].class);
-  			LevelMap lm = new LevelMap();
   			System.out.println(level[level.length-1].getStartX());
   			ArrayList <Rectangle> platforms = new ArrayList<>();
   			for (int i=0; i<level[level.length-1].getStartX().size(); i++) {
   				platforms.add(new Rectangle ((int)(level[level.length-1].getStartX().get(i)), (int)(level[level.length-1].getStartY().get(i)), (int)(level[level.length-1].getWidth().get(i)), (int)(level[level.length-1].getHeight().get(i))));
   			}
   			System.out.println(platforms);
-  			lm.useWebImport(platforms);
+  			lMap.useWebImport(platforms);
   			} catch (JsonMappingException e) {
   			    e.printStackTrace();
   			} catch (JsonGenerationException e) {

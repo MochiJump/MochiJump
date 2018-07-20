@@ -12,10 +12,10 @@ import javax.swing.*;
 
 public class DogLogic extends JPanel {
 	static int currentPanel;
-	LevelMap levelMap = new LevelMap();
+	LevelMap levelMap;
 	ArrayList <Rectangle> plat = new ArrayList<Rectangle>();
-	Animation animation = new Animation();
-	Mochi mochi = new Mochi();
+	Animation animation;
+	Mochi mochi;
 	int refreshRate = 30;
 	Rectangle background = new Rectangle (0,0,10000,10000);
 	Color skyblue = new Color (102, 204, 255);
@@ -23,6 +23,9 @@ public class DogLogic extends JPanel {
 
 	
 	public DogLogic () {
+		levelMap = new LevelMap();
+		mochi = new Mochi(this);
+		animation = new Animation();
 		JPanel dogPain = new JPanel();
 		dogPain.add(mochi.keyInputs());
 		add(dogPain);
