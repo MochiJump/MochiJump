@@ -27,10 +27,7 @@ public class Switcher extends JFrame{
 		 changePanel(1);
 	}
 	
-	public void setCurrentPanel (int option) {
-		this.currentPanel = option;
-	}
-	
+
 	public void setOutsideClassCurrentPanel (int option) {
 		dogLogic.setCurrentPanel(option);
 		startPause.setCurrentPanel(option);
