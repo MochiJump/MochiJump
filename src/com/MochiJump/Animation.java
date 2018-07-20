@@ -7,8 +7,6 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 
 public class Animation {
-	Mochi mochi;
-	DogLogic dogLogic;
 	Image ms = new ImageIcon(this.getClass().getResource("/mochirs.png")).getImage();
 	Image msr = new ImageIcon(this.getClass().getResource("/mochirsr.png")).getImage();
 	Image mws = new ImageIcon(this.getClass().getResource("/mochiws.png")).getImage();
@@ -20,32 +18,27 @@ public class Animation {
 	Image mjc2r = new ImageIcon (this.getClass().getResource("/mochijs2r.png")).getImage();
 	Image mjc3r = new ImageIcon (this.getClass().getResource("/mochijs3r.png")).getImage();
 	Image currentSprite;
-	
-	public Animation (DogLogic dl) {
-		dogLogic = dl;
-		mochi = dogLogic.mochi;
-		
-	}
-	
 		
 	int aniTime = 1;
 	int sW = 21;
 	int sH = 14;
-	int x;
-	int y;
+	Mochi mochi = new Mochi();
+	int x = (int) mochi.getX();
+	int y = (int) mochi.getY();
 
 
 
-	int speedY;
-	int speedX;
-	boolean mRestR;
-	boolean mRestL;
-	boolean mRunR;
-	boolean mRunL;
-	boolean mJumpR;
-	boolean mJumpL;
-	boolean uJump;
-	boolean midJump;
+	int speedY = (int) mochi.getSpeedY();
+	int speedX = (int) mochi.getSpeedX();
+	boolean mRestR = mochi.mRestR;
+	boolean mRestL = mochi.mRestL;
+	boolean mRunR = mochi.mRunR;
+	boolean mRunL = mochi.mRunL;
+	boolean mJumpR = mochi.mJumpR;
+	boolean mJumpL = mochi.mJumpL;
+	boolean uJump = mochi.uJump;
+	boolean midJump = mochi.midJump;
+	
 	
 	
 	public void inertia() {

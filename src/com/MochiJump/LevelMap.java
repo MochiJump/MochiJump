@@ -8,15 +8,16 @@ import javax.swing.JPanel;
 
 public class LevelMap extends JPanel {
 
+	//
 	double keepHeight = Toolkit.getDefaultToolkit().getScreenSize().getHeight()/786;
 	double keepWidth = Toolkit.getDefaultToolkit().getScreenSize().getWidth()/1336;
 	double reSizer = 1;	
 
 	int x, y, width, height;
-	boolean webImport = false;
+	static boolean webImport = false;
 	
 	
-	private ArrayList<Rectangle> platlist = new ArrayList<>();
+	private static ArrayList<Rectangle> platlist = new ArrayList<>();
 	
 	private void addPlat (int x, int y, int width, int height){	
 	
@@ -40,21 +41,13 @@ public class LevelMap extends JPanel {
 		platlist.addAll (platforms);
 		webImport = true;
 	}
-	// cheap fix for concurrent thread error:
-	boolean noWebSetupDone;
+
 	public ArrayList<Rectangle> getPlat(){
 		if (webImport == true) {
-				return this.platlist;	
+		return this.platlist;	
 		}else {
-			if(!noWebSetupDone) {
-				noWebPlatSetup();
-				noWebSetupDone = true;
-				return this.platlist;
-
-			}
-			else {
-				return this.platlist;
-			}
+		noWebPlatSetup();
+		return this.platlist;
 		}
 	}
 }

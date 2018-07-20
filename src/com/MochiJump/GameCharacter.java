@@ -7,19 +7,12 @@ import java.awt.geom.Line2D;
 public abstract class GameCharacter {
 	JumpInterface jump;
 	CollisionInterface collide;
-	DogLogic dogLogic;
-	LevelMap levelMap;
 	
 	float x;
 	float y;
 	double keepHeight = Toolkit.getDefaultToolkit().getScreenSize().getHeight()/768;
 	double keepWidth = Toolkit.getDefaultToolkit().getScreenSize().getWidth()/1336;
 	double reSizer = .9;
-	
-	public GameCharacter (DogLogic dl) {
-		dogLogic = dl;
-		levelMap = dogLogic.levelMap;
-	}
 	
 	public void reSize() {
 		x = (float) (x*reSizer*keepWidth);
@@ -44,7 +37,7 @@ public abstract class GameCharacter {
 	boolean midJump;
 	int jTime = 0;
 	
-
+	LevelMap levelMap = new LevelMap();
 	
 	public void setActionToFalse () {
 		mRestR = false;

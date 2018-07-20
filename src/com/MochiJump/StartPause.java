@@ -83,13 +83,8 @@ public StartPause(Switcher s) {
 public void setCurrentPanel (int option) {
 	this.currentPanel = option;
 }
-
-// this is a place holder for now will be moved to LevelSelector later
-// not happy about how far up the dependency chain you have to go to get LevelMap below
-public void importLevel () {
-	ImportLevelReader lr = new ImportLevelReader();
-	lr.ReadRest(switcher.dogLogic.levelMap);
-	lr = null;
+public int getCurrentPanel() {
+	return this.currentPanel;
 }
 
 
@@ -99,7 +94,7 @@ public void startPauseActive() {
 			while (currentPanel == 1){
 				menuUpdate();
 				repaint();
-
+				getCurrentPanel();
 				try{
 					Thread.sleep(1000/refreshRate);
 				}catch (InterruptedException ex){
@@ -284,7 +279,7 @@ private class MakeSelection extends AbstractAction{
 		  }
 		  if (setSelectorPointY == setSelectorPointDy){
 			ImportLevelReader lReader = new ImportLevelReader();
-			importLevel();
+			lReader.ReadRest();
 		  }
 		  
 	  }
