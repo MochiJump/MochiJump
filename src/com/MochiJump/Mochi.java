@@ -13,6 +13,10 @@ import javax.swing.KeyStroke;
 
 
 public class Mochi extends PlayerCharacter{
+	
+	public Mochi (DogLogic dl){
+		super(dl);
+	}
 
 	
 	JumpInterface jump = new StandardJump();
