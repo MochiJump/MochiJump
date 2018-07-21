@@ -20,9 +20,10 @@ public class DogLogic extends JPanel {
 	Rectangle background = new Rectangle (0,0,10000,10000);
 	Color skyblue = new Color (102, 204, 255);
 	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+	Switcher switcher;
 
 	
-	public DogLogic () {
+	public DogLogic (Switcher s) {
 		levelMap = new LevelMap();
 		mochi = new Mochi(this);
 		animation = new Animation();
@@ -31,6 +32,7 @@ public class DogLogic extends JPanel {
 		add(dogPain);
 		gameStart();
 		mochi.reSize();
+		switcher = s;
 
 	}
 	

@@ -11,7 +11,7 @@ import java.awt.LayoutManager;
 
 public class Switcher extends JFrame{
 	int currentPanel = 0;
-	DogLogic dogLogic = new DogLogic();
+	DogLogic dogLogic = new DogLogic(this);
 	StartPause startPause;
 	LevelSelector levelSelector= new LevelSelector(this);
 	JFrame frame = new JFrame ("Mochi Jump");

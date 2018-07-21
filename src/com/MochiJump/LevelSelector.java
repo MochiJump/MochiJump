@@ -1,6 +1,8 @@
 package com.MochiJump;
 
+import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
@@ -18,6 +20,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.KeyStroke;
 
+
 /*
  * this class in not yet implemented. Currently refactoring project. Keeping for notes:
  * 
@@ -30,6 +33,17 @@ public class LevelSelector extends JPanel{
 
 	private int setPointAx;
 	private int setPointAy;
+	private  int setPointBy;
+	private  int setPointBx;
+	private  int setPointCy;
+	private  int setPointCx;
+	private  int setPointDx;
+	private  int setPointDy;
+	private String pointBText= " ";
+	private String pointCText= " ";
+	private String pointDText =" ";
+	private boolean isInitalized;
+	private int index=0;
 	
 	private Dimension screenSize;
 	
@@ -54,14 +68,15 @@ Image mochiFaceState1 = new ImageIcon(this.getClass().getResource("/background.p
 // http://www.java-gaming.org/index.php/topic,13599.0
 // https://stackoverflow.com/questions/43205942/how-to-display-zoom-cubes-in-3d-in-javas-frames-panel
   
-private Action MoveSelectonUp;
-private Action MoveSelectonDown;
+private Action MoveSelectionUp;
+private Action MoveSelectionDown;
 private Action MakeSelection;
   
 private double maxHeight;
 private double maxWidth;
 private double ratioHeight;
 private double ratioWidth;
+ImportLevelReader lr;
 
 
 ArrayList <String> levelName;
@@ -79,6 +94,7 @@ public int getCurrentPanel() {
 			while (currentPanel == 3){
 				menuUpdate();
 				repaint();
+				importLevelNames();
 				try{
 					Thread.sleep(1000/refreshRate);
 				}catch (InterruptedException ex){
@@ -89,6 +105,26 @@ public int getCurrentPanel() {
 	};
 	startPauseThread.start();
 }
+  private void importLevelNames() {
+	  if(!isInitalized) {
+		pointBText = "loading";
+		lr = new ImportLevelReader();
+		lr.ReadRest(switcher.dogLogic.levelMap);
+		lr.getLevelNames();
+		displayNames();
+		isInitalized = true;
+	  }else {
+		  displayNames();
+	  }
+	  
+  }
+  
+  private void displayNames() {
+	  pointBText = lr.names.get(index).toString();
+	  pointCText = lr.names.get(index+1).toString();
+	  pointDText = lr.names.get(index+2).toString();
+  }
+  
 private void menuUpdate(){
 	screenSizeCheck();
 	ratioCheck();
@@ -113,6 +149,12 @@ private void ratioCheck() {
 private void setPoints() {
 	  setPointAy = (int) (maxHeight/5);
 	  setPointAx = (int) (maxWidth/2 - 222/2);
+	  setPointBy = (int) (maxHeight/1.75);
+	  setPointBx = (int) (maxWidth/2-75);
+	  setPointCy = (int) (maxHeight/1.5);
+	  setPointCx = (int) (maxWidth/2 -75);
+	  setPointDx = (int) (maxWidth/2 -75);
+	  setPointDy = (int) (maxHeight/1.25);
 
 }
   
@@ -120,43 +162,71 @@ private void setPoints() {
 	  
   }
   
-  public void importLevel () {
-		ImportLevelReader lr = new ImportLevelReader();
-		lr.ReadRest(switcher.dogLogic.levelMap);
-		lr = null;
-	}
   
   public void draw (Graphics g){
+	  Color white = new Color(255,255,255);
 	  Graphics2D mochiIcon = (Graphics2D) g.create();
+	  Graphics2D Message1 = (Graphics2D) g.create();
+	  Graphics2D Message2 = (Graphics2D) g.create();
+	  Graphics2D Message3 = (Graphics2D) g.create();
 	  mochiIcon.setClip(setPointAx, setPointAy, (int) (222*ratioWidth), (int)(225*ratioHeight));
 	  mochiIcon.drawImage(mochiFaceState1, setPointAx, setPointAy, (int) (222*ratioWidth), (int)(225*ratioHeight), null);
-	 
+	  Message1.setColor(Color.BLACK);
+	  Message1.setFont(new Font ("Impact", Font.PLAIN, 48));
+	  Message1.drawString(pointBText, setPointBx, setPointBy);
+	  Message2.setColor(Color.BLACK);
+	  Message2.setFont(new Font ("Impact", Font.PLAIN, 48));
+	  Message2.drawString(pointCText, setPointCx, setPointCy);
+	  Message3.setColor(Color.BLACK);
+	  Message3.setFont(new Font ("Impact", Font.PLAIN, 48));
+	  Message3.drawString(pointDText, setPointDx, setPointDy);
+	  
 	}
   
   private JLabel selectionKeyInputs () {
 	  JLabel levelSelectLabel = new JLabel("Select Your Level");
 	  MakeSelection MakeSelection = new MakeSelection();
+	  MoveSelectionUp MoveSelectionUp = new MoveSelectionUp();
+	  MoveSelectionDown MoveSelectionDown = new MoveSelectionDown();
 	  
 	  InputMap im = levelSelectLabel.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
 	  ActionMap am = levelSelectLabel.getActionMap();
-	  im.put(KeyStroke.getKeyStroke("UP"), "MoveSelectorUp");
+	  im.put(KeyStroke.getKeyStroke("UP"), "MoveSelectionUp");
+	  am.put("MoveSelectionUp", MoveSelectionUp);
+
+	  im.put(KeyStroke.getKeyStroke("DOWN"), "MoveSelectorDown");
+	  am.put("MoveSelectorDown", MoveSelectionDown);
+
 	  im.put(KeyStroke.getKeyStroke("ENTER"), "MakeSelection");
 	  am.put("MakeSelection", MakeSelection);
 	  return levelSelectLabel;
 	  
   }
-  
   private class MakeSelection extends AbstractAction{
 		// need keybindings for new button
 		  public void actionPerformed (ActionEvent ms) {
 
-			  if (test == 0) {
-				importLevel();
-				test++;
-			  }else {
+				lr.importLevel(index);
+				lr = null;
 				switcher.changePanel(2);
+	}
+  }
+  private class MoveSelectionUp extends AbstractAction{
+		  public void actionPerformed (ActionEvent ms) {
+			  // why does this let me go out of bounds?
+			  if (index < lr.names.size()-2) {
+			  index++;
+			  } 
+		  }
+  }
+  
+  private class MoveSelectionDown extends AbstractAction{
+		// need keybindings for new button
+		  public void actionPerformed (ActionEvent ms) {
+			  if (index>0) {
+				index--;  
 			  }
-			  
+
 	}
   }
 	@Override

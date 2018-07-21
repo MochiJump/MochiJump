@@ -15,6 +15,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class ImportLevelReader {
 		LevelMap lMap;
+		Level[] level;
+		ArrayList <Rectangle> platforms = new ArrayList<>();
+		ArrayList <String> names = new ArrayList<>();
 
 	
 	 public void ReadRest (LevelMap lm) {
@@ -49,14 +52,7 @@ public class ImportLevelReader {
         // NOTE: importing everything from getAll is extremely inefficient, better to build a specific API for this on MJLE
   	    try {
   	    	lMap = lm;
-  			Level[] level = mapper.readValue(output2, Level[].class);
-  			System.out.println(level[level.length-1].getStartX());
-  			ArrayList <Rectangle> platforms = new ArrayList<>();
-  			for (int i=0; i<level[level.length-1].getStartX().size(); i++) {
-  				platforms.add(new Rectangle ((int)(level[level.length-1].getStartX().get(i)), (int)(level[level.length-1].getStartY().get(i)), (int)(level[level.length-1].getWidth().get(i)), (int)(level[level.length-1].getHeight().get(i))));
-  			}
-  			System.out.println(platforms);
-  			lMap.useWebImport(platforms);
+  			level = mapper.readValue(output2, Level[].class);
   			} catch (JsonMappingException e) {
   			    e.printStackTrace();
   			} catch (JsonGenerationException e) {
@@ -64,5 +60,19 @@ public class ImportLevelReader {
   			} catch (IOException e) {
   			    e.printStackTrace();
   			}
-  }
+	 }
+	 
+	 public void getLevelNames() {
+		 for (int i=0; i<level.length; i++) {
+			 names.add(level[i].getlevelName());
+			 System.out.println(names);
+		 }
+	 }
+	 
+	 public void importLevel(int index) {
+			for (int i=0; i<level[index].getStartX().size(); i++) {
+  				platforms.add(new Rectangle ((int)(level[index].getStartX().get(i)), (int)(level[index].getStartY().get(i)), (int)(level[index].getWidth().get(i)), (int)(level[index].getHeight().get(i))));
+  			}
+			lMap.useWebImport(platforms);
+	 }
 }
