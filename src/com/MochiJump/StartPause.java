@@ -53,7 +53,7 @@ private int setSelectorPointX= 10000;
 private int setSelectorPointY=10000;
 
 private int selectorAniCounter;
-private Dimension screenSize;
+public Dimension screenSize;
 
 
 Image mochiFaceState1 = new ImageIcon(this.getClass().getResource("/background.png")).getImage(); //<-- consider changing png file name
@@ -214,14 +214,14 @@ private class ExitActionHelper{
 
 
 public JLabel startScreenKeyInputs (){
-  JLabel MochiStartLabel = new JLabel ("Start Pause");
+  JLabel mochiStartLabel = new JLabel ("Start Pause");
  
   MoveSelectorUp MoveSelectorUp = new MoveSelectorUp();
   MoveSelectorDown MoveSelectorDown = new MoveSelectorDown();
   MakeSelection MakeSelection = new MakeSelection();
   
-  InputMap im = MochiStartLabel.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
-  ActionMap am = MochiStartLabel.getActionMap();
+  InputMap im = mochiStartLabel.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
+  ActionMap am = mochiStartLabel.getActionMap();
   im.put(KeyStroke.getKeyStroke("UP"), "MoveSelectorUp");
   am.put("MoveSelectorUp", MoveSelectorUp);
   im.put(KeyStroke.getKeyStroke("DOWN"), "MoveSelectorDown");
@@ -230,7 +230,7 @@ public JLabel startScreenKeyInputs (){
   am.put("MakeSelection", MakeSelection);
   // corresponding classes MoveSelectorUp, MoveSelectorDown, MakeSelection, need to be created	  
   
-  return MochiStartLabel;
+  return mochiStartLabel;
   
 }
 private class MoveSelectorUp extends AbstractAction{
@@ -284,8 +284,8 @@ private class MakeSelection extends AbstractAction{
 			  System.exit(0);
 		  }
 		  if (setSelectorPointY == setSelectorPointDy){
-			ImportLevelReader lReader = new ImportLevelReader();
-			importLevel();
+			  
+			  switcher.changePanel(3);
 		  }
 		  
 	  }

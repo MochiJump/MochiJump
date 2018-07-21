@@ -13,10 +13,11 @@ public class Switcher extends JFrame{
 	int currentPanel = 0;
 	DogLogic dogLogic = new DogLogic();
 	StartPause startPause;
+	LevelSelector levelSelector= new LevelSelector(this);
 	JFrame frame = new JFrame ("Mochi Jump");
 
 	
-	// for changePanel (1) is startPause (2) is dogLogic
+	// for changePanel (1) is startPause (2) is dogLogic (3) is levelSelector
 	
 	public Switcher () {
 		 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -34,6 +35,7 @@ public class Switcher extends JFrame{
 	public void setOutsideClassCurrentPanel (int option) {
 		dogLogic.setCurrentPanel(option);
 		startPause.setCurrentPanel(option);
+		levelSelector.setCurrentPanel(option);
 	}
 	
 	public void changePanel (int panelNumber) {
@@ -44,9 +46,11 @@ public class Switcher extends JFrame{
 			frame.getContentPane().add(startPause);
 			}else if (currentPanel == 2) {
 			frame.getContentPane().add(dogLogic);
-			// curious why this doesn't launch as it's part of the constructor?
 			dogLogic.gameStart();
-			}
+			}else if (currentPanel == 3) {
+				frame.getContentPane().add(levelSelector);
+				levelSelector.levelSelectorActive();
+				}
 			 frame.validate();
 			 frame.pack();	
 	}

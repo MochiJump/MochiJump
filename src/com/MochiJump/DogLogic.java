@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import javax.swing.*;
 
 public class DogLogic extends JPanel {
-	static int currentPanel;
+	int currentPanel;
 	LevelMap levelMap;
 	ArrayList <Rectangle> plat = new ArrayList<Rectangle>();
 	Animation animation;
