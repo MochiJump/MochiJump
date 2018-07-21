@@ -8,6 +8,8 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -44,13 +46,15 @@ public class ImportLevelReader {
         conn.disconnect();
 
         } catch (Exception e) {
+        	JOptionPane.showMessageDialog(null, "Unable to connect! Are you connected to"
+        			+ " the internet? Press ESC and select Start to run"
+        			+ " without custom levels.", "Unable to connect to MochiJump.com", 
+        			JOptionPane.ERROR_MESSAGE);
             System.out.println("Exception in NetClientGet:- " + e);
         }
         
           
-        // okay this works great! I can get the information for all of the levels produced here:
-        // NOTE: importing everything from getAll is extremely inefficient, better to build a specific API for this on MJLE
-  	    try {
+    try {
   	    	lMap = lm;
   			level = mapper.readValue(output2, Level[].class);
   			} catch (JsonMappingException e) {

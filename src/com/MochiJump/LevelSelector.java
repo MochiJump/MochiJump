@@ -8,6 +8,7 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
 import javax.swing.AbstractAction;
@@ -22,7 +23,7 @@ import javax.swing.KeyStroke;
 
 
 /*
- * this class in not yet implemented. Currently refactoring project. Keeping for notes:
+ * functional rough draft:
  * 
 */
 
@@ -71,6 +72,7 @@ Image mochiFaceState1 = new ImageIcon(this.getClass().getResource("/background.p
 private Action MoveSelectionUp;
 private Action MoveSelectionDown;
 private Action MakeSelection;
+private Action Escape;
   
 private double maxHeight;
 private double maxWidth;
@@ -120,9 +122,19 @@ public int getCurrentPanel() {
   }
   
   private void displayNames() {
+	  if (index < lr.names.size()-3) {
 	  pointBText = lr.names.get(index).toString();
 	  pointCText = lr.names.get(index+1).toString();
 	  pointDText = lr.names.get(index+2).toString();
+	  }else if (index < lr.names.size()-2) {
+	  pointBText = lr.names.get(index).toString();
+	  pointCText = lr.names.get(index+1).toString();
+	  pointDText = " ";	  
+	  }else if (index < lr.names.size()-1) {
+		pointBText = lr.names.get(index).toString();
+		pointCText =" ";
+		pointDText = " ";	  
+	}
   }
   
 private void menuUpdate(){
@@ -188,6 +200,7 @@ private void setPoints() {
 	  MakeSelection MakeSelection = new MakeSelection();
 	  MoveSelectionUp MoveSelectionUp = new MoveSelectionUp();
 	  MoveSelectionDown MoveSelectionDown = new MoveSelectionDown();
+	  Escape Escape = new Escape();
 	  
 	  InputMap im = levelSelectLabel.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
 	  ActionMap am = levelSelectLabel.getActionMap();
@@ -199,22 +212,24 @@ private void setPoints() {
 
 	  im.put(KeyStroke.getKeyStroke("ENTER"), "MakeSelection");
 	  am.put("MakeSelection", MakeSelection);
-	  return levelSelectLabel;
 	  
+	  
+	  im.put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE,0), "Escape");
+	  am.put("Escape", Escape);
+	  
+	  return levelSelectLabel;
   }
   private class MakeSelection extends AbstractAction{
 		// need keybindings for new button
 		  public void actionPerformed (ActionEvent ms) {
-
 				lr.importLevel(index);
-				lr = null;
 				switcher.changePanel(2);
 	}
   }
   private class MoveSelectionUp extends AbstractAction{
 		  public void actionPerformed (ActionEvent ms) {
 			  // why does this let me go out of bounds?
-			  if (index < lr.names.size()-2) {
+			  if (index < lr.names.size()-1) {
 			  index++;
 			  } 
 		  }
@@ -226,6 +241,15 @@ private void setPoints() {
 			  if (index>0) {
 				index--;  
 			  }
+
+	}
+  }
+  
+  private class Escape extends AbstractAction{
+		// need keybindings for new button
+		  public void actionPerformed (ActionEvent ms) {
+			  switcher.escapeUsed = true;
+			  switcher.changePanel(1);
 
 	}
   }

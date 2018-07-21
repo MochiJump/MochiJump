@@ -37,6 +37,7 @@ public class LevelMap extends JPanel {
 	}
 	
 	public void useWebImport(ArrayList<Rectangle> platforms) {
+		platlist.clear();
 		platlist.addAll (platforms);
 		webImport = true;
 	}

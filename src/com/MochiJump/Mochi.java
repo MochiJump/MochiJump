@@ -2,6 +2,8 @@ package com.MochiJump;
 
 
 import java.awt.event.ActionEvent;
+import java.awt.event.KeyEvent;
+
 import javax.swing.AbstractAction;
 import javax.swing.ActionMap;
 import javax.swing.InputMap;
@@ -43,6 +45,7 @@ public class Mochi extends PlayerCharacter{
 		MoveLeftAct MoveLeftAct = new MoveLeftAct();
 		RestLeft RestLeft = new RestLeft();
 		JumpAct JumpAct = new JumpAct();
+		Escape Escape = new Escape();
 
 		InputMap im = MochiL.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
 		ActionMap am = MochiL.getActionMap();	
@@ -57,6 +60,8 @@ public class Mochi extends PlayerCharacter{
 		am.put("RestLeft", RestLeft);
 		im.put(KeyStroke.getKeyStroke("UP"), "JumpAct" );
 		am.put("JumpAct", JumpAct);
+		im.put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE,0), "Escape");
+		am.put("Escape", Escape);
 		return MochiL;
 		
 	}
@@ -147,6 +152,13 @@ public class Mochi extends PlayerCharacter{
 				}
 				
 			}
+		}
+	}
+	class Escape extends AbstractAction{
+		public void actionPerformed (ActionEvent es) {
+			dogLogic.switcher.escapeUsed = true;
+			dogLogic.switcher.changePanel(1);
+			
 		}
 	}
 

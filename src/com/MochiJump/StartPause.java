@@ -228,14 +228,13 @@ public JLabel startScreenKeyInputs (){
   am.put("MoveSelectorDown", MoveSelectorDown);
   im.put(KeyStroke.getKeyStroke("ENTER"), "MakeSelection");
   am.put("MakeSelection", MakeSelection);
-  // corresponding classes MoveSelectorUp, MoveSelectorDown, MakeSelection, need to be created	  
   
   return mochiStartLabel;
   
 }
 private class MoveSelectorUp extends AbstractAction{
-	// need keybindings for new button
-	  public void actionPerformed (ActionEvent mu) {
+
+	public void actionPerformed (ActionEvent mu) {
 	   if (setSelectorPointY == setSelectorPointBy){
 		   setSelectorPointX = setSelectorPointDx;
 		   setSelectorPointY = setSelectorPointDy;
@@ -253,7 +252,7 @@ private class MoveSelectorUp extends AbstractAction{
 	  }
 }
 private class MoveSelectorDown extends AbstractAction{
-	// need keybindings for new button
+	
 	  public void actionPerformed (ActionEvent md) {
 		  if (setSelectorPointY == setSelectorPointBy){
 			   setSelectorPointX = setSelectorPointCx;
@@ -274,10 +273,10 @@ private class MoveSelectorDown extends AbstractAction{
 }
 
 private class MakeSelection extends AbstractAction{
-	// need keybindings for new button
+	
 	  public void actionPerformed (ActionEvent ms) {
 		  if (setSelectorPointY == setSelectorPointBy) {
-			  //okay so this does start the DogLogic thread, but it doesn't stop the menu animation
+		
 			  switcher.changePanel(2);
 		  }
 		  if (setSelectorPointY == setSelectorPointCy) {

@@ -15,6 +15,7 @@ public class Switcher extends JFrame{
 	StartPause startPause;
 	LevelSelector levelSelector= new LevelSelector(this);
 	JFrame frame = new JFrame ("Mochi Jump");
+	boolean escapeUsed;
 
 	
 	// for changePanel (1) is startPause (2) is dogLogic (3) is levelSelector
@@ -44,6 +45,9 @@ public class Switcher extends JFrame{
 		frame.getContentPane().removeAll();
 			if (currentPanel == 1) {
 			frame.getContentPane().add(startPause);
+				if (escapeUsed) {
+					startPause.startPauseActive();
+				}
 			}else if (currentPanel == 2) {
 			frame.getContentPane().add(dogLogic);
 			dogLogic.gameStart();
