@@ -10,7 +10,9 @@ To Do:
 
 **Refractor Mochi Class partially complete, still more to be done here**
 
-Create proper dependencies to remove all static variables
+Look into using callbacks to ensure proper initialization
+
+Consider plan for reducing if statements for GameCharacter state
 
 contemplating having the level selection menu include a 3d dial, however, it may be better to give it a place holder for now
 
