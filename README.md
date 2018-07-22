@@ -6,13 +6,16 @@ This repository holds my first platformer game built with Java.
 The MochiJump App will now load the last created level at MochiJump.com as a playable level:
 From Start Menu select "Load lvl" and then "Start" 
 
+Recently done:
+
+Added method to easily add gameCharacters
+
+
 To Do:
 
+Create factory for different animation classes dependent on their class.
+
 Create NPCs
-
-Consider refacorting JPanel Classes:
-
-DogLogic class requires new game characters to be added in three different places in the code. This must happen at compilation currently (at run time is currently not possible) This could be changed if we used an arrayList of GameCharacter, animation, used polymorphism, and changed dependencies.
 
 Look into using callbacks to ensure proper initialization
 
