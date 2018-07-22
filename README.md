@@ -8,7 +8,9 @@ From Start Menu select "Load lvl" and then "Start"
 
 To Do:
 
-**Refractor Mochi Class partially complete, still more to be done here**
+Create NPCs
+
+Consider refacorting JPanel Classes
 
 Look into using callbacks to ensure proper initialization
 
