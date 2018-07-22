@@ -10,7 +10,9 @@ To Do:
 
 Create NPCs
 
-Consider refacorting JPanel Classes
+Consider refacorting JPanel Classes:
+
+DogLogic class requires new game characters to be added in three different places in the code. This must happen at compilation currently (at run time is currently not possible) This could be changed if we used an arrayList of GameCharacter, animation, used polymorphism, and changed dependencies.
 
 Look into using callbacks to ensure proper initialization
 
