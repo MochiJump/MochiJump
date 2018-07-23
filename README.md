@@ -6,11 +6,20 @@ This repository holds my first platformer game built with Java.
 The MochiJump App will now load the last created level at MochiJump.com as a playable level:
 From Start Menu select "Load lvl" and then "Start" 
 
+Recently done:
+
+Added method to easily add gameCharacters
+
+
 To Do:
 
-**Refractor Mochi Class partially complete, still more to be done here**
+Create factory for different animation classes dependent on their class.
 
-Create proper dependencies to remove all static variables
+Create NPCs
+
+Look into using callbacks to ensure proper initialization
+
+Consider plan for reducing if statements for GameCharacter state
 
 contemplating having the level selection menu include a 3d dial, however, it may be better to give it a place holder for now
 
