@@ -16,7 +16,6 @@ public class DogLogic extends JPanel {
 	ArrayList <Rectangle> plat = new ArrayList<Rectangle>();
 	ArrayList <Animation> animation = new ArrayList <Animation>();
 	ArrayList <GameCharacter> gameCharacters = new ArrayList <GameCharacter>();
-	Mochi mochi;
 	int refreshRate = 30;
 	Rectangle background = new Rectangle (0,0,10000,10000);
 	Color skyblue = new Color (102, 204, 255);
@@ -26,13 +25,19 @@ public class DogLogic extends JPanel {
 	
 	public DogLogic (Switcher s) {
 		levelMap = new LevelMap();
-		mochi = new Mochi(this);
-		addGameCharacter (mochi, 0);
+		addGameCharacter (new Mochi(this), 0);
 		JPanel dogPain = new JPanel();
-		dogPain.add(mochi.keyInputs());
+		for (int i=0; i<gameCharacters.size(); i++) {
+			if (gameCharacters.get(i) instanceof PlayerCharacter) {
+				PlayerCharacter playerCharacter = (PlayerCharacter) gameCharacters.get(i);
+				dogPain.add(playerCharacter.keyInputs());
+			}
+		}
 		add(dogPain);
 		gameStart();
-		mochi.reSize();
+		for (int i=0; i<gameCharacters.size(); i++) {
+			gameCharacters.get(i).reSize();
+		}
 		switcher = s;
 
 	}
@@ -53,7 +58,6 @@ public class DogLogic extends JPanel {
 				while (currentPanel==2) {
 					gameUpdate();
 					repaint();
-					System.out.println(mochi.mRestR);
 					try {
 						Thread.sleep(1000/refreshRate);
 					}catch (InterruptedException e) {
@@ -98,7 +102,7 @@ public class DogLogic extends JPanel {
 			for (int i=0; i<animation.size(); i++) {
 				animation.get(i).draw(g2);
 			}
-			}
+		}
 		
 	@Override
 	public Dimension getPreferredSize() {
