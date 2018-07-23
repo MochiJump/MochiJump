@@ -229,7 +229,7 @@ private void setPoints() {
   private class MoveSelectionUp extends AbstractAction{
 		  public void actionPerformed (ActionEvent ms) {
 			  // why does this let me go out of bounds?
-			  if (index < lr.names.size()) {
+			  if (index < lr.names.size()-1) {
 			  index++;
 			  } 
 		  }

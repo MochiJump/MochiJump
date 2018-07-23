@@ -14,7 +14,7 @@ public abstract class GameCharacter {
 	float y;
 	double keepHeight = Toolkit.getDefaultToolkit().getScreenSize().getHeight()/768;
 	double keepWidth = Toolkit.getDefaultToolkit().getScreenSize().getWidth()/1336;
-	double reSizer = .9;
+	double reSizer = 1;
 	
 	public GameCharacter (DogLogic dl) {
 		dogLogic = dl;
@@ -58,7 +58,7 @@ public abstract class GameCharacter {
 	boolean jumpChu = true;		
 
 // this is defined later in set boundaries so it is not necessary to have the arguments here.	
- 	Rectangle mochi = new Rectangle((int)(x), (int)(y), (int)(sH), (int)(sW));
+ 	Rectangle mochi = new Rectangle((int)(x), (int)(y), (int)(sW), (int)(sH));
  	Line2D.Float mright = new Line2D.Float(x+sW, y, x+sW, y+sH);
 	Line2D.Float mleft = new Line2D.Float(x, y, x, y+sH);
 	Line2D.Float mtop = new Line2D.Float(x,y,x+sW,y);
@@ -148,7 +148,7 @@ public abstract class GameCharacter {
 			// trim the x axis here for the same effect
 			mtop.setLine(x+5,y,x+sW-5,y);
 			mbottom.setLine(x+5, y+sH, x+sW-5, y+sH);
-			mochi.setRect((int)(x), (int)(y), (int)(sH), (int)(sW));
+			mochi.setRect((int)(x), (int)(y), (int)(sW), (int)(sH));
 		}
 	public void landing (){
 		if (mJumpR == true) {
