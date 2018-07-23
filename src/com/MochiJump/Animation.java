@@ -47,7 +47,7 @@ public class Animation {
 		x = speedX+x;
 	}
 	
-	public void AniVarUpdate (Mochi mochi) {
+	public void AniVarUpdate (GameCharacter mochi) {
 		x = (int) mochi.getX();
 		y = (int) mochi.getY();
 		sH = (int)mochi.getsH();

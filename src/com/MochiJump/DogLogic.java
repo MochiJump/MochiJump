@@ -14,7 +14,8 @@ public class DogLogic extends JPanel {
 	int currentPanel;
 	LevelMap levelMap;
 	ArrayList <Rectangle> plat = new ArrayList<Rectangle>();
-	Animation animation;
+	ArrayList <Animation> animation = new ArrayList <Animation>();
+	ArrayList <GameCharacter> gameCharacters = new ArrayList <GameCharacter>();
 	Mochi mochi;
 	int refreshRate = 30;
 	Rectangle background = new Rectangle (0,0,10000,10000);
@@ -26,7 +27,7 @@ public class DogLogic extends JPanel {
 	public DogLogic (Switcher s) {
 		levelMap = new LevelMap();
 		mochi = new Mochi(this);
-		animation = new Animation();
+		addGameCharacter (mochi, 0);
 		JPanel dogPain = new JPanel();
 		dogPain.add(mochi.keyInputs());
 		add(dogPain);
@@ -34,6 +35,12 @@ public class DogLogic extends JPanel {
 		mochi.reSize();
 		switcher = s;
 
+	}
+	
+	public void addGameCharacter (GameCharacter character, int startingX) {
+		gameCharacters.add(character);
+		character.x = startingX;
+		animation.add(new Animation());
 	}
 	
 	public void setCurrentPanel (int option) {
@@ -58,11 +65,18 @@ public class DogLogic extends JPanel {
 		}; 
 		gameThread.start(); 
 	}
-	
+
 	public void gameUpdate () {
-		animation.setCurrentSprite();
-		mochi.boundaryRules();
-		animation.AniVarUpdate(this.mochi);
+		for (int i=0; i<animation.size(); i++) {
+			animation.get(i).setCurrentSprite();
+		}
+		for (int i=0; i<gameCharacters.size(); i++) {
+			gameCharacters.get(i).boundaryRules();
+		}
+
+		for (int i=0; i<animation.size(); i++) { 
+			animation.get(i).AniVarUpdate(this.gameCharacters.get(i));
+		}
 	}
 	
 
@@ -81,8 +95,9 @@ public class DogLogic extends JPanel {
 				g2.fill(next);
 				g2.draw(next);
 				}
-			animation.draw(g2);
-			
+			for (int i=0; i<animation.size(); i++) {
+				animation.get(i).draw(g2);
+			}
 			}
 		
 	@Override
