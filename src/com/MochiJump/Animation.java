@@ -8,6 +8,7 @@ import javax.swing.ImageIcon;
 
 public class Animation {
 	DogLogic dogLogic;
+	// very strange below requires /resources for runnable jar but doesn't work in eclipse if used
 	Image ms = new ImageIcon(this.getClass().getResource("/mochirs.png")).getImage();
 	Image msr = new ImageIcon(this.getClass().getResource("/mochirsr.png")).getImage();
 	Image mws = new ImageIcon(this.getClass().getResource("/mochiws.png")).getImage();

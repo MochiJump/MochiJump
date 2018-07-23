@@ -122,15 +122,15 @@ public int getCurrentPanel() {
   }
   
   private void displayNames() {
-	  if (index < lr.names.size()-3) {
+	  if (index < lr.names.size()-2) {
 	  pointBText = lr.names.get(index).toString();
 	  pointCText = lr.names.get(index+1).toString();
 	  pointDText = lr.names.get(index+2).toString();
-	  }else if (index < lr.names.size()-2) {
+	  }else if (index < lr.names.size()-1) {
 	  pointBText = lr.names.get(index).toString();
 	  pointCText = lr.names.get(index+1).toString();
 	  pointDText = " ";	  
-	  }else if (index < lr.names.size()-1) {
+	  }else if (index < lr.names.size()) {
 		pointBText = lr.names.get(index).toString();
 		pointCText =" ";
 		pointDText = " ";	  
@@ -229,7 +229,7 @@ private void setPoints() {
   private class MoveSelectionUp extends AbstractAction{
 		  public void actionPerformed (ActionEvent ms) {
 			  // why does this let me go out of bounds?
-			  if (index < lr.names.size()-1) {
+			  if (index < lr.names.size()) {
 			  index++;
 			  } 
 		  }
