@@ -12,7 +12,7 @@ Added method to easily add gameCharacters
 
 To Do:
 
-Create factory for different animation classes dependent on their class.
+Use parameter of corresponding interfaces for jump and collide abstract methods in GameCharacter class.
 
 Create NPCs
 
