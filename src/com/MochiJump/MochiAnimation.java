@@ -6,7 +6,7 @@ import java.awt.Image;
 
 import javax.swing.ImageIcon;
 
-public class Animation {
+public class MochiAnimation implements AnimationInterface{
 	DogLogic dogLogic;
 	// very strange below requires /resources for runnable jar but doesn't work in eclipse if used
 	Image ms = new ImageIcon(this.getClass().getResource("/mochirs.png")).getImage();
@@ -43,11 +43,7 @@ public class Animation {
 	boolean midJump;
 	
 	
-	public void inertia() {
-		y = speedY+y;
-		x = speedX+x;
-	}
-	
+
 	public void AniVarUpdate (GameCharacter mochi) {
 		x = (int) mochi.getX();
 		y = (int) mochi.getY();

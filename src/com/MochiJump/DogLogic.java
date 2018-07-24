@@ -13,8 +13,9 @@ import javax.swing.*;
 public class DogLogic extends JPanel {
 	int currentPanel;
 	LevelMap levelMap;
+	AnimationFactory animationFactory = new AnimationFactory();
 	ArrayList <Rectangle> plat = new ArrayList<Rectangle>();
-	ArrayList <Animation> animation = new ArrayList <Animation>();
+	ArrayList <AnimationInterface> animation = new ArrayList <AnimationInterface>();
 	ArrayList <GameCharacter> gameCharacters = new ArrayList <GameCharacter>();
 	int refreshRate = 30;
 	Rectangle background = new Rectangle (0,0,10000,10000);
@@ -45,7 +46,7 @@ public class DogLogic extends JPanel {
 	public void addGameCharacter (GameCharacter character, int startingX) {
 		gameCharacters.add(character);
 		character.x = startingX;
-		animation.add(new Animation());
+		animation.add(animationFactory.makeAnimation(character));
 	}
 	
 	public void setCurrentPanel (int option) {
@@ -78,7 +79,7 @@ public class DogLogic extends JPanel {
 			gameCharacters.get(i).boundaryRules();
 		}
 
-		for (int i=0; i<animation.size(); i++) { 
+		for (int i=0; i<animation.size(); i++) {
 			animation.get(i).AniVarUpdate(this.gameCharacters.get(i));
 		}
 	}
