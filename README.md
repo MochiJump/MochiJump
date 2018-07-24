@@ -3,8 +3,7 @@ Build v0.23 achieved.
 
 This repository holds my first platformer game built with Java.
 
-The MochiJump App will now load the last created level at MochiJump.com as a playable level:
-From Start Menu select "Load lvl" and then "Start" 
+The MochiJump App now can import customer levels built on http://mochijump.com
 
 Recently done:
 
