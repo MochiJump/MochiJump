@@ -12,8 +12,6 @@ Added method to easily add gameCharacters
 
 To Do:
 
-Use parameter of corresponding interfaces for jump and collide abstract methods in GameCharacter class.
-
 Create NPCs
 
 Look into using callbacks to ensure proper initialization
