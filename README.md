@@ -16,6 +16,8 @@ To Do:
 
 Create NPCs
 
+fix "run off screen" for computers of a larger screensize. 
+
 Look into using callbacks to ensure proper initialization
 
 Consider plan for reducing if statements for GameCharacter state
