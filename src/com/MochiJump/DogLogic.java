@@ -27,6 +27,7 @@ public class DogLogic extends JPanel {
 	public DogLogic (Switcher s) {
 		levelMap = new LevelMap();
 		addGameCharacter (new Mochi(this), 0);
+		addGameCharacter (new GenericNPC(this), 50);
 		JPanel dogPain = new JPanel();
 		for (int i=0; i<gameCharacters.size(); i++) {
 			if (gameCharacters.get(i) instanceof PlayerCharacter) {

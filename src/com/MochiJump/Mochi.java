@@ -22,7 +22,7 @@ public class Mochi extends PlayerCharacter{
 
 	
 	JumpInterface jump = new StandardJump();
-	CollisionInterface collide = new StandardCollision();
+	CollisionInterface collide = new MochiCollision();
 
 
 	

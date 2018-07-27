@@ -10,6 +10,6 @@ public abstract class NonPlayerCharacter extends GameCharacter {
 		super(dl);
 	}
 	
-	public abstract void AIInputs();
+	public abstract void aIInputs();
 
 }
