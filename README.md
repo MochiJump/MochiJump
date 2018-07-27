@@ -14,6 +14,6 @@ Added method to easily add gameCharacters
 
 To Do:
 
-Create NPCs
+Create non-Generic NPCs
 
 fix "run off screen" for computers of a larger screensize. 
