@@ -39,6 +39,12 @@ public class Switcher extends JFrame{
 		levelSelector.setCurrentPanel(option);
 	}
 	
+	public void restartDogLogic () {
+		escapeUsed = true;
+		changePanel(1);
+		dogLogic = new DogLogic(this);
+	}
+	
 	public void changePanel (int panelNumber) {
 		currentPanel = panelNumber;
 		setOutsideClassCurrentPanel(panelNumber);

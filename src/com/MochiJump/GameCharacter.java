@@ -26,7 +26,13 @@ public abstract class GameCharacter {
 		y = (float)(y*reSizer*keepHeight);
 		sH = (float)(sH*reSizer*keepWidth);
 		sW = (float)(sW*reSizer*keepHeight);
-		// speed/gravity adjustment needs to be affected by size, otherwise making mochi larger he feels slower
+	}
+	
+	public void runOffScreen(double reSizer) {
+		x = (float) (x*reSizer*keepWidth);
+		y = (float)(y*reSizer*keepHeight);
+		sH = (float)(sH*reSizer*keepWidth);
+		sW = (float)(sW*reSizer*keepHeight);
 	}
 
 

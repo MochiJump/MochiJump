@@ -26,8 +26,8 @@ public class DogLogic extends JPanel {
 	
 	public DogLogic (Switcher s) {
 		levelMap = new LevelMap();
+		addGameCharacter (new GenericNPC(this), 150);
 		addGameCharacter (new Mochi(this), 0);
-		addGameCharacter (new GenericNPC(this), 50);
 		JPanel dogPain = new JPanel();
 		for (int i=0; i<gameCharacters.size(); i++) {
 			if (gameCharacters.get(i) instanceof PlayerCharacter) {
@@ -72,6 +72,8 @@ public class DogLogic extends JPanel {
 		gameThread.start(); 
 	}
 
+boolean runAway = false;
+
 	public void gameUpdate () {
 		for (int i=0; i<animation.size(); i++) {
 			animation.get(i).setCurrentSprite();
@@ -82,6 +84,10 @@ public class DogLogic extends JPanel {
 
 		for (int i=0; i<animation.size(); i++) {
 			animation.get(i).AniVarUpdate(this.gameCharacters.get(i));
+		}
+		
+		if (runAway == true) {
+			gameCharacters.get(gameCharacters.size()-1).runOffScreen(.9);;
 		}
 	}
 	
