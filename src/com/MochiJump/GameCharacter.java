@@ -5,10 +5,12 @@ import java.awt.Toolkit;
 import java.awt.geom.Line2D;
 
 public abstract class GameCharacter {
+	AnimationFactory animationFactory = new AnimationFactory();
 	JumpInterface jump;
 	CollisionInterface collide;
 	DogLogic dogLogic;
 	LevelMap levelMap;
+	AnimationInterface animation;
 	
 	float x;
 	float y;
