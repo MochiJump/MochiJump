@@ -283,7 +283,7 @@ private class MakeSelection extends AbstractAction{
 			  System.exit(0);
 		  }
 		  if (setSelectorPointY == setSelectorPointDy){
-			  
+			  switcher.dogLogic = new DogLogic(switcher);
 			  switcher.changePanel(3);
 		  }
 		  
