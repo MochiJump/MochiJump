@@ -31,10 +31,10 @@ public abstract class GameCharacter {
 	}
 	
 	public void runOffScreen(double reSizer) {
-		x = (float) (x*reSizer*keepWidth);
-		y = (float)(y*reSizer*keepHeight);
-		sH = (float)(sH*reSizer*keepWidth);
-		sW = (float)(sW*reSizer*keepHeight);
+		x = (float) (x*reSizer);
+		y = (float)(y*reSizer);
+		sH = (float)(sH*reSizer);
+		sW = (float)(sW*reSizer);
 	}
 
 
