@@ -16,4 +16,4 @@ To Do:
 
 fix "run off screen" for computers of a larger screensize. 
 
-update MochiJump.com (MochiJumpLevelEditor) to include options to set mochi and npc starting location, as well as add npcs. 
+update MochiJump.com (MochiJumpLevelEditor) to include options to set Mochi's starting location and add option to add NPCs as part of level editor. 
