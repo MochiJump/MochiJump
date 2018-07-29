@@ -44,6 +44,9 @@ public class LevelSelector extends JPanel{
 	private String pointCText= " ";
 	private String pointDText =" ";
 	private boolean isInitalized;
+	private int selectIndx;
+	private int selectIndy;
+	private String selectIndText ="->";
 	private int index=0;
 	
 	private Dimension screenSize;
@@ -167,6 +170,8 @@ private void setPoints() {
 	  setPointCx = (int) (maxWidth/2 -75);
 	  setPointDx = (int) (maxWidth/2 -75);
 	  setPointDy = (int) (maxHeight/1.25);
+	  selectIndx = (int) (maxWidth/2 - 125);
+	  selectIndy = (int) (maxHeight/1.75);
 
 }
   
@@ -181,6 +186,7 @@ private void setPoints() {
 	  Graphics2D Message1 = (Graphics2D) g.create();
 	  Graphics2D Message2 = (Graphics2D) g.create();
 	  Graphics2D Message3 = (Graphics2D) g.create();
+	  Graphics2D selectInd = (Graphics2D) g.create();
 	  mochiIcon.setClip(setPointAx, setPointAy, (int) (222*ratioWidth), (int)(225*ratioHeight));
 	  mochiIcon.drawImage(mochiFaceState1, setPointAx, setPointAy, (int) (222*ratioWidth), (int)(225*ratioHeight), null);
 	  Message1.setColor(Color.BLACK);
@@ -192,6 +198,9 @@ private void setPoints() {
 	  Message3.setColor(Color.BLACK);
 	  Message3.setFont(new Font ("Impact", Font.PLAIN, 48));
 	  Message3.drawString(pointDText, setPointDx, setPointDy);
+	  selectInd.setColor(Color.BLACK);
+	  selectInd.setFont(new Font("Impact", Font.PLAIN, 48));
+	  selectInd.drawString(selectIndText, selectIndx, selectIndy);
 	  
 	}
   
