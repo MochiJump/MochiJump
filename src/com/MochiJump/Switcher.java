@@ -43,6 +43,13 @@ public class Switcher extends JFrame{
 		escapeUsed = true;
 		changePanel(1);
 		dogLogic = new DogLogic(this);
+		levelSelector = new LevelSelector(this);
+	}
+	
+	public void leaveDogLogic() {
+		escapeUsed = true;
+		changePanel(1);
+		levelSelector = new LevelSelector(this);
 	}
 	
 	public void changePanel (int panelNumber) {

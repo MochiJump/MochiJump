@@ -156,8 +156,7 @@ public class Mochi extends PlayerCharacter{
 	}
 	class Escape extends AbstractAction{
 		public void actionPerformed (ActionEvent es) {
-			dogLogic.switcher.escapeUsed = true;
-			dogLogic.switcher.changePanel(1);
+			dogLogic.switcher.leaveDogLogic();
 			
 		}
 	}
