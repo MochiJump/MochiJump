@@ -11,6 +11,8 @@ The MochiJump App now can import customer levels built on http://mochijump.com
 
 Recently done:
 
+Added HairClipNPC and created simple (placeholder) AI for it
+
 Added method to easily add gameCharacters
 
 
