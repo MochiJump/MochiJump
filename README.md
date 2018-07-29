@@ -19,4 +19,4 @@ fix "run off screen" for computers of a larger screensize.
 update MochiJump.com (MochiJumpLevelEditor) to include options to set Mochi's starting location and add option to add NPCs as part of level editor. 
 
 
-*Note this project uses Jackson's Fasterxml. You will need to include this if you want to compile this from source code as opposed to launching the runnable jar.
+*Note this project uses Jackson's Fasterxml. You will need to include this if you want to compile this from source code as opposed to launching the runnable jar.*
