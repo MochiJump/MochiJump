@@ -14,6 +14,6 @@ Added method to easily add gameCharacters
 
 To Do:
 
-Create non-Generic NPCs
-
 fix "run off screen" for computers of a larger screensize. 
+
+update MochiJump.com (MochiJumpLevelEditor) to include options to set mochi and npc starting location, as well as add npcs. 
