@@ -24,7 +24,20 @@ public class HairClipNPC extends NonPlayerCharacter {
 		collide.collide(this);
 	}
 	
+	// simple placeholder:
 	public void aIInputs() {
+		if (!jumpChu) {
+			if ((int)dogLogic.gameCharacters.get(dogLogic.gameCharacters.size()-1).x>(int)x) {
+				setActionToFalse();
+				mRunR = true;
+				x++;
+			} else if ((int)dogLogic.gameCharacters.get(dogLogic.gameCharacters.size()-1).x==(int)x) {
+			} else if ((int)dogLogic.gameCharacters.get(dogLogic.gameCharacters.size()-1).x<(int)x) {
+				setActionToFalse();
+				mRunL = true;
+				x--;
+			}
+		}
 		
 	}
 

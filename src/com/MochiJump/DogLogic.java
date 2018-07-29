@@ -79,15 +79,18 @@ boolean runAway = false;
 			animation.get(i).setCurrentSprite();
 		}
 		for (int i=0; i<gameCharacters.size(); i++) {
+			if (gameCharacters.get(i) instanceof NonPlayerCharacter) {
+				NonPlayerCharacter npc = (NonPlayerCharacter)gameCharacters.get(i);
+				npc.aIInputs();
+			}
 			gameCharacters.get(i).boundaryRules();
 		}
-
 		for (int i=0; i<animation.size(); i++) {
 			animation.get(i).AniVarUpdate(this.gameCharacters.get(i));
 		}
 		
 		if (runAway == true) {
-			gameCharacters.get(gameCharacters.size()-1).runOffScreen(.9);;
+			gameCharacters.get(gameCharacters.size()-1).runOffScreen(.9);
 		}
 	}
 	
