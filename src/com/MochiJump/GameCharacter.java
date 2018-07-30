@@ -12,6 +12,7 @@ public abstract class GameCharacter {
 	LevelMap levelMap;
 	AnimationInterface animation;
 	
+	int posInGameCharacter;
 	float x;
 	float y;
 	double keepHeight = Toolkit.getDefaultToolkit().getScreenSize().getHeight()/768;

@@ -27,6 +27,7 @@ public class DogLogic extends JPanel {
 	public DogLogic (Switcher s) {
 		levelMap = new LevelMap();
 		addGameCharacter (new HairClipNPC(this), 150);
+		addGameCharacter (new HairClipNPC(this), 300);
 		addGameCharacter (new Mochi(this), 0);
 		JPanel dogPain = new JPanel();
 		for (int i=0; i<gameCharacters.size(); i++) {
@@ -45,6 +46,7 @@ public class DogLogic extends JPanel {
 	}
 	
 	public void addGameCharacter (GameCharacter character, int startingX) {
+		character.posInGameCharacter = gameCharacters.size();
 		gameCharacters.add(character);
 		character.x = startingX;
 		animation.add(animationFactory.makeAnimation(character));
