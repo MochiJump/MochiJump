@@ -10,13 +10,16 @@ public class LevelMap extends JPanel {
 
 	double keepHeight = Toolkit.getDefaultToolkit().getScreenSize().getHeight()/786;
 	double keepWidth = Toolkit.getDefaultToolkit().getScreenSize().getWidth()/1336;
-	double reSizer = 1;	
+	double reSizer = 1;
+	DogLogic dogLogic;
+	private ArrayList<Rectangle> platlist = new ArrayList<>();
 
-	int x, y, width, height;
 	boolean webImport = false;
 	
+	public LevelMap (DogLogic dl) {
+		dogLogic = dl;
+	}
 	
-	private ArrayList<Rectangle> platlist = new ArrayList<>();
 	
 	private void addPlat (int x, int y, int width, int height){	
 	
@@ -26,6 +29,7 @@ public class LevelMap extends JPanel {
 	}
     
 	private void noWebPlatSetup() {
+		if (!webImport) {
 	addPlat((int)(0*keepWidth*reSizer), (int) (keepHeight*reSizer*500), 
 			(int) (keepWidth*reSizer*1000), (int) (keepHeight*reSizer*500));
 	addPlat((int) (reSizer*keepWidth*250),(int) (keepHeight*reSizer*(500-35)),
@@ -34,6 +38,11 @@ public class LevelMap extends JPanel {
 			(int) (keepWidth*reSizer*100),(int) (keepHeight*reSizer* 10));
 	addPlat((int) (reSizer*keepWidth*250),(int) (keepHeight*reSizer*(500-35*3)),
 			(int) (keepWidth*reSizer*100),(int) (keepHeight*reSizer*10));
+	dogLogic.addGameCharacter (new HairClipNPC(dogLogic), 150, 50);
+	dogLogic.addGameCharacter (new HairClipNPC(dogLogic), 300, 100);
+	dogLogic.addGameCharacter(new HairClipNPC(dogLogic), 500, 300);
+	dogLogic.addGameCharacter (new Mochi(dogLogic), 0, 0);
+		}
 	}
 	
 	public void useWebImport(ArrayList<Rectangle> platforms) {
@@ -41,6 +50,16 @@ public class LevelMap extends JPanel {
 		platlist.addAll (platforms);
 		webImport = true;
 	}
+	
+	public void addHairClipNPC (int x, int y) {
+		dogLogic.addGameCharacter (new HairClipNPC(dogLogic), x, y);
+	}
+	
+	//currently this always has to be called last
+	public void addMochi(int x, int y) {
+		dogLogic.addGameCharacter(new Mochi(dogLogic), x, y);
+	}
+	
 	// cheap fix for concurrent thread error:
 	boolean noWebSetupDone;
 	public ArrayList<Rectangle> getPlat(){

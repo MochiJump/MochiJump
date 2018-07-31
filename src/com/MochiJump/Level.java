@@ -19,7 +19,17 @@ public class Level {
 	
 	private ArrayList<Integer> height;
 	
+	private ArrayList<Integer> hairClipStartX;
+	
+	private ArrayList<Integer> hairClipStartY;
+	
+	private int mochiStartX;
+	
+	private int mochiStartY;
+	
+	
 	private ArrayList<Rectangle> platforms;
+	
 
 	public Integer getId () {
 		return id;
@@ -73,6 +83,38 @@ public class Level {
 
 	public void setHeight (ArrayList<Integer> height) {
 		this.height = height;
+	}
+	
+	
+	public ArrayList<Integer> getHairClipStartX(){
+		return hairClipStartX;
+	}
+	
+	public void setHairClipStartX(ArrayList<Integer> hairClipStartX) {
+		this.hairClipStartX = hairClipStartX;
+	}
+	
+	public ArrayList<Integer> getHairClipStartY(){
+		return hairClipStartY;
+	}
+	
+	public void setHairClipStartY(ArrayList<Integer> hairClipStartY) {
+		this.hairClipStartY = hairClipStartY;
+	}
+	
+	public int getMochiStartX() {
+		return mochiStartX;
+	}
+	
+	public void setMochiStartX (int mochiStartX) {
+		this.mochiStartX = mochiStartX;
+	}
+	
+	public int getMochiStartY() {
+		return mochiStartY;
+	}
+	public void setMochiStartY(int mochiStartY) {
+		this.mochiStartY = mochiStartY;
 	}
 	
 	//this will define the ArrayList for the rectangles

@@ -12,6 +12,7 @@ import javax.swing.*;
 
 public class DogLogic extends JPanel {
 	int currentPanel;
+	JPanel dogPain;
 	LevelMap levelMap;
 	AnimationFactory animationFactory = new AnimationFactory();
 	ArrayList <Rectangle> plat = new ArrayList<Rectangle>();
@@ -25,17 +26,8 @@ public class DogLogic extends JPanel {
 
 	
 	public DogLogic (Switcher s) {
-		levelMap = new LevelMap();
-		addGameCharacter (new HairClipNPC(this), 150, 50);
-		addGameCharacter (new HairClipNPC(this), 300, 100);
-		addGameCharacter (new Mochi(this), 0, 0);
-		JPanel dogPain = new JPanel();
-		for (int i=0; i<gameCharacters.size(); i++) {
-			if (gameCharacters.get(i) instanceof PlayerCharacter) {
-				PlayerCharacter playerCharacter = (PlayerCharacter) gameCharacters.get(i);
-				dogPain.add(playerCharacter.keyInputs());
-			}
-		}
+		levelMap = new LevelMap(this);
+		dogPain = new JPanel();
 		add(dogPain);
 		gameStart();
 		for (int i=0; i<gameCharacters.size(); i++) {
@@ -50,6 +42,10 @@ public class DogLogic extends JPanel {
 		gameCharacters.add(character);
 		character.x = startingX;
 		character.y = startingY;
+		if (character instanceof PlayerCharacter) {
+			PlayerCharacter playerCharacter = (PlayerCharacter) character;
+			dogPain.add(playerCharacter.keyInputs());
+		}
 		animation.add(animationFactory.makeAnimation(character));
 	}
 	
@@ -78,6 +74,7 @@ public class DogLogic extends JPanel {
 boolean runAway = false;
 
 	public void gameUpdate () {
+		plat = levelMap.getPlat();
 		for (int i=0; i<animation.size(); i++) {
 			animation.get(i).setCurrentSprite();
 		}
@@ -101,7 +98,6 @@ boolean runAway = false;
 		@Override
 		public void paintComponent (Graphics g) {
 			super.paintComponent(g);
-			plat = levelMap.getPlat();
 			Graphics2D g2 = (Graphics2D) g.create();
 			// 1st objects drawn will be in background so I can create a background by doing this:
 			// an animated background could work here as well.
