@@ -17,6 +17,8 @@ Added ability to set Mochi's starting location as well as add npc on the level e
 
 To Do:
 
+Improve collision detection on rough surfaces
+
 Give Mochi offensive / defensive capability
 
 Create level goal 
