@@ -13,11 +13,4 @@ Recently done:
 
 Added HairClipNPC and created simple (placeholder) AI for it
 
-Added method to easily add gameCharacters
-
-
-To Do:
-
-fix "run off screen" for computers of a larger screensize. 
-
-update MochiJump.com (MochiJumpLevelEditor) to include options to set Mochi's starting location and add option to add NPCs as part of level editor. 
+Added ability to set Mochi's starting location as well as add npc on the level editor at http://mochijump.com
