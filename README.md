@@ -14,3 +14,9 @@ Recently done:
 Added HairClipNPC and created simple (placeholder) AI for it
 
 Added ability to set Mochi's starting location as well as add npc on the level editor at http://mochijump.com
+
+To Do:
+
+Give Mochi offensive / defensive capability
+
+Create level goal 
