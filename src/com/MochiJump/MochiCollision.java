@@ -68,9 +68,7 @@ public class MochiCollision implements CollisionInterface {
 				if (Implementer.mbottom.intersects(p1)) {
 					Implementer.y = p1.y-Implementer.sH;
 					Implementer.jumpChu = false;
-					if (Implementer.jumpChu == false) {
 						Implementer.landing();
-					}
 				}
 							
 			}
