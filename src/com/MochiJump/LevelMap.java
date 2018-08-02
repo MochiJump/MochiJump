@@ -45,9 +45,31 @@ public class LevelMap extends JPanel {
 		}
 	}
 	
+	int previousPlatY = 0;
 	public void useWebImport(ArrayList<Rectangle> platforms) {
+		ArrayList<Rectangle>OrderedPlat = new ArrayList<Rectangle>();
+		for (int i = 0; i<platforms.size(); i++) {
+			int nextPlatY = platforms.get(i).y;
+			if (i==0) {
+				OrderedPlat.add(platforms.get(i));
+				previousPlatY = platforms.get(i).y;
+			} else if (nextPlatY <= previousPlatY ) {
+				OrderedPlat.add(platforms.get(i));
+				previousPlatY = platforms.get(i).y;
+			} else if (nextPlatY > previousPlatY) {
+				boolean doLoop = true;
+				for (int z = 0; z<OrderedPlat.size() && doLoop == true; z++) {
+					if (nextPlatY >= OrderedPlat.get(z).y) {
+						OrderedPlat.add(z, platforms.get(i));
+						doLoop = false;
+					}
+				}
+			}
+			
+		}
+		
 		platlist.clear();
-		platlist.addAll (platforms);
+		platlist.addAll (OrderedPlat);
 		webImport = true;
 	}
 	
