@@ -1,0 +1,2 @@
+Remember the Platform Collision Groove problem and how you solved it. It's a good story that showcases 
+problem solving specific to programming.
