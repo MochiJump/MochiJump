@@ -16,6 +16,7 @@ public class Switcher extends JFrame{
 	LevelSelector levelSelector= new LevelSelector(this);
 	JFrame frame = new JFrame ("Mochi Jump");
 	boolean escapeUsed;
+	boolean showContinue;
 
 	
 	// for changePanel (1) is startPause (2) is dogLogic (3) is levelSelector
@@ -42,6 +43,7 @@ public class Switcher extends JFrame{
 	
 	public void restartDogLogic () {
 		escapeUsed = true;
+		showContinue= false;
 		changePanel(1);
 		dogLogic = new DogLogic(this);
 		levelSelector = new LevelSelector(this);
@@ -49,6 +51,7 @@ public class Switcher extends JFrame{
 	
 	public void leaveDogLogic() {
 		escapeUsed = true;
+		showContinue= true;
 		changePanel(1);
 		levelSelector = new LevelSelector(this);
 	}

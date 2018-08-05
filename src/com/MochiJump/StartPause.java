@@ -22,7 +22,6 @@ import javax.swing.JLabel;
 
 
 public class StartPause extends JPanel {
-
 private int currentPanel;
 private int refreshRate = 30;
 
@@ -187,14 +186,19 @@ public void draw (Graphics g){
   //including ratioWidth/Height below to resize the image
   mochiIcon.setClip(setPointAx, setPointAy, (int) (222*ratioWidth), (int)(225*ratioHeight));
   mochiIcon.drawImage(mochiFaceState1, setPointAx, setPointAy, (int) (222*ratioWidth), (int)(225*ratioHeight), null);
- 
-  startSelect.setClip(setPointBx, setPointBy, (int)(366*ratioWidth), (int)(71*ratioHeight)); 
-  startSelect.drawImage(start, setPointBx, setPointBy, (int)(366*ratioWidth),(int)(71*ratioHeight), null);
-  exitSelect.setClip(setPointCx, setPointCy, (int)(366*ratioWidth), (int)(71*ratioHeight));
-  exitSelect.drawImage(exit, setPointCx, setPointCy, (int)(366*ratioWidth), (int)(71*ratioHeight), null);
+  if (!switcher.showContinue) {
+	  startSelect.setClip(setPointBx, setPointBy, (int)(366*ratioWidth), (int)(71*ratioHeight)); 
+	  startSelect.drawImage(start, setPointBx, setPointBy, (int)(366*ratioWidth),(int)(71*ratioHeight), null);
+  } else {
+	  contSelect.setClip(setPointBx, setPointBy, (int)(366*ratioWidth), (int)(71*ratioHeight)); 
+	  contSelect.drawImage(cont, setPointBx, setPointBy, (int)(366*ratioWidth),(int)(71*ratioHeight), null);
+  }
   //setClip and drawImage for new button
-  loadSelect.setClip(setPointDx, setPointDy, (int)(366*ratioWidth), (int)(71*ratioHeight));
-  loadSelect.drawImage(load, setPointDx, setPointDy, (int)(366*ratioWidth), (int)(71*ratioHeight),null);
+  loadSelect.setClip(setPointCx, setPointCy, (int)(366*ratioWidth), (int)(71*ratioHeight));
+  loadSelect.drawImage(load, setPointCx, setPointCy, (int)(366*ratioWidth), (int)(71*ratioHeight),null);
+  
+  exitSelect.setClip(setPointDx, setPointDy, (int)(366*ratioWidth), (int)(71*ratioHeight));
+  exitSelect.drawImage(exit, setPointDx, setPointDy, (int)(366*ratioWidth), (int)(71*ratioHeight), null);
 	
   selectorIcon.setClip(setSelectorPointX, setSelectorPointY, (int)(140*ratioWidth), (int)(90*ratioHeight));
   selectorIcon.drawImage(selectorImage, setSelectorPointX, setSelectorPointY, (int)(ratioWidth*140), (int)(ratioHeight*90), null);
@@ -282,11 +286,12 @@ private class MakeSelection extends AbstractAction{
 			  switcher.changePanel(2);
 		  }
 		  if (setSelectorPointY == setSelectorPointCy) {
-			  System.exit(0);
-		  }
-		  if (setSelectorPointY == setSelectorPointDy){
 			  switcher.dogLogic = new DogLogic(switcher);
 			  switcher.changePanel(3);
+
+		  }
+		  if (setSelectorPointY == setSelectorPointDy){
+			  System.exit(0);
 		  }
 		  
 	  }
