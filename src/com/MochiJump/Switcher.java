@@ -23,6 +23,7 @@ public class Switcher extends JFrame{
 	public Switcher () {
 		 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		 frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+		 frame.setUndecorated(true);
 		 frame.setVisible(true);
 		 frame.repaint();
 		 startPause = new StartPause(this);

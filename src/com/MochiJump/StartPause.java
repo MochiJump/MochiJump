@@ -61,13 +61,14 @@ Image mochiFaceState2 = new ImageIcon(this.getClass().getResource("/blink.png"))
 Image mochiFace;
 Image start = new ImageIcon(this.getClass().getResource("/start.png")).getImage();
 Image cont = new ImageIcon(this.getClass().getResource("/continue.png")).getImage();
+Image exit = new ImageIcon(this.getClass().getResource("/exit.png")).getImage();
 Image load = new ImageIcon(this.getClass().getResource("/loadLvl.png")).getImage();
 Image selectorImage;
 Image selectorImage1 = new ImageIcon(this.getClass().getResource("/bone1M.png")).getImage();
 Image selectorImage2 = new ImageIcon(this.getClass().getResource("/bone2M.png")).getImage();
 Image selectorImage3 = new ImageIcon(this.getClass().getResource("/bone3M.png")).getImage();
 Image selectorImage4 = new ImageIcon(this.getClass().getResource("/bone4M.png")).getImage(); //<-- optional (inverted 2M)
-Image exit = new ImageIcon(this.getClass().getResource("/exit.png")).getImage();
+
 JPanel sPScreen = new JPanel();
 // Switcher switcher = new Switcher(); wow so just initializing the switcher in this class breaks everything
 
@@ -180,6 +181,7 @@ public void draw (Graphics g){
   Graphics2D mochiIcon = (Graphics2D) g.create();
   Graphics2D startSelect = (Graphics2D) g.create();
   Graphics2D contSelect = (Graphics2D) g.create();
+  Graphics2D exitSelect = (Graphics2D) g.create();
   Graphics2D selectorIcon = (Graphics2D) g.create();
   Graphics2D loadSelect = (Graphics2D) g.create();
   //including ratioWidth/Height below to resize the image
@@ -188,8 +190,8 @@ public void draw (Graphics g){
  
   startSelect.setClip(setPointBx, setPointBy, (int)(366*ratioWidth), (int)(71*ratioHeight)); 
   startSelect.drawImage(start, setPointBx, setPointBy, (int)(366*ratioWidth),(int)(71*ratioHeight), null);
-  contSelect.setClip(setPointCx, setPointCy, (int)(366*ratioWidth), (int)(71*ratioHeight));
-  contSelect.drawImage(cont, setPointCx, setPointCy, (int)(366*ratioWidth), (int)(71*ratioHeight), null);
+  exitSelect.setClip(setPointCx, setPointCy, (int)(366*ratioWidth), (int)(71*ratioHeight));
+  exitSelect.drawImage(exit, setPointCx, setPointCy, (int)(366*ratioWidth), (int)(71*ratioHeight), null);
   //setClip and drawImage for new button
   loadSelect.setClip(setPointDx, setPointDy, (int)(366*ratioWidth), (int)(71*ratioHeight));
   loadSelect.drawImage(load, setPointDx, setPointDy, (int)(366*ratioWidth), (int)(71*ratioHeight),null);
