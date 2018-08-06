@@ -64,10 +64,6 @@ public class MochiCollision implements CollisionInterface {
 						Implementer.landing();
 							
 			}
-		}
-		
-		for (Rectangle next: platlist) {
-			Rectangle p1 = next.getBounds();
 			if (Implementer.mochi.intersects(p1)) {
 		
 				if (Implementer.mright.intersects(p1)) {
