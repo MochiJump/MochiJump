@@ -3,11 +3,11 @@
 
 public class HairClipNPCNoCollide extends NoCollideCharacter {
 
-	public HairClipNPCNoCollide (DogLogic dl) {
+	public HairClipNoCollide (DogLogic dl) {
 		super (dl);
 	}
   
-  public HairClipNPC (DogLogic dl) {
+  public HairClipNoCollide (DogLogic dl) {
 		super (dl);
 	}
 	
