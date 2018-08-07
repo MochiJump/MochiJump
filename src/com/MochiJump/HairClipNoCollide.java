@@ -1,7 +1,7 @@
 
 
 
-public class HairClipNPCNoCollide extends NoCollideCharacter {
+public class HairClipNoCollide extends NoCollideCharacter {
 
 	public HairClipNoCollide (DogLogic dl) {
 		super (dl);
