@@ -15,7 +15,9 @@ public class HairClipCollision implements CollisionInterface {
 		ArrayList<GameCharacter> npcs = new ArrayList<GameCharacter>();
 		
 		for (int i= 0; i<Implementer.dogLogic.gameCharacters.size(); i++) {
-				if(!(i==Implementer.posInGameCharacter)) {
+				if(!(i==Implementer.posInGameCharacter)&&
+						!(Implementer.dogLogic.gameCharacters.get(i) 
+								instanceof NoCollideCharacter)) {
 					npcs.add(Implementer.dogLogic.gameCharacters.get(i));
 				}
 		}
@@ -30,8 +32,12 @@ public class HairClipCollision implements CollisionInterface {
 					Implementer.x = p1.x +p1.width +1;
 				}
 				if (Implementer.mtop.intersects(p1)) {
-					Implementer.dogLogic.turnToNoCollide(Implementer,
+					if (next instanceof PlayerCharacter) {
+						Implementer.dogLogic.turnToNoCollide(Implementer,
 							(int)Implementer.x, (int)Implementer.y);;
+					}else {
+						Implementer.y = p1.y +p1.height;
+					}
 				}
 				if (Implementer.mbottom.intersects(p1)) {
 					Implementer.y = p1.y-Implementer.sH;

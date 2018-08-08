@@ -15,7 +15,9 @@ public class StandardCollision implements CollisionInterface {
 		ArrayList<GameCharacter> npcs = new ArrayList<GameCharacter>();
 		
 		for (int i= 0; i<Implementer.dogLogic.gameCharacters.size(); i++) {
-				if(!(i==Implementer.posInGameCharacter)) {
+			if(!(i==Implementer.posInGameCharacter)&&
+					!(Implementer.dogLogic.gameCharacters.get(i) 
+							instanceof NoCollideCharacter)) {
 					npcs.add(Implementer.dogLogic.gameCharacters.get(i));
 				}
 		}
