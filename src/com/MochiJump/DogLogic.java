@@ -7,6 +7,7 @@ import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.Toolkit;
 import java.util.ArrayList;
+import java.util.Collections;
 
 import javax.swing.*;
 
@@ -23,6 +24,7 @@ public class DogLogic extends JPanel {
 	Color skyblue = new Color (102, 204, 255);
 	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	Switcher switcher;
+	NoCollideFactory noCollideFactory = new NoCollideFactory (this);
 
 	
 	public DogLogic (Switcher s) {
@@ -92,6 +94,18 @@ boolean runAway = false;
 		if (runAway == true) {
 			gameCharacters.get(gameCharacters.size()-1).runOffScreen(.9);
 		}
+	}
+	
+	public void turnToNoCollide (GameCharacter toBeChanged, int currentX, int currentY) {
+		for (int i=0; i<gameCharacters.size(); i++) {
+			if (gameCharacters.get(i) == toBeChanged) {
+				gameCharacters.set(i, noCollideFactory.swapToNoCollide(toBeChanged));
+				gameCharacters.get(i).x= currentX;
+				gameCharacters.get(i).y= currentY;
+				animation.set(i, animationFactory.makeAnimation(gameCharacters.get(i)));
+			}
+		}
+		
 	}
 	
 

@@ -1,5 +1,4 @@
-
-
+package com.MochiJump;
 
 public class HairClipNoCollide extends NoCollideCharacter {
 
@@ -7,12 +6,9 @@ public class HairClipNoCollide extends NoCollideCharacter {
 		super (dl);
 	}
   
-  public HairClipNoCollide (DogLogic dl) {
-		super (dl);
-	}
 	
 	JumpInterface jump = new StandardJump();
-	CollisionInterface collide = new StandardCollision();
+	CollisionInterface collide = new HairClipNoCollideCollision();
 	
 	public void mJumpHandler () {	
 		jump.jump(this);

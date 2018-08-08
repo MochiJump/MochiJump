@@ -6,9 +6,11 @@ public class AnimationFactory {
 		if (type instanceof Mochi) {
 			return new MochiAnimation();
 		} else if (type instanceof HairClipNPC){
-			// need to create new Animation class for GenericNPC:
 			return new HairClipAnimation();
-		} else {
+		} else if (type instanceof HairClipNoCollide) {
+			// obviously not finished
+			return new MochiAnimation();
+		}else {
 			//this should be unreachable
 			return new MochiAnimation();
 		}

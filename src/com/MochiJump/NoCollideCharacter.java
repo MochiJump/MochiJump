@@ -1,6 +1,8 @@
+package com.MochiJump;
+
 public abstract class NoCollideCharacter extends GameCharacter {
 	
-	public NonPlayerCharacter (DogLogic dl) {
+	public NoCollideCharacter (DogLogic dl) {
 		super(dl);
 	}
 	

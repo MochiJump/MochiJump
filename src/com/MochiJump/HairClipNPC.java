@@ -13,7 +13,7 @@ public class HairClipNPC extends NonPlayerCharacter {
 	}
 	
 	JumpInterface jump = new StandardJump();
-	CollisionInterface collide = new StandardCollision();
+	CollisionInterface collide = new HairClipCollision();
 	
 	public void mJumpHandler () {	
 		jump.jump(this);
