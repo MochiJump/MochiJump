@@ -15,8 +15,6 @@ Added ability for Mochi to jump on NPCs and defeat them (missing animation for t
 
 To Do:
 
-Improve collision detection on rough surfaces - Try re-organizing by y value before adding platlist to LevelMap in ImportLevelReader 
-
-Give Mochi offensive / defensive capability
+Improve NPC collision
 
 Create level goal
