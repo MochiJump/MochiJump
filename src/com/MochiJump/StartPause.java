@@ -148,11 +148,11 @@ private void setPoints() {
 	//  setSelectorPointAx = setPointAx - 150;
 	//  setSelectorPointAy = setPointAy; not neccessary because that's the mochi icon
 	// below still needs to be adjusted
-	  setSelectorPointBx = setPointBx -150;
+	  setSelectorPointBx = setPointBx - (int) (150 * ratioWidth);
 	  setSelectorPointBy = setPointBy;
-	  setSelectorPointCx = setPointCx -150;
+	  setSelectorPointCx = setPointCx - (int) (150 * ratioWidth);
 	  setSelectorPointCy = setPointCy;
-	  setSelectorPointDx = setPointDx - 150;
+	  setSelectorPointDx = setPointDx - (int) (150 * ratioWidth);
 	  setSelectorPointDy = setPointDy;
 }
 
