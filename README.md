@@ -11,7 +11,7 @@ The MochiJump App now can import customer levels built on http://mochijump.com
 
 Recently done:
 
-Added ability for Mochi to jump on NPCs and defeat them (missing animation for this, currently replaced NPC with Mochi Sprite)
+Added ability for Mochi to jump on NPCs and defeat them
 
 To Do:
 
