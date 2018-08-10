@@ -27,30 +27,32 @@ public class MochiCollision implements CollisionInterface {
 			JOptionPane.showMessageDialog(null, "Game Over");
 			Implementer.dogLogic.switcher.restartDogLogic();
 		}
-		// this controls collision with npcs (currently the same as platform objects):
+		// this controls collision with npcs (could change format to GameCharacter
 
 		for (NonPlayerCharacter next: npcs) {
 			Rectangle p1 = next.mochi;
-			if (Implementer.mochi.intersects(p1)) {
-				if (Implementer.mright.intersects(p1)) {
-					Implementer.dogLogic.runAway = true;
-				}
-				if (Implementer.mleft.intersects(p1)) {
-					Implementer.dogLogic.runAway = true;
-				}
-				if (Implementer.mtop.intersects(p1)) {
-					Implementer.dogLogic.runAway = true;
-				}
-				if (Implementer.mbottom.intersects(p1)) {
-					Implementer.y = p1.y-Implementer.sH;
-					Implementer.jumpChu = false;
-					if (Implementer.jumpChu == false) {
-						Implementer.landing();
+			//controls collision with HairClipNPC:
+			if (next instanceof HairClipNPC) {
+				if (Implementer.mochi.intersects(p1)) {
+					if (Implementer.mright.intersects(p1)) {
+						Implementer.dogLogic.runAway = true;
 					}
-
+					if (Implementer.mleft.intersects(p1)) {
+						Implementer.dogLogic.runAway = true;
+					}
+					if (Implementer.mtop.intersects(p1)) {
+						Implementer.dogLogic.runAway = true;
+					}
+					if (Implementer.mbottom.intersects(p1)) {
+						Implementer.y = p1.y-Implementer.sH;
+						Implementer.jumpChu = false;
+						if (Implementer.jumpChu == false) {
+							Implementer.landing();
+						}
 			
-				}
+					}
 		
+				}
 			}
 		}
 		
