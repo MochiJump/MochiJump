@@ -21,7 +21,7 @@ public class HairClipCollision implements CollisionInterface {
 					npcs.add(Implementer.dogLogic.gameCharacters.get(i));
 				}
 		}
-		
+int counter = 0;	
 		for (GameCharacter next: npcs) {
 			Rectangle p1 = next.mochi;
 			if (Implementer.mochi.intersects(p1)) {
@@ -33,8 +33,13 @@ public class HairClipCollision implements CollisionInterface {
 				}
 				if (Implementer.mtop.intersects(p1)) {
 					if (next instanceof PlayerCharacter) {
+						// this works for now.
+						if (counter > 4) {
+							counter++;
+						} else {
 						Implementer.dogLogic.turnToNoCollide(Implementer,
 							(int)Implementer.x, (int)Implementer.y);;
+						}
 					}else {
 						Implementer.y = p1.y +p1.height;
 					}

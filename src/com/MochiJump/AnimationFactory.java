@@ -8,8 +8,7 @@ public class AnimationFactory {
 		} else if (type instanceof HairClipNPC){
 			return new HairClipAnimation();
 		} else if (type instanceof HairClipNoCollide) {
-			// obviously not finished
-			return new MochiAnimation();
+			return new HairClipNoCollideAnimation();
 		}else {
 			//this should be unreachable
 			return new MochiAnimation();
