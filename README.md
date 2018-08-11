@@ -17,4 +17,4 @@ To Do:
 
 Improve NPC collision
 
-Create level goal
+Integrate Goal NPC with web app level editor
