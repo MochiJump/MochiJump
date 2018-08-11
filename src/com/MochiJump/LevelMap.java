@@ -41,6 +41,7 @@ public class LevelMap extends JPanel {
 	dogLogic.addGameCharacter (new HairClipNPC(dogLogic), 150, 50);
 	dogLogic.addGameCharacter (new HairClipNPC(dogLogic), 300, 100);
 	dogLogic.addGameCharacter(new HairClipNPC(dogLogic), 500, 300);
+	dogLogic.addGameCharacter(new GoalNPC(dogLogic), 700, 400);
 	dogLogic.addGameCharacter (new Mochi(dogLogic), 0, 0);
 		}
 	}

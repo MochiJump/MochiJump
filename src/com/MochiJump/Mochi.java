@@ -112,7 +112,6 @@ public class Mochi extends PlayerCharacter{
 	}
 	class JumpAct extends AbstractAction{
 		public void actionPerformed (ActionEvent jr) {
-			getJumpChu();
 			if (jumpChu == false) {
 				jumpChu = true;
 				jTime = 1;
