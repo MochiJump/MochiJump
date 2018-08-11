@@ -19,17 +19,15 @@ public class HairClipAnimation implements AnimationInterface{
 	Image hcr2 =  new ImageIcon(this.getClass().getResource("/hClipR2.png")).getImage();
 	Image hcr3 = new ImageIcon(this.getClass().getResource("/hClipR3.png")).getImage();
 	
+	Image mws = hcl2;
+	Image mwsr = hcr2;
 	
-	Image mws = new ImageIcon(this.getClass().getResource("/hClipL2.png")).getImage();
-	Image mwsr = new ImageIcon (this.getClass().getResource("/hClipR1.png")).getImage();
-	
-	
-	Image mjc1 = new ImageIcon (this.getClass().getResource("/hClipL1.png")).getImage();
-	Image mjc2 = new ImageIcon (this.getClass().getResource("/hClipL2.png")).getImage();
-	Image mjc3 = new ImageIcon (this.getClass().getResource("/hClipL1.png")).getImage();
-	Image mjc1r = new ImageIcon (this.getClass().getResource("/hClipR1.png")).getImage();
-	Image mjc2r = new ImageIcon (this.getClass().getResource("/hClipR2.png")).getImage();
-	Image mjc3r = new ImageIcon (this.getClass().getResource("/hClipR1.png")).getImage();
+	Image mjc1 = ms;
+	Image mjc2 = hcl2;
+	Image mjc3 = ms;
+	Image mjc1r = msr;
+	Image mjc2r = hcr2;
+	Image mjc3r = ms;
 	Image currentSprite;
 	
 	
