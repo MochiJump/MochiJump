@@ -19,15 +19,6 @@ public class HairClipAnimation implements AnimationInterface{
 	Image hcr2 =  new ImageIcon(this.getClass().getResource("/hClipR2.png")).getImage();
 	Image hcr3 = new ImageIcon(this.getClass().getResource("/hClipR3.png")).getImage();
 	
-	Image mws = hcl2;
-	Image mwsr = hcr2;
-	
-	Image mjc1 = ms;
-	Image mjc2 = hcl2;
-	Image mjc3 = ms;
-	Image mjc1r = msr;
-	Image mjc2r = hcr2;
-	Image mjc3r = ms;
 	Image currentSprite;
 	
 	
@@ -110,30 +101,21 @@ public class HairClipAnimation implements AnimationInterface{
 	public void setCurrentSprite (){
 		if (mRestR == true) {
 			rightAni();
-			System.out.println("RestR");
 		}
 		if (mRestL == true) {
 			leftAni();
-			System.out.println("RestL");
 		}
 		if (mRunR == true) {
 			rightAni();
-			System.out.println("RunR");
 		}
 		if (mRunL== true) {
 			leftAni();
-			System.out.println("RunL");
-
 		}
 		if (mJumpR == true) {
 			rightAni();
-			System.out.println("JumpR");
-
 		}
 		if (mJumpL == true) {
 			leftAni();
-			System.out.println("JumpL");
-
 				
 			}
 		

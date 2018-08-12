@@ -18,17 +18,6 @@ public class HairClipNoCollideAnimation implements AnimationInterface{
 	Image hcr2 =  new ImageIcon(this.getClass().getResource("/hClipR2F2.png")).getImage();
 	Image hcr3 = new ImageIcon(this.getClass().getResource("/hClipR2F3.png")).getImage();
 	
-	
-	Image mws = new ImageIcon(this.getClass().getResource("/hClipL2F1.png")).getImage();
-	Image mwsr = new ImageIcon (this.getClass().getResource("/hClipR2F3.png")).getImage();
-	
-	
-	Image mjc1 = new ImageIcon (this.getClass().getResource("/hClipL2F1.png")).getImage();
-	Image mjc2 = new ImageIcon (this.getClass().getResource("/hClipL2F2.png")).getImage();
-	Image mjc3 = new ImageIcon (this.getClass().getResource("/hClipL2F3.png")).getImage();
-	Image mjc1r = new ImageIcon (this.getClass().getResource("/hClipR2F1.png")).getImage();
-	Image mjc2r = new ImageIcon (this.getClass().getResource("/hClipR2F2.png")).getImage();
-	Image mjc3r = new ImageIcon (this.getClass().getResource("/hClipR2F3.png")).getImage();
 	Image currentSprite;
 	
 	
@@ -105,29 +94,23 @@ public class HairClipNoCollideAnimation implements AnimationInterface{
 	public void setCurrentSprite (){
 		if (mRestR == true) {
 			rightAni();
-			System.out.println("RestR");
 		}
 		if (mRestL == true) {
 			leftAni();
-			System.out.println("RestL");
 		}
 		if (mRunR == true) {
 			rightAni();
-			System.out.println("RunR");
 		}
 		if (mRunL== true) {
 			leftAni();
-			System.out.println("RunL");
 
 		}
 		if (mJumpR == true) {
 			rightAni();
-			System.out.println("JumpR");
 
 		}
 		if (mJumpL == true) {
 			leftAni();
-			System.out.println("JumpL");
 
 				
 			}

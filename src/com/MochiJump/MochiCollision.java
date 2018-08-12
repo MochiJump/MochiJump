@@ -77,6 +77,9 @@ public class MochiCollision implements CollisionInterface {
 					Implementer.x = p1.x +p1.width +1;
 				}
 				if (Implementer.mtop.intersects(p1)) {
+					if (Implementer.jTime<18) {
+						Implementer.jTime= 18;
+					}
 					Implementer.y = p1.y +p1.height;
 				}
 		
