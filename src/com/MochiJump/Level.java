@@ -23,6 +23,10 @@ public class Level {
 	
 	private ArrayList<Integer> hairClipStartY;
 	
+	private int goalNPCStartX;
+	
+	private int goalNPCStartY;
+	
 	private int mochiStartX;
 	
 	private int mochiStartY;
@@ -100,6 +104,22 @@ public class Level {
 	
 	public void setHairClipStartY(ArrayList<Integer> hairClipStartY) {
 		this.hairClipStartY = hairClipStartY;
+	}
+	
+	public int getGoalNPCStartX(){
+		return goalNPCStartX;
+	}
+	
+	public void setGoalNPCStartX (int goalNPCStartX) {
+		this.goalNPCStartX = goalNPCStartX;
+	}
+	
+	public int getGoalNPCStartY () {
+		return goalNPCStartY;
+	}
+	
+	public void setGoalNPCStartY (int goalNPCStartY) {
+		this.goalNPCStartY = goalNPCStartY;
 	}
 	
 	public int getMochiStartX() {
