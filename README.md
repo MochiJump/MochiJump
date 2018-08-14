@@ -11,6 +11,8 @@ The MochiJump App now can import customer levels built on http://mochijump.com
 
 Recently done:
 
+Added GoalNPC (not yet part of Web APP API)
+
 Added ability for Mochi to jump on NPCs and defeat them
 
 To Do:
