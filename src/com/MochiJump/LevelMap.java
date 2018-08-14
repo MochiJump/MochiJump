@@ -78,6 +78,10 @@ public class LevelMap extends JPanel {
 		dogLogic.addGameCharacter (new HairClipNPC(dogLogic), x, y);
 	}
 	
+	public void addGoalNPC (int x, int y) {
+		dogLogic.addGameCharacter(new GoalNPC (dogLogic), x, y);
+	}
+	
 	//currently this always has to be called last
 	public void addMochi(int x, int y) {
 		dogLogic.addGameCharacter(new Mochi(dogLogic), x, y);
