@@ -82,7 +82,7 @@ public class ImportLevelReader {
 						level[index].getHairClipStartY().get(i));
 			}
 			
-			lMap.addGoalNPC(level[index].getGoalNPCStartX(), level[index].getGoalNPCStartY());
+			lMap.addGoalNPC(level[index].getGoalStartX(), level[index].getGoalStartY());
 			
 			lMap.addMochi(level[index].getMochiStartX(), level[index].getMochiStartY());
 			
