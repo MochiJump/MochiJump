@@ -32,7 +32,9 @@ public class GoalNPCAnimation implements AnimationInterface {
 	boolean midJump;
 	
 	
-
+// right now I want to change the height of the sprite for the purposes of animating the bouncing ball (below sH).
+// I think the easiest way to to do this is to have a class variable for GameCharacter, set it below, and then change the sH
+// directly in the animation methods below (e.g. goalNPC.sH = changed)
 	public void AniVarUpdate (GameCharacter mochi) {
 		x = (int) mochi.getX();
 		y = (int) mochi.getY();
