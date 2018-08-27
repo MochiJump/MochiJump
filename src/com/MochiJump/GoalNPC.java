@@ -17,7 +17,7 @@ public class GoalNPC extends NonPlayerCharacter {
 	public void boundaryRules () {
 		collide.collide(this);
 	}
-	
+	// implement this:
 	public void aIInputs() {
 		if (jumpChu == false && this.sH <18) {
 			jumpChu = true;
