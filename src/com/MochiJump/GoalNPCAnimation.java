@@ -9,6 +9,7 @@ import javax.swing.ImageIcon;
 public class GoalNPCAnimation implements AnimationInterface {
 	Image goalAni =  new ImageIcon(this.getClass().getResource("/ball.png")).getImage();
 	Image currentSprite;
+	GameCharacter npc;
 	
 	
 		
@@ -36,6 +37,7 @@ public class GoalNPCAnimation implements AnimationInterface {
 // I think the easiest way to to do this is to have a class variable for GameCharacter, set it below, and then change the sH
 // directly in the animation methods below (e.g. goalNPC.sH = changed)
 	public void AniVarUpdate (GameCharacter mochi) {
+		npc = mochi;
 		x = (int) mochi.getX();
 		y = (int) mochi.getY();
 		sH = (int)mochi.getsH();
@@ -91,21 +93,27 @@ public class GoalNPCAnimation implements AnimationInterface {
 
 	public void setCurrentSprite (){
 		if (mRestR == true) {
+			npc.sH = 14;
 			rightAni();
 		}
 		if (mRestL == true) {
+			npc.sH = 14;
 			leftAni();
 		}
 		if (mRunR == true) {
+			npc.sH = 14;
 			rightAni();
 		}
 		if (mRunL== true) {
+			npc.sH = 14;
 			leftAni();
 		}
 		if (mJumpR == true) {
+			npc.sH = 21;
 			rightAni();
 		}
 		if (mJumpL == true) {
+			npc.sH = 21;
 			leftAni();
 				
 			}
