@@ -9,8 +9,9 @@ import javax.swing.ImageIcon;
 public class GoalNPCAnimation implements AnimationInterface {
 	Image goalAni =  new ImageIcon(this.getClass().getResource("/ball.png")).getImage();
 	Image currentSprite;
+	// implement this:
 	GameCharacter npc;
-	
+	// ^^^
 	
 		
 	int aniTime = 1;
@@ -90,23 +91,31 @@ public class GoalNPCAnimation implements AnimationInterface {
 			aniTime = 1;
 		}
 	}
-
+// implement this:
 	public void setCurrentSprite (){
 		if (mRestR == true) {
-			npc.sH = 14;
 			rightAni();
+			if (npc.sH > 14){
+				npc.sH = npc.sH-2;
+			}
 		}
 		if (mRestL == true) {
-			npc.sH = 14;
 			leftAni();
+			if (npc.sH > 14){
+				npc.sH = npc.sH-2;
+			}
 		}
 		if (mRunR == true) {
-			npc.sH = 14;
 			rightAni();
+			if (npc.sH > 14){
+				npc.sH = npc.sH-2;
+			}
 		}
 		if (mRunL== true) {
-			npc.sH = 14;
 			leftAni();
+			if (npc.sH > 14){
+				npc.sH = npc.sH-2;
+			}
 		}
 		if (mJumpR == true) {
 			npc.sH = 21;
