@@ -19,7 +19,7 @@ public class GoalNPC extends NonPlayerCharacter {
 	}
 	
 	public void aIInputs() {
-		if (jumpChu == false) {
+		if (jumpChu == false && this.sH <18) {
 			jumpChu = true;
 			jTime = 1;
 			mJumpHandler();
