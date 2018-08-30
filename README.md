@@ -11,8 +11,4 @@ The MochiJump App now can import customer levels built on http://mochijump.com
 
 Recently done:
 
-Added GoalNPC (not yet part of Web App API)
-
-To Do:
-
-Integrate Goal NPC with web app level editor
+Added GoalNPC (integrated with level editor and importable levels)
