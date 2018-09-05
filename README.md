@@ -12,3 +12,7 @@ The MochiJump App now can import customer levels built on http://mochijump.com
 Recently done:
 
 Added GoalNPC (integrated with level editor and importable levels)
+
+Should do:
+
+Add a cuttoff y limit based off a value combining bottom object's y value and screen height
