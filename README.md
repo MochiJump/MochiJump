@@ -11,8 +11,10 @@ The MochiJump App now can import customer levels built on http://mochijump.com
 
 Recently done:
 
-Added GoalNPC (integrated with level editor and importable levels)
+Focused camera to zoom in on and follow Mochi.
 
 Should do:
 
-Add a cuttoff y limit based off a value combining bottom object's y value and screen height
+Add a cuttoff y limit based off a value combining bottom object's y value
+
+Look into occasional strange collision (looks like teleportation) for npc units both alive and on destruction animation
