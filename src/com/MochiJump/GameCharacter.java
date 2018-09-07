@@ -17,28 +17,7 @@ public abstract class GameCharacter {
 	float y;
 	double keepHeight = Toolkit.getDefaultToolkit().getScreenSize().getHeight()/768;
 	double keepWidth = Toolkit.getDefaultToolkit().getScreenSize().getWidth()/1336;
-	double reSizer = 1;
-	
-	public GameCharacter (DogLogic dl) {
-		dogLogic = dl;
-		levelMap = dogLogic.levelMap;
-	}
-	
-	public void reSize() {
-		x = (float) (x*reSizer*keepWidth);
-		y = (float)(y*reSizer*keepHeight);
-		sH = (float)(sH*reSizer*keepWidth);
-		sW = (float)(sW*reSizer*keepHeight);
-	}
-	
-	public void runOffScreen(double reSizer) {
-		x = (float) (x*reSizer);
-		y = (float)(y*reSizer);
-		sH = (float)(sH*reSizer);
-		sW = (float)(sW*reSizer);
-	}
-
-
+	double resizer = 1;
 	float speedX = 0;
 	float speedY = 3;
 	float sH = 14;
@@ -52,6 +31,30 @@ public abstract class GameCharacter {
 	boolean uJump;
 	boolean midJump;
 	int jTime = 0;
+
+	
+	public GameCharacter (DogLogic dl) {
+		dogLogic = dl;
+		levelMap = dogLogic.levelMap;
+	}
+	
+	public void reSize(double reSizer) {
+		resizer = reSizer;
+		x = (float) (x*reSizer*keepWidth);
+		y = (float)(y*reSizer*keepHeight);
+		sH = (float)(sH*reSizer*keepWidth);
+		sW = (float)(sW*reSizer*keepHeight);
+		speedY = (float) (speedY * reSizer);
+	}
+	
+	public void runOffScreen(double reSizer) {
+		x = (float) (x*reSizer);
+		y = (float)(y*reSizer);
+		sH = (float)(sH*reSizer);
+		sW = (float)(sW*reSizer);
+	}
+
+
 	
 
 	
@@ -148,11 +151,11 @@ public abstract class GameCharacter {
 	
 	public void mBoundaries () {
 		
-			mright.setLine(x+sW, y+5, x+sW, y+sH-7);
-			mleft.setLine(x, y+5, x, y+sH-7);
+			mright.setLine(x+sW, y+5*resizer, x+sW, y+sH-7*resizer);
+			mleft.setLine(x, y+5*resizer, x, y+sH-7*resizer);
 			// trim the x axis here for the same effect
-			mtop.setLine(x+5,y,x+sW-5,y);
-			mbottom.setLine(x+5, y+sH, x+sW-5, y+sH);
+			mtop.setLine(x+5*resizer,y,x+sW-5*resizer,y);
+			mbottom.setLine(x+5*resizer, y+sH, x+sW-5*resizer, y+sH);
 			mochi.setRect((int)(x), (int)(y), (int)(sW), (int)(sH));
 		}
 	public void landing (){

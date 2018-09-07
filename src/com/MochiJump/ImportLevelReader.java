@@ -75,7 +75,9 @@ public class ImportLevelReader {
 	 
 	 public void importLevel(int index) {
 			for (int i=0; i<level[index].getStartX().size(); i++) {
-  				platforms.add(new Rectangle ((int)(level[index].getStartX().get(i)), (int)(level[index].getStartY().get(i)), (int)(level[index].getWidth().get(i)), (int)(level[index].getHeight().get(i))));
+  				platforms.add(new Rectangle ((int)(level[index].getStartX().get(i)), 
+  						(int)(level[index].getStartY().get(i)), (int)(level[index].getWidth().get(i)), 
+  						(int)(level[index].getHeight().get(i))));
   			}
 			for (int i=0; i<level[index].getHairClipStartX().size(); i++) {
 				lMap.addHairClipNPC(level[index].getHairClipStartX().get(i), 

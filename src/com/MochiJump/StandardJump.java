@@ -8,7 +8,7 @@ public class StandardJump implements JumpInterface{
 		if (Implementer.jumpChu == true && Implementer.jTime > 0) {
 			Implementer.jTime++;
 			if (Implementer.jTime <= 18) {
-				Implementer.y -= 6;
+				Implementer.y -= 6*Implementer.dogLogic.resizeValue;
 				Implementer.uJump = true;
 				if (Implementer.mRunR == true || Implementer.mRestR == true) {
 					Implementer.setActionToFalse();
@@ -20,7 +20,7 @@ public class StandardJump implements JumpInterface{
 				}
 			}
 			if (Implementer.jTime>18 && Implementer.jTime<= 20) {
-				Implementer.y -= 6;
+				Implementer.y -= 6*Implementer.dogLogic.resizeValue;
 				Implementer.uJump = false;
 				Implementer.midJump = true;
 				if (Implementer.mRunR == true || Implementer.mRestR == true) {

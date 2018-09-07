@@ -25,6 +25,8 @@ public class DogLogic extends JPanel {
 	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	Switcher switcher;
 	NoCollideFactory noCollideFactory = new NoCollideFactory (this);
+	int resizeValue = 7;
+	boolean setupCamera = false;
 
 	
 	public DogLogic (Switcher s) {
@@ -32,18 +34,59 @@ public class DogLogic extends JPanel {
 		dogPain = new JPanel();
 		add(dogPain);
 		gameStart();
-		for (int i=0; i<gameCharacters.size(); i++) {
-			gameCharacters.get(i).reSize();
-		}
 		switcher = s;
-
 	}
 	
+	public void setupCamera() {
+		if (!setupCamera) {
+			float startingYDiff = (float)(gameCharacters.get(gameCharacters.size()-1).keepHeight*786/2)-
+					gameCharacters.get(gameCharacters.size()-1).y;
+			
+				if (gameCharacters.get(gameCharacters.size()-1).y> 
+				(gameCharacters.get(gameCharacters.size()-1).keepHeight*786/2)) {
+							
+					for (int i=0; i<gameCharacters.size(); i++) {
+						gameCharacters.get(i).y = (float) (gameCharacters.get(i).y+startingYDiff);
+					}
+					for (int i = 0; i<plat.size() ; i++) {
+						plat.get(i).y = (int) (plat.get(i).y+startingYDiff);
+					}
+				}
+				if (gameCharacters.get(gameCharacters.size()-1).y< 
+				(gameCharacters.get(gameCharacters.size()-1).keepHeight*786/2.5)) {
+					for (int i=0; i<gameCharacters.size(); i++) {
+						gameCharacters.get(i).y = (float) (gameCharacters.get(i).y-startingYDiff);
+					}
+					for (int i = 0; i<plat.size() ; i++) {
+						plat.get(i).y = (int) (plat.get(i).y-startingYDiff);
+					}
+				}
+				
+				float startingXDiff = (float)(gameCharacters.get(gameCharacters.size()-1).keepWidth*1336/2)-
+						gameCharacters.get(gameCharacters.size()-1).x;
+				
+				if (gameCharacters.get(gameCharacters.size()-1).x> 
+				(gameCharacters.get(gameCharacters.size()-1).keepWidth*1336/1.5)) {
+					for (int i=0; i<gameCharacters.size(); i++) {
+						gameCharacters.get(i).x = (float) (gameCharacters.get(i).x+startingXDiff);
+					}
+					for (int i = 0; i<plat.size() ; i++) {
+						plat.get(i).x = (int) (plat.get(i).x+startingXDiff);
+					}
+				}
+				setupCamera = true;
+			
+		}
+	}
+		
+			
+		
 	public void addGameCharacter (GameCharacter character, int startingX, int startingY) {
 		character.posInGameCharacter = gameCharacters.size();
 		gameCharacters.add(character);
 		character.x = startingX;
 		character.y = startingY;
+		character.reSize(resizeValue);
 		if (character instanceof PlayerCharacter) {
 			PlayerCharacter playerCharacter = (PlayerCharacter) character;
 			dogPain.add(playerCharacter.keyInputs());
@@ -94,6 +137,49 @@ boolean runAway = false;
 		if (runAway == true) {
 			gameCharacters.get(gameCharacters.size()-1).runOffScreen(.9);
 		}
+		setupCamera();
+		updateCamera();
+	}
+	
+	public void updateCamera() {
+		if (gameCharacters.get(gameCharacters.size()-1).y> 
+		(gameCharacters.get(gameCharacters.size()-1).keepHeight*786/2)) {
+			for (int i=0; i<gameCharacters.size(); i++) {
+				gameCharacters.get(i).y = (float) (gameCharacters.get(i).y-(2.9*resizeValue));
+			}
+			for (int i = 0; i<plat.size() ; i++) {
+				plat.get(i).y = (int) (plat.get(i).y-(2.9*resizeValue));
+			}
+		}
+		if (gameCharacters.get(gameCharacters.size()-1).y< 
+		(gameCharacters.get(gameCharacters.size()-1).keepHeight*786/2.5)) {
+			for (int i=0; i<gameCharacters.size(); i++) {
+				gameCharacters.get(i).y = (float) (gameCharacters.get(i).y+(2.9*resizeValue));
+			}
+			for (int i = 0; i<plat.size() ; i++) {
+				plat.get(i).y = (int) (plat.get(i).y+(2.9*resizeValue));
+			}
+		}
+		
+		if (gameCharacters.get(gameCharacters.size()-1).x> 
+		(gameCharacters.get(gameCharacters.size()-1).keepWidth*1336/1.5)) {
+			for (int i=0; i<gameCharacters.size(); i++) {
+				gameCharacters.get(i).x = (float) (gameCharacters.get(i).x-(3*resizeValue));
+			}
+			for (int i = 0; i<plat.size() ; i++) {
+				plat.get(i).x = (int) (plat.get(i).x-(3*resizeValue));
+			}
+		}
+		if (gameCharacters.get(gameCharacters.size()-1).x< 
+		(gameCharacters.get(gameCharacters.size()-1).keepWidth*1336)/95) {
+			for (int i=0; i<gameCharacters.size(); i++) {
+				gameCharacters.get(i).x = (float) (gameCharacters.get(i).x+(3*resizeValue));
+			}
+			for (int i = 0; i<plat.size() ; i++) {
+				plat.get(i).x = (int) (plat.get(i).x+(3*resizeValue));
+			}
+		}
+		
 	}
 	
 	public void turnToNoCollide (GameCharacter toBeChanged, int currentX, int currentY) {
@@ -102,6 +188,8 @@ boolean runAway = false;
 				gameCharacters.set(i, noCollideFactory.swapToNoCollide(toBeChanged));
 				gameCharacters.get(i).x= currentX;
 				gameCharacters.get(i).y= currentY;
+				gameCharacters.get(i).sH = (int)gameCharacters.get(i).sH* resizeValue;
+				gameCharacters.get(i).sW = (int) gameCharacters.get(i).sW*resizeValue;
 				animation.set(i, animationFactory.makeAnimation(gameCharacters.get(i)));
 			}
 		}

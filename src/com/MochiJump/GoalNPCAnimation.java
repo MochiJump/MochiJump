@@ -95,34 +95,34 @@ public class GoalNPCAnimation implements AnimationInterface {
 	public void setCurrentSprite (){
 		if (mRestR == true) {
 			rightAni();
-			if (npc.sH > 14){
-				npc.sH = npc.sH-2;
+			if (npc.sH > 14*npc.dogLogic.resizeValue){
+				npc.sH = npc.sH-(2*npc.dogLogic.resizeValue);
 			}
 		}
 		if (mRestL == true) {
 			leftAni();
-			if (npc.sH > 14){
-				npc.sH = npc.sH-2;
+			if (npc.sH > 14*npc.dogLogic.resizeValue){
+				npc.sH = npc.sH-(2*npc.dogLogic.resizeValue);
 			}
 		}
 		if (mRunR == true) {
 			rightAni();
-			if (npc.sH > 14){
-				npc.sH = npc.sH-2;
+			if (npc.sH > (14*npc.dogLogic.resizeValue)){
+				npc.sH = npc.sH-(2*npc.dogLogic.resizeValue);
 			}
 		}
 		if (mRunL== true) {
 			leftAni();
-			if (npc.sH > 14){
-				npc.sH = npc.sH-2;
+			if (npc.sH > (14*npc.dogLogic.resizeValue)){
+				npc.sH = npc.sH-(2*npc.dogLogic.resizeValue);
 			}
 		}
 		if (mJumpR == true) {
-			npc.sH = 21;
+			npc.sH = (21*npc.dogLogic.resizeValue);
 			rightAni();
 		}
 		if (mJumpL == true) {
-			npc.sH = 21;
+			npc.sH = (21*npc.dogLogic.resizeValue);
 			leftAni();
 				
 			}

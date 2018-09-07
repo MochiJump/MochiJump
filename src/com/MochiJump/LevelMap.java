@@ -12,12 +12,13 @@ public class LevelMap extends JPanel {
 	double keepWidth = Toolkit.getDefaultToolkit().getScreenSize().getWidth()/1336;
 	double reSizer = 1;
 	DogLogic dogLogic;
-	private ArrayList<Rectangle> platlist = new ArrayList<>();
+	public ArrayList<Rectangle> platlist = new ArrayList<>();
 
 	boolean webImport = false;
 	
 	public LevelMap (DogLogic dl) {
 		dogLogic = dl;
+		reSizer = dogLogic.resizeValue;
 	}
 	
 	
@@ -25,19 +26,20 @@ public class LevelMap extends JPanel {
 	
 		
 		
-	platlist.add (new Rectangle (x,y,width,height));	
+	platlist.add (new Rectangle ((int)(x*keepWidth*reSizer),(int)(keepHeight*reSizer*y),(int)(width*keepWidth*reSizer), 
+			(int)(keepHeight*reSizer*height)));	
 	}
     
 	private void noWebPlatSetup() {
 		if (!webImport) {
-	addPlat((int)(0*keepWidth*reSizer), (int) (keepHeight*reSizer*500), 
-			(int) (keepWidth*reSizer*1000), (int) (keepHeight*reSizer*500));
-	addPlat((int) (reSizer*keepWidth*250),(int) (keepHeight*reSizer*(500-35)),
-			(int) (keepWidth*reSizer*100),(int) (keepHeight*reSizer*10));
-	addPlat((int) (reSizer*keepWidth*120), (int) (keepHeight*reSizer*(500-70)), 
-			(int) (keepWidth*reSizer*100),(int) (keepHeight*reSizer* 10));
-	addPlat((int) (reSizer*keepWidth*250),(int) (keepHeight*reSizer*(500-35*3)),
-			(int) (keepWidth*reSizer*100),(int) (keepHeight*reSizer*10));
+	addPlat((int)(0), (int) (500), 
+			(int) (1000), (int) (500));
+	addPlat((int) (250),(int) ((500-35)),
+			(int) (100),(int) (10));
+	addPlat((int) (120), (int) ((500-70)), 
+			(int) (100),(int) (10));
+	addPlat((int) (250),(int) ((500-35*3)),
+			(int) (100),(int) (10));
 	dogLogic.addGameCharacter (new HairClipNPC(dogLogic), 150, 50);
 	dogLogic.addGameCharacter (new HairClipNPC(dogLogic), 300, 100);
 	dogLogic.addGameCharacter(new HairClipNPC(dogLogic), 500, 300);
@@ -72,6 +74,12 @@ public class LevelMap extends JPanel {
 		platlist.clear();
 		platlist.addAll (OrderedPlat);
 		webImport = true;
+		for (int i = 0; i<platlist.size(); i++) {
+			platlist.get(i).width = (int)(platlist.get(i).width*reSizer*keepWidth);
+			platlist.get(i).height= (int)(platlist.get(i).height*reSizer*keepHeight);
+			platlist.get(i).x =  (int)(platlist.get(i).x*reSizer*keepWidth);
+			platlist.get(i).y = (int) (platlist.get(i).y*reSizer*keepHeight);
+		}
 	}
 	
 	public void addHairClipNPC (int x, int y) {

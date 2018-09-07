@@ -78,12 +78,12 @@ public class Mochi extends PlayerCharacter{
 				setActionToFalse();
 				mJumpR = true;
 			}
-			x +=2;
+			x +=2 *dogLogic.resizeValue;
 			if (speedX >=-1) {
-				speedX++;
+				speedX += 1 *dogLogic.resizeValue;
 			}
 			if (speedX >= 1) {
-				speedX = 1;
+				speedX = 1*dogLogic.resizeValue;
 			}
 		}
 	}
@@ -98,12 +98,12 @@ public class Mochi extends PlayerCharacter{
 				setActionToFalse();
 				mJumpL = true;
 			} 
-			x -= 2;
+			x -= 2*dogLogic.resizeValue;
 			if (speedX <=1) {
-				speedX --;
+				speedX -= 1*dogLogic.resizeValue;
 			}
 			if (speedX <= -1) {
-				speedX = -1;
+				speedX = -1*dogLogic.resizeValue;
 			}
 
 			
@@ -124,7 +124,7 @@ public class Mochi extends PlayerCharacter{
 	class RestRight extends AbstractAction{
 		public void actionPerformed (ActionEvent rr) {
 			if (speedX >0) {
-				speedX --;
+				speedX -= 1*dogLogic.resizeValue;
 				if (speedX <0) {
 					speedX = 0;
 				}
@@ -140,7 +140,7 @@ public class Mochi extends PlayerCharacter{
 	class RestLeft extends AbstractAction{
 		public void actionPerformed (ActionEvent rr) {
 			if (speedX <0) {
-				speedX ++;
+				speedX += 1* dogLogic.resizeValue;
 				if (speedX >0) {
 					speedX = 0;
 				}

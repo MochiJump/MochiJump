@@ -19,7 +19,7 @@ public class GoalNPC extends NonPlayerCharacter {
 	}
 	// implement this:
 	public void aIInputs() {
-		if (jumpChu == false && this.sH <18) {
+		if (jumpChu == false && this.sH <18*dogLogic.resizeValue) {
 			jumpChu = true;
 			jTime = 1;
 			mJumpHandler();
