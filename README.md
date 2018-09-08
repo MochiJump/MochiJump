@@ -13,6 +13,8 @@ Recently done:
 
 Focused camera to zoom in on and follow Mochi.
 
+Notes: need to adjust right camera movement
+
 Should do:
 
 Add a cuttoff y limit based off a value combining bottom object's y value
