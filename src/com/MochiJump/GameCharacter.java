@@ -169,6 +169,12 @@ public abstract class GameCharacter {
 		}
 	}
 	
+	public void jump() {
+		jumpChu = true;
+		jTime = 1;
+		mJumpHandler();
+	}
+	
 	public abstract void mJumpHandler();
 	
 	public abstract void boundaryRules();

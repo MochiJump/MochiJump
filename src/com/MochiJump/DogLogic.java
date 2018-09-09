@@ -162,21 +162,21 @@ boolean runAway = false;
 		}
 		
 		if (gameCharacters.get(gameCharacters.size()-1).x> 
-		(gameCharacters.get(gameCharacters.size()-1).keepWidth*1336/1.5)) {
+		(gameCharacters.get(gameCharacters.size()-1).keepWidth*1336/1.95)) {
 			for (int i=0; i<gameCharacters.size(); i++) {
-				gameCharacters.get(i).x = (float) (gameCharacters.get(i).x-(3*resizeValue));
+				gameCharacters.get(i).x = (float) (gameCharacters.get(i).x-(3.25*resizeValue));
 			}
 			for (int i = 0; i<plat.size() ; i++) {
-				plat.get(i).x = (int) (plat.get(i).x-(3*resizeValue));
+				plat.get(i).x = (int) (plat.get(i).x-(3.25*resizeValue));
 			}
 		}
 		if (gameCharacters.get(gameCharacters.size()-1).x< 
-		(gameCharacters.get(gameCharacters.size()-1).keepWidth*1336)/95) {
+		(gameCharacters.get(gameCharacters.size()-1).keepWidth*1336)/2.25) {
 			for (int i=0; i<gameCharacters.size(); i++) {
-				gameCharacters.get(i).x = (float) (gameCharacters.get(i).x+(3*resizeValue));
+				gameCharacters.get(i).x = (float) (gameCharacters.get(i).x+(3.25*resizeValue));
 			}
 			for (int i = 0; i<plat.size() ; i++) {
-				plat.get(i).x = (int) (plat.get(i).x+(3*resizeValue));
+				plat.get(i).x = (int) (plat.get(i).x+(3.25*resizeValue));
 			}
 		}
 		

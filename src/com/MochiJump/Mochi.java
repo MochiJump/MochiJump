@@ -114,8 +114,7 @@ public class Mochi extends PlayerCharacter{
 		public void actionPerformed (ActionEvent jr) {
 			if (jumpChu == false) {
 				jumpChu = true;
-				jTime = 1;
-				mJumpHandler();
+				jump();
 				
 			}
 		}

@@ -37,6 +37,8 @@ int counter = 0;
 						if (counter > 4) {
 							counter++;
 						} else {
+							counter = 0;
+							next.jump();
 						Implementer.dogLogic.turnToNoCollide(Implementer,
 							(int)Implementer.x, (int)Implementer.y);;
 						}
