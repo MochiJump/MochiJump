@@ -11,9 +11,9 @@ The MochiJump App now can import customer levels built on http://mochijump.com
 
 Recently done:
 
-Focused camera to zoom in on and follow Mochi.
+Focused camera to zoom in on and follow Mochi (improved).
 
-Notes: need to adjust right camera movement
+Mochi now bounces off HairClipNPC objects upon destruction.
 
 Should do:
 
