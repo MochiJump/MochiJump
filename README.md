@@ -17,9 +17,6 @@ Mochi now bounces off HairClipNPC objects upon destruction.
 
 Should do:
 
-Add a cuttoff y limit based off a value combining bottom object's y value
-
-Look into occasional strange collision (looks like teleportation) for npc units both alive and on destruction animation
-Note: teleportation on destruction seems to be device dependent. Perhaps it has something to do width/height ratio?
+Add a cuttoff y limit based off a value combining bottom object's y value // started (YLimter class)
 
 Add gradle script to include jackson fasterxml
