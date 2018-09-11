@@ -1,12 +1,16 @@
 package com.MochiJump;
 
 public class YLimiter extends NonPlayerCharacter{
+	
+	CollisionInterface collide = new YLimiterCollision();
 
 	
 	// the only thing this class is here for is to mark the lowest point
 	
 	public YLimiter(DogLogic d) {
 		super(d);
+		y=10000;
+		System.out.println(y);
 	}
 	
 	public void mJumpHandler(){
@@ -14,11 +18,11 @@ public class YLimiter extends NonPlayerCharacter{
 	}
 	
 	public void boundaryRules() {
-		// this needs to implement a special collision interface so anything that passes it's y axis get's destoryed 
+		collide.collide(this); 
 	}
 	
 	public void aIInputs(){
-		//Either this will contain nothing or we can determine lowest y point here, easiest way to do that is:
-		y = dogLogic.plat.get(dogLogic.plat.size()-1).y + 100;
+			y = (float)(dogLogic.plat.get(0).y+dogLogic.plat.get(0).getHeight() + 100);
+			System.out.println(y);
 	}
 }

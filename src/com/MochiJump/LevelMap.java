@@ -44,6 +44,7 @@ public class LevelMap extends JPanel {
 	dogLogic.addGameCharacter (new HairClipNPC(dogLogic), 300, 100);
 	dogLogic.addGameCharacter(new HairClipNPC(dogLogic), 500, 300);
 	dogLogic.addGameCharacter(new GoalNPC(dogLogic), 700, 400);
+	addYLimiter();
 	dogLogic.addGameCharacter (new Mochi(dogLogic), 0, 0);
 		}
 	}
@@ -80,6 +81,8 @@ public class LevelMap extends JPanel {
 			platlist.get(i).x =  (int)(platlist.get(i).x*reSizer*keepWidth);
 			platlist.get(i).y = (int) (platlist.get(i).y*reSizer*keepHeight);
 		}
+		
+		System.out.println(platlist.get(0));
 	}
 	
 	public void addHairClipNPC (int x, int y) {
@@ -88,6 +91,10 @@ public class LevelMap extends JPanel {
 	
 	public void addGoalNPC (int x, int y) {
 		dogLogic.addGameCharacter(new GoalNPC (dogLogic), x, y);
+	}
+	
+	public void addYLimiter () {
+		dogLogic.addGameCharacter(new YLimiter(dogLogic), 10000, 10000);
 	}
 	
 	//currently this always has to be called last

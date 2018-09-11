@@ -86,6 +86,8 @@ public class ImportLevelReader {
 			
 			lMap.addGoalNPC(level[index].getGoalStartX(), level[index].getGoalStartY());
 			
+			lMap.addYLimiter();
+			
 			lMap.addMochi(level[index].getMochiStartX(), level[index].getMochiStartY());
 			
 			lMap.useWebImport(platforms);
