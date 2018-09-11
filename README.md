@@ -15,8 +15,8 @@ Focused camera to zoom in on and follow Mochi (improved).
 
 Mochi now bounces off HairClipNPC objects upon destruction.
 
-Should do:
+YLimiter object now defines how far down Mochi can fall before the game ends
 
-Add a cuttoff y limit based off a value combining bottom object's y value // started (YLimter class)
+Should do:
 
 Add gradle script to include jackson fasterxml
