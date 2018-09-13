@@ -5,7 +5,7 @@ This repository holds my first platformer game built with Java.
 
 *Note: this project uses Gradle to manage it's dependencies*
 
-/dist holds a runnable jar of a recent version build of the game (Web App needs to be updated before new dist is made. /dist currently holds an older version that runs correctly with current Web App API)
+/dist holds a runnable jar of a recent version build of the game 
 
 The MochiJump App now can import customer levels built on http://mochijump.com
 
