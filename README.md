@@ -3,7 +3,7 @@ Build v0.23 achieved.
 
 This repository holds my first platformer game built with Java.
 
-*Note: this project uses Jackson FasterXML. Currently you will need to include this manually if you want to compile this from source code as opposed to launching the runnable jar.*
+*Note: this project uses Gradle to manage it's dependencies*
 
 /dist holds a runnable jar of a recent version build of the game (Web App needs to be updated before new dist is made. /dist currently holds an older version that runs correctly with current Web App API)
 
@@ -17,6 +17,8 @@ Mochi now bounces off HairClipNPC objects upon destruction.
 
 YLimiter object now defines how far down Mochi can fall before the game ends
 
+Compiled using gradle so dependencies are no longer an issue for reproduction form source code
+
 Should do:
 
-Add gradle script to include jackson fasterxml // gradle is proving more difficult than anticipated, at this point I think I'll write a simple mini project and try to run it with gradle before attempting this again.
+replace current runnable jar with OneJar plugin
