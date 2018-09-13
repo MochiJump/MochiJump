@@ -19,4 +19,4 @@ YLimiter object now defines how far down Mochi can fall before the game ends
 
 Should do:
 
-Add gradle script to include jackson fasterxml // gradle is proving more difficult than anticipated
+Add gradle script to include jackson fasterxml // gradle is proving more difficult than anticipated, at this point I think I'll write a simple mini project and try to run it with gradle before attempting this again.
