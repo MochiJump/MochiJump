@@ -159,12 +159,12 @@ private void ratioCheck() {
 
 private void setPoints() {
 	  setPointAy = (int) (maxHeight/5);
-	  setPointAx = (int) (maxWidth/2 - 222/2);
+	  setPointAx = (int) (maxWidth/2 - 222*ratioWidth/2);
 	  setPointBy = (int) (maxHeight/1.75);
-	  setPointBx = (int) (maxWidth/2-75);
+	  setPointBx = (int) (maxWidth/2-75*ratioWidth);
 	  setPointCy = (int) (maxHeight/1.5);
-	  setPointCx = (int) (maxWidth/2 -75);
-	  setPointDx = (int) (maxWidth/2 -75);
+	  setPointCx = (int) (maxWidth/2 -75*ratioWidth);
+	  setPointDx = (int) (maxWidth/2 -75*ratioWidth);
 	  setPointDy = (int) (maxHeight/1.25);
 	  selectIndx = (int) (maxWidth/2) - (int)(125 *ratioWidth);
 	  selectIndy = (int) (maxHeight/1.75);
