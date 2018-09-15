@@ -7,6 +7,8 @@ This repository holds my first platformer game built with Java.
 
 /dist holds a runnable jar of a recent version build of the game 
 
+Quick link to download runnable jar: https://github.com/AndoryuRenoa/MochiJump/blob/master/dist/MochiJump.jar?raw=true
+
 The MochiJump App now can import customer levels built on http://mochijump.com
 
 Recently done:
