@@ -21,4 +21,4 @@ Compiled using gradle so dependencies are no longer an issue for reproduction fo
 
 Should do:
 
-replace current runnable jar with OneJar plugin
+create gradle built runnable jar // https://github.com/Opalo/stackoverflow/tree/master/45180264
