@@ -19,6 +19,4 @@ YLimiter object now defines how far down Mochi can fall before the game ends
 
 Compiled using gradle so dependencies are no longer an issue for reproduction form source code
 
-Should do:
-
-create gradle built runnable jar // https://github.com/Opalo/stackoverflow/tree/master/45180264
+created gradle built fat jar // doing it manually is better IMO
