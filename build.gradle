@@ -1,7 +1,4 @@
-plugins {
-  id "com.github.onslip.gradle-one-jar" version "1.0.5"
-}
-
+apply plugin : 'java'
 apply plugin: 'application'
 apply plugin: 'java-library'
 
@@ -27,20 +24,18 @@ dependencies {
     
 }
 
-task oneJar(type: OneJar){
-	task createFatJar(type: Jar) {
-    manifest.from jar.manifest
-    classifier = 'all'
-    from {
-       configurations.runtime.collect { it.isDirectory() ? it : zipTree(it) }
-    } {
-       exclude 'META-INF/*.SF'
-       exclude 'META-INF/*.DSA'
-       exclude 'META-INF/*.RSA'
-    }
+task fatJar(type: Jar) {
+    baseName = project.name
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
     with jar
-}
+    manifest {
+        attributes 'Main-Class': 'com.MochiJump.MochiJump'
+    }
 }
 
+task runFatJar(type: JavaExec) {
+    dependsOn fatJar
+    classpath = fatJar.outputs.files
+    main = 'com.MochiJump.MochiJump'
+}
 mainClassName = "com.MochiJump.MochiJump"
-
