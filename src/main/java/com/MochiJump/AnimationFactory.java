@@ -11,7 +11,9 @@ public class AnimationFactory {
 			return new HairClipNoCollideAnimation();
 		} else if (type instanceof GoalNPC) {
 			return new GoalNPCAnimation();
-		}else {
+		}else if (type instanceof GooseNPC) {
+			return new GooseAnimation();
+		} else {
 			//this should be unreachable
 			return new MochiAnimation();
 		}

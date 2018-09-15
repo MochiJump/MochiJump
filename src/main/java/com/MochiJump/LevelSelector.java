@@ -163,8 +163,8 @@ private void setPoints() {
 	  setPointBy = (int) (maxHeight/1.75);
 	  setPointBx = (int) (maxWidth/2-75*ratioWidth);
 	  setPointCy = (int) (maxHeight/1.5);
-	  setPointCx = (int) (maxWidth/2 -75*ratioWidth);
-	  setPointDx = (int) (maxWidth/2 -75*ratioWidth);
+	  setPointCx = (int) (maxWidth/2 -80*ratioWidth);
+	  setPointDx = (int) (maxWidth/2 -80*ratioWidth);
 	  setPointDy = (int) (maxHeight/1.25);
 	  selectIndx = (int) (maxWidth/2) - (int)(125 *ratioWidth);
 	  selectIndy = (int) (maxHeight/1.75);

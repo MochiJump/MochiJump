@@ -22,7 +22,7 @@ public class YLimiter extends NonPlayerCharacter{
 	}
 	
 	public void aIInputs(){
-			y = (float)(dogLogic.plat.get(0).y+dogLogic.plat.get(0).getHeight() + 100);
+			y = (float)(dogLogic.plat.get(dogLogic.plat.size()-1).y+dogLogic.plat.get(0).getHeight() + 100);
 			System.out.println(y);
 	}
 }

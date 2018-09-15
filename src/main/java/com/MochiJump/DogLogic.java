@@ -19,7 +19,7 @@ public class DogLogic extends JPanel {
 	ArrayList <Rectangle> plat = new ArrayList<Rectangle>();
 	ArrayList <AnimationInterface> animation = new ArrayList <AnimationInterface>();
 	ArrayList <GameCharacter> gameCharacters = new ArrayList <GameCharacter>();
-	int refreshRate = 30;
+	int refreshRate = 40;
 	Rectangle background = new Rectangle (0,0,10000,10000);
 	Color skyblue = new Color (102, 204, 255);
 	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -167,7 +167,7 @@ boolean runAway = false;
 				gameCharacters.get(i).x = (float) (gameCharacters.get(i).x-(3.25*resizeValue));
 			}
 			for (int i = 0; i<plat.size() ; i++) {
-				plat.get(i).x = (int) (plat.get(i).x-(3.25*resizeValue));
+				plat.get(i).x = (int) (plat.get(i).x-(int)(3.25*resizeValue));
 			}
 		}
 		if (gameCharacters.get(gameCharacters.size()-1).x< 
@@ -176,7 +176,7 @@ boolean runAway = false;
 				gameCharacters.get(i).x = (float) (gameCharacters.get(i).x+(3.25*resizeValue));
 			}
 			for (int i = 0; i<plat.size() ; i++) {
-				plat.get(i).x = (int) (plat.get(i).x+(3.25*resizeValue));
+				plat.get(i).x = (int) (plat.get(i).x+(int)(3.25*resizeValue));
 			}
 		}
 		

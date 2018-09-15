@@ -32,7 +32,7 @@ public class MochiCollision implements CollisionInterface {
 		for (NonPlayerCharacter next: npcs) {
 			Rectangle p1 = next.mochi;
 			//controls collision with HairClipNPC:
-			if (next instanceof HairClipNPC) {
+			if (!(next instanceof GoalNPC)) {
 				if (Implementer.mochi.intersects(p1)) {
 					if (Implementer.mright.intersects(p1)) {
 						Implementer.dogLogic.runAway = true;

@@ -9,9 +9,8 @@ import javax.swing.ImageIcon;
 public class GoalNPCAnimation implements AnimationInterface {
 	Image goalAni =  new ImageIcon(this.getClass().getResource("/ball.png")).getImage();
 	Image currentSprite;
-	// implement this:
 	GameCharacter npc;
-	// ^^^
+	
 	
 		
 	int aniTime = 1;

@@ -44,6 +44,7 @@ public class LevelMap extends JPanel {
 	dogLogic.addGameCharacter (new HairClipNPC(dogLogic), 300, 100);
 	dogLogic.addGameCharacter(new HairClipNPC(dogLogic), 500, 300);
 	dogLogic.addGameCharacter(new GoalNPC(dogLogic), 700, 400);
+	dogLogic.addGameCharacter(new GooseNPC(dogLogic), 800, 400);
 	addYLimiter();
 	dogLogic.addGameCharacter (new Mochi(dogLogic), 0, 0);
 		}
@@ -57,13 +58,13 @@ public class LevelMap extends JPanel {
 			if (i==0) {
 				OrderedPlat.add(platforms.get(i));
 				previousPlatY = platforms.get(i).y;
-			} else if (nextPlatY <= previousPlatY ) {
+			} else if (nextPlatY >= previousPlatY ) {
 				OrderedPlat.add(platforms.get(i));
 				previousPlatY = platforms.get(i).y;
-			} else if (nextPlatY > previousPlatY) {
+			} else if (nextPlatY < previousPlatY) {
 				boolean doLoop = true;
 				for (int z = 0; z<OrderedPlat.size() && doLoop == true; z++) {
-					if (nextPlatY >= OrderedPlat.get(z).y) {
+					if (nextPlatY <= OrderedPlat.get(z).y) {
 						OrderedPlat.add(z, platforms.get(i));
 						doLoop = false;
 					}
