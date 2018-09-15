@@ -74,7 +74,7 @@ JPanel sPScreen = new JPanel();
 Switcher switcher;
 
 public StartPause(Switcher s) {
-	sPScreen.add(startScreenKeyInputs());
+	startScreenKeyInputs();
  	add (sPScreen);
 	startPauseActive();
 	switcher = s;
@@ -219,23 +219,20 @@ private class ExitActionHelper{
 }
 
 
-public JLabel startScreenKeyInputs (){
-  JLabel mochiStartLabel = new JLabel ("Start Pause");
+public void startScreenKeyInputs (){
  
   MoveSelectorUp MoveSelectorUp = new MoveSelectorUp();
   MoveSelectorDown MoveSelectorDown = new MoveSelectorDown();
   MakeSelection MakeSelection = new MakeSelection();
   
-  InputMap im = mochiStartLabel.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
-  ActionMap am = mochiStartLabel.getActionMap();
+  InputMap im = sPScreen.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
+  ActionMap am = sPScreen.getActionMap();
   im.put(KeyStroke.getKeyStroke("UP"), "MoveSelectorUp");
   am.put("MoveSelectorUp", MoveSelectorUp);
   im.put(KeyStroke.getKeyStroke("DOWN"), "MoveSelectorDown");
   am.put("MoveSelectorDown", MoveSelectorDown);
   im.put(KeyStroke.getKeyStroke("ENTER"), "MakeSelection");
   am.put("MakeSelection", MakeSelection);
-  
-  return mochiStartLabel;
   
 }
 private class MoveSelectorUp extends AbstractAction{

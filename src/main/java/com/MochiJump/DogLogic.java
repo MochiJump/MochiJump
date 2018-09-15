@@ -89,7 +89,7 @@ public class DogLogic extends JPanel {
 		character.reSize(resizeValue);
 		if (character instanceof PlayerCharacter) {
 			PlayerCharacter playerCharacter = (PlayerCharacter) character;
-			dogPain.add(playerCharacter.keyInputs());
+			playerCharacter.keyInputs();
 		}
 		animation.add(animationFactory.makeAnimation(character));
 	}

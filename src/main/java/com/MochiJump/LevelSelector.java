@@ -23,7 +23,7 @@ import javax.swing.KeyStroke;
 
 
 /*
- * functional rough draft:
+ * This would change if we only had a list of names initially
  * 
 */
 
@@ -61,17 +61,13 @@ Image mochiFaceState1 = new ImageIcon(this.getClass().getResource("/background.p
   Switcher switcher;
   
   public LevelSelector (Switcher s) {
-		lSPanel.add(selectionKeyInputs());
+		selectionKeyInputs();
 	 	add (lSPanel);
 		levelSelectorActive();
 		switcher = s;
 		
 	}
-  
-// will need to create and import images for ui
-// http://www.java-gaming.org/index.php/topic,13599.0
-// https://stackoverflow.com/questions/43205942/how-to-display-zoom-cubes-in-3d-in-javas-frames-panel
-  
+    
 private Action MoveSelectionUp;
 private Action MoveSelectionDown;
 private Action MakeSelection;
@@ -204,15 +200,14 @@ private void setPoints() {
 	  
 	}
   
-  private JLabel selectionKeyInputs () {
-	  JLabel levelSelectLabel = new JLabel("Select Your Level");
+  private void selectionKeyInputs () {
 	  MakeSelection MakeSelection = new MakeSelection();
 	  MoveSelectionUp MoveSelectionUp = new MoveSelectionUp();
 	  MoveSelectionDown MoveSelectionDown = new MoveSelectionDown();
 	  Escape Escape = new Escape();
 	  
-	  InputMap im = levelSelectLabel.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
-	  ActionMap am = levelSelectLabel.getActionMap();
+	  InputMap im = lSPanel.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
+	  ActionMap am = lSPanel.getActionMap();
 	  im.put(KeyStroke.getKeyStroke("UP"), "MoveSelectionUp");
 	  am.put("MoveSelectionUp", MoveSelectionUp);
 
@@ -226,7 +221,6 @@ private void setPoints() {
 	  im.put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE,0), "Escape");
 	  am.put("Escape", Escape);
 	  
-	  return levelSelectLabel;
   }
   private class MakeSelection extends AbstractAction{
 		// need keybindings for new button

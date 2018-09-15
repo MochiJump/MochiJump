@@ -37,9 +37,8 @@ public class Mochi extends PlayerCharacter{
 	}
 
 
-	public JLabel keyInputs() {
+	public void keyInputs() {
 		
-		JLabel MochiL = new JLabel("Mochi Jump");		
 		MoveRightAct MoveRightAct = new MoveRightAct();
 		RestRight RestRight = new RestRight();
 		MoveLeftAct MoveLeftAct = new MoveLeftAct();
@@ -47,8 +46,8 @@ public class Mochi extends PlayerCharacter{
 		JumpAct JumpAct = new JumpAct();
 		Escape Escape = new Escape();
 
-		InputMap im = MochiL.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
-		ActionMap am = MochiL.getActionMap();	
+		InputMap im = dogLogic.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
+		ActionMap am = dogLogic.getActionMap();	
 
 		im.put(KeyStroke.getKeyStroke("RIGHT"), "MoveRightAct");
 		am.put("MoveRightAct", MoveRightAct);
@@ -62,7 +61,6 @@ public class Mochi extends PlayerCharacter{
 		am.put("JumpAct", JumpAct);
 		im.put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE,0), "Escape");
 		am.put("Escape", Escape);
-		return MochiL;
 		
 	}
 	

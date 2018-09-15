@@ -7,5 +7,5 @@ public abstract class PlayerCharacter extends GameCharacter {
 		super(dl);
 	}
 
-	public abstract JLabel keyInputs();
+	public abstract void keyInputs();
 }
