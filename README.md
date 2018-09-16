@@ -22,3 +22,7 @@ YLimiter object now defines how far down Mochi can fall before the game ends
 Compiled using gradle so dependencies are no longer an issue for reproduction form source code
 
 created gradle built fat jar // this file is almost half the size
+
+To Do:
+
+Finish Goose NPC
