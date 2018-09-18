@@ -7,7 +7,7 @@ public class GooseNPC extends NonPlayerCharacter {
 	}
 	
 	//use standard jump for now
-	JumpInterface jump =  new StandardJump();
+	JumpInterface jump =  new GooseJump();
 	CollisionInterface collide = new HairClipCollision();
 	
 	public void mJumpHandler() {
@@ -63,6 +63,8 @@ public class GooseNPC extends NonPlayerCharacter {
 	
 	public void moveUp() {
 		jump();
+		jumpChu= true;
+		y = y -(2*dogLogic.resizeValue);
 	}
 	
 	public void moveDown() {

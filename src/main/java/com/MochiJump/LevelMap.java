@@ -1,6 +1,5 @@
 package com.MochiJump;
 
-
 import java.awt.*;
 import java.util.ArrayList;
 

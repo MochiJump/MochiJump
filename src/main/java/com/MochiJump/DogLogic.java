@@ -25,6 +25,7 @@ public class DogLogic extends JPanel {
 	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	Switcher switcher;
 	NoCollideFactory noCollideFactory = new NoCollideFactory (this);
+	// alerting resizeValue now has drastic side effects!!
 	int resizeValue = 7;
 	boolean setupCamera = false;
 
@@ -145,26 +146,26 @@ boolean runAway = false;
 		if (gameCharacters.get(gameCharacters.size()-1).y> 
 		(gameCharacters.get(gameCharacters.size()-1).keepHeight*786/2)) {
 			for (int i=0; i<gameCharacters.size(); i++) {
-				gameCharacters.get(i).y = (float) (gameCharacters.get(i).y-(2.9*resizeValue));
+				gameCharacters.get(i).y = (float) (gameCharacters.get(i).y-(int)(2.9*resizeValue));
 			}
 			for (int i = 0; i<plat.size() ; i++) {
-				plat.get(i).y = (int) (plat.get(i).y-(2.9*resizeValue));
+				plat.get(i).y = (int) (plat.get(i).y-(int)(2.9*resizeValue));
 			}
 		}
 		if (gameCharacters.get(gameCharacters.size()-1).y< 
 		(gameCharacters.get(gameCharacters.size()-1).keepHeight*786/2.5)) {
 			for (int i=0; i<gameCharacters.size(); i++) {
-				gameCharacters.get(i).y = (float) (gameCharacters.get(i).y+(2.9*resizeValue));
+				gameCharacters.get(i).y = (float) (gameCharacters.get(i).y+(int)(2.9*resizeValue));
 			}
 			for (int i = 0; i<plat.size() ; i++) {
-				plat.get(i).y = (int) (plat.get(i).y+(2.9*resizeValue));
+				plat.get(i).y = (int) (plat.get(i).y+(int)(2.9*resizeValue));
 			}
 		}
 		
 		if (gameCharacters.get(gameCharacters.size()-1).x> 
 		(gameCharacters.get(gameCharacters.size()-1).keepWidth*1336/1.95)) {
 			for (int i=0; i<gameCharacters.size(); i++) {
-				gameCharacters.get(i).x = (float) (gameCharacters.get(i).x-(3.25*resizeValue));
+				gameCharacters.get(i).x = (float) (gameCharacters.get(i).x-(int)(3.25*resizeValue));
 			}
 			for (int i = 0; i<plat.size() ; i++) {
 				plat.get(i).x = (int) (plat.get(i).x-(int)(3.25*resizeValue));
@@ -173,7 +174,7 @@ boolean runAway = false;
 		if (gameCharacters.get(gameCharacters.size()-1).x< 
 		(gameCharacters.get(gameCharacters.size()-1).keepWidth*1336)/2.25) {
 			for (int i=0; i<gameCharacters.size(); i++) {
-				gameCharacters.get(i).x = (float) (gameCharacters.get(i).x+(3.25*resizeValue));
+				gameCharacters.get(i).x = (float) (gameCharacters.get(i).x+(int)(3.25*resizeValue));
 			}
 			for (int i = 0; i<plat.size() ; i++) {
 				plat.get(i).x = (int) (plat.get(i).x+(int)(3.25*resizeValue));
