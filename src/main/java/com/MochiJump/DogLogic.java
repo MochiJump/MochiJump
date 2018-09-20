@@ -38,8 +38,6 @@ public class DogLogic extends JPanel {
 		switcher = s;
 	}
 	
-	// DogLogic is busy. Considering moving this and the other camera method into it's own class
-	// note: setupCamera doesn't cause desired behavior when resizeValue is set too low (i.e. 1)
 	public void setupCamera() {
 		if (!setupCamera) {
 			float startingYDiff = (float)(gameCharacters.get(gameCharacters.size()-1).keepHeight*786/2)-

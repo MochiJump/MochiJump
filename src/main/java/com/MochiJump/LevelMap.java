@@ -93,6 +93,10 @@ public class LevelMap extends JPanel {
 		dogLogic.addGameCharacter(new GoalNPC (dogLogic), x, y);
 	}
 	
+	public void addGooseNPC (int x, int y) {
+		dogLogic.addGameCharacter(new GooseNPC(dogLogic), x, y);
+	}
+	
 	public void addYLimiter () {
 		dogLogic.addGameCharacter(new YLimiter(dogLogic), 10000, 10000);
 	}

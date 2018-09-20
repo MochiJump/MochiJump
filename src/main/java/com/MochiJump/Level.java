@@ -23,6 +23,10 @@ public class Level {
 	
 	private ArrayList<Integer> hairClipStartY;
 	
+	private ArrayList<Integer> gooseStartX;
+	
+	private ArrayList<Integer> gooseStartY;
+	
 	private int goalStartX;
 	
 	private int goalStartY;
@@ -104,6 +108,22 @@ public class Level {
 	
 	public void setHairClipStartY(ArrayList<Integer> hairClipStartY) {
 		this.hairClipStartY = hairClipStartY;
+	}
+	
+	public ArrayList<Integer> getGooseStartX(){
+		return gooseStartX;
+	}
+	
+	public void setGooseStartX(ArrayList<Integer> gooseStartX) {
+		this.gooseStartX = gooseStartX;
+	}
+	
+	public ArrayList <Integer> getGooseStartY(){
+		return gooseStartY;
+	}
+	
+	public void setGooseStartY(ArrayList<Integer> gooseStartY) {
+		this.gooseStartY = gooseStartY;
 	}
 	
 	public int getGoalStartX(){
