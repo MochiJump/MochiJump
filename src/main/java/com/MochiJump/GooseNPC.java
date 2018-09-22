@@ -64,11 +64,11 @@ public class GooseNPC extends NonPlayerCharacter {
 	public void moveUp() {
 		jump();
 		jumpChu= true;
-		y = y -(2*dogLogic.resizeValue);
+		y = y -(int)(1.5*dogLogic.resizeValue);
 	}
 	
 	public void moveDown() {
-		y  = y+(2*dogLogic.resizeValue);
+		y  = y+(int)(1.5*dogLogic.resizeValue);
 	}
 	
 	

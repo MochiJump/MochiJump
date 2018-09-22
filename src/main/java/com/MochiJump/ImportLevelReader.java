@@ -83,10 +83,11 @@ public class ImportLevelReader {
 				lMap.addHairClipNPC(level[index].getHairClipStartX().get(i), 
 						level[index].getHairClipStartY().get(i));
 			}
-			
-			for(int i=0; i<level[index].getGooseStartX().size(); i++) {
-				lMap.addGooseNPC(level[index].getGooseStartX().get(i), 
-						level[index].getGooseStartY().get(i));
+			if (!(level[index].getGooseStartX()==null)) {
+				for(int i=0; i<level[index].getGooseStartX().size(); i++) {
+					lMap.addGooseNPC(level[index].getGooseStartX().get(i), 
+							level[index].getGooseStartY().get(i));
+				}
 			}
 			
 			lMap.addGoalNPC(level[index].getGoalStartX(), level[index].getGoalStartY());

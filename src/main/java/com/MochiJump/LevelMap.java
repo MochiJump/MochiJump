@@ -9,7 +9,7 @@ public class LevelMap extends JPanel {
 
 	double keepHeight = Toolkit.getDefaultToolkit().getScreenSize().getHeight()/786;
 	double keepWidth = Toolkit.getDefaultToolkit().getScreenSize().getWidth()/1336;
-	double reSizer = 1;
+	double reSizer = 7;
 	DogLogic dogLogic;
 	public ArrayList<Rectangle> platlist = new ArrayList<>();
 
@@ -57,13 +57,13 @@ public class LevelMap extends JPanel {
 			if (i==0) {
 				OrderedPlat.add(platforms.get(i));
 				previousPlatY = platforms.get(i).y;
-			} else if (nextPlatY >= previousPlatY ) {
+			} else if (nextPlatY <= previousPlatY ) {
 				OrderedPlat.add(platforms.get(i));
 				previousPlatY = platforms.get(i).y;
-			} else if (nextPlatY < previousPlatY) {
+			} else if (nextPlatY > previousPlatY) {
 				boolean doLoop = true;
 				for (int z = 0; z<OrderedPlat.size() && doLoop == true; z++) {
-					if (nextPlatY <= OrderedPlat.get(z).y) {
+					if (nextPlatY >= OrderedPlat.get(z).y) {
 						OrderedPlat.add(z, platforms.get(i));
 						doLoop = false;
 					}
