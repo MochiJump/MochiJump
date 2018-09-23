@@ -1,5 +1,5 @@
 # MochiJump
-Build v0.23 achieved.
+Build v0.2.4 (corresponds to MJLE0.1.1) // these versions should be the same for simplicity's sake
 
 This repository holds my first platformer game built with Java.
 
