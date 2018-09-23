@@ -1,9 +1,9 @@
 
 package com.MochiJump;
 
-
-
+import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
@@ -22,6 +22,8 @@ import javax.swing.JLabel;
 
 
 public class StartPause extends JPanel {
+public VersionChecker versionChecker;
+Graphics2D versionSizeCheck;
 private int currentPanel;
 private int refreshRate = 30;
 
@@ -33,6 +35,8 @@ private double maxHeight;
 private double maxWidth;
 private double ratioHeight;
 private double ratioWidth;
+private int setTopX;
+private int setTopY;
 private int setPointAx;
 private int setPointAy;
 private int setPointBx;
@@ -100,6 +104,7 @@ public void startPauseActive() {
 			while (currentPanel == 1){
 				menuUpdate();
 				repaint();
+				checkVersion();
 
 				try{
 					Thread.sleep(1000/refreshRate);
@@ -111,6 +116,18 @@ public void startPauseActive() {
 	};
 	startPauseThread.start();
 }
+
+int cv = 0;
+String versionMessage = "";
+
+public void checkVersion() {
+	if (cv<1) {
+	versionChecker = new VersionChecker();
+	versionMessage = ("Current Verison is "+ versionChecker.version + " and "+versionChecker.checkVersion());
+	cv++;
+	}
+}
+
 private void menuUpdate(){
 	screenSizeCheck();
 	ratioCheck();
@@ -137,6 +154,8 @@ int sizeChange;
 
 
 private void setPoints() {
+	  setTopX = 0;
+	  setTopY = (int) (maxHeight/50);
 	  setPointAy = (int) (maxHeight/5);
 	  setPointAx = (int) (maxWidth/2 - 222*ratioWidth/2);
 	  setPointBy = (int) (maxHeight/2);
@@ -145,15 +164,13 @@ private void setPoints() {
 	  setPointCx = (int) (maxWidth/2 - 366*ratioWidth/2);
 	  setPointDx = (int) (maxWidth/2 - 366*ratioWidth/2);
 	  setPointDy = (int) (maxHeight/1.25);
-	//  setSelectorPointAx = setPointAx - 150;
-	//  setSelectorPointAy = setPointAy; not neccessary because that's the mochi icon
-	// below still needs to be adjusted
 	  setSelectorPointBx = setPointBx - (int) (150 * ratioWidth);
 	  setSelectorPointBy = setPointBy;
 	  setSelectorPointCx = setPointCx - (int) (150 * ratioWidth);
 	  setSelectorPointCy = setPointCy;
 	  setSelectorPointDx = setPointDx - (int) (150 * ratioWidth);
 	  setSelectorPointDy = setPointDy;
+	
 }
 
 private void selectorAni(){
@@ -178,11 +195,17 @@ private void selectorAni(){
 
 public void draw (Graphics g){
   Graphics2D mochiIcon = (Graphics2D) g.create();
+  Graphics2D version = (Graphics2D) g.create();
   Graphics2D startSelect = (Graphics2D) g.create();
   Graphics2D contSelect = (Graphics2D) g.create();
   Graphics2D exitSelect = (Graphics2D) g.create();
   Graphics2D selectorIcon = (Graphics2D) g.create();
   Graphics2D loadSelect = (Graphics2D) g.create();
+  // for version checker output
+  version.setColor(Color.BLACK);
+  version.setFont(new Font ("Impact", Font.PLAIN, 20));
+  version.drawString(versionMessage, setTopX, setTopY);
+  
   //including ratioWidth/Height below to resize the image
   mochiIcon.setClip(setPointAx, setPointAy, (int) (222*ratioWidth), (int)(225*ratioHeight));
   mochiIcon.drawImage(mochiFaceState1, setPointAx, setPointAy, (int) (222*ratioWidth), (int)(225*ratioHeight), null);

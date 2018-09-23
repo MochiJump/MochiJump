@@ -38,7 +38,6 @@ public class ImportLevelReader {
             }
             InputStreamReader in = new InputStreamReader(conn.getInputStream());
             BufferedReader br = new BufferedReader(in);
-		  // this is strange this while statement:
             while ((output = br.readLine()) != null) {
                 System.out.println(output);
                 output2 = output;

@@ -12,7 +12,6 @@ public class LevelMap extends JPanel {
 	double reSizer = 7;
 	DogLogic dogLogic;
 	public ArrayList<Rectangle> platlist = new ArrayList<>();
-
 	boolean webImport = false;
 	
 	public LevelMap (DogLogic dl) {
