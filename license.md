@@ -1,4 +1,4 @@
-Under it's current status this project is available for private download and use only. This license does not expressly permit 
+Under it's current status this project is available for private download and use only. This license does NOT expressly permit 
 redistribution or commercial use.
 
 This project is "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied, including, without limitation, 
