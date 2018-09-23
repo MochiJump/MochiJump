@@ -15,7 +15,7 @@ Recently done:
 
 Focused camera to zoom in on and follow Mochi (improved).
 
-Mochi now bounces off HairClipNPC objects upon destruction.
+Mochi now bounces off certain NPC objects upon destruction.
 
 YLimiter object now defines how far down Mochi can fall before the game ends
 
@@ -23,6 +23,8 @@ Compiled using gradle so dependencies are no longer an issue for reproduction fo
 
 created gradle built fat jar // this file is almost half the size
 
+Finished Goose NPC
+
 To Do:
 
-Finish Goose NPC
+Create Launch4J wrapper
