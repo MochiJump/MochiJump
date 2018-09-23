@@ -1,5 +1,5 @@
 # MochiJump
-Build v0.2.4 (corresponds to MJLE0.1.1) // these versions should be the same for simplicity's sake
+Build v0.2.4 (corresponds to MJLE-0.2.4)
 
 This repository holds my first platformer game built with Java.
 
@@ -12,6 +12,8 @@ Quick link to download runnable jar: https://github.com/AndoryuRenoa/MochiJump/b
 The MochiJump App now can import customer levels built on http://mochijump.com
 
 Recently done:
+
+Added version monitoring
 
 Focused camera to zoom in on and follow Mochi (improved).
 
