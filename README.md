@@ -29,4 +29,4 @@ Finished Goose NPC
 
 To Do:
 
-Created Launch4J wrapper // tested and works not uploaded yet, need .bmp for splash screen and .ico for icon
+Created Launch4J wrapper // tested and works, needs (maybe! .bmp for splash screen and) .ico for icon
