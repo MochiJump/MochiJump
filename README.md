@@ -31,6 +31,6 @@ To Do:
 
 Created Launch4J wrapper // tested and works, needs (maybe! .bmp for splash screen and) .ico for icon
 
-work on left/right walking animation not firing correctly
+work on left/right walking animation not firing correctly (fix by adding boolean for keyPress and adding to landing() method in GameCharacer.java)
 
 work on camera & remove stray JLabel from DogLogic Panel;
