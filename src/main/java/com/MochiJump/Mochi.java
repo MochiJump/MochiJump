@@ -23,16 +23,6 @@ public class Mochi extends PlayerCharacter{
 	}
 	
 	@Override
-	public void setActionToFalse () {
-		mRestR = false;
-		mRestL = false;
-		mRunR = false;
-		mRunL = false;
-		mJumpR = false;
-		mJumpL = false;
-	}
-	
-	@Override
 	public void landing (){
 		if (moveKeyDown == true) {
 			if (mJumpR == true) {
