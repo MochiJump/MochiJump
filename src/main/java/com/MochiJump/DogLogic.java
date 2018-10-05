@@ -27,6 +27,9 @@ public class DogLogic extends JPanel {
 	NoCollideFactory noCollideFactory = new NoCollideFactory (this);
 	int resizeValue = 7;
 	boolean setupCamera = false;
+	Rectangle screenRect;
+	double screenHeight = Toolkit.getDefaultToolkit().getScreenSize().getHeight();
+	double screenWidth = Toolkit.getDefaultToolkit().getScreenSize().getWidth();
 	
 
 	
@@ -36,6 +39,9 @@ public class DogLogic extends JPanel {
 		add(dogPain);
 		gameStart();
 		switcher = s;
+		screenRect = new  Rectangle (0, 0,
+				(int) screenWidth,
+				(int) screenHeight);
 	}
 	
 	public void setupCamera() {
@@ -208,12 +214,16 @@ boolean runAway = false;
 			g2.fill(background);
 			g2.draw(background);
 			for (Rectangle next: plat) {
-				g2.setColor( new Color (130, 87, 27));
-				g2.fill(next);
-				g2.draw(next);
+				if (next.intersects(screenRect) || screenRect.contains(next)) {
+					g2.setColor( new Color (130, 87, 27));
+					g2.fill(next);
+					g2.draw(next);
 				}
+			}
 			for (int i=0; i<animation.size(); i++) {
-				animation.get(i).draw(g2);
+				if(gameCharacters.get(i).mochi.intersects(screenRect) ||
+						screenRect.contains(gameCharacters.get(i).mochi))
+					animation.get(i).draw(g2);
 			}
 		}
 		
