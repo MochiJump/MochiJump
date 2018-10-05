@@ -8,7 +8,6 @@ import javax.swing.AbstractAction;
 import javax.swing.ActionMap;
 import javax.swing.InputMap;
 import javax.swing.JComponent;
-import javax.swing.JLabel;
 import javax.swing.KeyStroke;
 
 
@@ -16,8 +15,48 @@ import javax.swing.KeyStroke;
 
 public class Mochi extends PlayerCharacter{
 	
+	boolean moveKeyDown = false;
+	
+	
 	public Mochi (DogLogic dl){
 		super(dl);
+	}
+	
+	@Override
+	public void setActionToFalse () {
+		mRestR = false;
+		mRestL = false;
+		mRunR = false;
+		mRunL = false;
+		mJumpR = false;
+		mJumpL = false;
+	}
+	
+	@Override
+	public void landing (){
+		if (moveKeyDown == true) {
+			if (mJumpR == true) {
+				setActionToFalse();
+				mRunR=true;
+				moveKeyDown = true;
+				System.out.println("should be running");
+			}
+			else if (mJumpL == true) {
+				setActionToFalse();
+				mRunL=true;
+				moveKeyDown = true;
+			}
+		}else {
+			if (mJumpR == true) {
+				setActionToFalse();
+				mRestR=true;
+				System.out.println("isn't running");
+			}
+			else if (mJumpL == true) {
+				setActionToFalse();
+				mRestL=true;
+			}
+		}
 	}
 
 	
@@ -71,17 +110,20 @@ public class Mochi extends PlayerCharacter{
 			if (jumpChu == false) {
 				setActionToFalse();
 				mRunR = true;
+				moveKeyDown = true;
+				System.out.println("moveKeyDown set true");
 			}
 			if (jumpChu == true) {
 				setActionToFalse();
 				mJumpR = true;
+				moveKeyDown = true;
 			}
 			x +=2 *dogLogic.resizeValue;
 			if (speedX >=-1) {
 				speedX += 1 *dogLogic.resizeValue;
 			}
-			if (speedX >= 1) {
-				speedX = 1*dogLogic.resizeValue;
+			if (speedX >= 1.5*dogLogic.resizeValue) {
+				speedX = (float)1.5*dogLogic.resizeValue;
 			}
 		}
 	}
@@ -91,17 +133,19 @@ public class Mochi extends PlayerCharacter{
 			if (jumpChu == false) {
 				setActionToFalse();
 				mRunL = true;
+				moveKeyDown = true;
 			}
 			if (jumpChu == true) {
 				setActionToFalse();
 				mJumpL = true;
+				moveKeyDown = true;
 			} 
 			x -= 2*dogLogic.resizeValue;
 			if (speedX <=1) {
 				speedX -= 1*dogLogic.resizeValue;
 			}
-			if (speedX <= -1) {
-				speedX = -1*dogLogic.resizeValue;
+			if (speedX <= -1.5*dogLogic.resizeValue) {
+				speedX = (float)-1.5*dogLogic.resizeValue;
 			}
 
 			
@@ -121,13 +165,14 @@ public class Mochi extends PlayerCharacter{
 	class RestRight extends AbstractAction{
 		public void actionPerformed (ActionEvent rr) {
 			if (speedX >0) {
-				speedX -= 1*dogLogic.resizeValue;
+				speedX -= (float)1.5*dogLogic.resizeValue;
 				if (speedX <0) {
 					speedX = 0;
 				}
 				if (speedX == 0 && jumpChu == false) {
 					setActionToFalse();
 					mRestR=true;
+					moveKeyDown = false;
 					
 				}
 				
@@ -137,13 +182,14 @@ public class Mochi extends PlayerCharacter{
 	class RestLeft extends AbstractAction{
 		public void actionPerformed (ActionEvent rr) {
 			if (speedX <0) {
-				speedX += 1* dogLogic.resizeValue;
+				speedX += (float)1.5* dogLogic.resizeValue;
 				if (speedX >0) {
 					speedX = 0;
 				}
 				if (speedX == 0 && jumpChu==false) {
 					setActionToFalse();
 					mRestL=true;
+					moveKeyDown = false;
 					
 				}
 				

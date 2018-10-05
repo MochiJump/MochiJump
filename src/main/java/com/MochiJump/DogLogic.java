@@ -25,9 +25,9 @@ public class DogLogic extends JPanel {
 	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	Switcher switcher;
 	NoCollideFactory noCollideFactory = new NoCollideFactory (this);
-	// alerting resizeValue now has drastic side effects!!
 	int resizeValue = 7;
 	boolean setupCamera = false;
+	
 
 	
 	public DogLogic (Switcher s) {
