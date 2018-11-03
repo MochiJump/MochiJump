@@ -7,7 +7,7 @@ import java.net.URL;
 
 public class VersionChecker {
 	
-	public String version = "0.2.4";
+	public String version = "0.2.5";
 	
 	
 	public String checkVersion() {

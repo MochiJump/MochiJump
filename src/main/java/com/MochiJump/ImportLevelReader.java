@@ -29,7 +29,7 @@ public class ImportLevelReader {
 		
           try {
 
-            URL url = new URL("http://mochijump.com/test/returnAll");
+            URL url = new URL("https://mochijump.com/test/returnAll");
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
             if (conn.getResponseCode() != 200) {
