@@ -1,5 +1,11 @@
 # MochiJump
-Build v0.2.4 (corresponds to MJLE-0.2.4)
+Build v0.2.5 (corresponds to MJLE-0.2.5)
+
+## Notes
+
+Any version older than 0.2.5 will no longer be able to import levels due to encryption
+
+## Misc
 
 This repository holds my first platformer game built with Java.
 
