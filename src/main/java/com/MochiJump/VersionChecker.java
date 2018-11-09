@@ -16,7 +16,7 @@ public class VersionChecker {
 	
 		try {
 			
-			URL url = new URL("http://mochijump.com/test/version");
+			URL url = new URL("https://mochijump.com/test/version");
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 			if (conn.getResponseCode() != 200) {
                 throw new RuntimeException("Failed : HTTP Error code : "
