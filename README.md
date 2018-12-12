@@ -1,6 +1,8 @@
 # MochiJump
 Build v0.2.5 (corresponds to MJLE-0.2.5)
 
+Available to download through https://mochijump.com
+
 ## Notes
 
 Any version older than 0.2.5 will no longer be able to import levels due to encryption
