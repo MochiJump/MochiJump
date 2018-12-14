@@ -1,4 +1,4 @@
-package com.MochiJump;
+package com.mochijump;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -17,7 +17,6 @@ import javax.swing.ActionMap;
 import javax.swing.ImageIcon;
 import javax.swing.InputMap;
 import javax.swing.JComponent;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.KeyStroke;
 
@@ -52,13 +51,22 @@ public class LevelSelector extends JPanel{
 	private Dimension screenSize;
 	
 	int test = 0;
+
+	private double maxHeight;
+	private double maxWidth;
+	private double ratioHeight;
+	private double ratioWidth;
+	ImportLevelReader lr;
 	
-Image mochiFaceState1 = new ImageIcon(this.getClass().getResource("/background.png")).getImage();
+	Image mochiFaceState1 = new ImageIcon(this.getClass().getResource("/background.png")).getImage();
 	
-  JPanel lSPanel = new JPanel();
-  int refreshRate = 30;
-  int currentPanel;
-  Switcher switcher;
+	JPanel lSPanel = new JPanel();
+	int refreshRate = 30;
+	int currentPanel;
+	Switcher switcher;
+	ArrayList <String> levelName;
+	ArrayList <Integer> importOrder;
+
   
   public LevelSelector (Switcher s) {
 		selectionKeyInputs();
@@ -68,20 +76,8 @@ Image mochiFaceState1 = new ImageIcon(this.getClass().getResource("/background.p
 		
 	}
     
-private Action MoveSelectionUp;
-private Action MoveSelectionDown;
-private Action MakeSelection;
-private Action Escape;
-  
-private double maxHeight;
-private double maxWidth;
-private double ratioHeight;
-private double ratioWidth;
-ImportLevelReader lr;
 
 
-ArrayList <String> levelName;
-ArrayList <Integer> importOrder;
   
 public void setCurrentPanel (int option) {
 	this.currentPanel = option;
@@ -172,7 +168,7 @@ private void setPoints() {
 }
   
   private void selectorAni() {
-	  
+	//for later use if we implement an animation  
   }
   
   

@@ -1,4 +1,4 @@
-package com.MochiJump;
+package com.mochijump;
 
 import java.awt.Rectangle;
 import java.awt.Toolkit;
@@ -11,6 +11,8 @@ public abstract class GameCharacter {
 	DogLogic dogLogic;
 	LevelMap levelMap;
 	AnimationInterface animation;
+	
+	
 	
 	int posInGameCharacter;
 	float x;
@@ -31,6 +33,14 @@ public abstract class GameCharacter {
 	boolean uJump;
 	boolean midJump;
 	int jTime = 0;
+	
+	boolean jumpChu = true;			
+ 	Rectangle mochi = new Rectangle((int)(x), (int)(y), (int)(sW), (int)(sH));
+ 	Line2D.Float mright = new Line2D.Float(x+sW, y-5, x+sW, y+sH-5);
+	Line2D.Float mleft = new Line2D.Float(x, y-5, x, y+sH-5);
+	Line2D.Float mtop = new Line2D.Float(x,y,x+sW,y);
+	Line2D.Float mbottom = new Line2D.Float(x, y+sH, x+sW, y+sH);
+	
 
 	
 	public GameCharacter (DogLogic dl) {
@@ -68,13 +78,7 @@ public abstract class GameCharacter {
 	}
 	
 	
-	boolean jumpChu = true;			
- 	Rectangle mochi = new Rectangle((int)(x), (int)(y), (int)(sW), (int)(sH));
- 	Line2D.Float mright = new Line2D.Float(x+sW, y-5, x+sW, y+sH-5);
-	Line2D.Float mleft = new Line2D.Float(x, y-5, x, y+sH-5);
-	Line2D.Float mtop = new Line2D.Float(x,y,x+sW,y);
-	Line2D.Float mbottom = new Line2D.Float(x, y+sH, x+sW, y+sH);
-	
+
 
 	public float getSpeedY(){
 			return this.speedY;

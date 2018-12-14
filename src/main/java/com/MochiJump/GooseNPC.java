@@ -1,14 +1,15 @@
-package com.MochiJump;
+package com.mochijump;
 
 public class GooseNPC extends NonPlayerCharacter {
+	
+	//use standard jump for now
+	JumpInterface jump =  new GooseJump();
+	CollisionInterface collide = new HairClipCollision();
 	
 	public GooseNPC (DogLogic dl) {
 		super(dl);
 	}
 	
-	//use standard jump for now
-	JumpInterface jump =  new GooseJump();
-	CollisionInterface collide = new HairClipCollision();
 	
 	public void mJumpHandler() {
 		jump.jump(this);

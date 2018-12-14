@@ -1,4 +1,4 @@
-package com.MochiJump;
+package com.mochijump;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -7,8 +7,6 @@ import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.Toolkit;
 import java.util.ArrayList;
-import java.util.Collections;
-
 import javax.swing.*;
 
 public class DogLogic extends JPanel {
@@ -30,6 +28,7 @@ public class DogLogic extends JPanel {
 	Rectangle screenRect;
 	double screenHeight = Toolkit.getDefaultToolkit().getScreenSize().getHeight();
 	double screenWidth = Toolkit.getDefaultToolkit().getScreenSize().getWidth();
+	boolean runAway = false;
 	
 
 	
@@ -123,7 +122,7 @@ public class DogLogic extends JPanel {
 		gameThread.start(); 
 	}
 
-boolean runAway = false;
+
 
 	public void gameUpdate () {
 		plat = levelMap.getPlat();

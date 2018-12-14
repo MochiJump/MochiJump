@@ -1,4 +1,4 @@
-package com.MochiJump;
+package com.mochijump;
 
 public class GooseJump implements JumpInterface {
 	

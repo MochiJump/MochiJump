@@ -1,4 +1,4 @@
-package com.MochiJump;
+package com.mochijump;
 
 
 import java.awt.BorderLayout;

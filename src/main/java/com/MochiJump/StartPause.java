@@ -1,5 +1,5 @@
 
-package com.MochiJump;
+package com.mochijump;
 
 import java.awt.Color;
 import java.awt.Dimension;

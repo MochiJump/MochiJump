@@ -1,4 +1,4 @@
-package com.MochiJump;
+package com.mochijump;
 
 import java.awt.Rectangle;
 import java.util.ArrayList;
@@ -15,13 +15,13 @@ public class HairClipCollision implements CollisionInterface {
 		ArrayList<GameCharacter> npcs = new ArrayList<GameCharacter>();
 		
 		for (int i= 0; i<Implementer.dogLogic.gameCharacters.size(); i++) {
-				if(!(i==Implementer.posInGameCharacter)&&
+				if(i!=Implementer.posInGameCharacter&&
 						!(Implementer.dogLogic.gameCharacters.get(i) 
 								instanceof NoCollideCharacter)) {
 					npcs.add(Implementer.dogLogic.gameCharacters.get(i));
 				}
 		}
-int counter = 0;	
+		int counter = 0;	
 		for (GameCharacter next: npcs) {
 			Rectangle p1 = next.mochi;
 			if (Implementer.mochi.intersects(p1)) {

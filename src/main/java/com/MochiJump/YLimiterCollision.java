@@ -1,4 +1,4 @@
-package com.MochiJump;
+package com.mochijump;
 
 import java.awt.Rectangle;
 import java.util.ArrayList;
@@ -12,7 +12,7 @@ public class YLimiterCollision implements CollisionInterface{
 		ArrayList<GameCharacter> npcs = new ArrayList<GameCharacter>();
 		
 		for (int i= 0; i<implementer.dogLogic.gameCharacters.size(); i++) {
-			if(!(i==implementer.posInGameCharacter)&&
+			if(i!=implementer.posInGameCharacter&&
 					!(implementer.dogLogic.gameCharacters.get(i) 
 							instanceof NoCollideCharacter)) {
 					npcs.add(implementer.dogLogic.gameCharacters.get(i));

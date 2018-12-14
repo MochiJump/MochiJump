@@ -1,4 +1,4 @@
-package com.MochiJump;
+package com.mochijump;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -36,7 +36,7 @@ public class GooseAnimation implements AnimationInterface {
 	Image gooseFlyRight2 =  new ImageIcon(this.getClass().getResource("/GooseFlyRight2.png")).getImage();
 	Image gooseFlyLeft1 =  new ImageIcon(this.getClass().getResource("/GooseFlyLeft1.png")).getImage();
 	Image gooseFlyLeft2 =  new ImageIcon(this.getClass().getResource("/GooseFlyLeft2.png")).getImage();
-
+	int counter = 0;
 	
 	
 	Image currentSprite;
@@ -57,7 +57,7 @@ public class GooseAnimation implements AnimationInterface {
 		mJumpL = mochi.mJumpL;
 	}
 
-	int counter = 0;
+
 	
 	public void setCurrentSprite() {
 		if(mRestR) {

@@ -1,4 +1,4 @@
-package com.MochiJump;
+package com.mochijump;
 
 public class YLimiter extends NonPlayerCharacter{
 	

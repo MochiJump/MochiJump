@@ -1,4 +1,4 @@
-package com.MochiJump;
+package com.mochijump;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -13,6 +13,8 @@ public class LevelMap extends JPanel {
 	DogLogic dogLogic;
 	public ArrayList<Rectangle> platlist = new ArrayList<>();
 	boolean webImport = false;
+	int previousPlatY = 0;
+	boolean noWebSetupDone;
 	
 	public LevelMap (DogLogic dl) {
 		dogLogic = dl;
@@ -48,7 +50,6 @@ public class LevelMap extends JPanel {
 		}
 	}
 	
-	int previousPlatY = 0;
 	public void useWebImport(ArrayList<Rectangle> platforms) {
 		ArrayList<Rectangle>OrderedPlat = new ArrayList<Rectangle>();
 		for (int i = 0; i<platforms.size(); i++) {
@@ -106,7 +107,6 @@ public class LevelMap extends JPanel {
 	}
 	
 	// cheap fix for concurrent thread error:
-	boolean noWebSetupDone;
 	public ArrayList<Rectangle> getPlat(){
 		if (webImport == true) {
 				return this.platlist;	

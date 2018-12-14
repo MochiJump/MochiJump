@@ -1,4 +1,4 @@
-package com.MochiJump;
+package com.mochijump;
 
 import java.awt.Rectangle;
 import java.io.BufferedReader;
@@ -82,7 +82,7 @@ public class ImportLevelReader {
 				lMap.addHairClipNPC(level[index].getHairClipStartX().get(i), 
 						level[index].getHairClipStartY().get(i));
 			}
-			if (!(level[index].getGooseStartX()==null)) {
+			if (level[index].getGooseStartX()!=null) {
 				for(int i=0; i<level[index].getGooseStartX().size(); i++) {
 					lMap.addGooseNPC(level[index].getGooseStartX().get(i), 
 							level[index].getGooseStartY().get(i));

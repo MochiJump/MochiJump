@@ -1,4 +1,4 @@
-package com.MochiJump;
+package com.mochijump;
 
 
 import java.awt.event.ActionEvent;
@@ -15,6 +15,9 @@ import javax.swing.KeyStroke;
 
 public class Mochi extends PlayerCharacter{
 	
+	JumpInterface jump = new StandardJump();
+	CollisionInterface collide = new MochiCollision();
+
 	boolean moveKeyDown = false;
 	
 	
@@ -48,11 +51,6 @@ public class Mochi extends PlayerCharacter{
 			}
 		}
 	}
-
-	
-	JumpInterface jump = new StandardJump();
-	CollisionInterface collide = new MochiCollision();
-
 
 	
 	

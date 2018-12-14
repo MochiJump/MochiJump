@@ -1,4 +1,4 @@
-package com.MochiJump;
+package com.mochijump;
 
 public abstract class NonPlayerCharacter extends GameCharacter {
 	

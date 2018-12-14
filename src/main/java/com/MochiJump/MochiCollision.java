@@ -1,4 +1,4 @@
-package com.MochiJump;
+package com.mochijump;
 
 import java.awt.Rectangle;
 import java.awt.geom.Line2D;
