@@ -3,8 +3,6 @@ package com.mochijump;
 import java.awt.Rectangle;
 import java.util.ArrayList;
 
-import javax.swing.JOptionPane;
-
 public class YLimiterCollision implements CollisionInterface{
 	int counter = 0;
 	public void collide(GameCharacter implementer) {
