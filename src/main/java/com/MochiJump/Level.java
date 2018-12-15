@@ -8,31 +8,18 @@ import java.util.ArrayList;
 public class Level {
 	
 	private Integer id;
-	
 	private String 	levelName;
-	
 	private ArrayList<Integer> startX;
-	
 	private ArrayList<Integer> startY;
-	
 	private ArrayList<Integer> width;
-	
 	private ArrayList<Integer> height;
-	
-	private ArrayList<Integer> hairClipStartX;
-	
+	private ArrayList<Integer> hairClipStartX;	
 	private ArrayList<Integer> hairClipStartY;
-	
 	private ArrayList<Integer> gooseStartX;
-	
 	private ArrayList<Integer> gooseStartY;
-	
 	private int goalStartX;
-	
 	private int goalStartY;
-	
 	private int mochiStartX;
-	
 	private int mochiStartY;
 	
 	

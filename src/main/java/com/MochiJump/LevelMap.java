@@ -10,7 +10,7 @@ public class LevelMap extends JPanel {
 	double keepHeight = Toolkit.getDefaultToolkit().getScreenSize().getHeight()/786;
 	double keepWidth = Toolkit.getDefaultToolkit().getScreenSize().getWidth()/1336;
 	double reSizer = 7;
-	DogLogic dogLogic;
+	private DogLogic dogLogic;
 	public ArrayList<Rectangle> platlist = new ArrayList<>();
 	boolean webImport = false;
 	int previousPlatY = 0;

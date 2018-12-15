@@ -10,25 +10,25 @@ import java.util.ArrayList;
 import javax.swing.*;
 
 public class DogLogic extends JPanel {
-	int currentPanel;
-	JPanel dogPain;
-	LevelMap levelMap;
-	AnimationFactory animationFactory = new AnimationFactory();
-	ArrayList <Rectangle> plat = new ArrayList<Rectangle>();
-	ArrayList <AnimationInterface> animation = new ArrayList <AnimationInterface>();
-	ArrayList <GameCharacter> gameCharacters = new ArrayList <GameCharacter>();
-	int refreshRate = 40;
-	Rectangle background = new Rectangle (0,0,10000,10000);
-	Color skyblue = new Color (102, 204, 255);
-	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-	Switcher switcher;
-	NoCollideFactory noCollideFactory = new NoCollideFactory (this);
-	int resizeValue = 7;
-	boolean setupCamera = false;
-	Rectangle screenRect;
-	double screenHeight = Toolkit.getDefaultToolkit().getScreenSize().getHeight();
-	double screenWidth = Toolkit.getDefaultToolkit().getScreenSize().getWidth();
-	boolean runAway = false;
+	private int currentPanel;
+	private JPanel dogPain;
+	public LevelMap levelMap;
+	private AnimationFactory animationFactory = new AnimationFactory();
+	public ArrayList <Rectangle> plat = new ArrayList<Rectangle>();
+	private ArrayList <AnimationInterface> animation = new ArrayList <AnimationInterface>();
+	public ArrayList <GameCharacter> gameCharacters = new ArrayList <GameCharacter>();
+	private int refreshRate = 40;
+	private Rectangle background = new Rectangle (0,0,10000,10000);
+	private Color skyblue = new Color (102, 204, 255);
+	private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+	public Switcher switcher;
+	private NoCollideFactory noCollideFactory = new NoCollideFactory (this);
+	public int resizeValue = 7;
+	private boolean setupCamera = false;
+	private Rectangle screenRect;
+	private double screenHeight = Toolkit.getDefaultToolkit().getScreenSize().getHeight();
+	private double screenWidth = Toolkit.getDefaultToolkit().getScreenSize().getWidth();
+	public boolean runAway = false;
 	
 
 	

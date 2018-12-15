@@ -1,7 +1,7 @@
 package com.mochijump;
 
 public class NoCollideFactory {
-	DogLogic dogLogic;
+	private DogLogic dogLogic;
 	
 	public NoCollideFactory (DogLogic dl) {
 		dogLogic = dl;

@@ -2,8 +2,8 @@ package com.mochijump;
 
 public class GoalNPC extends NonPlayerCharacter {
 	
-	JumpInterface jump = new StandardJump();
-	CollisionInterface collide = new GoalCollision();
+	private JumpInterface jump = new StandardJump();
+	private CollisionInterface collide = new GoalCollision();
 	
 	public GoalNPC (DogLogic dl) {
 		super(dl);

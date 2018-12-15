@@ -10,13 +10,13 @@ import javax.swing.JPanel;
 import java.awt.LayoutManager;
 
 public class Switcher extends JFrame{
-	int currentPanel = 0;
-	DogLogic dogLogic = new DogLogic(this);
-	StartPause startPause;
-	LevelSelector levelSelector= new LevelSelector(this);
-	JFrame frame = new JFrame ("Mochi Jump");
-	boolean escapeUsed;
-	boolean showContinue;
+	public int currentPanel = 0;
+	public DogLogic dogLogic = new DogLogic(this);
+	public StartPause startPause;
+	public LevelSelector levelSelector= new LevelSelector(this);
+	private JFrame frame = new JFrame ("Mochi Jump");
+	public boolean escapeUsed;
+	public boolean showContinue;
 
 	
 	// for changePanel (1) is startPause (2) is dogLogic (3) is levelSelector

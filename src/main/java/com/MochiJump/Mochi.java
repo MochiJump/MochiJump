@@ -15,10 +15,10 @@ import javax.swing.KeyStroke;
 
 public class Mochi extends PlayerCharacter{
 	
-	JumpInterface jump = new StandardJump();
-	CollisionInterface collide = new MochiCollision();
+	private JumpInterface jump = new StandardJump();
+	private CollisionInterface collide = new MochiCollision();
 
-	boolean moveKeyDown = false;
+	private	boolean moveKeyDown = false;
 	
 	
 	public Mochi (DogLogic dl){

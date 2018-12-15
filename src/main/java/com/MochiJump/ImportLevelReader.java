@@ -16,10 +16,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 
 public class ImportLevelReader {
-		LevelMap lMap;
-		Level[] level;
-		ArrayList <Rectangle> platforms = new ArrayList<>();
-		ArrayList <String> names = new ArrayList<>();
+	private LevelMap lMap;
+	private Level[] level;
+	private ArrayList <Rectangle> platforms = new ArrayList<>();
+	public ArrayList <String> names = new ArrayList<>();
 
 	
 	 public void ReadRest (LevelMap lm) {

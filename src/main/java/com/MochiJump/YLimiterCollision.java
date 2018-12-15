@@ -4,7 +4,7 @@ import java.awt.Rectangle;
 import java.util.ArrayList;
 
 public class YLimiterCollision implements CollisionInterface{
-	int counter = 0;
+	private int counter = 0;
 	public void collide(GameCharacter implementer) {
 		
 		ArrayList<GameCharacter> npcs = new ArrayList<GameCharacter>();

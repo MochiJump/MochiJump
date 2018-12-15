@@ -9,37 +9,32 @@ import javax.swing.ImageIcon;
 public class HairClipNoCollideAnimation implements AnimationInterface{
 	DogLogic dogLogic;
 	
-	//need to finish making images for this class.
-	Image ms = new ImageIcon(this.getClass().getResource("/hClipL2F1.png")).getImage();
-	Image hcl2 = new ImageIcon(this.getClass().getResource("/hClipL2F2.png")).getImage();
-	Image hcl3 = new ImageIcon(this.getClass().getResource("/hClipL2F3.png")).getImage();	
+	private Image ms = new ImageIcon(this.getClass().getResource("/hClipL2F1.png")).getImage();
+	private Image hcl2 = new ImageIcon(this.getClass().getResource("/hClipL2F2.png")).getImage();
+	private Image hcl3 = new ImageIcon(this.getClass().getResource("/hClipL2F3.png")).getImage();	
 	
-	Image msr = new ImageIcon(this.getClass().getResource("/hClipR2F1.png")).getImage();
-	Image hcr2 =  new ImageIcon(this.getClass().getResource("/hClipR2F2.png")).getImage();
-	Image hcr3 = new ImageIcon(this.getClass().getResource("/hClipR2F3.png")).getImage();
+	private Image msr = new ImageIcon(this.getClass().getResource("/hClipR2F1.png")).getImage();
+	private Image hcr2 =  new ImageIcon(this.getClass().getResource("/hClipR2F2.png")).getImage();
+	private Image hcr3 = new ImageIcon(this.getClass().getResource("/hClipR2F3.png")).getImage();
 	
-	Image currentSprite;
+	private Image currentSprite;
 	
 	
 		
-	int aniTime = 1;
-	int sW = 21;
-	int sH = 14;
-	int x;
-	int y;
+	private int aniTime = 1;
+	private int sW = 21;
+	private int sH = 14;
+	private int x;
+	private int y;
 
 
 
-	int speedY;
-	int speedX;
-	boolean mRestR;
-	boolean mRestL;
-	boolean mRunR;
-	boolean mRunL;
-	boolean mJumpR;
-	boolean mJumpL;
-	boolean uJump;
-	boolean midJump;
+	private boolean mRestR;
+	private boolean mRestL;
+	private boolean mRunR;
+	private boolean mRunL;
+	private boolean mJumpR;
+	private boolean mJumpL;
 	
 	
 
@@ -48,16 +43,12 @@ public class HairClipNoCollideAnimation implements AnimationInterface{
 		y = (int) mochi.getY();
 		sH = (int)mochi.getsH();
 		sW = (int)mochi.getsW();
-		speedY = (int) mochi.getSpeedY();
-		speedX = (int) mochi.getSpeedX();
 		mRestR = mochi.mRestR;
 		mRestL = mochi.mRestL;
 		mRunR = mochi.mRunR;
 		mRunL = mochi.mRunL;
 		mJumpR = mochi.mJumpR;
 		mJumpL = mochi.mJumpL;
-		uJump = mochi.uJump;
-		midJump = mochi.midJump;
 	}
 	
 

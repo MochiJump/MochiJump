@@ -2,7 +2,7 @@ package com.mochijump;
 
 public class YLimiter extends NonPlayerCharacter{
 	
-	CollisionInterface collide = new YLimiterCollision();
+	private CollisionInterface collide = new YLimiterCollision();
 
 	
 	// the only thing this class is here for is to mark the lowest point

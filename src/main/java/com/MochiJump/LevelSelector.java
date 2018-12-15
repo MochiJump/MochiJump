@@ -20,13 +20,6 @@ import javax.swing.JPanel;
 import javax.swing.KeyStroke;
 
 
-/*
- * This would change if we only had a list of names initially
- * 
-*/
-
-
-
 
 public class LevelSelector extends JPanel{
 
@@ -49,7 +42,6 @@ public class LevelSelector extends JPanel{
 	
 	private Dimension screenSize;
 	
-	int test = 0;
 
 	private double maxHeight;
 	private double maxWidth;

@@ -8,25 +8,21 @@ import javax.swing.ImageIcon;
 
 public class GooseAnimation implements AnimationInterface {
 	
-	int aniTime = 1;
-	int sW = 21;
-	int sH = 14;
-	int x;
-	int y;
-	GameCharacter npc;
-	int aniTimer=0;
+	private int sW = 21;
+	private int sH = 14;
+	private int x;
+	private int y;
+	private int aniTimer=0;
 
 
-	int speedY;
-	int speedX;
-	boolean mRestR;
-	boolean mRestL;
-	boolean mRunR;
-	boolean mRunL;
-	boolean mJumpR;
-	boolean mJumpL;
-	boolean uJump;
-	boolean midJump;
+
+	private boolean mRestR;
+	private boolean mRestL;
+	private boolean mRunR;
+	private boolean mRunL;
+	private boolean mJumpR;
+	private boolean mJumpL;
+
 	
 	Image gooseStandRight =  new ImageIcon(this.getClass().getResource("/GooseStandRight.png")).getImage();
 	Image gooseWalkRight =  new ImageIcon(this.getClass().getResource("/GooseWalkRight.png")).getImage();
@@ -42,13 +38,10 @@ public class GooseAnimation implements AnimationInterface {
 	Image currentSprite;
 	
 	public void aniVarUpdate (GameCharacter mochi) {
-		npc = mochi;
 		x = (int) mochi.getX();
 		y = (int) mochi.getY();
 		sH = (int)mochi.getsH();
 		sW = (int)mochi.getsW();
-		speedY = (int) mochi.getSpeedY();
-		speedX = (int) mochi.getSpeedX();
 		mRestR = mochi.mRestR;
 		mRestL = mochi.mRestL;
 		mRunR = mochi.mRunR;

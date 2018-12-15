@@ -4,12 +4,13 @@ package com.mochijump;
 
 public class HairClipNPC extends NonPlayerCharacter {
 	
+	private JumpInterface jump = new StandardJump();
+	private CollisionInterface collide = new HairClipCollision();
+
 	public HairClipNPC (DogLogic dl) {
 		super (dl);
 	}
 	
-	JumpInterface jump = new StandardJump();
-	CollisionInterface collide = new HairClipCollision();
 	
 	public void mJumpHandler () {	
 		jump.jump(this);

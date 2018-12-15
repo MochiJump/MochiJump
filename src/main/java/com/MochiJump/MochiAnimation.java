@@ -8,39 +8,36 @@ import javax.swing.ImageIcon;
 
 public class MochiAnimation implements AnimationInterface{
 	DogLogic dogLogic;
-	// very strange below requires /resources for runnable jar but doesn't work in eclipse if used
-	Image ms = new ImageIcon(this.getClass().getResource("/mochirs.png")).getImage();
-	Image msr = new ImageIcon(this.getClass().getResource("/mochirsr.png")).getImage();
-	Image mws = new ImageIcon(this.getClass().getResource("/mochiws.png")).getImage();
-	Image mwsr = new ImageIcon (this.getClass().getResource("/mochiwsr.png")).getImage();
-	Image mjc1 = new ImageIcon (this.getClass().getResource("/mochijs1.png")).getImage();
-	Image mjc2 = new ImageIcon (this.getClass().getResource("/mochijs2.png")).getImage();
-	Image mjc3 = new ImageIcon (this.getClass().getResource("/mochijs3.png")).getImage();
-	Image mjc1r = new ImageIcon (this.getClass().getResource("/mochijs1r.png")).getImage();
-	Image mjc2r = new ImageIcon (this.getClass().getResource("/mochijs2r.png")).getImage();
-	Image mjc3r = new ImageIcon (this.getClass().getResource("/mochijs3r.png")).getImage();
-	Image currentSprite;
+	private Image ms = new ImageIcon(this.getClass().getResource("/mochirs.png")).getImage();
+	private Image msr = new ImageIcon(this.getClass().getResource("/mochirsr.png")).getImage();
+	private Image mws = new ImageIcon(this.getClass().getResource("/mochiws.png")).getImage();
+	private Image mwsr = new ImageIcon (this.getClass().getResource("/mochiwsr.png")).getImage();
+	private Image mjc1 = new ImageIcon (this.getClass().getResource("/mochijs1.png")).getImage();
+	private Image mjc2 = new ImageIcon (this.getClass().getResource("/mochijs2.png")).getImage();
+	private Image mjc3 = new ImageIcon (this.getClass().getResource("/mochijs3.png")).getImage();
+	private Image mjc1r = new ImageIcon (this.getClass().getResource("/mochijs1r.png")).getImage();
+	private Image mjc2r = new ImageIcon (this.getClass().getResource("/mochijs2r.png")).getImage();
+	private Image mjc3r = new ImageIcon (this.getClass().getResource("/mochijs3r.png")).getImage();
+	private Image currentSprite;
 	
 	
 		
-	int aniTime = 1;
-	int sW = 21;
-	int sH = 14;
-	int x;
-	int y;
+	private int aniTime = 1;
+	private int sW = 21;
+	private int sH = 14;
+	private int x;
+	private int y;
 
 
 
-	int speedY;
-	int speedX;
-	boolean mRestR;
-	boolean mRestL;
-	boolean mRunR;
-	boolean mRunL;
-	boolean mJumpR;
-	boolean mJumpL;
-	boolean uJump;
-	boolean midJump;
+	private boolean mRestR;
+	private boolean mRestL;
+	private boolean mRunR;
+	private boolean mRunL;
+	private boolean mJumpR;
+	private boolean mJumpL;
+	private boolean uJump;
+	private boolean midJump;
 	
 	
 
@@ -49,8 +46,6 @@ public class MochiAnimation implements AnimationInterface{
 		y = (int) mochi.getY();
 		sH = (int)mochi.getsH();
 		sW = (int)mochi.getsW();
-		speedY = (int) mochi.getSpeedY();
-		speedX = (int) mochi.getSpeedX();
 		mRestR = mochi.mRestR;
 		mRestL = mochi.mRestL;
 		mRunR = mochi.mRunR;

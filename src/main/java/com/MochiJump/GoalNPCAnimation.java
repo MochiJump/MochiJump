@@ -7,30 +7,26 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 
 public class GoalNPCAnimation implements AnimationInterface {
-	Image goalAni =  new ImageIcon(this.getClass().getResource("/ball.png")).getImage();
-	Image currentSprite;
-	GameCharacter npc;
+	private Image goalAni =  new ImageIcon(this.getClass().getResource("/ball.png")).getImage();
+	private Image currentSprite;
+	private GameCharacter npc;
 	
 	
 		
-	int aniTime = 1;
-	int sW = 21;
-	int sH = 14;
-	int x;
-	int y;
+	private int aniTime = 1;
+	private int sW = 21;
+	private int sH = 14;
+	private int x;
+	private int y;
 
 
 
-	int speedY;
-	int speedX;
-	boolean mRestR;
-	boolean mRestL;
-	boolean mRunR;
-	boolean mRunL;
-	boolean mJumpR;
-	boolean mJumpL;
-	boolean uJump;
-	boolean midJump;
+	private boolean mRestR;
+	private boolean mRestL;
+	private boolean mRunR;
+	private boolean mRunL;
+	private boolean mJumpR;
+	private boolean mJumpL;
 	
 	
 // right now I want to change the height of the sprite for the purposes of animating the bouncing ball (below sH).
@@ -42,16 +38,12 @@ public class GoalNPCAnimation implements AnimationInterface {
 		y = (int) mochi.getY();
 		sH = (int)mochi.getsH();
 		sW = (int)mochi.getsW();
-		speedY = (int) mochi.getSpeedY();
-		speedX = (int) mochi.getSpeedX();
 		mRestR = mochi.mRestR;
 		mRestL = mochi.mRestL;
 		mRunR = mochi.mRunR;
 		mRunL = mochi.mRunL;
 		mJumpR = mochi.mJumpR;
 		mJumpL = mochi.mJumpL;
-		uJump = mochi.uJump;
-		midJump = mochi.midJump;
 	}
 	
 
