@@ -137,7 +137,7 @@ public class DogLogic extends JPanel {
 			gameCharacters.get(i).boundaryRules();
 		}
 		for (int i=0; i<animation.size(); i++) {
-			animation.get(i).AniVarUpdate(this.gameCharacters.get(i));
+			animation.get(i).aniVarUpdate(this.gameCharacters.get(i));
 		}
 		
 		if (runAway == true) {

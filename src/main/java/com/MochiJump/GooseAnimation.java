@@ -41,7 +41,7 @@ public class GooseAnimation implements AnimationInterface {
 	
 	Image currentSprite;
 	
-	public void AniVarUpdate (GameCharacter mochi) {
+	public void aniVarUpdate (GameCharacter mochi) {
 		npc = mochi;
 		x = (int) mochi.getX();
 		y = (int) mochi.getY();

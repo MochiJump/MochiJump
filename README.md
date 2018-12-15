@@ -1,7 +1,7 @@
 # MochiJump
 Build v0.2.5 (corresponds to MJLE-0.2.5)
 
-Available to download through https://mochijump.com
+Available to download through <https://mochijump.com>
 
 ## Notes
 
@@ -11,13 +11,13 @@ Any version older than 0.2.5 will no longer be able to import levels due to encr
 
 This repository holds my first platformer game built with Java.
 
-*Note: this project uses Gradle to manage it's dependencies*
+This project uses Gradle to manage it's dependencies
 
 /dist holds a runnable jar of a recent version build of the game 
 
-Quick link to download runnable jar: https://github.com/AndoryuRenoa/MochiJump/blob/master/dist/MochiJump.jar?raw=true
+Quick link to download runnable jar: <https://github.com/AndoryuRenoa/MochiJump/blob/master/dist/MochiJump.jar?raw=true>
 
-The MochiJump App now can import customer levels built on http://mochijump.com
+The MochiJump App now can import customer levels built on <http://mochijump.com>
 
 Recently done:
 
@@ -39,4 +39,4 @@ To Do:
 
 Created Launch4J wrapper // tested and works, needs (maybe! .bmp for splash screen and) .ico for icon
 
-remove stray JLabel from DogLogic Panel;
+remove stray JLabel from DogLogic Panel

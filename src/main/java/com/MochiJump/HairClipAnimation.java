@@ -44,7 +44,7 @@ public class HairClipAnimation implements AnimationInterface{
 	
 	
 
-	public void AniVarUpdate (GameCharacter mochi) {
+	public void aniVarUpdate (GameCharacter mochi) {
 		x = (int) mochi.getX();
 		y = (int) mochi.getY();
 		sH = (int)mochi.getsH();

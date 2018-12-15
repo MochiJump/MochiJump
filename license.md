@@ -5,4 +5,3 @@ This project is "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, eit
 any warranties or conditions of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A PARTICULAR PURPOSE. 
 You are solely responsible for determining the appropriateness of using or redistributing the Work and assume any risks 
 associated with Your exercise of permissions under this License.
-
