@@ -1,13 +1,7 @@
 package com.mochijump;
 
 
-import java.awt.BorderLayout;
-import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.Toolkit;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-import java.awt.LayoutManager;
 
 public class Switcher extends JFrame{
 	public int currentPanel = 0;

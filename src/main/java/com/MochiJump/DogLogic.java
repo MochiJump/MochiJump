@@ -11,7 +11,6 @@ import javax.swing.*;
 
 public class DogLogic extends JPanel {
 	private int currentPanel;
-	private JPanel dogPain;
 	public LevelMap levelMap;
 	private AnimationFactory animationFactory = new AnimationFactory();
 	public ArrayList <Rectangle> plat = new ArrayList<Rectangle>();
@@ -34,7 +33,7 @@ public class DogLogic extends JPanel {
 	
 	public DogLogic (Switcher s) {
 		levelMap = new LevelMap(this);
-		dogPain = new JPanel();
+		JPanel dogPain = new JPanel();
 		add(dogPain);
 		gameStart();
 		switcher = s;

@@ -164,7 +164,6 @@ private void setPoints() {
   
   
   public void draw (Graphics g){
-	  Color white = new Color(255,255,255);
 	  Graphics2D mochiIcon = (Graphics2D) g.create();
 	  Graphics2D Message1 = (Graphics2D) g.create();
 	  Graphics2D Message2 = (Graphics2D) g.create();

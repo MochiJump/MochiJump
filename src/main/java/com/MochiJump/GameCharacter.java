@@ -5,7 +5,6 @@ import java.awt.Toolkit;
 import java.awt.geom.Line2D;
 
 public abstract class GameCharacter {
-	private AnimationFactory animationFactory = new AnimationFactory();
 	private JumpInterface jump;
 	private CollisionInterface collide;
 	public DogLogic dogLogic;

@@ -13,7 +13,6 @@ public class MochiCollision implements CollisionInterface {
 		Implementer.x = Implementer.x+Implementer.speedX;
 		Implementer.mBoundaries();
 		Implementer.mJumpHandler();
-		ArrayList<Rectangle> platlist = Implementer.dogLogic.levelMap.getPlat();
 		ArrayList<NonPlayerCharacter> npcs = new ArrayList<NonPlayerCharacter>();
 		
 		// adds npcs to list while skipping mochi
