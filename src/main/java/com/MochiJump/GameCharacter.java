@@ -13,32 +13,32 @@ public abstract class GameCharacter {
 	
 	
 	
-	int posInGameCharacter;
-	float x;
-	float y;
-	double keepHeight = Toolkit.getDefaultToolkit().getScreenSize().getHeight()/768;
-	double keepWidth = Toolkit.getDefaultToolkit().getScreenSize().getWidth()/1336;
-	double resizer = 1;
-	float speedX = 0;
-	float speedY = 3;
-	float sH = 14;
-	float sW = 21;
-	boolean mRestR;
-	boolean mRestL;
-	boolean mRunR;
-	boolean mRunL;
-	boolean mJumpR = true;
-	boolean mJumpL;
-	boolean uJump;
-	boolean midJump;
-	int jTime = 0;
+	public int posInGameCharacter;
+	public float x;
+	public float y;
+	public double keepHeight = Toolkit.getDefaultToolkit().getScreenSize().getHeight()/768;
+	public double keepWidth = Toolkit.getDefaultToolkit().getScreenSize().getWidth()/1336;
+	public double resizer = 1;
+	public float speedX = 0;
+	public float speedY = 3;
+	public float sH = 14;
+	public float sW = 21;
+	public boolean mRestR;
+	public boolean mRestL;
+	public boolean mRunR;
+	public boolean mRunL;
+	public boolean mJumpR = true;
+	public boolean mJumpL;
+	public boolean uJump;
+	public boolean midJump;
+	public int jTime = 0;
 	
-	boolean jumpChu = true;			
- 	Rectangle mochi = new Rectangle((int)(x), (int)(y), (int)(sW), (int)(sH));
- 	Line2D.Float mright = new Line2D.Float(x+sW, y-5, x+sW, y+sH-5);
-	Line2D.Float mleft = new Line2D.Float(x, y-5, x, y+sH-5);
-	Line2D.Float mtop = new Line2D.Float(x,y,x+sW,y);
-	Line2D.Float mbottom = new Line2D.Float(x, y+sH, x+sW, y+sH);
+	public boolean jumpChu = true;			
+	public Rectangle mochi = new Rectangle((int)(x), (int)(y), (int)(sW), (int)(sH));
+	public Line2D.Float mright = new Line2D.Float(x+sW, y-5, x+sW, y+sH-5);
+	public Line2D.Float mleft = new Line2D.Float(x, y-5, x, y+sH-5);
+	public Line2D.Float mtop = new Line2D.Float(x,y,x+sW,y);
+	public Line2D.Float mbottom = new Line2D.Float(x, y+sH, x+sW, y+sH);
 	
 
 	
