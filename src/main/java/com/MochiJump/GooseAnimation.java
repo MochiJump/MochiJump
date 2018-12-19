@@ -24,15 +24,15 @@ public class GooseAnimation implements AnimationInterface {
 	private boolean mJumpL;
 
 	
-	Image gooseStandRight =  new ImageIcon(this.getClass().getResource("/GooseStandRight.png")).getImage();
-	Image gooseWalkRight =  new ImageIcon(this.getClass().getResource("/GooseWalkRight.png")).getImage();
-	Image gooseStandLeft =  new ImageIcon(this.getClass().getResource("/GooseStandLeft.png")).getImage();
-	Image gooseWalkLeft =  new ImageIcon(this.getClass().getResource("/GooseWalkLeft.png")).getImage();
-	Image gooseFlyRight1 =  new ImageIcon(this.getClass().getResource("/GooseFlyRight1.png")).getImage();
-	Image gooseFlyRight2 =  new ImageIcon(this.getClass().getResource("/GooseFlyRight2.png")).getImage();
-	Image gooseFlyLeft1 =  new ImageIcon(this.getClass().getResource("/GooseFlyLeft1.png")).getImage();
-	Image gooseFlyLeft2 =  new ImageIcon(this.getClass().getResource("/GooseFlyLeft2.png")).getImage();
-	int counter = 0;
+	private Image gooseStandRight =  new ImageIcon(this.getClass().getResource("/GooseStandRight.png")).getImage();
+	private Image gooseWalkRight =  new ImageIcon(this.getClass().getResource("/GooseWalkRight.png")).getImage();
+	private Image gooseStandLeft =  new ImageIcon(this.getClass().getResource("/GooseStandLeft.png")).getImage();
+	private Image gooseWalkLeft =  new ImageIcon(this.getClass().getResource("/GooseWalkLeft.png")).getImage();
+	private Image gooseFlyRight1 =  new ImageIcon(this.getClass().getResource("/GooseFlyRight1.png")).getImage();
+	private Image gooseFlyRight2 =  new ImageIcon(this.getClass().getResource("/GooseFlyRight2.png")).getImage();
+	private Image gooseFlyLeft1 =  new ImageIcon(this.getClass().getResource("/GooseFlyLeft1.png")).getImage();
+	private Image gooseFlyLeft2 =  new ImageIcon(this.getClass().getResource("/GooseFlyLeft2.png")).getImage();
+	private int counter = 0;
 	
 	
 	Image currentSprite;
