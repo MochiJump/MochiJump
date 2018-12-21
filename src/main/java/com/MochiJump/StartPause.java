@@ -45,11 +45,16 @@ public class StartPause extends JPanel {
 	private int setSelectorPointDx;
 	private int setSelectorPointDy;
 	
+	int cv = 0;
+	String versionMessage = "";
+	
 	private int setSelectorPointX= 10000;
 	private int setSelectorPointY=10000;
 	
 	private int selectorAniCounter;
 	public Dimension screenSize;
+	Toolkit toolkit = Toolkit.getDefaultToolkit();
+	int sizeChange;
 	
 	
 	Image mochiFaceState1 = new ImageIcon(this.getClass().getResource("/background.png")).getImage(); //<-- consider changing png file name
@@ -110,8 +115,7 @@ public class StartPause extends JPanel {
 		startPauseThread.start();
 	}
 	
-	int cv = 0;
-	String versionMessage = "";
+
 	
 	public void checkVersion() {
 		if (cv<1) {
@@ -128,7 +132,7 @@ public class StartPause extends JPanel {
 		selectorAni();
 	}
 	
-	Toolkit toolkit = Toolkit.getDefaultToolkit();
+
 	
 	private void screenSizeCheck(){
 	  screenSize = toolkit.getScreenSize();
@@ -143,7 +147,7 @@ public class StartPause extends JPanel {
 		ratioWidth = maxWidth/1366;
 	}
 	
-	int sizeChange;
+
 	
 	
 	private void setPoints() {
