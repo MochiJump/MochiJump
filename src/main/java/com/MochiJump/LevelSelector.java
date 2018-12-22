@@ -22,6 +22,8 @@ import javax.swing.KeyStroke;
 
 
 public class LevelSelector extends JPanel{
+	
+	private Toolkit toolkit = Toolkit.getDefaultToolkit();
 
 	private int setPointAx;
 	private int setPointAy;
@@ -130,7 +132,7 @@ private void menuUpdate(){
 	selectorAni();
 }
 
-Toolkit toolkit = Toolkit.getDefaultToolkit();
+
 
 private void screenSizeCheck(){
   screenSize = switcher.startPause.getSize();
