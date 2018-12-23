@@ -7,14 +7,14 @@ import javax.swing.JPanel;
 
 public class LevelMap extends JPanel {
 
-	double keepHeight = Toolkit.getDefaultToolkit().getScreenSize().getHeight()/786;
-	double keepWidth = Toolkit.getDefaultToolkit().getScreenSize().getWidth()/1336;
-	double reSizer = 7;
+	private double keepHeight = Toolkit.getDefaultToolkit().getScreenSize().getHeight()/786;
+	private double keepWidth = Toolkit.getDefaultToolkit().getScreenSize().getWidth()/1336;
+	private double reSizer = 7;
 	private DogLogic dogLogic;
 	public ArrayList<Rectangle> platlist = new ArrayList<>();
-	boolean webImport = false;
-	int previousPlatY = 0;
-	boolean noWebSetupDone;
+	private boolean webImport = false;
+	private int previousPlatY = 0;
+	private boolean noWebSetupDone;
 	
 	public LevelMap (DogLogic dl) {
 		dogLogic = dl;
@@ -22,31 +22,28 @@ public class LevelMap extends JPanel {
 	}
 	
 	
-	private void addPlat (int x, int y, int width, int height){	
-	
-		
-		
-	platlist.add (new Rectangle ((int)(x*keepWidth*reSizer),(int)(keepHeight*reSizer*y),(int)(width*keepWidth*reSizer), 
-			(int)(keepHeight*reSizer*height)));	
+	private void addPlat (int x, int y, int width, int height){			
+		platlist.add (new Rectangle ((int)(x*keepWidth*reSizer),(int)(keepHeight*reSizer*y),(int)(width*keepWidth*reSizer), 
+				(int)(keepHeight*reSizer*height)));	
 	}
     
 	private void noWebPlatSetup() {
 		if (!webImport) {
-	addPlat((int)(0), (int) (500), 
-			(int) (1000), (int) (500));
-	addPlat((int) (250),(int) ((500-35)),
-			(int) (100),(int) (10));
-	addPlat((int) (120), (int) ((500-70)), 
-			(int) (100),(int) (10));
-	addPlat((int) (250),(int) ((500-35*3)),
-			(int) (100),(int) (10));
-	dogLogic.addGameCharacter (new HairClipNPC(dogLogic), 150, 50);
-	dogLogic.addGameCharacter (new HairClipNPC(dogLogic), 300, 100);
-	dogLogic.addGameCharacter(new HairClipNPC(dogLogic), 500, 300);
-	dogLogic.addGameCharacter(new GoalNPC(dogLogic), 700, 400);
-	dogLogic.addGameCharacter(new GooseNPC(dogLogic), 800, 400);
-	addYLimiter();
-	dogLogic.addGameCharacter (new Mochi(dogLogic), 0, 0);
+			addPlat((int)(0), (int) (500), 
+					(int) (1000), (int) (500));
+			addPlat((int) (250),(int) ((500-35)),
+					(int) (100),(int) (10));
+			addPlat((int) (120), (int) ((500-70)), 
+					(int) (100),(int) (10));
+			addPlat((int) (250),(int) ((500-35*3)),
+					(int) (100),(int) (10));
+			dogLogic.addGameCharacter (new HairClipNPC(dogLogic), 150, 50);
+			dogLogic.addGameCharacter (new HairClipNPC(dogLogic), 300, 100);
+			dogLogic.addGameCharacter(new HairClipNPC(dogLogic), 500, 300);
+			dogLogic.addGameCharacter(new GoalNPC(dogLogic), 700, 400);
+			dogLogic.addGameCharacter(new GooseNPC(dogLogic), 800, 400);
+			addYLimiter();
+			dogLogic.addGameCharacter (new Mochi(dogLogic), 0, 0);
 		}
 	}
 	
