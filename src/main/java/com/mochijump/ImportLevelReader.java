@@ -20,7 +20,7 @@ public class ImportLevelReader {
 	private Level[] level;
 	private ArrayList <Rectangle> platforms = new ArrayList<>();
 	public ArrayList <String> names = new ArrayList<>();
-
+	private final ImportLevelConfig config = new ImportLevelConfig();
 	
 	 public void ReadRest (LevelMap lm) {
 		ObjectMapper mapper = new ObjectMapper();
@@ -28,8 +28,8 @@ public class ImportLevelReader {
         String output2 = null;
 		
           try {
-
-            URL url = new URL("https://mochijump.com/test/returnAll");
+          	//TODO make configurable.
+            URL url = new URL(this.config.getImportURL());
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
             if (conn.getResponseCode() != 200) {

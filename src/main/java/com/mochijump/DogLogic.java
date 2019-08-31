@@ -9,6 +9,11 @@ import java.awt.Toolkit;
 import java.util.ArrayList;
 import javax.swing.*;
 
+/**
+ * This class is responsible for tying together all of the objects working to create the actual game interactions
+ *
+ * @author Andrew Lenoir
+ */
 public class DogLogic extends JPanel {
 	private int currentPanel;
 	public LevelMap levelMap;
