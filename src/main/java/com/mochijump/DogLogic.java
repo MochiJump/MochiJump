@@ -1,5 +1,9 @@
 package com.mochijump;
 
+import com.mochijump.characters.GameCharacter;
+import com.mochijump.characters.NonPlayerCharacter;
+import com.mochijump.characters.PlayerCharacter;
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;

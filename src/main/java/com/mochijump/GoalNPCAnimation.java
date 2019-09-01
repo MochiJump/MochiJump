@@ -1,5 +1,7 @@
 package com.mochijump;
 
+import com.mochijump.characters.GameCharacter;
+
 import javax.swing.*;
 import java.awt.*;
 

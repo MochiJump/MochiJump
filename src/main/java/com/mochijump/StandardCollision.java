@@ -1,5 +1,7 @@
 package com.mochijump;
 
+import com.mochijump.characters.GameCharacter;
+
 import java.awt.Rectangle;
 import java.util.ArrayList;
 

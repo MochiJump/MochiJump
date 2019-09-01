@@ -1,5 +1,7 @@
 package com.mochijump;
 
+import com.mochijump.characters.*;
+
 public class AnimationFactory {
 	
 	public AnimationInterface makeAnimation (GameCharacter type) {

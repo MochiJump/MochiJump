@@ -1,5 +1,7 @@
 package com.mochijump;
 
+import com.mochijump.characters.*;
+
 import java.awt.*;
 import java.util.ArrayList;
 
@@ -20,7 +22,6 @@ public class LevelMap extends JPanel {
 		dogLogic = dl;
 		reSizer = dogLogic.resizeValue;
 	}
-	
 	
 	private void addPlat (int x, int y, int width, int height){			
 		platlist.add (new Rectangle ((int)(x*keepWidth*reSizer),(int)(keepHeight*reSizer*y),(int)(width*keepWidth*reSizer), 

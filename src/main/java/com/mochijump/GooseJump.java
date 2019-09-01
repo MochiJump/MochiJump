@@ -1,5 +1,7 @@
 package com.mochijump;
 
+import com.mochijump.characters.GameCharacter;
+
 public class GooseJump implements JumpInterface {
 	
 	public void jump(GameCharacter implementer) {

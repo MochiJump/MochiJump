@@ -1,5 +1,9 @@
 package com.mochijump;
 
+import com.mochijump.characters.GameCharacter;
+import com.mochijump.characters.GoalNPC;
+import com.mochijump.characters.NonPlayerCharacter;
+
 import java.awt.Rectangle;
 import java.awt.geom.Line2D;
 import java.util.ArrayList;

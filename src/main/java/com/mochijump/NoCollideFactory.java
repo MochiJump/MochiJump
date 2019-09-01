@@ -1,5 +1,8 @@
 package com.mochijump;
 
+import com.mochijump.characters.GameCharacter;
+import com.mochijump.characters.HairClipNPC;
+
 public class NoCollideFactory {
 	private DogLogic dogLogic;
 	
