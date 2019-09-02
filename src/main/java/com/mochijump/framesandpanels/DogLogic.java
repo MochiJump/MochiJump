@@ -207,7 +207,12 @@ public class DogLogic extends JPanel {
 			if (gameCharacters.get(i) == toBeChanged) {
 				gameCharacters.set(i, noCollideFactory.swapToNoCollide(toBeChanged));
 				gameCharacters.get(i).x= currentX;
-				gameCharacters.get(i).y= currentY;
+				// trying to avoid new no-collide from jumping around.
+				gameCharacters.get(i).y= currentY-(10*resizeValue);
+				if (LOG.isDebugEnabled()){
+					LOG.debug("Creating new \"no collide\" character. Coordinates, x: {}. y: {}",
+							gameCharacters.get(i).x, gameCharacters.get(i).y);
+				}
 				gameCharacters.get(i).sH = (int)gameCharacters.get(i).sH* resizeValue;
 				gameCharacters.get(i).sW = (int) gameCharacters.get(i).sW*resizeValue;
 				animation.set(i, animationFactory.makeAnimation(gameCharacters.get(i)));
