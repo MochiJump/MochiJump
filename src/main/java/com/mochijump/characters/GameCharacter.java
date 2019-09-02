@@ -1,6 +1,10 @@
 package com.mochijump.characters;
 
-import com.mochijump.*;
+import com.mochijump.actions.JumpInterface;
+import com.mochijump.animation.AnimationInterface;
+import com.mochijump.collision.CollisionInterface;
+import com.mochijump.framesandpanels.DogLogic;
+import com.mochijump.levels.LevelMap;
 
 import java.awt.Rectangle;
 import java.awt.Toolkit;

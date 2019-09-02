@@ -11,6 +11,7 @@ gradlew.bat
 /.gradle
 /.settings
 #directories
+/target
 /bin
 /build
 /.idea

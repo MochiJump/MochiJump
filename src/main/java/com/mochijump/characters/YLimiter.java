@@ -1,9 +1,9 @@
 package com.mochijump.characters;
 
 
-import com.mochijump.CollisionInterface;
-import com.mochijump.DogLogic;
-import com.mochijump.YLimiterCollision;
+import com.mochijump.collision.CollisionInterface;
+import com.mochijump.framesandpanels.DogLogic;
+import com.mochijump.collision.YLimiterCollision;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

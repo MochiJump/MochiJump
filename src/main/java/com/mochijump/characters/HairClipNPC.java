@@ -1,7 +1,11 @@
 package com.mochijump.characters;
 
 
-import com.mochijump.*;
+import com.mochijump.actions.JumpInterface;
+import com.mochijump.collision.CollisionInterface;
+import com.mochijump.collision.HairClipCollision;
+import com.mochijump.actions.StandardJump;
+import com.mochijump.framesandpanels.DogLogic;
 
 public class HairClipNPC extends NonPlayerCharacter {
 	

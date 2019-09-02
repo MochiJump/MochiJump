@@ -1,7 +1,6 @@
 package com.mochijump.characters;
 
-import com.mochijump.DogLogic;
-import com.mochijump.characters.GameCharacter;
+import com.mochijump.framesandpanels.DogLogic;
 
 public abstract class NonPlayerCharacter extends GameCharacter {
 	
