@@ -4,7 +4,6 @@ package com.mochijump.characters;
 import com.mochijump.CollisionInterface;
 import com.mochijump.DogLogic;
 import com.mochijump.YLimiterCollision;
-import com.mochijump.characters.NonPlayerCharacter;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

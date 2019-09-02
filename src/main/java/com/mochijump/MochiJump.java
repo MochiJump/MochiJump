@@ -11,12 +11,10 @@ public class MochiJump {
 		if (LOG.isDebugEnabled()){
 			LOG.debug("Application starting...");
 		}
-
 		javax.swing.SwingUtilities.invokeLater(new Runnable() {
 	         public void run() {
 			  new Switcher();
 	         }
-
  		});
 	}
 }

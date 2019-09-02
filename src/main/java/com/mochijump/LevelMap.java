@@ -1,6 +1,8 @@
 package com.mochijump;
 
 import com.mochijump.characters.*;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -8,6 +10,7 @@ import java.util.ArrayList;
 import javax.swing.JPanel;
 
 public class LevelMap extends JPanel {
+	private final static Logger LOG = LogManager.getLogger(LevelMap.class);
 
 	private double keepHeight = Toolkit.getDefaultToolkit().getScreenSize().getHeight()/786;
 	private double keepWidth = Toolkit.getDefaultToolkit().getScreenSize().getWidth()/1336;
@@ -30,6 +33,9 @@ public class LevelMap extends JPanel {
     
 	private void noWebPlatSetup() {
 		if (!webImport) {
+			if (LOG.isDebugEnabled()){
+				LOG.debug("Importing preset in memory level.");
+			}
 			addPlat((int)(0), (int) (500), 
 					(int) (1000), (int) (500));
 			addPlat((int) (250),(int) ((500-35)),
@@ -79,8 +85,6 @@ public class LevelMap extends JPanel {
 			platlist.get(i).x =  (int)(platlist.get(i).x*reSizer*keepWidth);
 			platlist.get(i).y = (int) (platlist.get(i).y*reSizer*keepHeight);
 		}
-		
-		System.out.println(platlist.get(0));
 	}
 	
 	public void addHairClipNPC (int x, int y) {

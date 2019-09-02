@@ -3,6 +3,8 @@ package com.mochijump;
 import com.mochijump.characters.GameCharacter;
 import com.mochijump.characters.NonPlayerCharacter;
 import com.mochijump.characters.PlayerCharacter;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -19,6 +21,7 @@ import javax.swing.*;
  * @author Andrew Lenoir
  */
 public class DogLogic extends JPanel {
+	private final Logger LOG = LogManager.getLogger(DogLogic.class);
 	private int currentPanel;
 	public LevelMap levelMap;
 	private AnimationFactory animationFactory = new AnimationFactory();
@@ -121,7 +124,8 @@ public class DogLogic extends JPanel {
 					try {
 						Thread.sleep(1000/refreshRate);
 					}catch (InterruptedException e) {
-						System.out.println("An error in gameThread has occured");
+						LOG.error("An error has occured in game's main thread: {}", e.getLocalizedMessage());
+						throw new IllegalStateException(e);
 					}
 				}
 			
@@ -129,8 +133,6 @@ public class DogLogic extends JPanel {
 		}; 
 		gameThread.start(); 
 	}
-
-
 
 	public void gameUpdate () {
 		plat = levelMap.getPlat();
