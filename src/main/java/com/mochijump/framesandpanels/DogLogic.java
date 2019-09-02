@@ -36,7 +36,7 @@ public class DogLogic extends JPanel {
 	private Rectangle background = new Rectangle (0,0,10000,10000);
 	private Color skyblue = new Color (102, 204, 255);
 	private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-	public Switcher switcher;
+	public PanelSwitcher switcher;
 	private NoCollideFactory noCollideFactory = new NoCollideFactory (this);
 	public int resizeValue = 7;
 	private boolean setupCamera = false;
@@ -47,7 +47,7 @@ public class DogLogic extends JPanel {
 	
 
 	
-	public DogLogic (Switcher s) {
+	public DogLogic (PanelSwitcher s) {
 		levelMap = new LevelMap(this);
 		JPanel dogPain = new JPanel();
 		add(dogPain);

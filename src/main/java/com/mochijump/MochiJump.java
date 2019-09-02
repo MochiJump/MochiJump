@@ -1,7 +1,7 @@
 package com.mochijump;
 
 
-import com.mochijump.framesandpanels.Switcher;
+import com.mochijump.framesandpanels.PanelSwitcher;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -14,7 +14,7 @@ public class MochiJump {
 		}
 		javax.swing.SwingUtilities.invokeLater(new Runnable() {
 	         public void run() {
-			  new Switcher();
+			  new PanelSwitcher();
 	         }
  		});
 	}

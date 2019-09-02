@@ -31,7 +31,6 @@ public class ImportLevelReader {
         String output2 = null;
 
         try {
-            //TODO make configurable.
             URL url = new URL(this.config.getImportURL());
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
@@ -42,7 +41,9 @@ public class ImportLevelReader {
             InputStreamReader in = new InputStreamReader(conn.getInputStream());
             BufferedReader br = new BufferedReader(in);
             while ((output = br.readLine()) != null) {
-                System.out.println(output);
+                if (LOG.isDebugEnabled()){
+                    LOG.debug("Reading level import {}", output);
+                }
                 output2 = output;
             }
             conn.disconnect();
@@ -86,13 +87,9 @@ public class ImportLevelReader {
                         level[index].getGooseStartY().get(i));
             }
         }
-
         lMap.addGoalNPC(level[index].getGoalStartX(), level[index].getGoalStartY());
-
         lMap.addYLimiter();
-
         lMap.addMochi(level[index].getMochiStartX(), level[index].getMochiStartY());
-
         lMap.useWebImport(platforms);
     }
 }

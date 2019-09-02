@@ -2,14 +2,15 @@ package com.mochijump.characters;
 
 
 import com.mochijump.collision.CollisionInterface;
-import com.mochijump.framesandpanels.DogLogic;
 import com.mochijump.collision.YLimiterCollision;
+import com.mochijump.framesandpanels.DogLogic;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 /**
- * This is techinically a GameCharacter, however, it is just used to hold a position specifically the y value that
+ * This is technically a GameCharacter, however, it is just used to hold a position specifically the y value that
  * other characters cannot pass until they fall out of the world.
+ *
  * @author andrew
  */
 public class YLimiter extends NonPlayerCharacter {
@@ -22,17 +23,12 @@ public class YLimiter extends NonPlayerCharacter {
 
     public YLimiter(DogLogic d) {
         super(d);
-        try {
-            final String imported = this.getClass().getClassLoader().getResource("/ImportUrl").getFile();
-            this.y = Integer.valueOf(imported);
-            if (LOG.isDebugEnabled()){
-                LOG.debug("Imported YLimiter config file {} and assigned to y value", imported);
-            }
-        }catch (NullPointerException npe){
-            this.y = DEFAULT_Y_LIMITER_HEIGHT;
-        } catch (Exception e ){
-            LOG.warn("Unexpected exception in YLimiter during config import stack trace: {}", e.getStackTrace());
-        }
+        this.y = DEFAULT_Y_LIMITER_HEIGHT;
+        // TODO: determine if I want the Y limit to be configurable, and how
+        //this.y = Integer.valueOf(imported);
+//        if (LOG.isDebugEnabled()) {
+//            LOG.debug("Imported YLimiter config file {} and assigned to y value", imported);
+//        }
         if (LOG.isDebugEnabled()) {
             LOG.debug("value set for y (height) for the \"Y Limiter\" is {}", y);
         }

@@ -156,7 +156,7 @@ public class Mochi extends PlayerCharacter {
                 if (speedX < 0) {
                     speedX = 0;
                 }
-                if (speedX == 0 && jumpChu == false) {
+                if (speedX == 0 && !jumpChu) {
                     setActionToFalse();
                     mRestR = true;
                     moveKeyDown = false;
@@ -174,11 +174,10 @@ public class Mochi extends PlayerCharacter {
                 if (speedX > 0) {
                     speedX = 0;
                 }
-                if (speedX == 0 && jumpChu == false) {
+                if (speedX == 0 && !jumpChu) {
                     setActionToFalse();
                     mRestL = true;
                     moveKeyDown = false;
-
                 }
 
             }

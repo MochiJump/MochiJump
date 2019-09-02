@@ -2,7 +2,6 @@ package com.mochijump;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -28,10 +27,9 @@ public class VersionChecker {
         }
         String output;
         String output2 = "";
-
         try {
             // TODO could be configurable
-            URL url = new URL("https://mochijump.com/test/version");
+            URL url = new URL(new VersionCheckerConfig().getImportURL());
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             if (conn.getResponseCode() != 200) {
                 throw new RuntimeException("Failed : HTTP Error code : "
@@ -42,7 +40,6 @@ public class VersionChecker {
             while ((output = br.readLine()) != null) {
                 output2 = output;
             }
-
         } catch (Exception e) {
             LOG.info("Unable to access server to check version number");
             return "unable to check new releases due to connection";
@@ -54,4 +51,3 @@ public class VersionChecker {
         }
     }
 }
-
