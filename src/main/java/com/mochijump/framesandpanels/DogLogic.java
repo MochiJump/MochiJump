@@ -38,6 +38,7 @@ public class DogLogic extends JPanel {
 	private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	public PanelSwitcher switcher;
 	private NoCollideFactory noCollideFactory = new NoCollideFactory (this);
+	//TODO make resizeValue configurable
 	public int resizeValue = 7;
 	private boolean setupCamera = false;
 	private Rectangle screenRect;
