@@ -1,5 +1,5 @@
 # MochiJump
-This project has been mothballed, although I am still coming back to it from time to time.
+This project has been mothballed, I'd like to clean up the code, however, it just isn't worth the time to do it at the moment
 
 ## Recent Changes
 
